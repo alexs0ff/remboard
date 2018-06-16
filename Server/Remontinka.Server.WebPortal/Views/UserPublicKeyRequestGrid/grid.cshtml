@@ -1,0 +1,35 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.UserPublicKeyRequestGridForm.UserPublicKeyRequestGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "LoginName";
+            column.Caption = "Логин";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ClientIdentifier";
+            column.Caption = "IP";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "EventDate";
+            column.Caption = "Дата";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "KeyNotes";
+            column.Caption = "Заметки";
+        });
+
+        settings.Apply(Model,Html);
+        settings.CommandColumn.ShowNewButtonInHeader = false;
+
+    }).BindToModel(Model,Html)

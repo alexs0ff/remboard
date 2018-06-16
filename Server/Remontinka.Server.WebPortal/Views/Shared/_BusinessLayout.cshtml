@@ -1,0 +1,106 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="~/Scripts/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="~/Content/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="~/Content/ie8.css" /><![endif]-->
+    @RenderSection("Styles", required: false)
+</head>
+<body class="homepage">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter41516114 = new Ya.Metrika({
+                    id:41516114,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/41516114" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header-wrapper">
+        <header id="header" class="container">
+
+            <!-- Logo -->
+            <div id="logo">
+                <h1><a href="@Url.Action("Index", "Home")">Ремборд</a>
+                </h1>
+                <span class="hide-span">управление бизнесом</span>
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    @Html.LiActionLink("Главная", "Index", "Home")
+                    <li>
+                        <a href="#">Возможности</a>
+                        <ul>
+                            @Html.LiActionLink("Начало работы", "Description", "Home")
+                            @Html.LiActionLink("Финансовый учет", "AccountingDescription", "Home")
+                            @Html.LiActionLink("Складской учет", "WarehouseDescription", "Home")
+                        </ul>
+                    </li>
+                    @Html.LiActionLink("Offline клиент", "ClientDescription", "Home")
+                    @Html.LiActionLink("Контакты", "Feedback", "Home")
+                    @Html.LiActionLink("Проверка заказа", "Index", "Customer")
+                </ul>
+            </nav>
+
+        </header>
+    </div>
+
+    @RenderBody()
+    <!-- Footer -->
+    <div id="footer-wrapper">
+        <footer id="footer" class="container">
+            <div class="row">
+                <div class="12u">
+                    <div id="copyright">
+                        <ul class="menu">
+                            <li>&copy; @DateTime.Today.Year, Alexander Kulik.</li>
+                            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.dropotron.min.js"></script>
+<script src="~/Scripts/skel.min.js"></script>
+<script src="~/Scripts/util.js"></script>
+<!--[if lte IE 8]><script src="~/Scripts/ie/respond.min.js"></script><![endif]-->
+<script src="~/Scripts/main.js"></script>
+
+</body>
+</html>

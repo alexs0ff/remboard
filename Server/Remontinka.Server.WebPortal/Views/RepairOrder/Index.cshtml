@@ -1,0 +1,25 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+@using Romontinka.Server.Core.Security
+@model dynamic
+
+@{
+    ViewBag.Title = "Управление заказами";
+}
+
+
+    <script type="text/javascript">
+    var rowKeyValueToCopy;
+    function RepairOrderBeginCallback(s, e) {
+        if (e.command === "ADDNEWROW") {
+            e.customArgs["RepairOrderCopyID"] = rowKeyValueToCopy;
+        }
+        rowKeyValueToCopy = null;
+    }
+    
+</script>
+
+
+<h1>Заказы</h1>
+
+Фильтр: @Html.DevexpressGridFilterComboBox(RepairOrderGridController.ControllerName)
+@Html.DevexpressGrid(RepairOrderGridController.ControllerName)

@@ -1,0 +1,11 @@
+﻿
+@Html.DevExpress().HtmlEditor(settings =>
+{
+    settings.Name = "HtmlContent";    
+    
+    settings.CallbackRouteValues = new { Controller = "CustomizeReportGrid", Action = "HtmlEditor" };
+    settings.Height = Unit.Pixel(370);
+    settings.Width = Unit.Percentage(89);
+    settings.Styles.HtmlViewArea.Font.Names = new string[] { "Consolas", "Courier New", "monospace" };
+    settings.Styles.HtmlViewArea.Font.Size = FontUnit.Parse("13px");
+}).Bind(Model).GetHtml()

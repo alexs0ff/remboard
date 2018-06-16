@@ -1,0 +1,20 @@
+﻿@model Romontinka.Server.WebSite.Models.HomeForm.FeedbackModel
+
+@{
+    ViewBag.Title = "Контакты";
+}
+
+<p>Для связи с нами используйте Email: @Remontinka.Server.WebPortal.Services.MailingServiceConfiguration.Settings.InfoEmail или используйте форму отправки сообщения, представленную ниже</p>
+
+<h1 class="feedback">Форма отправки сообщения</h1>
+<fieldset class="feedback-form">
+@using (Html.BeginForm())
+{
+    @Html.EditorFor(m=>m.Contact)
+    @Html.EditorFor(m=>m.Caption)
+    @Html.EditorFor(m=>m.Text)
+    <input type="submit" class="btn" value="Отправить"/>
+}
+</fieldset>
+<h1 class="message-success">@Model.ResultText</h1>
+

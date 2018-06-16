@@ -1,0 +1,62 @@
+﻿@using Remontinka.Server.WebPortal.Helpers
+@using Remontinka.Server.WebPortal.Models.CustomizeReportGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, CustomizeReportGridModel, CustomizeReportCreateModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+
+    Model.LayoutSettings.Items.Add(m => Model.Model.CustomReportID, i =>
+    {
+        i.ConfigureItem(Model.Model, () => Model.Model.CustomReportID);
+        i.ClientVisible = false;
+        i.SetNestedContent(() => Model.Html.ViewContext.Writer.Write(Model.Html.Hidden(i.Name, Model.Model.CustomReportID).ToHtmlString()));
+    });
+
+
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddCustomReportItemGroup";
+        g.ColCount = 1;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Width = Unit.Percentage(100);
+        g.Items.Add(m => Model.Model.DocumentKindID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DocumentKindID);
+
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "DocumentKindID";
+                s.Properties.ValueType = typeof(byte);
+                s.Properties.DataSource = Model.GridSettings.DocumentKinds;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Title, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Title);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.HtmlContent, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.HtmlContent);
+            
+
+            i.SetNestedContent(() =>
+            {
+                Model.Html.ViewContext.Writer.Write(Model.Html.Partial("htmlEditor", Model.Model.HtmlContent));
+            });
+        });
+
+
+    });
+
+}
+
+

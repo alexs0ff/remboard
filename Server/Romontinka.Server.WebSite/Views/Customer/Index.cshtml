@@ -1,0 +1,21 @@
+﻿@model Romontinka.Server.WebSite.Models.Customer.CustomerGetOrderModel
+
+@using Recaptcha.Web
+@using Recaptcha.Web.Mvc
+
+@{
+    ViewBag.Title = "Информация по заказу";
+}
+
+@Html.ValidationSummary(true)
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend class="register-user-title"><h1>Введите глобальный код заказа для поиска на портале</h1></legend>
+        @Html.EditorFor(m => m.GlobalRepairOrderNumber)
+        @Html.EditorFor(m => m.GlobalRepairOrderAccessPassword)
+        <input type="submit" value="Найти" class="btn" />
+    </fieldset>
+
+}

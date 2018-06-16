@@ -1,0 +1,9 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+@model dynamic
+
+@{
+    ViewBag.Title = "Управление типами заказов";
+}
+
+<h1>Типы заказов</h1>
+@Html.DevexpressGrid(OrderKindGridController.ControllerName)

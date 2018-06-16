@@ -1,0 +1,59 @@
+﻿@using Remontinka.Server.WebPortal.Models.ContractorGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, ContractorGridModel, ContractorCreateModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddContractorGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Items.Add(m => Model.Model.LegalName, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.LegalName);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Trademark, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Trademark);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Address, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Address);
+            i.NestedExtension().Memo(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Phone, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Phone);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.EventDate, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.EventDate);
+            i.NestedExtension().DateEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+    });
+
+}

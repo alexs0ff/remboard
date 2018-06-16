@@ -1,0 +1,43 @@
+﻿@model Romontinka.Server.WebSite.Models.Controls.AjaxComboBoxModel
+@{
+    var tagBuilder = new TagBuilder("select");
+    tagBuilder.AddCssClass("form-control");
+    tagBuilder.AddCssClass(Model.EditorClasses);
+    tagBuilder.Attributes["id"] = Model.Property;
+    tagBuilder.Attributes["name"] = Model.Property;
+
+    var firstEmpty = "";
+
+    
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.Value))
+{
+    var option = new TagBuilder("option");
+    option.MergeAttribute("value", Model.Value);
+    option.MergeAttribute("selected", "selected");
+    tagBuilder.InnerHtml = option.ToString(TagRenderMode.Normal);
+}
+
+@if(Model.HtmlAttributes!=null)
+{
+    tagBuilder.MergeAttributes(Model.HtmlAttributes);
+}
+
+@if (Model.IsRequired)
+{    
+    tagBuilder.AddCssClass("required");
+}
+
+@if (Model.FirstIsNull)
+{
+    firstEmpty = "Выберите";
+}
+
+@Html.Raw(tagBuilder.ToString(TagRenderMode.Normal))
+
+<script type="text/javascript">
+    $(function () {
+        jCrudEngine.populateAjaxComboBox("@Url.Action(Model.GetItemsAction,Model.Controller)", "@Model.Property", "@Model.Value", "@firstEmpty");
+    });
+</script>

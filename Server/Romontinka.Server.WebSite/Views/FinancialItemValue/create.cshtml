@@ -1,0 +1,9 @@
+﻿@model Romontinka.Server.WebSite.Models.FinancialItemValueForm.FinancialItemValueCreateModel
+
+@Html.HiddenFor(m=>m.Id)
+@Html.EditorFor(m => m.FinancialGroupID)
+@Html.EditorFor(m => m.FinancialItemID)
+@Html.EditorFor(m => m.Amount)
+@Html.EditorFor(m=>m.CostAmount)
+@Html.EditorFor(m=>m.EventDate)
+@Html.EditorFor(m=>m.Description)

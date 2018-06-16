@@ -1,0 +1,42 @@
+﻿@using System.Globalization
+@using Romontinka.Server.WebSite.Metadata
+@using Romontinka.Server.WebSite.Models.Controls
+@{
+    Layout = "Template.Master.cshtml";
+    var classes = string.Empty;
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(EditorHtmlClassAttribute.ClassNamesKey))
+    {
+        classes = (string)ViewData.ModelMetadata.AdditionalValues[EditorHtmlClassAttribute.ClassNamesKey];
+    } //if
+
+    AjaxComboBoxModel model = null;
+
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(AjaxComboBoxAttribute.AjaxComboBoxKey))
+    {
+        model = (AjaxComboBoxModel)ViewData.ModelMetadata.AdditionalValues[AjaxComboBoxAttribute.AjaxComboBoxKey];
+    } //if
+
+    if (model == null)
+    {
+        model = new AjaxComboBoxModel() ;
+    } //if
+
+    model.Property = ViewData.ModelMetadata.PropertyName;
+    model.Value = String.Format(CultureInfo.InvariantCulture, "{0}", ViewData.ModelMetadata.Model);
+    model.EditorClasses = classes;
+    model.IsRequired = ViewData.ModelMetadata.IsRequired;
+
+    var attrs = Html.GetUnobtrusiveValidationAttributes(ViewData.ModelMetadata.PropertyName, ViewData.ModelMetadata);
+    if (model.HtmlAttributes == null)
+    {
+        model.HtmlAttributes = attrs;
+    } //if
+    else
+    {
+        foreach (var attr in attrs)
+        {
+            model.HtmlAttributes[attr.Key] = attr.Value;
+        } //foreach
+    } //else
+}
+@Html.AjaxComboBox(model)

@@ -1,0 +1,196 @@
+﻿@using Romontinka.Server.WebSite.Controllers
+@model Romontinka.Server.WebSite.Models.RepairOrderForm.RepairOrderViewModel
+
+@{
+    
+}
+@section Scripts
+{
+    <style>
+        .gridPanel .form-control  {
+            width: 120px;
+         }
+         .gridPanel input[type="text"] 
+         {
+             width: 150px;
+         }         
+         
+         #copyOrderBtn {
+             margin-left: 5px;
+             margin-top: 2px;
+         }
+         
+    </style>
+    <script type="text/javascript">
+        @Html.AutocompleteLocalSourceCreate("DeviceOptionsAutocompleteItems",Model.DeviceOptionsAutocompleteItems)
+        @Html.AutocompleteLocalSourceCreate("DeviceTrademarkAutocompleteItems",Model.DeviceTrademarkAutocompleteItems)
+        @Html.AutocompleteLocalSourceCreate("DeviceAppearanceAutocompleteItems",Model.DeviceAppearanceAutocompleteItems)
+         
+            
+
+        $(function () {
+            
+               
+            
+            $("#details-menu-report").menufg({
+                content: $("#details-menu-report").next().html(), 
+                showSpeed: 400,
+                maxHeight: 180
+            });
+            
+            $("#details").hide();
+            $("#detailstabs").tabs();
+        });
+
+        function BeforeUpdateRepairOrderGrid() {
+            detachDetails();
+        }
+        
+        function attachDetails(orderId) {
+            var row = jCrudEngine.getDataGridTrTag("RepairOrder", orderId);
+            if (row.length) {
+                
+                if ($("#details").parent().attr("id")!="detailsArea") {
+                    detachDetails();
+                }
+                
+                var neworderDetailsTr = $("<tr class='orderdetailsexpanderrow'> <td colspan='" + row.children('td').length + "'/> </tr>");
+                neworderDetailsTr.insertAfter(row);
+                neworderDetailsTr.children("td").append($("#details"));
+                
+                $("#details").show();
+            }
+        }
+
+        function detachDetails() {
+            if ($("#details").parent().attr("id")=="detailsArea") {
+                return;
+            }
+
+            $("#details").hide();
+            $("#detailsArea").after($("#details"));
+            $(".orderdetailsexpanderrow").empty();
+            
+        }
+        
+        function showDetails(orderId) {
+            var lastId = $("#details").data("lastOrderID"); 
+
+            if (orderId == lastId) {
+                detachDetails();
+                $("#details").data("lastOrderID", null);
+                return;
+            }
+
+            attachDetails(orderId);
+
+            $("#detailstitle").text('Детализация заказа № ' + jCrudEngine.getDataGridRowValue("RepairOrder", orderId, "Number") + ', клиент: "' + jCrudEngine.getDataGridRowValue("RepairOrder", orderId, "ClientFullName")+'"');
+            
+            $("#details").data("lastOrderID",orderId);
+            
+            $("#WorkItemRepairOrderID").val(orderId);
+            $("#DeviceItemRepairOrderID").val(orderId);
+            WorkItemUpdateData();
+            DeviceItemUpdateData();
+
+            allUIMenus[0].updatePosition.call(allUIMenus[0]);
+            
+            updateDocumentUrls(orderId);
+            updateOrderTimeline(orderId);
+        }
+
+        function updateDocumentUrls(orderId) {
+            var url = "@Url.Action("Index",OrderReportController.ControllerName)";
+            allUIMenus[0].mapMenuLinks(function() {
+                var doc = $(this).attr("data-val-reportid");
+                $(this).attr("href", url + "?report=" + doc + "&order=" + orderId);
+            });
+        }
+
+        function updateOrderTimeline(orderId) {
+            
+            $("#ordertimeline").empty();
+            $("#CommentRepairOrderID").val(orderId);
+            
+            jCrudEngine.sendToServerData("@Url.Action("GetRepairOrderTimelines", RepairOrderController.ControllerName)", { repairOrderID: orderId }, function(fData) {
+                var text = "";
+                $.map(fData.Items,function(item) {
+                    text+= "<li class='" + item.TimelineKindClass+"'> <span> "+item.EventDate+" "+jCrudEngine.escapeHtml(item.Title) +"</span></li>";
+                    
+                });
+                $("#ordertimeline").html(text);
+            });
+        }
+
+        function addComment() {
+            var data = $("#commentForm").serialize();
+            var orderIdVal = $("#CommentRepairOrderID").val();
+
+            if (!$("#CommentText").val().trim()) {
+                return;
+            }
+            
+            (function(dt,orderId) {
+                jCrudEngine.sendToServerData("@Url.Action("AddRepairOrderComment", RepairOrderController.ControllerName)", dt, function() {
+                    $("#CommentText").val("");
+                    updateOrderTimeline(orderId);
+                });
+            })(data,orderIdVal);
+        }
+
+        function startCreateOrderCopy() {
+            var lastId = $("#details").data("lastOrderID");
+            $("#CopyFromRepairOrderID").val(lastId);
+            RepairOrderCreateDialogShow();
+            $("#CopyFromRepairOrderID").val(null);
+        }
+    </script>
+}
+
+@Html.DataGrid(Model.OrderGrid)
+
+<div id="detailsArea">
+<div id="details" class="order-details">
+
+<h4 id="detailstitle" class="order-details-title"></h4>
+    <div id="detailsReportContainer">
+        <a tabindex="0" href="#details-reports" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="details-menu-report"><span class="ui-icon ui-icon-triangle-1-s"></span>Документы</a>
+        <div id="details-reports" class="hidden">
+            <ul>
+                @foreach (var item in Model.Documents)
+                {
+                    <li><a target="_blank" data-val-reportid="@item.CustomReportID" class="reportDocumentLink" href="#" >@item.Title</a></li>
+                }
+            </ul>
+        </div>
+        <a class="btn btn-medium" id="copyOrderBtn" onclick="startCreateOrderCopy();return false;" href="#">Создать копию</a>
+    </div>
+    
+
+<div id="detailstabs">
+  <ul>
+    <li><a href="#workitemtab">Выполненные работы</a></li>
+    <li><a href="#deviceitemtab">Запчасти</a></li>    
+    <li><a href="#timelinetab">История</a></li>    
+  </ul>
+  <div id="workitemtab">
+    @Html.DataGrid(Model.WorkItemsGrid)
+  </div>
+  <div id="deviceitemtab">
+    @Html.DataGrid(Model.DeviceItemsGrid)
+  </div>  
+  <div id="timelinetab">
+    <ul id="ordertimeline">
+
+    </ul>
+    <form action="#" id="commentForm">
+        <label for="CommentText">Комментарий</label> 
+        <textarea name="CommentText" id="CommentText" rows="5"></textarea>
+        <input name="CommentRepairOrderID" id="CommentRepairOrderID" type="hidden"/>
+        <a href="#" class="btn btn-medium" onclick="addComment();return false;">Добавить</a>
+    </form>
+  </div>  
+</div>    
+    
+</div>
+</div>

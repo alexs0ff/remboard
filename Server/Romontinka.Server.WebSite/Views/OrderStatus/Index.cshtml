@@ -1,0 +1,9 @@
+﻿@using Romontinka.Server.WebSite.Models.OrderStatus
+@model OrderStatusViewModel
+
+@{
+    ViewBag.Title = "Управление статусами";
+}
+
+@Html.DataGrid(Model.OrderStatusesGrid)
+

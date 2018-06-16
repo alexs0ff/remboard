@@ -1,0 +1,54 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.FinancialItemValueGridForm.FinancialItemValueGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "FinancialGroupID";
+            column.Caption = "Фин. группа";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.FinancialGroups;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueType = typeof(Guid);
+            comboBoxProperties.ValueField = "FinancialGroupID";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "FinancialItemID";
+            column.Caption = "Статья";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.FinancialItems;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueType = typeof(Guid);
+            comboBoxProperties.ValueField = "FinancialItemID";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "EventDate";
+            column.Caption = "Дата";
+            column.SetDatePeriod(Model.Token);
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Amount";
+            column.Caption = "Сумма";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Description";
+            column.Caption = "Описание";
+        });
+
+        settings.Apply(Model,Html);
+
+    }).BindToModel(Model,Html)

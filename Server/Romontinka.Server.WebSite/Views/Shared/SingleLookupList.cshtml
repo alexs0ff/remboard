@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Romontinka.Server.WebSite.Common.JLookupItemBaseModel>
+<ul class="lookup-search-list ui-widget-content">
+    @foreach (var obj in Model)
+    {
+        <li id="li-lookup-id-@obj.ItemID" data-value="@obj.ItemID">
+            @Html.Partial("item",obj)
+        </li>
+    }
+</ul>

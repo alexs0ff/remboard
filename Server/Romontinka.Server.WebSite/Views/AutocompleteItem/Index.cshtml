@@ -1,0 +1,8 @@
+﻿@using Romontinka.Server.WebSite.Models.AutocompleteItemForm
+@model AutocompleteItemViewModel
+
+@{
+    ViewBag.Title = "Управление автозаполнением";
+}
+
+@Html.DataGrid(Model.AutocompleteItemsGrid)

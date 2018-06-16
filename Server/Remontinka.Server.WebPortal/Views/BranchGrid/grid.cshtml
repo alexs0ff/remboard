@@ -1,0 +1,27 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.BranchForm.BranchGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Title";
+            column.Caption = "Название";            
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Address";
+            column.Caption = "Адрес";           
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "LegalName";
+            column.Caption = "Юридическое наименование";
+        });
+
+        settings.Apply(Model,Html);
+        
+    }).BindToModel(Model,Html)

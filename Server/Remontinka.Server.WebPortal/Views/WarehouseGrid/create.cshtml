@@ -1,0 +1,23 @@
+﻿@using Remontinka.Server.WebPortal.Models.WarehouseGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, WarehouseGridModel, WarehouseCreateModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddWarehouseGroup";
+        g.ColCount = 1;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Items.Add(m => Model.Model.Title, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Title);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+    });
+
+}

@@ -1,0 +1,10 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+
+@{
+    ViewBag.Title = "Управление текущими доходами и расходами";
+}
+<p>
+    <h1>Текущие доходы и расходы</h1>
+    <em>Прежде чем вносить сведения, необходимо создать финансовую группу для филиалов и внести бюджетные статьи @Html.ActionLink("здесь", "Index", FinancialItemController.ControllerName)</em>
+</p>
+@Html.DevexpressGrid(FinancialItemValueGridController.ControllerName)

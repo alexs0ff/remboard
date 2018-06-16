@@ -1,0 +1,47 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.WorkItemGridForm.WorkItemGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Settings.ShowFilterRow = false;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterBar = GridViewStatusBarMode.Hidden;
+        settings.SettingsSearchPanel.Visible = false;
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Title";
+            column.Caption = "Наименование";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "EventDate";
+            column.Caption = "Дата";
+            column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            column.Settings.AutoFilterCondition = AutoFilterCondition.Equals;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Price";
+            column.Caption = "Цена";
+            column.PropertiesEdit.DisplayFormatString = "#.00";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "EngineerFullName";
+            column.Caption = "Инженер";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.Engineers;
+            comboBoxProperties.TextField = "Text";
+            comboBoxProperties.ValueField = "Value";
+            comboBoxProperties.ValueType = typeof(Guid);
+        });
+
+        settings.Apply(Model, Html);
+        settings.SettingsDetail.MasterGridName = Remontinka.Server.WebPortal.Controllers.RepairOrderGridController.GridName;
+
+    }).BindToModel(Model, Html)

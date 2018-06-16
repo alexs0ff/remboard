@@ -1,0 +1,13 @@
+﻿<p style="margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">{BranchLegalName}, {BranchTitle}</p>
+<p style="margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">Адрес: {BranchAddress} тел.: 8 (xxx) xxx-xx-xx</p>
+<p style="margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">&nbsp;</p>
+<p style="text-align: center;"><span style="font-size: medium;"><strong>ТОВАРНЫЙ ЧЕК</strong></span></p>
+<p style="text-align: center;">{Today:dd.MM.yyyy} г.</p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">{ProductList}</p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: left;">Всего наименований {TotalItemsCount}, на сумму {TotalItemsAmount}руб.&nbsp;</p>
+<p style="text-align: left;"><strong>Сумма к оплате (прописью):&nbsp;</strong><em>{TotalItemsAmountRus}</em></p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: right;">Подпись продавца:________________________&nbsp;</p>

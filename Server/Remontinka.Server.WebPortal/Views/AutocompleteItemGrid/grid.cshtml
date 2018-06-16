@@ -1,0 +1,28 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.AutocompleteItemGridForm.AutocompleteItemGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Title";
+            column.Caption = "Название";
+        });
+
+        settings.Apply(Model,Html);
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AutocompleteKindID";
+            column.Caption = "Тип дополнения";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.AutocompleteKinds;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueType = typeof(byte);
+            comboBoxProperties.ValueField = "AutocompleteKindID";
+        });
+
+    }).BindToModel(Model,Html)

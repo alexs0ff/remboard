@@ -1,0 +1,7 @@
+﻿@model Romontinka.Server.WebSite.Models.UserPublicKeyForm.UserPublicKeyViewModel
+
+@{
+    ViewBag.Title = "Управление публичными ключами";
+}
+<h1>Список публичных ключей пользователей</h1>
+@Html.DataGrid(Model.UserPublicKeysGrid)

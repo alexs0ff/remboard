@@ -1,0 +1,14 @@
+﻿@model Remontinka.Server.WebPortal.Models.IncomingDocItemsReport.IncomingDocItemsReportParameters
+
+@Html.DevExpress().FormLayout(settings =>
+{
+    settings.SetDefaultSettings(Model.Token);
+    settings.Name = "IncomingDocItemsReportLayout";
+    settings.ColCount = 2;
+    settings.Items.Add(m => m.IncomingDocID, i =>
+    {
+        i.ClientVisible = false;
+        i.SetNestedContent(() => Html.ViewContext.Writer.Write(Html.Hidden(i.Name, Model.IncomingDocID).ToHtmlString()));
+    });
+   
+}).Bind(Model).GetHtml()

@@ -1,0 +1,36 @@
+﻿@model Remontinka.Server.WebPortal.Models.ActivateResultModel
+
+@{
+    ViewBag.Title = "Активация";
+    Layout = "~/Views/Shared/_BusinessLayout.cshtml";
+}
+
+<div class="container">
+    <hr class="prettyline">
+    <br>
+    <center>
+        @if (Model.Success)
+        {
+            <h3>
+                <b>Успех</b>
+            </h3>
+            <h1>Пользователь @Model.LoginName успешно активирован, нажмите на кнопку Вход для ввода логина и пароля.</h1>
+            <br>
+            
+            <a class="button btn btn-primary btn-lg" href="@Url.Action("Login")">Вход</a>
+        }
+        else
+        {
+            <h3>
+                <b>Неудача</b>
+            </h3>
+            <h1>@Model.ErrorDescription</h1>
+            <br>
+            <a class="button btn btn-primary btn-lg" href="@Url.Action("Index","Home")">Вернуться на главную</a>
+        }
+       
+    </center>
+    <br>
+    <hr class="prettyline">
+</div>
+

@@ -1,0 +1,44 @@
+﻿ @model Romontinka.Server.WebSite.Helpers.LookupModel
+@{
+    var displayId = string.Format("d{0}", Model.Property);
+    var itemsUrl = @Url.Action(Model.GetItemsAction, Model.Controller);
+    var itemUrl = @Url.Action(Model.GetItemAction, Model.Controller);
+    
+
+    var isRequired = Model.HtmlAttributes!=null && Model.HtmlAttributes.ContainsKey("data-val-required");
+
+    var isAjax = Context.Request.IsAjaxRequest();
+    
+    var displayTagBuilder = new TagBuilder("input");
+    displayTagBuilder.AddCssClass(Model.EditorClasses);
+    displayTagBuilder.Attributes["id"] = displayId;
+    displayTagBuilder.Attributes["type"] = "text";
+    displayTagBuilder.Attributes["name"] = displayId;
+
+    
+    displayTagBuilder.Attributes["data-val-lookup-required"] = isRequired? "true":"false";
+    displayTagBuilder.Attributes["data-val-lookup-property"] = Model.Property;
+    
+    
+    displayTagBuilder.MergeAttributes(Model.HtmlAttributes);
+    Html.ViewContext.ViewData.TemplateInfo.HtmlFieldPrefix = string.Empty;//Убираем префикс, иначе не работает Html.ValidationMessage для другого поля
+    
+}
+
+<script type="text/javascript">
+    $(function () {
+        jCrudEngine.createLookup("@itemsUrl","@itemUrl","@Model.Property","@displayId","@Model.PropertyValue","@Model.ParentID",@isRequired.ToString().ToLower(),@isAjax.ToString().ToLower(),@Model.MinLenght);
+    });
+</script>
+
+<div class="lookupWidget">
+   
+    <input id="@Model.Property" name="@Model.Property" value="@Model.PropertyValue" type="hidden" />   
+    
+    @Html.Raw(displayTagBuilder.ToString(TagRenderMode.Normal))
+
+    @if (@Model.CreateValidation)
+    {
+        @Html.ValidationMessage(displayId)
+    }      
+</div>

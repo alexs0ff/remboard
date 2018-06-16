@@ -1,0 +1,44 @@
+﻿@model Remontinka.Server.WebPortal.Models.SystemForm.UserInterfaceModel
+
+@{
+    ViewBag.Title = "Настройки интерфейса";
+}
+<h2>Изменение настроек интерфейса</h2>
+@using (Html.BeginForm())
+{
+    @Html.DevExpress().FormLayout(settings =>
+{
+    settings.Name = "UserInterfaceEditFormLayout";
+    settings.SetDefaultSettings(Model.Token);
+    settings.ColCount = 3;
+    settings.Width = Unit.Percentage(100);
+
+    settings.Items.Add(m => m.CurrentTheme, i =>
+    {
+        i.NestedExtension().ComboBox(bs =>
+        {
+            bs.SetDefaultSettings(Model.Token);
+
+            bs.Properties.ValueField = "Id";
+            bs.Properties.TextField = "Title";
+            bs.Properties.ImageUrlField = "Url";
+            bs.Properties.ItemImage.Width = 48;
+            bs.Properties.ItemImage.Height = 24;
+            bs.Properties.DataSource = Model.Themes;
+            bs.Properties.ShowImageInEditBox = true;
+        });
+    });
+
+
+}).GetHtml()
+
+    @Html.DevExpress().Button(settings =>
+{
+    settings.RenderMode = ButtonRenderMode.Button;
+    settings.Name = "SaveInterfaceButton";
+    settings.Text = "Применить";
+    settings.UseSubmitBehavior = true;
+}).GetHtml()
+}
+<h2>Виджеты для левой панели</h2>
+@Html.Action("LeftPanelLayoutEdit")

@@ -1,0 +1,9 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+@model dynamic
+
+@{
+    ViewBag.Title = "Управление пользователями";
+}
+
+<h1>Пользователи</h1>
+@Html.DevexpressGrid(UserGridController.ControllerName)

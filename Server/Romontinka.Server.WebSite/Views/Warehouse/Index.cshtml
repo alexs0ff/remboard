@@ -1,0 +1,48 @@
+﻿@using Romontinka.Server.WebSite.Models.WarehouseForm
+@model WarehouseViewModel
+
+@{
+    ViewBag.Title = "Управление складами";
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $("#warehouseitems").tabs();
+        })
+    </script>
+      
+}
+<div class="caption-box">
+    <h1>Существующие склады</h1>
+
+    <em>Для активизации складского учета необходимо завести как минимум один склад</em>
+</div>
+@Html.DataGrid(Model.WarehousesGrid)
+
+<div class="caption-box">
+    <em>После создания склада заполните пункты, представленные ниже.</em>
+</div>
+<div id="warehouseitems">
+  <ul>
+    <li><a href="#goodsitemtab">Номенклатура</a></li>
+    <li><a href="#itemtab">Категории</a></li>    
+    <li><a href="#contractortab">Контрагенты</a></li>    
+  </ul>
+  <div id="goodsitemtab">
+    @Html.DataGrid(Model.GoodsItemGrid)    
+  </div>
+  <div id="itemtab">
+  @Html.DataGrid(Model.ItemCategoryGrid)
+    
+  </div>  
+  <div id="contractortab">
+   @Html.DataGrid(Model.ContractorGrid)
+  </div>  
+</div>        
+
+
+
+
+

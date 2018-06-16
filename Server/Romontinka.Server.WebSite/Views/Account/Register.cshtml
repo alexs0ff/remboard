@@ -1,0 +1,29 @@
+﻿@using Romontinka.Server.WebSite.Models
+@using Romontinka.Server.WebSite.Models.Account
+@model RegisterModel
+@{
+    ViewBag.Title = "Регистрация";
+}
+
+@using (Html.BeginForm()) {
+    
+
+    <fieldset>
+        <legend class="register-user-title"><h1>Введите данные по своей фирме</h1></legend>
+        @Html.ValidationSummary(true, "Регистрация не завершена, повторите ввод данных")
+        @Html.EditorFor(m=>m.FirstName)
+        @Html.EditorFor(m=>m.LastName)
+        @Html.EditorFor(m=>m.LegalName)
+        @Html.EditorFor(m=>m.Trademark)
+        @Html.EditorFor(m=>m.Address)
+        @Html.EditorFor(m=>m.Email)
+        @Html.EditorFor(m=>m.Login)
+        @Html.EditorFor(m=>m.Password)
+        @Html.EditorFor(m=>m.PasswordCopy)
+                
+            
+            <input type="submit" value="Зарегистрировать" class="btn register-user-btn"/>
+        
+    </fieldset>
+   
+}

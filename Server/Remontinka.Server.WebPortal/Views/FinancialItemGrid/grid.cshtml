@@ -1,0 +1,28 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.FinancialItemGridForm.FinancialItemGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Title";
+            column.Caption = "Название";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "TransactionKindID";
+            column.Caption = "Тип";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.TransactionKinds;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueType = typeof(byte);
+            comboBoxProperties.ValueField = "TransactionKindID";
+        });
+
+        settings.Apply(Model,Html);
+
+    }).BindToModel(Model,Html)

@@ -1,0 +1,86 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@using Remontinka.Server.WebPortal.Controllers
+@model Remontinka.Server.WebPortal.Models.TransferDocGridForm.TransferDocGridModel
+
+
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "Действия";
+            column.Settings.AllowDragDrop = DefaultBoolean.False;
+            column.Settings.AllowGroup = DefaultBoolean.False;
+            column.SetDataItemTemplateContent(c =>
+            {
+                Html.DevExpress().Button(buttonSettings =>
+                {
+                    Remontinka.Server.WebPortal.Controllers.WarehouseDocsController.SetUpUpdateDocStateButton(buttonSettings, "TransferDoc", Model.GridName, c.DataItem, Url);
+                }).Render();                
+            });
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "SenderWarehouseID";
+            column.Caption = "Со склада";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.Warehouses;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueType = typeof(Guid);
+            comboBoxProperties.ValueField = "WarehouseID";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RecipientWarehouseID";
+            column.Caption = "На склад";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.Warehouses;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueType = typeof(Guid);
+            comboBoxProperties.ValueField = "WarehouseID";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "CreatorFullName";
+            column.Caption = "Изменено";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DocNumber";
+            column.Caption = "Номер";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DocDate";
+            column.Caption = "Дата";
+            column.SetDatePeriod(Model.Token);
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "IsProcessed";
+            column.Caption = "Проведена";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+        });
+
+        settings.Apply(Model,Html);
+
+        settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+
+        settings.SettingsDetail.ShowDetailRow = true;
+        settings.SetDetailRowTemplateContent(c =>
+        {
+            Html.RenderAction("MasterDetailDetailPartial", new { transferDocID = DataBinder.Eval(c.DataItem, "TransferDocID") });
+        });
+
+    }).BindToModel(Model,Html)

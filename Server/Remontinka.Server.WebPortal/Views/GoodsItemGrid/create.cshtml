@@ -1,0 +1,76 @@
+﻿@using Remontinka.Server.WebPortal.Models.GoodsItemGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, GoodsItemGridModel, GoodsItemCreateModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddGoodsItemGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Items.Add(m => Model.Model.Title, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Title);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.ItemCategoryID,  i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.ItemCategoryID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "ItemCategoryID";
+                s.Properties.ValueType = typeof(Guid);
+                s.Properties.DataSource = Model.GridSettings.ItemCategories;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DimensionKindID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DimensionKindID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "DimensionKindID";
+                s.Properties.ValueType = typeof(byte);
+                s.Properties.DataSource = Model.GridSettings.DimensionKinds;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Particular, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Particular);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.UserCode, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.UserCode);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Description, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Description);
+            i.NestedExtension().Memo(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+    });
+
+}

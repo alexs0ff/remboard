@@ -1,0 +1,15 @@
+﻿@using Remontinka.Server.WebPortal;
+@model System.Web.Mvc.HandleErrorInfo
+@{
+    Layout = null;
+    ViewBag.Title = "Ошибка";
+    var message = MvcApplication.LogException(Model.Exception);
+    
+}
+
+
+
+<h1 class="text-danger">Ошибка.</h1>
+
+<h2 class="text-danger">@message</h2>
+

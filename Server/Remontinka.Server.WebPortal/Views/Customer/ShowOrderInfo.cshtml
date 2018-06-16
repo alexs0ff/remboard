@@ -1,0 +1,28 @@
+﻿@model Remontinka.Server.WebPortal.Models.Customer.CustomerGetOrderResultModel
+
+@{
+    ViewBag.Title = "Результат поиска заказа";
+    Layout = "~/Views/Shared/_BusinessLayout.cshtml";
+}
+
+<div class="container">
+    <hr class="prettyline">
+    <br>
+    <center>
+
+        <h3>
+            <b>Результат:</b>
+        </h3>
+        <h1>@Model.Description.</h1>
+        <br>
+        
+        @Html.ActionLink("Повторить поиск", "Index",null,new {@class= "button btn btn-primary btn-lg" })
+        
+
+    </center>
+    <br>
+    <hr class="prettyline">
+</div>
+
+
+

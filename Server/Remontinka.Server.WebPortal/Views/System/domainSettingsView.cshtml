@@ -1,0 +1,56 @@
+﻿@model Remontinka.Server.WebPortal.Models.SystemForm.RegistrationInfoModel
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Параметр</th>
+            <th>Значение</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Логин регистрации</td>
+            <td>@Model.Login</td>
+        </tr>
+        <tr>
+            <td>Email регистрации</td>
+            <td id="RegistrationInfoMail">@Model.Email</td>
+        </tr>
+        <tr>
+            <td>Юридическое наименование</td>
+            <td id="RegistrationInfoLegalName">@Model.LegalName</td>
+        </tr>
+        <tr>
+            <td>Торговая марка</td>
+            <td id="RegistrationInfoTrademark">@Model.Trademark</td>
+        </tr>
+        <tr>
+            <td>Адрес</td>
+            <td id="RegistrationInfoAddress">@Model.Address</td>
+        </tr>
+    </tbody>
+</table>
+@Html.DevExpress().Button(settings =>
+{
+    settings.Name = "EditDomainSettingsButton";
+    settings.RenderMode = ButtonRenderMode.Link;
+    settings.Text = "Редактировать";
+    settings.Width = Unit.Pixel(100);
+}).GetHtml()
+@Html.DevExpress().PopupControl(settings =>
+{
+    settings.Name = "EditDomainSettingsPopup";
+    settings.SetDefaultSettings(Model.Token);
+    settings.HeaderText = "Редактирование информации";
+    settings.PopupElementID = "EditDomainSettingsButton";
+    var funct = "function (s,e){$('#updateDomainSettingsForm').submit();}";
+    settings.InitEditButtonsOnFooter(Model.Token,Html, funct);
+    settings.Width = Unit.Pixel(500);
+    settings.PopupHorizontalAlign =PopupHorizontalAlign.WindowCenter;
+    settings.PopupVerticalAlign =PopupVerticalAlign.WindowCenter;
+    settings.SetContent(() =>
+    {
+        Html.RenderPartial("domainSettingsEdit", Model);
+    });
+}).GetHtml()
+
+

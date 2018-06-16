@@ -1,0 +1,42 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.OrderTimelineGridForm.OrderTimelineGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Settings.ShowFilterRow = false;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterBar = GridViewStatusBarMode.Hidden;
+        settings.SettingsSearchPanel.Visible = false;
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "EventDateTime";
+            column.Caption = "Дата";
+            column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            column.Settings.AutoFilterCondition = AutoFilterCondition.Equals;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "TimelineKindID";
+            column.Caption = "Тип";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.TimelineKinds;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueField = "TimelineKindID";
+            comboBoxProperties.ValueType = typeof(byte);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Title";
+            column.Caption = "Наименование";
+        });
+
+
+        settings.Apply(Model, Html);
+        settings.SettingsDetail.MasterGridName = Remontinka.Server.WebPortal.Controllers.RepairOrderGridController.GridName;
+        settings.CommandColumn.ShowDeleteButton = false;
+        settings.CommandColumn.ShowEditButton = false;
+
+    }).BindToModel(Model, Html)

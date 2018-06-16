@@ -1,0 +1,56 @@
+﻿@model Romontinka.Server.WebSite.Models.Controls.AutocompleteLocalSourceModel
+@{
+    Html.ViewContext.ViewData.TemplateInfo.HtmlFieldPrefix = string.Empty;//Убираем префикс, иначе не работает Html.ValidationMessage для другого поля
+}
+<script type="text/javascript">
+    
+    @if(Model.IsMultiple)
+    {
+    <text>$("#@Model.Property" )
+        // don't navigate away from the field on tab when selecting an item
+        .bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 0,
+            source: function( request, response ) {
+                // delegate back to autocomplete, but extract the last term
+                response( $.ui.autocomplete.filter(
+                    @Model.SourceName, jCrudEngine.autocompleteExtractLast( request.term ) ) );
+            },
+            select: function( event, ui ) {
+                var terms = jCrudEngine.autocompleteSplit( this.value );
+                // remove the current input
+                terms.pop();
+                // add the selected item
+                terms.push( ui.item.value );
+                // add placeholder to get the comma-and-space at the end
+                terms.push( "" );
+               
+                this.value = terms.join(", ");
+                return false;
+            }
+        }).focus(function () {
+            $(this).autocomplete("search");
+        }).click(function () {
+            $(this).autocomplete("search");
+        });</text>
+    }
+    else
+    {
+           <text> $("#@Model.Property").autocomplete({
+                minLength: 0,
+                source: @Model.SourceName
+        }).focus(function () {
+            $(this).autocomplete("search");
+        });
+    </text>
+    }
+
+    
+</script>
+
+@Html.TextBox(Model.Property, Model.Value, new { @class = Model.EditorClasses })

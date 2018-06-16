@@ -1,0 +1,25 @@
+﻿@using Romontinka.Server.WebSite.Metadata
+@{
+    var classes = string.Empty;
+    Layout = "Template.Master.cshtml";
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(EditorHtmlClassAttribute.ClassNamesKey))
+    {
+        classes = (string)ViewData.ModelMetadata.AdditionalValues[EditorHtmlClassAttribute.ClassNamesKey];
+    } //if
+
+    var rows = 3;
+
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(MultilineStringAttribute.StringRowsCountKey))
+    {
+        rows = (int)ViewData.ModelMetadata.AdditionalValues[MultilineStringAttribute.StringRowsCountKey];
+    } //if
+    
+    var columns = 4;
+
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(MultilineStringAttribute.StringColumnsCountKey))
+    {
+        columns = (int)ViewData.ModelMetadata.AdditionalValues[MultilineStringAttribute.StringColumnsCountKey];
+    } //if
+    
+}
+@Html.TextArea(string.Empty, (string)ViewData.ModelMetadata.Model,rows,columns, new { @class = classes })

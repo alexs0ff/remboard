@@ -1,0 +1,10 @@
+﻿
+@model Romontinka.Server.WebSite.Models.CancellationDocItemForm.CancellationDocItemCreateModel
+@Html.ValidationSummary(true)
+@Html.HiddenFor(m => m.Id)
+@Html.HiddenFor(m => m.CancellationDocID)
+@Html.EditorFor(m => m.GoodsItemID)
+@Html.EditorFor(m => m.Total)
+@Html.EditorFor(m => m.Description)
+
+

@@ -1,0 +1,20 @@
+﻿@using Romontinka.Server.WebSite.Controllers
+@{
+    ViewBag.Title = "Список отчетов";
+}
+<h1>Общий список отчетов</h1>
+<ul>
+    <li>@Html.ActionLink("Отчет по исполнителям", "Index", EngineerWorkReportController.ControllerName)</li>
+    <li>@Html.ActionLink("Отчет по использованным запчастям", "Index", UsedDeviceItemsReportController.ControllerName)</li>
+</ul>
+
+<h1>Финансовые отчеты</h1>
+<ul>
+    <li>@Html.ActionLink("Отчет по доходам и расходам", "Index", RevenueAndExpenditureReportController.ControllerName)</li>
+    <li>@Html.ActionLink("Отчет по вознаграждениям пользователей", "Index", UserInterestReportController.ControllerName)</li>
+</ul>
+
+<h1>Складские отчеты</h1>
+<ul>
+    <li>@Html.ActionLink("Отчет по приходу и расходу на складе", "Index", WarehouseFlowReportController.ControllerName)</li>
+</ul>

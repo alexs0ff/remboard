@@ -1,0 +1,38 @@
+﻿@using Romontinka.Server.WebSite.Models.DeviceItemForm
+
+<script type="text/javascript">
+    $(function () {
+        updateCustomDeviceArea();
+    });
+    
+    $("#WarehouseItemID").change(function () {
+        updateCustomDeviceArea();
+    });
+
+    function updateCustomDeviceArea() {
+        var val = $("#WarehouseItemID").val();
+        if (jCrudEngine.hasValue(val)) {
+            $("#customItemArea").hide();
+            $("#DeviceItemCount").focus().select();
+        } else {
+            $("#customItemArea").show();
+            $("#DeviceItemTitle").focus();
+        }
+    }
+</script>
+
+@model DeviceItemCreateModel
+
+@Html.ValidationSummary(false)
+
+@Html.HiddenFor(m=>m.Id)
+@Html.HiddenFor(m=>m.DeviceItemRepairOrderID)
+@Html.EditorFor(m=>m.DeviceItemEventDate)
+@Html.EditorFor(m=>m.DeviceItemUserID)
+@Html.EditorFor(m=>m.WarehouseItemID)
+<div id="customItemArea">
+@Html.EditorFor(m=>m.DeviceItemTitle)
+@Html.EditorFor(m=>m.DeviceItemCostPrice)
+@Html.EditorFor(m=>m.DeviceItemPrice)
+</div>
+@Html.EditorFor(m=>m.DeviceItemCount)

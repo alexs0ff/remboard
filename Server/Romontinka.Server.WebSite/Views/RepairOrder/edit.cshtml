@@ -1,0 +1,94 @@
+﻿@using Romontinka.Server.WebSite.Models.RepairOrderForm
+@model RepairOrderEditModel
+
+@Html.HiddenFor(m=>m.Id)
+<table class="order-table-edit" id="orderEditTable">
+    <tr>
+        <td colspan="2">
+            @Html.EditorFor(m=>m.RepairOrderStatusID)
+        </td>        
+    </tr>
+ 
+    <tr>
+        <td >
+            @Html.EditorFor(m => m.IssueDate)
+        </td>    
+        <td >
+            @Html.EditorFor(m => m.WarrantyTo)
+        </td>    
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            @Html.EditorFor(m=>m.Recommendation)
+        </td>        
+    </tr>
+    <tr>
+        <td >
+            @Html.EditorFor(m=>m.OrderKindID)
+        </td>    
+        <td >
+            @Html.EditorFor(m=>m.BranchID)
+        </td>    
+    </tr>
+    <tr>
+        <td colspan="2">@Html.EditorFor(m=>m.ClientFullName)</td>
+    
+    </tr>
+    <tr>
+        <td colspan="2">@Html.EditorFor(m=>m.ClientAddress)</td>    
+    </tr>
+    <tr>
+        <td>@Html.EditorFor(m=>m.ClientPhone)</td>
+        <td>@Html.EditorFor(m=>m.ClientEmail)</td>
+    </tr>
+    <tr>
+        <td colspan="2">@Html.EditorFor(m=>m.DeviceTitle)</td>    
+    </tr>
+    <tr>
+        <td>@Html.EditorFor(m=>m.DeviceSN)</td>
+        <td>@Html.EditorFor(m=>m.DeviceTrademark)</td>
+    </tr>
+    <tr>
+        <td colspan="2">@Html.EditorFor(m=>m.DeviceModel)</td>    
+    </tr>
+    <tr>
+        <td colspan="2">@Html.EditorFor(m=>m.Defect)</td>    
+    </tr>
+    <tr>
+        <td colspan="2">@Html.EditorFor(m=>m.Options)</td>        
+    </tr>
+    <tr>
+        <td colspan="2">@Html.EditorFor(m=>m.DeviceAppearance)</td>    
+    </tr>
+    <tr>
+        <td colspan="2">@Html.EditorFor(m=>m.Notes)</td> 
+    </tr>
+    <tr>
+        <td>@Html.EditorFor(m=>m.CallEventDate)</td>
+        <td>@Html.EditorFor(m => m.DateOfBeReady)</td>
+    </tr>
+    <tr>
+        <td>@Html.EditorFor(m => m.GuidePrice)</td>
+        <td>@Html.EditorFor(m => m.PrePayment)</td>
+    </tr>
+    <tr>
+        <td>@Html.EditorFor(m => m.ManagerID)</td>
+        <td>@Html.EditorFor(m => m.EngineerID)</td>
+    </tr>
+    <tr>
+        <td>@Html.EditorFor(m=>m.IsUrgent)</td>
+        <td></td>
+    </tr>
+</table>
+
+@if (Model.IsItemForEngeener)
+{
+    <script type="text/javascript">
+        $(function () {
+            $('#orderEditTable :input').attr('disabled', true).addClass('disabledInput');
+             $('#RepairOrderStatusID').attr("disabled", false);
+             $('#Recommendation').attr("disabled", false);
+        });
+    </script>
+}

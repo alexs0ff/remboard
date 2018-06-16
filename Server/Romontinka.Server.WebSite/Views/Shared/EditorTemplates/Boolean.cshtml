@@ -1,0 +1,5 @@
+﻿@using Romontinka.Server.WebSite.Metadata
+@{
+    Layout = "Template.Master.cshtml";
+}
+@Html.CheckBox("", (bool)ViewData.ModelMetadata.Model)

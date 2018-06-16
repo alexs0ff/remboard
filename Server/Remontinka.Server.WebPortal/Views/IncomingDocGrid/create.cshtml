@@ -1,0 +1,68 @@
+﻿@using Remontinka.Server.WebPortal.Models.IncomingDocGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, IncomingDocGridModel, IncomingDocCreateModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddIncomingDocGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+
+        g.Items.Add(m => Model.Model.WarehouseID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.WarehouseID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "WarehouseID";
+                s.Properties.ValueType = typeof(Guid);
+                s.Properties.DataSource = Model.GridSettings.Warehouses;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.ContractorID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.ContractorID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "LegalName";
+                s.Properties.ValueField = "ContractorID";
+                s.Properties.ValueType = typeof(Guid);
+                s.Properties.DataSource = Model.GridSettings.Contractors;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DocNumber, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DocNumber);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DocDate, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DocDate);
+            i.NestedExtension().DateEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DocDescription, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DocDescription);
+            i.NestedExtension().Memo(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+    });
+
+}

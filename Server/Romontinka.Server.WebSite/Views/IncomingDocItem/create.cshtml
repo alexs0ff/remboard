@@ -1,0 +1,14 @@
+﻿
+@model Romontinka.Server.WebSite.Models.IncomingDocItemForm.IncomingDocItemCreateModel
+@Html.ValidationSummary(true)
+@Html.HiddenFor(m => m.Id)
+@Html.HiddenFor(m => m.IncomingDocID)
+@Html.EditorFor(m => m.GoodsItemID)
+@Html.EditorFor(m => m.Total)
+@Html.EditorFor(m => m.InitPrice)
+@Html.EditorFor(m => m.StartPrice)
+@Html.EditorFor(m => m.RepairPrice)
+@Html.EditorFor(m => m.SalePrice)
+@Html.EditorFor(m => m.Description)
+
+

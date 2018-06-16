@@ -1,0 +1,95 @@
+﻿body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+div.main-menu {
+    margin-top: 8px; 
+}
+
+.topPanel
+{
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+.footer-content {
+    text-align: center;
+}
+.top-menu {
+    margin-right: 15px;
+    margin-left: 10px;
+}
+
+
+/*begin widgets*/
+.widgetPanel
+{
+    background: #F9F9FA;
+    border: solid 1px #D3D6DA;
+    padding: 12px 15px 9px;
+    margin: 0 0 5px 0;
+    height: 44px;
+
+    -moz-box-shadow:inset 0px 1px 4px rgba(0, 0, 0, 0.117188);
+    -webkit-box-shadow:inset 0px 1px 4px rgba(0, 0, 0, 0.117188);
+    box-shadow:inset 0px 1px 4px rgba(0, 0, 0, 0.117188);
+
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    box-sizing: content-box!important;
+}
+
+.widgetPanel img
+{
+    margin-right: 11px;
+}
+
+.widgetPanel .disabled
+{
+    -moz-opacity: 0.2;
+    filter:alpha(opacity=20);
+    opacity: 0.2;
+
+    cursor: default !important;
+}
+
+.leftZone
+{
+     float: left;
+    margin-right: 3px;
+}
+
+/* DateTime widget */
+.dateContainer,
+.timeContainer
+{
+    width: 100%;
+    text-align: center;
+}
+
+.calendarWidget {
+    height: 60px;
+}
+
+/*end widgets*/

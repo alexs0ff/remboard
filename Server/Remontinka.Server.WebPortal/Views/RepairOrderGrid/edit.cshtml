@@ -1,0 +1,311 @@
+﻿@using Remontinka.Server.WebPortal.Models.RepairOrderGridForm
+@using Romontinka.Server.DataLayer.Entities
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, RepairOrderGridModel, RepairOrderEditModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.ColCount = 2;
+        g.Caption = "Заказ";
+        g.GroupBoxDecoration = GroupBoxDecoration.HeadingLine;
+
+        g.Items.Add(m => Model.Model.RepairOrderStatusID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.RepairOrderStatusID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "OrderStatusID";
+                s.Properties.ValueType = typeof(Guid?);
+                s.Properties.DataSource = Model.GridSettings.OrderStatuses;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.IssueDate, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.IssueDate);
+            i.NestedExtension().DateEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.WarrantyTo, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.WarrantyTo);
+            i.NestedExtension().DateEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Recommendation, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Recommendation);
+            i.NestedExtension().Memo(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+    });
+
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.ColCount = 2;
+        g.Caption = "Общие данные";
+        g.GroupBoxDecoration = GroupBoxDecoration.HeadingLine;
+        g.Items.Add(m => Model.Model.OrderKindID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.OrderKindID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "OrderKindID";
+                s.Properties.ValueType = typeof(Guid?);
+                s.Properties.DataSource = Model.GridSettings.OrderKinds;
+
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+        g.Items.Add(m => Model.Model.BranchID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.BranchID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "BranchID";
+                s.Properties.ValueType = typeof(Guid?);
+                s.Properties.DataSource = Model.GridSettings.Branches;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+    });
+
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.ColCount = 2;
+        g.Caption = "Клиент";
+        g.GroupBoxDecoration = GroupBoxDecoration.HeadingLine;
+        g.Items.Add(m => Model.Model.ClientFullName, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.ClientFullName);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+        g.Items.Add(m => Model.Model.ClientAddress, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.ClientAddress);
+            i.NestedExtension().Memo(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.ClientPhone, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.ClientPhone);
+            i.ColSpan = 2;
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+        g.Items.Add(m => Model.Model.ClientEmail, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.ClientEmail);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+    });
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.ColCount = 2;
+        g.Caption = "Устройство";
+        g.GroupBoxDecoration = GroupBoxDecoration.HeadingLine;
+        g.Items.Add(m => Model.Model.DeviceTitle, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DeviceTitle);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DeviceSN, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DeviceSN);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DeviceTrademark, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DeviceTrademark);
+            i.NestedExtension().TokenBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetAutocomplete(Model.GridSettings.Token, AutocompleteKindSet.DeviceTrademark);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DeviceModel, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DeviceModel);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Defect, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Defect);
+            i.NestedExtension().Memo(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Options, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Options);
+            i.NestedExtension().TokenBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetAutocomplete(Model.GridSettings.Token, AutocompleteKindSet.DeviceOptions);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DeviceAppearance, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DeviceAppearance);
+            i.NestedExtension().TokenBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetAutocomplete(Model.GridSettings.Token, AutocompleteKindSet.DeviceAppearance);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Notes, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Notes);
+            i.NestedExtension().Memo(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+    });
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.ColCount = 2;
+        g.Caption = "Информация по работам";
+        g.GroupBoxDecoration = GroupBoxDecoration.HeadingLine;
+        g.Items.Add(m => Model.Model.CallEventDate, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.CallEventDate);
+            i.NestedExtension().DateEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token, true);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DateOfBeReady, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DateOfBeReady);
+            i.NestedExtension().DateEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.GuidePrice, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.GuidePrice);
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token, true);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+
+            });
+        });
+        g.Items.Add(m => Model.Model.PrePayment, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.PrePayment);
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token, true);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.ManagerID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.ManagerID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Text";
+                s.Properties.ValueField = "Value";
+                s.Properties.ValueType = typeof(Guid?);
+                s.Properties.DataSource = Model.GridSettings.Managers;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.EngineerID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.EngineerID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Text";
+                s.Properties.ValueField = "Value";
+                s.Properties.ValueType = typeof(Guid?);
+                s.Properties.DataSource = Model.GridSettings.Engineers;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.IsUrgent, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.IsUrgent);
+            i.NestedExtension().CheckBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                //s.SetSecuritySettings(Model.GridSettings.Token);
+            });
+        });
+    });
+
+}
+
+

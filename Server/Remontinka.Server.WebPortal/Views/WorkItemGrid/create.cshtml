@@ -1,0 +1,87 @@
+﻿@using Remontinka.Server.WebPortal.Models.WorkItemGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, WorkItemGridModel, WorkItemCreateModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+
+    Model.LayoutSettings.Items.Add(m => Model.Model.WorkItemID, i =>
+    {
+        i.ConfigureItem(Model.Model, () => Model.Model.WorkItemID);
+        i.ClientVisible = false;
+        i.SetNestedContent(() => Model.Html.ViewContext.Writer.Write(Model.Html.Hidden(i.Name, Model.Model.WorkItemID).ToHtmlString()));
+    });
+
+    Model.LayoutSettings.Items.Add(m => Model.Model.RepairOrderID, i =>
+    {
+        i.ConfigureItem(Model.Model, () => Model.Model.RepairOrderID);
+        i.ClientVisible = false;
+        i.SetNestedContent(() => Model.Html.ViewContext.Writer.Write(Model.Html.Hidden(i.Name, Model.Model.RepairOrderID).ToHtmlString()));
+    });
+
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddWorkItemGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Width = Unit.Percentage(100);
+        g.Items.Add(m => Model.Model.WorkItemUserID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.WorkItemUserID);
+
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Text";
+                s.Properties.ValueField = "Value";
+                s.Properties.ValueType = typeof(Guid?);
+                s.Properties.DataSource = Model.GridSettings.Engineers;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.WorkItemTitle, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.WorkItemTitle);
+            
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.WorkItemPrice, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.WorkItemPrice);
+           
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token, true);
+
+            });
+        });
+
+        g.Items.Add(m => Model.Model.WorkItemEventDate, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.WorkItemEventDate);
+            
+            i.NestedExtension().DateEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.WorkItemNotes, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.WorkItemNotes);
+            
+            i.NestedExtension().Memo(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+    });
+
+}
+
+

@@ -1,0 +1,69 @@
+﻿@using Romontinka.Server.WebSite.Models.Dialog
+@model EditDialogModel
+
+@{
+    var successFunctionCall = string.Format("{0}(serializedData)", Model.SuccessFunctionName);
+}
+
+<script type="text/javascript">
+    $(function () {
+        var dlg = $("#@Model.DialogId");
+        dlg.dialog({
+            height: @Model.Height,
+            width: @Model.Width,
+            autoOpen: false,
+            modal: true,
+            buttons: [
+                    {
+                        "class": "btn btn-medium",
+                        text: "@Model.OkButtonText",
+                        click: function () {
+                            var myform =  $('#@Model.FormId');   
+                            if (myform.valid() ) {
+                                $(this).attr('disabled','disabled');
+                                //сериализуем данные с "disabled" атрибутом
+                                
+                                var disabled = myform.find('.disabledInput').removeAttr('disabled');
+                                var serializedData = myform.serialize();
+                                disabled.attr('disabled','disabled');
+                                
+                                @successFunctionCall ;
+                            }
+
+                        }
+
+                    },
+                    {
+                        "class": "btn btn-medium",
+                        text: "@Model.CancelButtonText",
+                        click: function () {
+                            $("#@Model.FormId").removeData("validator");
+                            $("#@Model.FormId").removeData("unobtrusiveValidation");
+                            $("#@Model.FormId").empty();
+                            $(this).dialog("close");
+                        }
+
+                    }
+                ]
+        });
+        
+        @if (Model.NoDialogTitle)
+        {
+            <text>
+            dlg.dialog('option', 'dialogClass', 'noTitleStuff');
+            </text>
+        }
+
+        @if (Model.FullScreen)
+        {
+            <text>
+                jCrudEngine.setDialogFullScreen("@Model.DialogId");
+            </text>
+        }
+    });
+</script>
+
+<div id="@Model.DialogId" title="@Model.Title">
+<form id="@Model.FormId" action="">
+</form>
+</div>

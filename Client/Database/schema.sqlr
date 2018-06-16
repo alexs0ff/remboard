@@ -1,0 +1,2265 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<DatabaseDocument InnerId="08358ea1-1e8a-49d6-86ba-b598e36d5970" Name="New SqLite" DatabaseType="SqLite" Version="1">
+  <IteractionState PhysicalView="False" />
+  <Versions>
+    <Version InnerId="5da8f397-803b-42c9-b815-591c9277f2d3" Name="Version 1" Locked="False" CreateDate="11/20/2015 13:32:00" Number="1">
+      <ModelViewState InnerId="10be0e30-e2b6-4134-80b9-d6dd24dc5dec" Height="1900" Width="2500">
+        <EntityRelationStates>
+          <EntityRelationState InnerId="1c9e81ea-90de-4b37-9fdd-37324387583e">
+            <DestinationPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="873" y="194" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="757" y="422" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="3682f1da-c5f2-4b1e-b674-6f411787139f" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="ce1fa177-f2a6-42fe-ac11-3bfe71a9abf1">
+            <DestinationPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="497" y="454" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="425" y="617" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="b4034397-040e-4035-90a3-16af27baa60d" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="9caa5e3d-26cf-4f67-a8dc-b539dccea66d">
+            <DestinationPoint>
+              <RectConnector RectSide="Top">
+                <MiddleSidePoint>
+                  <Point x="269" y="713" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Bottom">
+                <MiddleSidePoint>
+                  <Point x="245.5" y="674" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="b2de8a6c-03ce-4145-9547-3320abf9f090" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="3a5840b0-51d3-4916-bda5-0b3f020641ea">
+            <DestinationPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="497" y="438" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="339" y="274" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="9affdb82-8944-4471-8dee-cbb0d0cc4679" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="e6a599dd-0893-454e-8505-dc5daf4f0d6b">
+            <DestinationPoint>
+              <RectConnector RectSide="Bottom">
+                <MiddleSidePoint>
+                  <Point x="253" y="827" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Top">
+                <MiddleSidePoint>
+                  <Point x="246" y="973" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="77b945b7-c17d-4627-89f6-dafe89318467" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="0c4a4795-daa7-4581-93c5-0e8f9bd070ad">
+            <DestinationPoint>
+              <RectConnector RectSide="Top">
+                <MiddleSidePoint>
+                  <Point x="317.5" y="1193" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Bottom">
+                <MiddleSidePoint>
+                  <Point x="262" y="1087" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="27437199-756f-4c60-a104-766104537555" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="163da24b-b19b-4f14-8742-6f11fbbf8946">
+            <DestinationPoint>
+              <RectConnector RectSide="Top">
+                <MiddleSidePoint>
+                  <Point x="523" y="1590" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="499" y="1410" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="b343e9a9-1b41-45fc-97db-c8cb752baba9" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="b7109b1e-5f46-4676-bed2-2adc2ffe37d0">
+            <DestinationPoint>
+              <RectConnector RectSide="Bottom">
+                <MiddleSidePoint>
+                  <Point x="333.5" y="1307" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Top">
+                <MiddleSidePoint>
+                  <Point x="285" y="1353" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="1759bac4-027f-43b6-9c68-8abbe6df42f0" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="1a789f2c-6ea6-45bc-842e-120d076f6643">
+            <DestinationPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="1113" y="1461" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="1017" y="1730" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="ffff57a6-ee13-4c2a-a694-1cd2e620a51c" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="7389ea29-7955-4542-8f72-1f86b5e7dee4">
+            <DestinationPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="1143" y="1807" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="1017" y="1746" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="a1780b50-451e-4226-9be9-e31aec386d1b" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="0ed27d71-71a1-4ee1-b3a4-7502a2294a86">
+            <DestinationPoint>
+              <RectConnector RectSide="Top">
+                <MiddleSidePoint>
+                  <Point x="619" y="349" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Bottom">
+                <MiddleSidePoint>
+                  <Point x="671.5" y="144" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="ef9d40fe-c2db-4492-8d96-3dcbaec8ce67" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="da6573ac-f1da-4997-892a-7c27493d23c9">
+            <DestinationPoint>
+              <RectConnector RectSide="Top">
+                <MiddleSidePoint>
+                  <Point x="880" y="1657" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Bottom">
+                <MiddleSidePoint>
+                  <Point x="773" y="1539" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="76ef5c1a-0b75-47bf-8afd-b9e12b01543d" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="37191214-b2a2-4f9a-8163-0a54d49ffdc4">
+            <DestinationPoint>
+              <RectConnector RectSide="Top">
+                <MiddleSidePoint>
+                  <Point x="539" y="1590" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="649" y="1466" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="7474e212-0ec9-4fe5-bec6-1467e68c016b" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="d5e73551-2389-4a9c-bab4-a97b958a19c8">
+            <DestinationPoint>
+              <RectConnector RectSide="Bottom">
+                <MiddleSidePoint>
+                  <Point x="1814.5" y="415" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Top">
+                <MiddleSidePoint>
+                  <Point x="1802.5" y="513" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="c72b5cb5-7fd1-4edf-a362-f1caef1084f3" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="2d4c35a9-32de-4105-8bfb-585a19c6f76e">
+            <DestinationPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="1669" y="570" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="1566" y="767" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="a630ad8e-7c6c-4bc4-b4e3-471a65d82afe" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="ca169a56-9b93-404a-8ae9-3b8789e8b90b">
+            <DestinationPoint>
+              <RectConnector RectSide="Bottom">
+                <MiddleSidePoint>
+                  <Point x="1313" y="431" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Top">
+                <MiddleSidePoint>
+                  <Point x="1402" y="550" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="aa7766ac-0c3b-477e-a01c-48391bbee943" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="4404deb4-d637-4b2b-baed-a0e7ee23da62">
+            <DestinationPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="398" y="770" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="1238" y="799" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="c494f027-3289-4ad7-ac55-300a9f55a6e5" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="6faf6ef0-4b00-4099-bdb9-c83848d77026">
+            <DestinationPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="757" y="470" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="839" y="663" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="16f88a1c-9783-415a-9b66-5552967ed829" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="531aa6d7-dec9-4fc7-a5ca-155f7dcfcbad">
+            <DestinationPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="1238" y="783" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="1187" y="679" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="34632cd0-1ae5-4302-8041-4d52d4684887" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="a0c4a4bd-bc28-4e1c-ae6d-cf46d0b4feeb">
+            <DestinationPoint>
+              <RectConnector RectSide="Bottom">
+                <MiddleSidePoint>
+                  <Point x="635" y="543" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Top">
+                <MiddleSidePoint>
+                  <Point x="929" y="924" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="87e8563b-5c3d-48f3-8086-ee6535d75ea2" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="6b767781-0f42-4597-8783-efc6a1625fdb">
+            <DestinationPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="1238" y="831" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="1084" y="1013" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="a899215c-b1c7-4b9b-bcf8-e87c6f55c86c" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="9ed032c0-d11b-4ed0-b160-b9ff8dc79bb8">
+            <DestinationPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="2046" y="1079" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="2027" y="881" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="f5e487a4-55ed-4bc7-8a62-ce2ee6fc1690" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="b6e763c3-62b0-4f2b-85f6-71c5d1beb9df">
+            <DestinationPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="1566" y="815" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="1712" y="865" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="1e8bb2d5-c75c-40bc-b46c-d7c3debc6046" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="99f2f6bd-8a42-4d32-a7b0-37b68885f1fc">
+            <DestinationPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="1523" y="1444" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Top">
+                <MiddleSidePoint>
+                  <Point x="1496.5" y="1586" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="30a071a3-dedf-4795-a010-b74537704cd5" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="b55140a7-a873-4c81-a5f0-cc36f3bfb26a">
+            <DestinationPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="1907" y="1452" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="2047" y="1654" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="10dbb1ea-67a7-47ee-a976-0ed2640bd446" />
+          </EntityRelationState>
+          <EntityRelationState InnerId="79f0c6f4-bbfb-45c3-8847-ed2c17423064">
+            <DestinationPoint>
+              <RectConnector RectSide="Left">
+                <MiddleSidePoint>
+                  <Point x="1219" y="1171" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </DestinationPoint>
+            <StartPoint>
+              <RectConnector RectSide="Right">
+                <MiddleSidePoint>
+                  <Point x="1070" y="1222" />
+                </MiddleSidePoint>
+              </RectConnector>
+            </StartPoint>
+            <Relation InnerId="5651641e-ecdc-4e13-9a06-bc7c5646be90" />
+          </EntityRelationState>
+        </EntityRelationStates>
+        <EntityViewStates>
+          <EntityViewState InnerId="7f74a34c-e2ab-4d32-a418-6817dca825e2" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="497" y="349" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="7f74a34c-e2ab-4d32-a418-6817dca825e2" />
+          </EntityViewState>
+          <EntityViewState InnerId="8abfeadc-b6d1-4f52-b5a3-62b4ed13c954" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="873" y="137" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="8abfeadc-b6d1-4f52-b5a3-62b4ed13c954" />
+          </EntityViewState>
+          <EntityViewState InnerId="6f923b6a-682d-4099-a5dc-552724ad4da2" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="124" y="713" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="6f923b6a-682d-4099-a5dc-552724ad4da2" />
+          </EntityViewState>
+          <EntityViewState InnerId="2d6d262d-9e94-4360-b3a2-eb391f7e5ce1" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="66" y="560" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="2d6d262d-9e94-4360-b3a2-eb391f7e5ce1" />
+          </EntityViewState>
+          <EntityViewState InnerId="00969f6c-26ea-488a-a7ef-add4419ccf42" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="0" y="201" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="00969f6c-26ea-488a-a7ef-add4419ccf42" />
+          </EntityViewState>
+          <EntityViewState InnerId="78e645f0-c6f0-4c68-847b-705f8afb4d1c" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="1238" y="550" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="78e645f0-c6f0-4c68-847b-705f8afb4d1c" />
+          </EntityViewState>
+          <EntityViewState InnerId="e133c39d-b738-46d0-b0c9-0f858cca0c38" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="1833" y="1181" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="e133c39d-b738-46d0-b0c9-0f858cca0c38" />
+          </EntityViewState>
+          <EntityViewState InnerId="ecb83eef-3382-49d1-a55c-2138cf78f5cc" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="507" y="14" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="ecb83eef-3382-49d1-a55c-2138cf78f5cc" />
+          </EntityViewState>
+          <EntityViewState InnerId="84e05606-31cd-44c9-8225-1f7b59394738" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="186" y="1193" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="84e05606-31cd-44c9-8225-1f7b59394738" />
+          </EntityViewState>
+          <EntityViewState InnerId="c5273389-69f4-46b1-a6c3-3e1b55af5638" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="45" y="973" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="c5273389-69f4-46b1-a6c3-3e1b55af5638" />
+          </EntityViewState>
+          <EntityViewState InnerId="4f9723d7-3324-4384-ba73-7ffd28f1d1f9" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="429" y="1590" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="4f9723d7-3324-4384-ba73-7ffd28f1d1f9" />
+          </EntityViewState>
+          <EntityViewState InnerId="42c56ab9-cb2d-4e63-b93b-f0ef8adc4b22" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="87" y="1353" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="42c56ab9-cb2d-4e63-b93b-f0ef8adc4b22" />
+          </EntityViewState>
+          <EntityViewState InnerId="844a0001-07d5-4b1f-afc7-2746fbc0d7c5" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="1143" y="1750" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="844a0001-07d5-4b1f-afc7-2746fbc0d7c5" />
+          </EntityViewState>
+          <EntityViewState InnerId="470ecca8-6c7b-44c4-bdfc-7e6400d0abd8" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="1113" y="1404" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="470ecca8-6c7b-44c4-bdfc-7e6400d0abd8" />
+          </EntityViewState>
+          <EntityViewState InnerId="a274a443-bc20-4db9-8660-9bc34edf222b" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="743" y="1657" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="a274a443-bc20-4db9-8660-9bc34edf222b" />
+          </EntityViewState>
+          <EntityViewState InnerId="9d41c7bb-b2e6-49bb-8c94-45bf5154d498" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="649" y="1393" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="9d41c7bb-b2e6-49bb-8c94-45bf5154d498" />
+          </EntityViewState>
+          <EntityViewState InnerId="a998c6f5-c2b9-4def-ad40-00ecd8481fc8" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="1197" y="317" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="a998c6f5-c2b9-4def-ad40-00ecd8481fc8" />
+          </EntityViewState>
+          <EntityViewState InnerId="ad27c0ca-beb3-4078-aecb-9177b9c91c3d" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="1687" y="301" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="ad27c0ca-beb3-4078-aecb-9177b9c91c3d" />
+          </EntityViewState>
+          <EntityViewState InnerId="7d8efde6-bcbf-47bc-b44b-38a64877e87f" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="1669" y="513" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="7d8efde6-bcbf-47bc-b44b-38a64877e87f" />
+          </EntityViewState>
+          <EntityViewState InnerId="3b022525-8e08-48e4-b8a0-9867ef7b6b4d" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="839" y="606" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="3b022525-8e08-48e4-b8a0-9867ef7b6b4d" />
+          </EntityViewState>
+          <EntityViewState InnerId="7d9b6f90-0a83-480c-a48b-2a33858de787" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="774" y="924" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="7d9b6f90-0a83-480c-a48b-2a33858de787" />
+          </EntityViewState>
+          <EntityViewState InnerId="3bae2c8f-c4d9-48bb-bc59-6bce1292fa4a" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="2046" y="1022" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="3bae2c8f-c4d9-48bb-bc59-6bce1292fa4a" />
+          </EntityViewState>
+          <EntityViewState InnerId="5c48c912-635a-4419-9b01-6f657c0183e9" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="1712" y="816" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="5c48c912-635a-4419-9b01-6f657c0183e9" />
+          </EntityViewState>
+          <EntityViewState InnerId="42c0135d-5295-452d-9e60-0c32b150f807" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="1523" y="1395" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="42c0135d-5295-452d-9e60-0c32b150f807" />
+          </EntityViewState>
+          <EntityViewState InnerId="39dcd850-f80d-4b41-adc3-34adfcf09d16" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="2047" y="1597" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="39dcd850-f80d-4b41-adc3-34adfcf09d16" />
+          </EntityViewState>
+          <EntityViewState InnerId="5d68b15e-d7c2-4853-96dd-e28b9466b149" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="1354" y="1586" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="5d68b15e-d7c2-4853-96dd-e28b9466b149" />
+          </EntityViewState>
+          <EntityViewState InnerId="76e2912b-b253-40e3-bb37-406716bd1044" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="1261" y="42" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="SolidColorBrush">
+                <Color a="255" r="77" g="195" b="255" />
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="76e2912b-b253-40e3-bb37-406716bd1044" />
+          </EntityViewState>
+          <EntityViewState InnerId="727f8150-0c02-4c31-9791-35c33df5ae4f" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="1579" y="71" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="727f8150-0c02-4c31-9791-35c33df5ae4f" />
+          </EntityViewState>
+          <EntityViewState InnerId="acaa12cf-2285-4003-8d32-a2ffed6e7052" IsEditing="True" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="1219" y="1126" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="acaa12cf-2285-4003-8d32-a2ffed6e7052" />
+          </EntityViewState>
+          <EntityViewState InnerId="e5e6693f-516c-4e10-9ae1-0eb98a1e4af3" IsEditing="False" Width="NaN" Height="NaN">
+            <Location>
+              <Point x="798" y="1165" />
+            </Location>
+            <BackgroundBrush>
+              <Brush Opacity="1" Type="LinearGradientBrush">
+                <StartPoint>
+                  <Point x="0" y="0" />
+                </StartPoint>
+                <EndPoint>
+                  <Point x="1" y="1" />
+                </EndPoint>
+                <GradientStops>
+                  <GradientStop Offset="0">
+                    <Color a="255" r="211" g="220" b="239" />
+                  </GradientStop>
+                  <GradientStop Offset="1">
+                    <Color a="255" r="255" g="255" b="255" />
+                  </GradientStop>
+                </GradientStops>
+              </Brush>
+            </BackgroundBrush>
+            <Entity InnerId="e5e6693f-516c-4e10-9ae1-0eb98a1e4af3" />
+          </EntityViewState>
+        </EntityViewStates>
+        <DataModel InnerId="0c5ee711-b447-4355-88bb-92a21a11365e">
+          <Caption InnerId="d3cece0d-2f5c-436b-a981-0a0d15c3421a" Physical="" Title="" />
+          <Entities>
+            <Entity InnerId="7f74a34c-e2ab-4d32-a418-6817dca825e2" Generated="False">
+              <Caption InnerId="d783c9df-57ee-4446-b25a-5b48b9a57e32" Physical="User" Title="Пользователь" />
+              <Relations>
+                <Relation InnerId="3682f1da-c5f2-4b1e-b674-6f411787139f" />
+                <Relation InnerId="b4034397-040e-4035-90a3-16af27baa60d" />
+                <Relation InnerId="9affdb82-8944-4471-8dee-cbb0d0cc4679" />
+                <Relation InnerId="ef9d40fe-c2db-4492-8d96-3dcbaec8ce67" />
+                <Relation InnerId="16f88a1c-9783-415a-9b66-5552967ed829" />
+                <Relation InnerId="87e8563b-5c3d-48f3-8086-ee6535d75ea2" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="ce3be9d8-fb2e-44e5-8b1c-f7555e7ccb06" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="538e556c-10f3-4817-a8b7-a73871ea40f0" Physical="UserID" Title="Код пользователя" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="6e65dc84-7cfc-48da-b909-0118cc5d9bcf" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="True" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="eb6f6c12-5bf1-4e45-abdc-4f2cb3b5d0cd" Physical="LoginName" Title="Логин" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="0770bafc-4a3b-45d9-a181-0b8b46d5d5c0" DataLenght="100" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="c6a01d9a-2215-421d-9316-66d4b9fa1adb" Physical="PasswordHash" Title="Хэш пароля" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="92379cd0-35cb-4e5b-9144-a44d26633688" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="cc3431cb-8796-44ec-9392-2fa6dbca2a40" Physical="FirstName" Title="Имя" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="a3cdf20e-2391-40fd-9667-4c4ebc192a1e" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="0c40e743-3105-4d2f-bb17-165b11434452" Physical="LastName" Title="Фамилия" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="f0d3250d-2197-492d-9b89-fa5754e0cd59" DataLenght="255" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="761630ab-5a2d-4e17-88dd-6c5fa57d754f" Physical="MiddleName" Title="Отчество" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="088719d4-3a64-4a92-b09a-212a6cec8304" DataLenght="50" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="ec4eccb0-75ff-4d76-a2be-4c7fff49a0e6" Physical="Phone" Title="Телефон" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="f6dac22f-262b-4a88-becc-03bbad675dbe" DataLenght="255" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="e7b47d63-7e31-416b-856e-160bfa0b9eda" Physical="Email" Title="Email" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="e4360652-2a2c-40ee-a574-c21affeb4aaa" DataLenght="50" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="6bfc8346-3736-4879-b55c-e89cc2886c0b" Physical="DomainID" Title="Код домена" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[Код домена должен быть одинаковым по всему клиенту, недопускается наличие пользователей из двух разных доменов]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="8abfeadc-b6d1-4f52-b5a3-62b4ed13c954" Generated="False">
+              <Caption InnerId="e8e2d809-0a99-48c9-9f28-2bf6cfd941a9" Physical="ProjectRole" Title="Роль в проекте" />
+              <Relations>
+                <Relation InnerId="3682f1da-c5f2-4b1e-b674-6f411787139f" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="7a52a1ca-5bee-45d1-906d-f8a663646de6" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="b162786f-4dc8-4ee2-bf7e-28585abfc1b0" Physical="ProjectRoleID" Title="Код роли" />
+                  <SqlType Name="Integer" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="cd44e275-547b-4425-b31c-7dc41a7ec24d" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="f82c4062-8fea-4484-bc0e-f25bf6b60218" Physical="Title" Title="Название роли в проекте" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="6f923b6a-682d-4099-a5dc-552724ad4da2" Generated="False">
+              <Caption InnerId="4a5f4e84-fcb2-4dfe-9560-8f7d02fd74f3" Physical="Branch" Title="Филиал" />
+              <Relations>
+                <Relation InnerId="b2de8a6c-03ce-4145-9547-3320abf9f090" />
+                <Relation InnerId="77b945b7-c17d-4627-89f6-dafe89318467" />
+                <Relation InnerId="c494f027-3289-4ad7-ac55-300a9f55a6e5" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="ceb6d9e6-d33e-4caa-97d9-cdf3b8f615ca" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="e114b070-42b2-481c-886c-db230f74af7a" Physical="BranchID" Title="Код филиала" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="fb545125-0064-4d68-ae1f-5f0cec4776fd" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="2eb74942-322f-4411-b493-171652bce36b" Physical="Title" Title="Название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="9cf19d70-bdcd-4875-9e1b-e19db76c959e" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="7a6a269e-027b-4f48-9e38-28ae5360089f" Physical="Address" Title="Адрес" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="4cd39634-cb41-4277-98e1-2597831734b9" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="839926c4-59f5-4fba-a2f4-d5e6fc1f359c" Physical="LegalName" Title="Юридическое название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="2d6d262d-9e94-4360-b3a2-eb391f7e5ce1" Generated="False">
+              <Caption InnerId="d7793f54-c442-41a2-b184-8d7c865a28e5" Physical="UserBranchMap" Title="Карта филиалов и пользователей" />
+              <Relations>
+                <Relation InnerId="b4034397-040e-4035-90a3-16af27baa60d" />
+                <Relation InnerId="b2de8a6c-03ce-4145-9547-3320abf9f090" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="e3e3369d-f2f3-449a-a2e9-1a68a754bf13" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="True" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="b4b6b0c9-2854-469c-b7c9-9fb51542ff96" Physical="UserBranchMapID" Title="Код карты филиалов и пользователей" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="e1a73bb8-cbab-4f59-932c-b76f8f3cbf7c" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="2b8d27c8-b441-4b58-9e5a-fd88e46f0e01" Physical="EventDate" Title="Дата добавления" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="00969f6c-26ea-488a-a7ef-add4419ccf42" Generated="False">
+              <Caption InnerId="999c7e9a-41a2-4847-8003-88f78093be04" Physical="UserKey" Title="Пользовательские ключи" />
+              <Relations>
+                <Relation InnerId="9affdb82-8944-4471-8dee-cbb0d0cc4679" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="4831ae96-4a69-4212-9aa3-8c93fdc5dcb5" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="True" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="b8599442-f5c4-4fc9-ad19-7eace2c15c0b" Physical="UserKeyID" Title="Код пользовательского ключа" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="fa2213da-862c-446b-8004-3bdf6b2bffad" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="9d0a08b6-81ea-417d-b151-397175831e2c" Physical="EventDate" Title="Дата добавления" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="139b5a51-e3ea-4f6e-b329-b60d37c1bb49" DataLenght="2000" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="2ba28626-9623-46a2-b4e2-7be27a01ba17" Physical="PublicKeyData" Title="Содержимое публичного ключа" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="d75106f2-b20a-413d-8b27-4df7a15cdc1a" DataLenght="2000" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="e29058ad-8f7f-4f46-894c-be3df181b01a" Physical="PrivateKeyData" Title="Содержимое секретного ключа" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="94729967-d3c3-4f61-8a6f-06a694e23d3f" DataLenght="50" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="cce961e9-aa04-4101-9bca-bfe58ac29e1e" Physical="Number" Title="Номер ключа" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="37cf623b-914e-483e-9f3a-2c7ea74e35ea" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="fd48b660-d371-452f-84c4-2d3c8f10c7da" Physical="IsActivated" Title="Признак активации" />
+                  <SqlType Name="Integer" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="78e645f0-c6f0-4c68-847b-705f8afb4d1c" Generated="False">
+              <Caption InnerId="ff0e566a-fbe3-42aa-882f-71b14aabdd92" Physical="RepairOrder" Title="Заказ" />
+              <Relations>
+                <Relation InnerId="a630ad8e-7c6c-4bc4-b4e3-471a65d82afe" />
+                <Relation InnerId="aa7766ac-0c3b-477e-a01c-48391bbee943" />
+                <Relation InnerId="c494f027-3289-4ad7-ac55-300a9f55a6e5" />
+                <Relation InnerId="34632cd0-1ae5-4302-8041-4d52d4684887" />
+                <Relation InnerId="a899215c-b1c7-4b9b-bcf8-e87c6f55c86c" />
+                <Relation InnerId="1e8bb2d5-c75c-40bc-b46c-d7c3debc6046" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="2b14f7f3-4be9-4a4f-ac30-562418bad89d" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="a7eae498-4683-458e-8e04-4c30da992436" Physical="RepairOrderID" Title="Код заказа" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="33b0e336-10f8-453c-bbcd-9034f438cd6a" DataLenght="50" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="f918710f-6d59-41b6-a5c1-60f7fc21326f" Physical="IssuerID" Title="Код выдавшего пользователя" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="443f788a-7fd9-4c69-a39c-74752198e547" DataLenght="50" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="f50c6b42-3a07-46e3-b4c5-fcccfb256c00" Physical="EngineerID" Title="Код исполнителя" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="6e4ce1f0-9b6c-47b0-bbc3-7856294131e9" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="bc94d728-5861-45cf-81ce-b470fa2bb9b9" Physical="ManagerID" Title="Код менеджера" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="a6b48c9c-6081-490d-9e88-220539b95264" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="49ab044f-0169-4169-a4d1-9d362602cacf" Physical="EventDate" Title="Дата составления заказа" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="a77b3e35-1a23-478e-b460-d72f9a339d9a" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="d7fc8ddd-4683-4739-a53d-0a3ea57a8377" Physical="Number" Title="Номер заказа" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="eacac32e-d1c0-4abe-b92f-b943882f3643" DataLenght="1000" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="a7a8714f-def6-408b-b663-055d833e4b14" Physical="ClientFullName" Title="Имя клиента" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="f21d7322-3f9e-4e32-bf00-5bf0b9f11174" DataLenght="2000" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="1dd801b9-384e-496a-bf97-e680673eb182" Physical="ClientAddress" Title="Адрес клиента" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="5d4ad4ab-9c0a-47bc-acf3-f7d51a5f3b5d" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="f0414273-51dc-4dbe-a973-263ff1349e33" Physical="ClientPhone" Title="Телефон клиента" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="baae11d6-b2c7-42d1-b71b-662c27fb7922" DataLenght="50" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="f1531d9e-b8b2-40b4-ac88-2e58b3595dd9" Physical="ClientEmail" Title="Email клиента" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="a38de1d0-7c62-41ac-bb12-ec5154cd6f6e" DataLenght="2000" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="42e2b7f4-a1f8-4a90-a459-a4e92b4ece9c" Physical="DeviceTitle" Title="Устройство" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="9f12cf90-d749-4fe8-a82b-190cb26fe7f4" DataLenght="255" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="78930e97-4962-4f31-8ce0-81f67f26899d" Physical="DeviceSN" Title="Серийный номер" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="715ab4c9-3a13-4f28-9e74-4962db32da86" DataLenght="255" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="b3522ef2-719b-4095-8f3d-92f413a305b9" Physical="DeviceTrademark" Title="Бренд устройства" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="49459b25-55dc-4feb-afcd-d6cf0776c281" DataLenght="255" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="67e6d62c-8e7b-40ea-bac2-1cbcb41d7367" Physical="DeviceModel" Title="Модель устройства" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="4a6b98f2-15db-4ae4-b958-471596c808d2" DataLenght="2000" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="f30a4729-a120-49d6-b753-ee5c966b28a5" Physical="Defect" Title="Неисправность" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="4708f9d7-4424-4c4a-a986-359b045362fb" DataLenght="2000" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="00e99358-bc8f-43d0-a831-6710cbd02c33" Physical="Options" Title="Комплектация" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="51707267-bdce-46b2-a854-654143356b95" DataLenght="2000" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="c3bace27-9618-4358-8920-ee67679ccec0" Physical="DeviceAppearance" Title="Внешний вид устройства" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="c9f9b8b1-a02c-46ea-aabf-06030244ec59" DataLenght="2000" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="81c06ef0-e34c-4a25-a6e1-c8c91a5c781c" Physical="Notes" Title="Заметки приемщика" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="2b2a6764-1d36-4711-a0fd-99d632afdb58" DataLenght="50" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="18111e20-6929-4465-b0a7-6627faefb9ed" Physical="CallEventDate" Title="Время вызова мастера" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="84e36b29-e52b-45f6-b273-bb8d8746f54d" DataLenght="50" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="36a2c1eb-ceec-491b-8246-cf3f2a6c6679" Physical="DateOfBeReady" Title="Дата когда будет все готово" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="03bebdcb-0e59-4a77-b1a1-6ecfb00ff5a6" DataLenght="0" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="e3d82163-6b2a-4d79-a9f9-01c167f0a3a6" Physical="GuidePrice" Title="Ориентировочная цена" />
+                  <SqlType Name="Real" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="0e231e8f-7b92-4858-8f21-c13c70b78725" DataLenght="0" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="7652a1a6-5b9e-4cba-8328-c447bfc0595b" Physical="PrePayment" Title="Аванс" />
+                  <SqlType Name="Real" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="9f275233-bf93-4fd1-ba12-4ab3d565f6cf" DataLenght="0" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="7846380a-75e6-44e6-8b47-c8e25e2803a4" Physical="IsUrgent" Title="Срочный" />
+                  <SqlType Name="Integer" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="b178eac6-ebc1-45ce-acc6-ef8fb4f6980d" DataLenght="2000" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="79387e27-383e-4547-a1c4-849ad62b66bc" Physical="Recommendation" Title="Рекомендация клиенту" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="44e5ed14-2793-4664-8055-82a5f617146b" DataLenght="50" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="c6bafe6c-8a09-4bb2-b86e-1781136c4f28" Physical="IssueDate" Title="Дата выдачи" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="9d2e3534-6cb4-46a5-953d-e22a5131deb9" DataLenght="50" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="295cc5c9-d8d9-414e-b825-a85940611096" Physical="WarrantyTo" Title="Гарантия до" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="e133c39d-b738-46d0-b0c9-0f858cca0c38" Generated="False">
+              <Caption InnerId="e4ea6c88-c7a8-4566-ac90-15890c82b4e1" Physical="DocSequence" Title="Последовательность номеров заказа" />
+              <Relations />
+              <Attributes>
+                <Attribute InnerId="43e75579-b3ed-4839-b675-6fe4ad9e5de6" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="c2802f9d-6a60-4603-9ba1-b0fc52897dc1" Physical="CurrentNumber" Title="Номер заказа" />
+                  <SqlType Name="Integer" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="ecb83eef-3382-49d1-a55c-2138cf78f5cc" Generated="False">
+              <Caption InnerId="98bb0ab0-5048-4f2b-85a4-fd1f0ed1b12b" Physical="SyncOperation" Title="Прошедшие синхронизации" />
+              <Relations>
+                <Relation InnerId="ef9d40fe-c2db-4492-8d96-3dcbaec8ce67" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="8796c1e9-6709-4fb6-9eb3-4a1642b2d0eb" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="True" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="06378a3e-ccfe-4c35-a269-606942d9cc15" Physical="SyncOperationID" Title="Код операции синхронизации" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="9a64cb21-0f20-4834-ae6f-5e2333cefb56" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="63ab423b-2927-4ba7-805f-0063a449e967" Physical="OperationBeginTime" Title="Дата начала" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="4cadcb34-22b5-4cb7-91f8-7904959d9689" DataLenght="50" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="d049f557-8ef2-41dd-bca6-4bfcc6df45a0" Physical="OperationEndTime" Title="Дата окончания" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="eb5ef8c1-f3e3-4f12-8731-e5778725e1d8" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="a3c450a2-dccb-4555-abdb-76151abbe42d" Physical="IsSuccess" Title="Признак успеха" />
+                  <SqlType Name="Integer" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="6e9f1018-4dfc-41e3-afd7-24ce0f49234d" DataLenght="2000" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="b7be4f88-3e3c-4c09-a823-ba60f9f4a161" Physical="Comment" Title="Комментарий" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="84e05606-31cd-44c9-8225-1f7b59394738" Generated="False">
+              <Caption InnerId="c8df9004-f901-45ce-95a4-babaf6a11c7d" Physical="FinancialGroup" Title="Финансовая группа" />
+              <Relations>
+                <Relation InnerId="27437199-756f-4c60-a104-766104537555" />
+                <Relation InnerId="1759bac4-027f-43b6-9c68-8abbe6df42f0" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="cf5c56ab-ea8a-46a7-a8ff-c723a3a20751" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="eddd2b8b-3f78-4c75-a2f5-2e9cdd9f71b7" Physical="FinancialGroupID" Title="Код финансовой группы" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="1ffcec4c-f542-4da2-b0eb-af9100e3a896" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="2cd7ccd7-acc5-45bf-9c85-24f5623ed728" Physical="Title" Title="Название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="6b430f26-a8af-4843-8c2c-d846b10e4a00" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="3f4b1410-9308-439d-bca8-a481843a866e" Physical="LegalName" Title="Юр название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="58231c1e-3edd-482e-b040-7d4029aacced" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="9fa65837-05b1-4bf9-8d70-d83a4949c049" Physical="Trademark" Title="Торговая марка" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="c5273389-69f4-46b1-a6c3-3e1b55af5638" Generated="False">
+              <Caption InnerId="90dd4bf1-1fe3-4107-a443-b79715c41fda" Physical="FinancialGroupBranchMap" Title="Соответсвие филиалов и финансовых групп" />
+              <Relations>
+                <Relation InnerId="77b945b7-c17d-4627-89f6-dafe89318467" />
+                <Relation InnerId="27437199-756f-4c60-a104-766104537555" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="8c622a2e-b958-456d-afb1-c896ed9d5c31" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="f7bc50d5-2a42-4942-a19d-2de39546d2f8" Physical="FinancialGroupBranchMapID" Title="Код соответвия финансовой группы и филиалов" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="4f9723d7-3324-4384-ba73-7ffd28f1d1f9" Generated="False">
+              <Caption InnerId="62d752ec-de6e-4c91-8154-1e41a80cf0d3" Physical="Warehouse" Title="Склад" />
+              <Relations>
+                <Relation InnerId="b343e9a9-1b41-45fc-97db-c8cb752baba9" />
+                <Relation InnerId="7474e212-0ec9-4fe5-bec6-1467e68c016b" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="213f5888-813d-4f46-a1ac-2ab322973833" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="7c9aa590-f44f-44c1-877a-67f328eb8a75" Physical="WarehouseID" Title="Код склада" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="f1658d28-5f0b-43b8-b8d3-c8cc5559824f" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="d98d4870-d8b8-4c43-8393-8cab301e1325" Physical="Title" Title="Название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="42c56ab9-cb2d-4e63-b93b-f0ef8adc4b22" Generated="False">
+              <Caption InnerId="3c6fc648-2554-4435-bfae-9655c60b8caf" Physical="FinancialGroupWarehouseMap" Title="Соответсвия финансовых групп и складов" />
+              <Relations>
+                <Relation InnerId="b343e9a9-1b41-45fc-97db-c8cb752baba9" />
+                <Relation InnerId="1759bac4-027f-43b6-9c68-8abbe6df42f0" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="183d2b13-d0df-49f0-b066-7d846c4761b9" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="31faddd3-2a04-479c-b36f-9c96d44ae2c2" Physical="FinancialGroupWarehouseMapID" Title="Код соответствия финансовой группы и склада" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="844a0001-07d5-4b1f-afc7-2746fbc0d7c5" Generated="False">
+              <Caption InnerId="af91d553-0e95-4da4-9604-1b0afee75188" Physical="DimensionKind" Title="DimensionKind" />
+              <Relations>
+                <Relation InnerId="a1780b50-451e-4226-9be9-e31aec386d1b" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="b6ce16a7-7464-44f7-9aec-7fcb47677fd1" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="60d2a15a-11c6-4288-9b2c-83f7b70cf651" Physical="DimensionKindID" Title="Код типа измерения" />
+                  <SqlType Name="Integer" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="91fec111-b43f-4070-a2dd-68805373bcae" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="b7323a64-66fa-4a13-be80-bf05954e75df" Physical="Title" Title="Title" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="60455a1f-c423-449b-9cb7-405759bb556d" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="7c19ad85-fa9f-4891-ba8a-c6a08cbf8ced" Physical="ShortTitle" Title="Короткое название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="470ecca8-6c7b-44c4-bdfc-7e6400d0abd8" Generated="False">
+              <Caption InnerId="5627af0d-a2f3-4365-8832-1f1d5dfb3e96" Physical="ItemCategory" Title="Категория товара" />
+              <Relations>
+                <Relation InnerId="ffff57a6-ee13-4c2a-a694-1cd2e620a51c" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="e85aaa19-9429-4839-ae47-be9fc83e0b6f" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="3f970ee1-051c-46d9-bcd4-e57adbb4174e" Physical="ItemCategoryID" Title="Код категории" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="bcdd0884-b8dd-43a9-9730-30c427d1af1e" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="15053538-c911-4533-9ff5-cebaa31ca3e7" Physical="Title" Title="Название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="a274a443-bc20-4db9-8660-9bc34edf222b" Generated="False">
+              <Caption InnerId="7138f7cf-00e1-4c13-b0b6-316d77e76887" Physical="GoodsItem" Title="Номенклатура" />
+              <Relations>
+                <Relation InnerId="ffff57a6-ee13-4c2a-a694-1cd2e620a51c" />
+                <Relation InnerId="a1780b50-451e-4226-9be9-e31aec386d1b" />
+                <Relation InnerId="76ef5c1a-0b75-47bf-8afd-b9e12b01543d" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="e06490e5-bcb3-4a9d-ad76-7e5575d1c301" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="ed9e5cc2-b67a-40d0-a419-31ae2cdcdb37" Physical="GoodsItemID" Title="Код номенклатуры" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="9b2f01ff-2236-4182-9044-05d4aae40b95" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="fa26b747-5955-4d2a-bc5b-326f76daf7b9" Physical="Title" Title="Название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="785e596e-e6ba-4579-8744-c0a189f03abd" DataLenght="4000" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="28fbcd63-776b-458c-993d-56cec5cde808" Physical="Description" Title="Описание" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="e6cd7b1e-78d9-4e0f-9173-f937ed65ee81" DataLenght="255" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="81caf5ea-c9bb-4221-9cf3-4d82c199dd0a" Physical="UserCode" Title="Код товара" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="2da998ae-85e8-4791-9fc6-6976e4ae1eb7" DataLenght="255" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="91754ab6-9b40-49bf-a846-bf88351017d2" Physical="Particular" Title="Артикул" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="b0760e91-958f-45f8-b228-2ae450aee828" DataLenght="255" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="32928fb3-e8dd-4748-82d4-e11f9cde6e32" Physical="BarCode" Title="Штрих код" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="9d41c7bb-b2e6-49bb-8c94-45bf5154d498" Generated="False">
+              <Caption InnerId="1f3181c3-0c2f-404e-8625-d9f35165b7cc" Physical="WarehouseItem" Title="Остатки на складе" />
+              <Relations>
+                <Relation InnerId="76ef5c1a-0b75-47bf-8afd-b9e12b01543d" />
+                <Relation InnerId="7474e212-0ec9-4fe5-bec6-1467e68c016b" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="7cea78dd-87bc-4c3e-87fd-f91ee37d448c" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="533e37ea-2ebe-47b5-a118-00de732ac2f1" Physical="WarehouseItemID" Title="Код остатка" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="ba0d755e-0c2b-4fd2-8732-9080ffb69c73" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="4b318aed-a422-4a47-8ac6-482712a3967d" Physical="Total" Title="Количество" />
+                  <SqlType Name="Real" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="9fc0a3d7-5531-4e39-92e8-f3e6a86b4314" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="f3ea155c-36e6-4383-b719-5ddb242cc2d9" Physical="StartPrice" Title="Нулевая цена" />
+                  <SqlType Name="Real" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="9afaa9bb-1d7a-4709-9902-2ca95d2d4292" DataLenght="0" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="11ca6f87-b469-49ab-967c-0985ecec0d70" Physical="RepairPrice" Title="Ремонтная" />
+                  <SqlType Name="Real" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="be14de20-57d0-4c4d-8385-e85582619b72" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="00de761d-b80e-4095-9ed5-d6555339526c" Physical="SalePrice" Title="Розничная" />
+                  <SqlType Name="Real" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="a998c6f5-c2b9-4def-ad40-00ecd8481fc8" Generated="False">
+              <Caption InnerId="26465006-336b-4fc9-9b24-b5c291f13934" Physical="OrderKind" Title="Тип заказа" />
+              <Relations>
+                <Relation InnerId="aa7766ac-0c3b-477e-a01c-48391bbee943" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="c3d32e57-855b-412a-881a-9fefd0e9fa04" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="e1548f44-6ac1-494a-bfe4-eb0e6dd26fe5" Physical="OrderKindID" Title="Код типа заказа" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="d5ee0170-f800-4f7a-a4e6-221c9175bdf3" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="590e1775-cf91-4744-80fb-0aa671dddec9" Physical="Title" Title="Название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="ad27c0ca-beb3-4078-aecb-9177b9c91c3d" Generated="False">
+              <Caption InnerId="d4c422c2-2452-42ac-8014-f2e9760c7be7" Physical="StatusKind" Title="Тип статуса" />
+              <Relations>
+                <Relation InnerId="c72b5cb5-7fd1-4edf-a362-f1caef1084f3" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="06660769-67a1-4b14-bb11-855c964cf68a" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="3ecdd1e2-1995-4b62-8b2c-90436018f47b" Physical="StatusKindID" Title="Код типа статуса" />
+                  <SqlType Name="Integer" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="31178c0b-8241-4a76-a884-f63da2d8a365" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="661d15e1-7208-4661-80bb-1026a84329c0" Physical="Title" Title="Название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="7d8efde6-bcbf-47bc-b44b-38a64877e87f" Generated="False">
+              <Caption InnerId="8dc4a8fb-7c5c-4b2e-bf82-6dedad08ee92" Physical="OrderStatus" Title="Статус заказа" />
+              <Relations>
+                <Relation InnerId="c72b5cb5-7fd1-4edf-a362-f1caef1084f3" />
+                <Relation InnerId="a630ad8e-7c6c-4bc4-b4e3-471a65d82afe" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="e8fb7e45-a842-47a0-a4ab-895e749981aa" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="f0229cf1-c030-4dcd-a001-1fd47c9da3fc" Physical="OrderStatusID" Title="Код статуса заказа" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="c1d2f430-1e50-4d74-98b4-1881aaa6c2d2" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="95cdf067-05a8-454e-8e41-c30c4d95f469" Physical="Title" Title="Название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="3b022525-8e08-48e4-b8a0-9867ef7b6b4d" Generated="False">
+              <Caption InnerId="0b54ca65-106b-429c-8a8c-65a46e7a45b7" Physical="WorkItem" Title="Описатель проделанной работы" />
+              <Relations>
+                <Relation InnerId="16f88a1c-9783-415a-9b66-5552967ed829" />
+                <Relation InnerId="34632cd0-1ae5-4302-8041-4d52d4684887" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="351b5915-d853-4fdd-9986-7d8002a45a92" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="53322572-cb93-49f2-a418-08681e2ffb50" Physical="WorkItemID" Title="Код описателя проделанной работы" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="e5d2a156-3f09-4d03-9d7d-2bb39f0ee92a" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="38a0026d-8a64-482e-863f-81fdd5b562d6" Physical="Title" Title="Наименование" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="03303794-813c-4788-bd39-cc01ac60c2cc" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="94482700-ba9c-4f2b-8539-04f2999a6f07" Physical="EventDate" Title="Дата" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="d0031ee0-f666-4efa-a5ee-e28e6c67457a" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="97defab8-43ee-408d-955b-3dcaec91f1ce" Physical="Price" Title="Цена" />
+                  <SqlType Name="Real" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="7d9b6f90-0a83-480c-a48b-2a33858de787" Generated="False">
+              <Caption InnerId="6a9c6396-1a72-42cc-81b3-65f9f20ab81b" Physical="DeviceItem" Title="Установленные запчасти" />
+              <Relations>
+                <Relation InnerId="87e8563b-5c3d-48f3-8086-ee6535d75ea2" />
+                <Relation InnerId="a899215c-b1c7-4b9b-bcf8-e87c6f55c86c" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="6fa2e244-cde6-4875-86ed-b7e78ec4b46f" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="76906024-d12d-48fd-bef6-e65ab5802013" Physical="DeviceItemID" Title="Код установленной запчасти" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="bcd46dd6-3bf7-4614-99e8-335c70618b06" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="d82bdcd6-a9b5-4943-a586-488178f3d694" Physical="Title" Title="Наименование" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="d687a358-f9ec-4b04-85ad-e04f4e57b2b7" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="0d6ffc6a-83a8-4b8d-ac54-d9d4ba227cf4" Physical="Count" Title="Количество" />
+                  <SqlType Name="Real" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="bc9cce9e-a8f8-4675-b4a8-0283fdc21e03" DataLenght="0" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="9fcfb098-de7b-4874-99e6-cb6f5f78b77f" Physical="CostPrice" Title="Себестоимость" />
+                  <SqlType Name="Real" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="61720f14-eaec-4a9b-9eae-abe66c069e62" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="fdc62304-323a-4ebc-8fe9-dbd48d995448" Physical="EventDate" Title="Дата" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="576bce7a-1967-42d0-b8a5-e8521aa361c8" DataLenght="50" IsIdentity="False" IsNotNull="False" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="eebee5fc-b770-4f26-bca3-6109364c91ee" Physical="WarehouseItemID" Title="Код установленной запчасти " />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="f513324c-b303-4ab5-8a91-d30454a93840" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="1119d0a6-ed43-42be-a43e-8b38a49cee6e" Physical="Price" Title="Цена" />
+                  <SqlType Name="Real" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="3bae2c8f-c4d9-48bb-bc59-6bce1292fa4a" Generated="False">
+              <Caption InnerId="db3bc332-0b54-4e95-b01e-0a6db098ecce" Physical="TimelineKind" Title="Тип события" />
+              <Relations>
+                <Relation InnerId="f5e487a4-55ed-4bc7-8a62-ce2ee6fc1690" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="09f9b988-cb26-4cf8-955d-5efeddaf5a0f" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="47310e2d-ce9e-427a-aa2a-dd5d949c6aa3" Physical="TimelineKindID" Title="Код типа события" />
+                  <SqlType Name="Integer" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="ce03f752-cbee-42c8-a10d-8a327a896e19" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="315a1e05-58de-4868-880e-f2ecba1d17e0" Physical="Title" Title="Название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="5c48c912-635a-4419-9b01-6f657c0183e9" Generated="False">
+              <Caption InnerId="f74c0720-3656-4d89-b265-3e09b7d0822b" Physical="OrderTimeline" Title="График заказа" />
+              <Relations>
+                <Relation InnerId="f5e487a4-55ed-4bc7-8a62-ce2ee6fc1690" />
+                <Relation InnerId="1e8bb2d5-c75c-40bc-b46c-d7c3debc6046" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="c499648b-b2cf-4538-a12c-b32b2f62dbdb" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="088cd94e-6f7b-45ac-9fab-858c923b3f8e" Physical="OrderTimelineID" Title="Код пункта графика заказа" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="82e15a1d-f5ae-46b1-9a98-4a569f51561b" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="5b034040-909e-413e-9cbb-0bb03a1ee454" Physical="EventDateTime" Title="Дата и время события" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="4deb7adb-7215-41af-b50c-09e2425836f4" DataLenght="1000" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="0fb14829-71c7-49bf-b875-f19accd5644e" Physical="Title" Title="Описание" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="42c0135d-5295-452d-9e60-0c32b150f807" Generated="False">
+              <Caption InnerId="bd273414-bcb6-4d5e-b83b-f64592decd3f" Physical="RepairOrderServerHash" Title="Хэши серверных заказов " />
+              <Relations>
+                <Relation InnerId="30a071a3-dedf-4795-a010-b74537704cd5" />
+                <Relation InnerId="10dbb1ea-67a7-47ee-a976-0ed2640bd446" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="20da945f-fe6c-4fdf-ad27-8d4c9c9f0ed5" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="fefe78e1-67e8-450e-a533-542d040ecd28" Physical="RepairOrderServerHashID" Title="Код заказа" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="4cb5aadc-71f1-439a-95de-bfa3fc60f3fa" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="86c3f812-e907-474c-bc72-016cde5672c7" Physical="DataHash" Title="Хэш данных" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="b69a256f-8533-4cfe-932a-3ebbb4e0c25a" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="a51ef543-cb06-4670-aa7c-ce3e7fe7e5ea" Physical="OrderTimelinesCount" Title="Количество пунктов в графиках заказа" />
+                  <SqlType Name="Integer" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="39dcd850-f80d-4b41-adc3-34adfcf09d16" Generated="False">
+              <Caption InnerId="22ff2d88-3c67-41a3-822e-0c223c65b92c" Physical="DeviceItemServerHash" Title="Хэши серверных установленных запчастей" />
+              <Relations>
+                <Relation InnerId="10dbb1ea-67a7-47ee-a976-0ed2640bd446" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="abe7de39-b352-4c15-844f-fb5e7c376993" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="be7f594c-d0e8-4720-aa12-26a54b50d326" Physical="DeviceItemServerHashID" Title="Код установленной запчасти" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="9bce862d-fbce-4d6a-92ac-dd2fee4acf13" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="3919be01-79a2-44d6-92d0-d5ca897677d3" Physical="DataHash" Title="Хэш данных" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="5d68b15e-d7c2-4853-96dd-e28b9466b149" Generated="False">
+              <Caption InnerId="ec9e6361-fe12-4dce-82b0-682292140951" Physical="WorkItemServerHash" Title="Хэши серверных проделанных работ" />
+              <Relations>
+                <Relation InnerId="30a071a3-dedf-4795-a010-b74537704cd5" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="943752fb-e18d-4afd-b47d-99023b94d862" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="7f1fe58f-8eeb-4735-b12d-b9a5543ab1a2" Physical="WorkItemServerHashID" Title="Код проделанной работы" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="f88ae9c4-0b87-430f-843a-e13d9e5ad4e4" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="2a5aaa49-a3d2-4070-9308-3fb69af2d7a6" Physical="DataHash" Title="Хэш данных" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="76e2912b-b253-40e3-bb37-406716bd1044" Generated="False">
+              <Caption InnerId="ebbadf40-3789-491a-aaf5-5a3b4a9b934e" Physical="Settings" Title="Настройки базы" />
+              <Relations />
+              <Attributes>
+                <Attribute InnerId="4a56cce0-9e45-4a20-b441-3cccfc48b665" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="fc2c5b75-bd27-47b7-87ec-9173150c08b1" Physical="Version" Title="Номер версии" />
+                  <SqlType Name="Integer" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="727f8150-0c02-4c31-9791-35c33df5ae4f" Generated="False">
+              <Caption InnerId="4e006ed0-a3a0-4aa7-a7a6-eca14f3ea364" Physical="RemSettings" Title="Настроки клиента" />
+              <Relations />
+              <Attributes>
+                <Attribute InnerId="adc84c3c-8874-4f32-8fb3-1227899ca31d" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="True" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="6d8a17b6-455e-4744-9679-511b9794173c" Physical="SetKey" Title="Ключ настройки" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="6a46ab62-737f-4083-9c1d-7065b0f536c3" DataLenght="4000" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="71450193-e803-4577-a0c3-0bfce23acde6" Physical="SetVal" Title="Значение настройки" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="acaa12cf-2285-4003-8d32-a2ffed6e7052" Generated="False">
+              <Caption InnerId="b6c2d63f-5bf6-4996-af85-2236b232cffd" Physical="DocumentKind" Title="Тип документа" />
+              <Relations>
+                <Relation InnerId="5651641e-ecdc-4e13-9a06-bc7c5646be90" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="41558fdd-b516-4827-b555-f83daa75a453" DataLenght="0" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="cac0ec4f-17ab-4025-a65a-0975f387d1df" Physical="DocumentKindID" Title="Код типа документа" />
+                  <SqlType Name="Integer" HasLenght="False" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="71bcb40b-2e0f-4445-94ba-eb85d4b2d4f4" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="20354a2e-0114-4af5-b616-94c06ca71a6d" Physical="Title" Title="Название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+            <Entity InnerId="e5e6693f-516c-4e10-9ae1-0eb98a1e4af3" Generated="False">
+              <Caption InnerId="f2c36c57-c1dc-4a78-b2b5-f4db3880b3db" Physical="CustomReport" Title="Настраеваемый документ" />
+              <Relations>
+                <Relation InnerId="5651641e-ecdc-4e13-9a06-bc7c5646be90" />
+              </Relations>
+              <Attributes>
+                <Attribute InnerId="c4ceecef-3ce8-4a41-abf7-e64f939ea685" DataLenght="50" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="IsKey" Decimal="0" Default="">
+                  <Caption InnerId="dd09b03a-76c6-42c7-8d02-70dff4009cc0" Physical="CustomReportID" Title="Код документа" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="890122b8-190c-4756-aea5-0a97a49e9537" DataLenght="255" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="186bffd2-9ade-4e18-8ecf-89550250c9ee" Physical="Title" Title="Название" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+                <Attribute InnerId="79fa0149-a240-483b-924f-0e198d7899b5" DataLenght="10000" IsIdentity="False" IsNotNull="True" IsUnique="False" Key="None" Decimal="0" Default="">
+                  <Caption InnerId="12857c6f-b961-4ea1-9ebb-ff58b306ce31" Physical="HtmlContent" Title="Контент" />
+                  <SqlType Name="Text" HasLenght="True" HasDecimal="False" />
+                </Attribute>
+              </Attributes>
+              <Notes><![CDATA[]]></Notes>
+              <Indexes />
+            </Entity>
+          </Entities>
+          <Relations>
+            <Relation InnerId="3682f1da-c5f2-4b1e-b674-6f411787139f" RelationType="NonIdentifying">
+              <Caption InnerId="9318ce0e-414a-44ba-97f5-b9898a6b131d" Physical="" Title="" />
+              <Parent InnerId="8abfeadc-b6d1-4f52-b5a3-62b4ed13c954" />
+              <Child InnerId="7f74a34c-e2ab-4d32-a418-6817dca825e2" />
+              <ParentAttributes>
+                <Attribute InnerId="7a52a1ca-5bee-45d1-906d-f8a663646de6" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="731e0dae-b6d0-48b1-ae46-2b9fc513931d" />
+              </ChildAttributes>
+              <Cardinality InnerId="ce473073-67d2-4586-9914-36db9b7c0cbb" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="b4034397-040e-4035-90a3-16af27baa60d" RelationType="NonIdentifying">
+              <Caption InnerId="e6200589-d063-46d3-a140-a1e4d15ce095" Physical="" Title="" />
+              <Parent InnerId="7f74a34c-e2ab-4d32-a418-6817dca825e2" />
+              <Child InnerId="2d6d262d-9e94-4360-b3a2-eb391f7e5ce1" />
+              <ParentAttributes>
+                <Attribute InnerId="ce3be9d8-fb2e-44e5-8b1c-f7555e7ccb06" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="3ca23900-f7ae-4b9e-ade0-55cca54bff4f" />
+              </ChildAttributes>
+              <Cardinality InnerId="c5629606-78ba-49b8-9d2a-ba2eff559fa3" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="b2de8a6c-03ce-4145-9547-3320abf9f090" RelationType="NonIdentifying">
+              <Caption InnerId="a5e0fbec-ac2c-4eaa-a810-e15d70f5b737" Physical="" Title="" />
+              <Parent InnerId="6f923b6a-682d-4099-a5dc-552724ad4da2" />
+              <Child InnerId="2d6d262d-9e94-4360-b3a2-eb391f7e5ce1" />
+              <ParentAttributes>
+                <Attribute InnerId="ceb6d9e6-d33e-4caa-97d9-cdf3b8f615ca" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="0ffdb0bd-7c74-40ce-88b2-81e586877767" />
+              </ChildAttributes>
+              <Cardinality InnerId="e5772d98-5f06-465c-937c-b94413eccf6a" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="9affdb82-8944-4471-8dee-cbb0d0cc4679" RelationType="NonIdentifying">
+              <Caption InnerId="92e2aad8-e470-4d39-8f83-d47acc251c2a" Physical="" Title="" />
+              <Parent InnerId="7f74a34c-e2ab-4d32-a418-6817dca825e2" />
+              <Child InnerId="00969f6c-26ea-488a-a7ef-add4419ccf42" />
+              <ParentAttributes>
+                <Attribute InnerId="ce3be9d8-fb2e-44e5-8b1c-f7555e7ccb06" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="d25d6d1b-677d-4732-8f09-d8ecfa0e77c4" />
+              </ChildAttributes>
+              <Cardinality InnerId="61017e48-022c-4f60-bf3e-c715f745d26e" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="77b945b7-c17d-4627-89f6-dafe89318467" RelationType="NonIdentifying">
+              <Caption InnerId="48a39b25-02b1-45e2-9968-18a47065865f" Physical="" Title="" />
+              <Parent InnerId="6f923b6a-682d-4099-a5dc-552724ad4da2" />
+              <Child InnerId="c5273389-69f4-46b1-a6c3-3e1b55af5638" />
+              <ParentAttributes>
+                <Attribute InnerId="ceb6d9e6-d33e-4caa-97d9-cdf3b8f615ca" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="c332b1c5-6ece-4e26-a36f-d5cd020d09eb" />
+              </ChildAttributes>
+              <Cardinality InnerId="433e91c5-1c13-4d59-8aa5-a07ac8f8c628" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="27437199-756f-4c60-a104-766104537555" RelationType="NonIdentifying">
+              <Caption InnerId="70ac1850-7d59-46ae-b28d-3f9bcb41d596" Physical="" Title="" />
+              <Parent InnerId="84e05606-31cd-44c9-8225-1f7b59394738" />
+              <Child InnerId="c5273389-69f4-46b1-a6c3-3e1b55af5638" />
+              <ParentAttributes>
+                <Attribute InnerId="cf5c56ab-ea8a-46a7-a8ff-c723a3a20751" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="a7f675dd-7372-4c26-a9b2-7ecde563785f" />
+              </ChildAttributes>
+              <Cardinality InnerId="3e745017-6aa6-43d2-a700-95f0d0a23f9d" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="b343e9a9-1b41-45fc-97db-c8cb752baba9" RelationType="NonIdentifying">
+              <Caption InnerId="7c07f6ad-a293-44e8-8540-a10855ffbd3c" Physical="" Title="" />
+              <Parent InnerId="4f9723d7-3324-4384-ba73-7ffd28f1d1f9" />
+              <Child InnerId="42c56ab9-cb2d-4e63-b93b-f0ef8adc4b22" />
+              <ParentAttributes>
+                <Attribute InnerId="213f5888-813d-4f46-a1ac-2ab322973833" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="051cc936-6d5e-41b5-9141-5c3ffeacc1ed" />
+              </ChildAttributes>
+              <Cardinality InnerId="9e12160c-d487-4a66-8734-4f90a08a7d1b" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="1759bac4-027f-43b6-9c68-8abbe6df42f0" RelationType="NonIdentifying">
+              <Caption InnerId="4720787e-ef9a-44e6-b5dc-a423bc113fb9" Physical="" Title="" />
+              <Parent InnerId="84e05606-31cd-44c9-8225-1f7b59394738" />
+              <Child InnerId="42c56ab9-cb2d-4e63-b93b-f0ef8adc4b22" />
+              <ParentAttributes>
+                <Attribute InnerId="cf5c56ab-ea8a-46a7-a8ff-c723a3a20751" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="760f1bd2-c57c-4fc0-83d4-35f5d05cc913" />
+              </ChildAttributes>
+              <Cardinality InnerId="5d5c2e77-4bf3-463a-854c-a14d4a047b99" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="ffff57a6-ee13-4c2a-a694-1cd2e620a51c" RelationType="NonIdentifying">
+              <Caption InnerId="fe1bdd80-0cc4-43de-88c0-0243ae290649" Physical="" Title="" />
+              <Parent InnerId="470ecca8-6c7b-44c4-bdfc-7e6400d0abd8" />
+              <Child InnerId="a274a443-bc20-4db9-8660-9bc34edf222b" />
+              <ParentAttributes>
+                <Attribute InnerId="e85aaa19-9429-4839-ae47-be9fc83e0b6f" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="37bc4739-e5d1-4217-8cd5-4988214de935" />
+              </ChildAttributes>
+              <Cardinality InnerId="6f14dd50-ce5f-467f-b7c2-3968960599d0" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="a1780b50-451e-4226-9be9-e31aec386d1b" RelationType="NonIdentifying">
+              <Caption InnerId="758b8073-5d5f-4503-974d-cb6d8eb0d312" Physical="" Title="" />
+              <Parent InnerId="844a0001-07d5-4b1f-afc7-2746fbc0d7c5" />
+              <Child InnerId="a274a443-bc20-4db9-8660-9bc34edf222b" />
+              <ParentAttributes>
+                <Attribute InnerId="b6ce16a7-7464-44f7-9aec-7fcb47677fd1" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="f904e9b5-7043-442e-b1bd-0b3dc546480a" />
+              </ChildAttributes>
+              <Cardinality InnerId="9ff47551-16ff-440d-8c69-b2e82eaa1f0f" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="ef9d40fe-c2db-4492-8d96-3dcbaec8ce67" RelationType="NonIdentifying">
+              <Caption InnerId="6258de86-053e-4fec-8836-1c63591c2db5" Physical="" Title="" />
+              <Parent InnerId="7f74a34c-e2ab-4d32-a418-6817dca825e2" />
+              <Child InnerId="ecb83eef-3382-49d1-a55c-2138cf78f5cc" />
+              <ParentAttributes>
+                <Attribute InnerId="ce3be9d8-fb2e-44e5-8b1c-f7555e7ccb06" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="19fdf596-e968-4970-b3d5-f7f6398bfcf4" />
+              </ChildAttributes>
+              <Cardinality InnerId="6dffd60e-d707-4238-98c2-6699304e631e" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="76ef5c1a-0b75-47bf-8afd-b9e12b01543d" RelationType="NonIdentifying">
+              <Caption InnerId="83b4a91d-4759-4a47-86c4-ee8bbe37d36d" Physical="" Title="" />
+              <Parent InnerId="a274a443-bc20-4db9-8660-9bc34edf222b" />
+              <Child InnerId="9d41c7bb-b2e6-49bb-8c94-45bf5154d498" />
+              <ParentAttributes>
+                <Attribute InnerId="e06490e5-bcb3-4a9d-ad76-7e5575d1c301" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="1e119f82-b242-4e4f-bebf-dd046b395e6a" />
+              </ChildAttributes>
+              <Cardinality InnerId="45722d40-3eee-4a38-8757-49caf62669ff" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="7474e212-0ec9-4fe5-bec6-1467e68c016b" RelationType="NonIdentifying">
+              <Caption InnerId="0d0158c4-7c65-4a95-a03c-24ab006a61c7" Physical="" Title="" />
+              <Parent InnerId="4f9723d7-3324-4384-ba73-7ffd28f1d1f9" />
+              <Child InnerId="9d41c7bb-b2e6-49bb-8c94-45bf5154d498" />
+              <ParentAttributes>
+                <Attribute InnerId="213f5888-813d-4f46-a1ac-2ab322973833" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="efbd2a88-dded-450a-b804-3bb8625f68e9" />
+              </ChildAttributes>
+              <Cardinality InnerId="cd754869-dfe9-4b58-a279-e9f5c0ba2cd3" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="c72b5cb5-7fd1-4edf-a362-f1caef1084f3" RelationType="NonIdentifying">
+              <Caption InnerId="a5bb163f-e050-4ed0-9245-07a7058d1493" Physical="" Title="" />
+              <Parent InnerId="ad27c0ca-beb3-4078-aecb-9177b9c91c3d" />
+              <Child InnerId="7d8efde6-bcbf-47bc-b44b-38a64877e87f" />
+              <ParentAttributes>
+                <Attribute InnerId="06660769-67a1-4b14-bb11-855c964cf68a" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="67b99703-8f7e-4fa4-9880-19b48c264636" />
+              </ChildAttributes>
+              <Cardinality InnerId="e7c8b25d-3355-44b6-bdaf-a75e173d58f1" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="a630ad8e-7c6c-4bc4-b4e3-471a65d82afe" RelationType="NonIdentifying">
+              <Caption InnerId="5299120c-0575-4911-8dfb-041a522798c0" Physical="" Title="" />
+              <Parent InnerId="7d8efde6-bcbf-47bc-b44b-38a64877e87f" />
+              <Child InnerId="78e645f0-c6f0-4c68-847b-705f8afb4d1c" />
+              <ParentAttributes>
+                <Attribute InnerId="e8fb7e45-a842-47a0-a4ab-895e749981aa" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="02e56abb-53db-435c-89da-eebf341d8438" />
+              </ChildAttributes>
+              <Cardinality InnerId="0067722b-e457-4da6-b582-3275334c0d5e" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="aa7766ac-0c3b-477e-a01c-48391bbee943" RelationType="NonIdentifying">
+              <Caption InnerId="658c31ad-50a2-4e3b-8b64-6755ab85edf6" Physical="" Title="" />
+              <Parent InnerId="a998c6f5-c2b9-4def-ad40-00ecd8481fc8" />
+              <Child InnerId="78e645f0-c6f0-4c68-847b-705f8afb4d1c" />
+              <ParentAttributes>
+                <Attribute InnerId="c3d32e57-855b-412a-881a-9fefd0e9fa04" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="3db82fae-d1f7-4a12-b56e-8553ce09180f" />
+              </ChildAttributes>
+              <Cardinality InnerId="a3d12396-7058-4cfe-8278-f75ebcb01c93" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="c494f027-3289-4ad7-ac55-300a9f55a6e5" RelationType="NonIdentifying">
+              <Caption InnerId="07182d67-d600-4c45-90bf-b50d0ccfb451" Physical="" Title="" />
+              <Parent InnerId="6f923b6a-682d-4099-a5dc-552724ad4da2" />
+              <Child InnerId="78e645f0-c6f0-4c68-847b-705f8afb4d1c" />
+              <ParentAttributes>
+                <Attribute InnerId="ceb6d9e6-d33e-4caa-97d9-cdf3b8f615ca" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="3fd8d250-6a9d-442d-ac0a-c21bf37df84c" />
+              </ChildAttributes>
+              <Cardinality InnerId="1001afd7-34cc-4608-bc75-449dbf8f2ea3" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="16f88a1c-9783-415a-9b66-5552967ed829" RelationType="NonIdentifying">
+              <Caption InnerId="2102d2f1-645f-4e4f-9eb8-cc42711e7ae2" Physical="" Title="" />
+              <Parent InnerId="7f74a34c-e2ab-4d32-a418-6817dca825e2" />
+              <Child InnerId="3b022525-8e08-48e4-b8a0-9867ef7b6b4d" />
+              <ParentAttributes>
+                <Attribute InnerId="ce3be9d8-fb2e-44e5-8b1c-f7555e7ccb06" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="1ee32050-1d2c-49da-a13f-ff104618c472" />
+              </ChildAttributes>
+              <Cardinality InnerId="f0d63d0f-be54-4765-9e6a-259cb3182bb6" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="34632cd0-1ae5-4302-8041-4d52d4684887" RelationType="NonIdentifying">
+              <Caption InnerId="8cf84412-412f-44d4-bb35-ff1b48580ba6" Physical="" Title="" />
+              <Parent InnerId="78e645f0-c6f0-4c68-847b-705f8afb4d1c" />
+              <Child InnerId="3b022525-8e08-48e4-b8a0-9867ef7b6b4d" />
+              <ParentAttributes>
+                <Attribute InnerId="2b14f7f3-4be9-4a4f-ac30-562418bad89d" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="0f2bb46b-be2e-4958-ba55-b0773a1aff88" />
+              </ChildAttributes>
+              <Cardinality InnerId="732b061f-3037-4c9d-bda8-9699c2c57752" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="87e8563b-5c3d-48f3-8086-ee6535d75ea2" RelationType="NonIdentifying">
+              <Caption InnerId="c299bea9-5917-4455-864d-43aab7981ae8" Physical="" Title="" />
+              <Parent InnerId="7f74a34c-e2ab-4d32-a418-6817dca825e2" />
+              <Child InnerId="7d9b6f90-0a83-480c-a48b-2a33858de787" />
+              <ParentAttributes>
+                <Attribute InnerId="ce3be9d8-fb2e-44e5-8b1c-f7555e7ccb06" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="91e3aa2e-1cad-45b7-993d-e2a1482561a8" />
+              </ChildAttributes>
+              <Cardinality InnerId="c90908f9-313e-4285-b0de-45e2fa1c9fab" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="a899215c-b1c7-4b9b-bcf8-e87c6f55c86c" RelationType="NonIdentifying">
+              <Caption InnerId="723a0c26-f8d4-4126-a490-2852e7184924" Physical="" Title="" />
+              <Parent InnerId="78e645f0-c6f0-4c68-847b-705f8afb4d1c" />
+              <Child InnerId="7d9b6f90-0a83-480c-a48b-2a33858de787" />
+              <ParentAttributes>
+                <Attribute InnerId="2b14f7f3-4be9-4a4f-ac30-562418bad89d" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="0fddb770-cc53-45b2-b87a-1fa827d1039d" />
+              </ChildAttributes>
+              <Cardinality InnerId="55c51078-ccfa-4e73-b034-f4209a0d6be3" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="f5e487a4-55ed-4bc7-8a62-ce2ee6fc1690" RelationType="NonIdentifying">
+              <Caption InnerId="773cc87d-4e9d-4201-bcdb-9c2167074a97" Physical="" Title="" />
+              <Parent InnerId="3bae2c8f-c4d9-48bb-bc59-6bce1292fa4a" />
+              <Child InnerId="5c48c912-635a-4419-9b01-6f657c0183e9" />
+              <ParentAttributes>
+                <Attribute InnerId="09f9b988-cb26-4cf8-955d-5efeddaf5a0f" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="e6d5e10e-2431-426f-aab2-9be2d93ea67a" />
+              </ChildAttributes>
+              <Cardinality InnerId="526e6598-beca-4f90-bbd6-4ee74dbd036d" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="1e8bb2d5-c75c-40bc-b46c-d7c3debc6046" RelationType="NonIdentifying">
+              <Caption InnerId="edfcc157-4acd-4297-a384-b6dbe0949fae" Physical="" Title="" />
+              <Parent InnerId="78e645f0-c6f0-4c68-847b-705f8afb4d1c" />
+              <Child InnerId="5c48c912-635a-4419-9b01-6f657c0183e9" />
+              <ParentAttributes>
+                <Attribute InnerId="2b14f7f3-4be9-4a4f-ac30-562418bad89d" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="d5808341-a187-4213-b513-dd98b8b15b6a" />
+              </ChildAttributes>
+              <Cardinality InnerId="a6987e61-ab05-4884-8f55-73d61c83cd66" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="30a071a3-dedf-4795-a010-b74537704cd5" RelationType="NonIdentifying">
+              <Caption InnerId="94aedfc7-ab40-440a-9c9a-f55193d2e3de" Physical="" Title="" />
+              <Parent InnerId="42c0135d-5295-452d-9e60-0c32b150f807" />
+              <Child InnerId="5d68b15e-d7c2-4853-96dd-e28b9466b149" />
+              <ParentAttributes>
+                <Attribute InnerId="20da945f-fe6c-4fdf-ad27-8d4c9c9f0ed5" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="16d5fd54-a98d-4e7b-a234-35e0439d0853" />
+              </ChildAttributes>
+              <Cardinality InnerId="1f94742b-5964-4c1a-812e-e52fc7202788" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="10dbb1ea-67a7-47ee-a976-0ed2640bd446" RelationType="NonIdentifying">
+              <Caption InnerId="bd5b3274-32e7-4cc7-8f25-cd2b0b5752c5" Physical="" Title="" />
+              <Parent InnerId="42c0135d-5295-452d-9e60-0c32b150f807" />
+              <Child InnerId="39dcd850-f80d-4b41-adc3-34adfcf09d16" />
+              <ParentAttributes>
+                <Attribute InnerId="20da945f-fe6c-4fdf-ad27-8d4c9c9f0ed5" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="69d7a445-bfc4-4278-bfbd-c80d9e1cc4ec" />
+              </ChildAttributes>
+              <Cardinality InnerId="653d1db7-010e-4d7c-be43-36ba361d5089" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+            <Relation InnerId="5651641e-ecdc-4e13-9a06-bc7c5646be90" RelationType="NonIdentifying">
+              <Caption InnerId="43a8ad3a-7107-45e7-b391-642e3f950a21" Physical="" Title="" />
+              <Parent InnerId="acaa12cf-2285-4003-8d32-a2ffed6e7052" />
+              <Child InnerId="e5e6693f-516c-4e10-9ae1-0eb98a1e4af3" />
+              <ParentAttributes>
+                <Attribute InnerId="41558fdd-b516-4827-b555-f83daa75a453" />
+              </ParentAttributes>
+              <ChildAttributes>
+                <Attribute InnerId="ce7dc377-ef8f-45fb-8837-0992eff55918" />
+              </ChildAttributes>
+              <Cardinality InnerId="0c053af1-7968-46a6-8cd4-a9c773d1b403" ParentFrom="0" ChildFrom="0" ChildTo="N" />
+            </Relation>
+          </Relations>
+        </DataModel>
+      </ModelViewState>
+    </Version>
+  </Versions>
+</DatabaseDocument>

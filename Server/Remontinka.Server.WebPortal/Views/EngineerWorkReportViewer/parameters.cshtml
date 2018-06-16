@@ -1,0 +1,34 @@
+﻿@model Remontinka.Server.WebPortal.Models.EngineerWorkReport.EngineerWorkReportParameters
+@Html.DevExpress().FormLayout(settings =>
+{
+    settings.SetDefaultSettings(Model.Token);
+    settings.Name = "EngineerWorkReportLayout";
+    settings.ColCount = 2;
+    settings.Items.Add(m => m.EngineerWorkReportBeginDate, i =>
+    {
+        i.NestedExtension().DateEdit(e =>
+        {
+            e.SetDefaultSettings(Model.Token);
+        });
+    });
+
+    settings.Items.Add(m => m.EngineerWorkReportEndDate, i =>
+    {
+        i.NestedExtension().DateEdit(e =>
+        {
+            e.SetDefaultSettings(Model.Token);
+        });
+    });
+
+    settings.Items.Add(m => Model.EngineerWorkReportUserID, i =>
+        {
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.SetDefaultSettings(Model.Token);
+                s.Properties.TextField = "Text";
+                s.Properties.ValueField = "Value";
+                s.Properties.ValueType = typeof(Guid?);
+                s.Properties.DataSource = Model.Engineers;
+            });
+        });
+}).Bind(Model).GetHtml()

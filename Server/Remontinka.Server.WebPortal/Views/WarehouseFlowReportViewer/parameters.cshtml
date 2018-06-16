@@ -1,0 +1,35 @@
+﻿@model Remontinka.Server.WebPortal.Models.WarehouseFlowReport.WarehouseFlowReportParameters
+@Html.DevExpress().FormLayout(settings =>
+{
+    settings.SetDefaultSettings(Model.Token);
+    settings.Name = "WarehouseFlowReportLayout";
+    settings.ColCount = 2;
+    settings.Items.Add(m => m.BeginDate, i =>
+    {
+        i.NestedExtension().DateEdit(e =>
+        {
+            e.SetDefaultSettings(Model.Token);
+        });
+    });
+
+    settings.Items.Add(m => m.EndDate, i =>
+    {
+        i.NestedExtension().DateEdit(e =>
+        {
+            e.SetDefaultSettings(Model.Token);
+        });
+    });
+
+    settings.Items.Add(m => Model.WarehouseID, i =>
+        {
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.SetDefaultSettings(Model.Token);
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "WarehouseID";
+                s.Properties.ValueType = typeof(Guid?);
+                s.Properties.DataSource = Model.Warehouses;
+            });
+        });
+
+}).Bind(Model).GetHtml()

@@ -1,0 +1,9 @@
+﻿@using Romontinka.Server.WebSite.Models.WorkItemForm
+@model WorkItemCreateModel
+@Html.HiddenFor(m=>m.Id)
+@Html.HiddenFor(m=>m.RepairOrderID)
+@Html.EditorFor(m=>m.WorkItemUserID)
+@Html.EditorFor(m=>m.WorkItemTitle)
+@Html.EditorFor(m=>m.WorkItemPrice)
+@Html.EditorFor(m=>m.WorkItemEventDate)
+@Html.EditorFor(m=>m.WorkItemNotes)

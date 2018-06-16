@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4F2B4DD1-D288-47D6-92EA-87C849764042}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Remontinka.Client.Core</RootNamespace>
+    <AssemblyName>Remontinka.Client.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Build\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CLIENT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\Release\</OutputPath>
+    <DefineConstants>TRACE;CLIENT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\External\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\External\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Server\Romontinka.Server.Core\IOrderTimelineManager.cs">
+      <Link>IOrderTimelineManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Server\Romontinka.Server.WebSite\Services\HTMLReportService.cs">
+      <Link>Services\HTMLReportService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Server\Romontinka.Server.WebSite\Services\OrderTimelineManager.cs">
+      <Link>Services\OrderTimelineManager.cs</Link>
+    </Compile>
+    <Compile Include="AuthComplitedEventArgs.cs" />
+    <Compile Include="AuthToken.cs" />
+    <Compile Include="ClientCore.cs" />
+    <Compile Include="Context\BranchContextItem.cs" />
+    <Compile Include="Context\ContextConstants.cs" />
+    <Compile Include="Context\ContextItemBase.cs" />
+    <Compile Include="Context\ContextStringBuilder.cs" />
+    <Compile Include="Context\RepairOrderContextItem.cs" />
+    <Compile Include="Context\SimpleContextItem.cs" />
+    <Compile Include="Context\StringExtention.cs" />
+    <Compile Include="Context\TodayContextItem.cs" />
+    <Compile Include="ErrorEventArgs.cs" />
+    <Compile Include="IAuthService.cs" />
+    <Compile Include="ICryptoService.cs" />
+    <Compile Include="IDataStore.cs" />
+    <Compile Include="IHTMLReportService.cs" />
+    <Compile Include="IModelConfiguration.cs" />
+    <Compile Include="InfoEventArgs.cs" />
+    <Compile Include="Interception\BindableModelObject.cs" />
+    <Compile Include="Interception\ModelObject.cs" />
+    <Compile Include="Interception\ModelResolver.cs" />
+    <Compile Include="Interception\NotifyPropertyChangedAttribute.cs" />
+    <Compile Include="Interception\NotifyPropertyChangedHandler.cs" />
+    <Compile Include="Interception\PerformValidationAttribute.cs" />
+    <Compile Include="Interception\PerformValidationCallHandler.cs" />
+    <Compile Include="Interception\SelfPropertyChangedAttribute.cs" />
+    <Compile Include="Interception\SelfPropertyChangedCallHandler.cs" />
+    <Compile Include="Interception\UnityHelper.cs" />
+    <Compile Include="Interception\ValueChangedEventArgs.cs" />
+    <Compile Include="IRemontinkaService.cs" />
+    <Compile Include="ISyncService.cs" />
+    <Compile Include="IUserNotifier.cs" />
+    <Compile Include="IWebClient.cs" />
+    <Compile Include="LoggerUtils.cs" />
+    <Compile Include="LongOperation.cs" />
+    <Compile Include="Models\SyncItemContainer.cs" />
+    <Compile Include="Models\SyncItemModelKind.cs" />
+    <Compile Include="Models\SyncItemStatus.cs" />
+    <Compile Include="Models\SyncModelDescriptor.cs" />
+    <Compile Include="Numbers\RusNumber.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceReader.cs" />
+    <Compile Include="ResponseAuthException.cs" />
+    <Compile Include="ResponseErrorException.cs" />
+    <Compile Include="SecurityToken.cs" />
+    <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Services\ClientMessageSignVisitor.cs" />
+    <Compile Include="Services\CryptoService.cs" />
+    <Compile Include="Services\RemontinkaService.cs" />
+    <Compile Include="Services\SyncService.cs" />
+    <Compile Include="Services\WebClientService.cs" />
+    <Compile Include="LocationUtils.cs" />
+    <Compile Include="StreamUtils.cs" />
+    <Compile Include="SyncItemDescriptionChangedEventArgs.cs" />
+    <Compile Include="SyncItemStatusChangedEventArgs.cs" />
+    <Compile Include="SyncProcessFinishedEventArgs.cs" />
+    <Compile Include="UserRegistredEventArgs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Server\Remontinka.Server.Crypto\Remontinka.Server.Crypto.csproj">
+      <Project>{D8444CA5-4581-4B87-83A2-7D30C59F1D5C}</Project>
+      <Name>Remontinka.Server.Crypto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Server\Romontinka.Server.Protocol\Romontinka.Server.Protocol.csproj">
+      <Project>{7457CDAA-7A73-404F-BD27-0B38CD984BF0}</Project>
+      <Name>Romontinka.Server.Protocol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Remontinka.Client.DataLayer.Entities\Remontinka.Client.DataLayer.Entities.csproj">
+      <Project>{6E042EFF-1E2F-48C5-BD36-6F47CC086895}</Project>
+      <Name>Remontinka.Client.DataLayer.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

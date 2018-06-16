@@ -1,0 +1,44 @@
+﻿@using System.Globalization
+@using Romontinka.Server.WebSite.Metadata
+@{
+    Layout = "Template.Master.cshtml";
+    
+    var classes = string.Empty;
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(EditorHtmlClassAttribute.ClassNamesKey))
+    {
+        classes = (string)ViewData.ModelMetadata.AdditionalValues[EditorHtmlClassAttribute.ClassNamesKey];
+    } //if
+    
+    LookupModel model = null;
+
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(SimpleLookupAttribute.SimpleLookupKey))
+    {
+        model = (LookupModel)ViewData.ModelMetadata.AdditionalValues[SimpleLookupAttribute.SimpleLookupKey];
+    } //if
+
+    if (model==null)
+    {
+        model = new LookupModel{MinLenght = 1};
+    } //if
+    
+    model.Property = ViewData.ModelMetadata.PropertyName;
+    model.PropertyValue = String.Format(CultureInfo.InvariantCulture, "{0}", ViewData.ModelMetadata.Model);
+    model.EditorClasses = classes;
+    model.CreateValidation = true;
+
+    var attrs = Html.GetUnobtrusiveValidationAttributes(ViewData.ModelMetadata.PropertyName, ViewData.ModelMetadata);
+    
+    if (model.HtmlAttributes==null)
+    {
+        model.HtmlAttributes = attrs;
+    } //if
+    else
+    {
+        foreach (var attr in attrs)
+        {
+            model.HtmlAttributes[attr.Key] = attr.Value;
+        } //foreach
+    } //else
+    
+}
+@Html.Lookup(model)

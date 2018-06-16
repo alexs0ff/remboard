@@ -1,0 +1,7 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+@{
+    ViewBag.Title = "Отчет по исполнителям";
+}
+
+<h1>Отчет по исполнителям</h1>
+@Html.DevexpressReport(EngineerWorkReportViewerController.ControllerName)

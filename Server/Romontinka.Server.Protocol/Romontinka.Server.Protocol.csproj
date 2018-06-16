@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7457CDAA-7A73-404F-BD27-0B38CD984BF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Romontinka.Server.Protocol</RootNamespace>
+    <AssemblyName>Romontinka.Server.Protocol</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Build\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthMessages\AuthErrorResponse.cs" />
+    <Compile Include="AuthMessages\ProbeKeyActivationRequest.cs" />
+    <Compile Include="AuthMessages\ProbeKeyActivationResponse.cs" />
+    <Compile Include="AuthMessages\RegisterPublicKeyRequest.cs" />
+    <Compile Include="AuthMessages\RegisterPublicKeyResponse.cs" />
+    <Compile Include="ErrorResponse.cs" />
+    <Compile Include="MessageKind.cs" />
+    <Compile Include="MessageParseException.cs" />
+    <Compile Include="MessageSignVisitorBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProtocolSerializer.cs" />
+    <Compile Include="MessageBase.cs" />
+    <Compile Include="MessageInfo.cs" />
+    <Compile Include="ProtocolVersion.cs" />
+    <Compile Include="SignedRequestBase.cs" />
+    <Compile Include="SynchronizationMessages\BranchDTO.cs" />
+    <Compile Include="SynchronizationMessages\CustomReportItemDTO.cs" />
+    <Compile Include="SynchronizationMessages\DeviceItemDTO.cs" />
+    <Compile Include="SynchronizationMessages\DeviceItemServerHashDTO.cs" />
+    <Compile Include="SynchronizationMessages\DomainUserDTO.cs" />
+    <Compile Include="SynchronizationMessages\FinancialGroupWarehouseMapItemDTO.cs" />
+    <Compile Include="SynchronizationMessages\GetCustomReportItemRequest.cs" />
+    <Compile Include="SynchronizationMessages\GetCustomReportItemResponse.cs" />
+    <Compile Include="SynchronizationMessages\GetFinancialGroupBranchesRequest.cs" />
+    <Compile Include="SynchronizationMessages\GetFinancialGroupBranchesResponse.cs" />
+    <Compile Include="SynchronizationMessages\FinancialGroupBranchMapItemDTO.cs" />
+    <Compile Include="SynchronizationMessages\FinancialGroupItemDTO.cs" />
+    <Compile Include="SynchronizationMessages\GetDomainUsersRequest.cs" />
+    <Compile Include="SynchronizationMessages\GetDomainUsersResponse.cs" />
+    <Compile Include="SynchronizationMessages\GetGoodsItemRequest.cs" />
+    <Compile Include="SynchronizationMessages\GetGoodsItemResponse.cs" />
+    <Compile Include="SynchronizationMessages\GetOrderStatusesRequest.cs" />
+    <Compile Include="SynchronizationMessages\GetOrderStatusesResponse.cs" />
+    <Compile Include="SynchronizationMessages\GetRepairOrdersRequest.cs" />
+    <Compile Include="SynchronizationMessages\GetRepairOrdersResponse.cs" />
+    <Compile Include="SynchronizationMessages\GetServerRepairOrderHashesRequest.cs" />
+    <Compile Include="SynchronizationMessages\GetServerRepairOrderHashesResponse.cs" />
+    <Compile Include="SynchronizationMessages\GetUserBranchesRequest.cs" />
+    <Compile Include="SynchronizationMessages\GetUserBranchesResponse.cs" />
+    <Compile Include="SynchronizationMessages\GetWarehouseItemsRequest.cs" />
+    <Compile Include="SynchronizationMessages\GetWarehouseItemsResponse.cs" />
+    <Compile Include="SynchronizationMessages\GetWarehousesRequest.cs" />
+    <Compile Include="SynchronizationMessages\GetWarehousesResponse.cs" />
+    <Compile Include="SynchronizationMessages\GoodsItemDTO.cs" />
+    <Compile Include="SynchronizationMessages\ItemCategoryDTO.cs" />
+    <Compile Include="SynchronizationMessages\OrderKindDTO.cs" />
+    <Compile Include="SynchronizationMessages\OrderStatusDTO.cs" />
+    <Compile Include="SynchronizationMessages\OrderTimelineDTO.cs" />
+    <Compile Include="SynchronizationMessages\RepairOrderDTO.cs" />
+    <Compile Include="SynchronizationMessages\RepairOrderServerHashDTO.cs" />
+    <Compile Include="SynchronizationMessages\SaveRepairOrderRequest.cs" />
+    <Compile Include="SynchronizationMessages\SaveRepairOrderResponse.cs" />
+    <Compile Include="SynchronizationMessages\UserBranchMapItemDTO.cs" />
+    <Compile Include="SynchronizationMessages\WarehouseDTO.cs" />
+    <Compile Include="SynchronizationMessages\WarehouseItemDTO.cs" />
+    <Compile Include="SynchronizationMessages\WorkItemDTO.cs" />
+    <Compile Include="SynchronizationMessages\WorkItemServerHashDTO.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

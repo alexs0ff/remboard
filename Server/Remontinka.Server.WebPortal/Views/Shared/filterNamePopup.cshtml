@@ -1,0 +1,38 @@
+﻿@model Remontinka.Server.WebPortal.Models.Common.FilterNamePopupModel
+@{
+    var textBoxName = Model.GridName + "TextFilterNameBox";
+}
+@Html.DevExpress().PopupControl(settings =>
+{
+    settings.SetDefaultSettings(Model.Token);
+    settings.Name = Model.PopupName;
+    settings.HeaderText = "Сохранение фильтра";
+    settings.Width = Unit.Pixel(500);
+    settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+    settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+
+    settings.SetContent(() =>
+    {
+        Html.DevExpress().FormLayout(l =>
+        {
+            l.SetDefaultSettings(Model.Token);
+            l.Name = Model.PopupName + "FormLayout";
+            l.Items.Add(m => m.FilterName, s =>
+            {
+                s.Name = textBoxName;
+                s.NestedExtension().TextBox(st =>
+                {
+                    st.SetDefaultSettings(Model.Token);
+                });
+            });
+        }).Render();
+    });
+
+    var comboboxName = Model.GridName + "FilterComboBox";
+    UrlHelper u = new UrlHelper(ViewContext.Controller.ControllerContext.RequestContext);
+    var url = u.Action("SaveCurrentFilter", Model.ControllerName);
+    var clickFunct = string.Format("function(s, e) {{ jCrudEngine.saveCurrentFilter({0},{1},{2},'{3}');{4}.Hide(); }}", Model.GridName, textBoxName, comboboxName, url, Model.PopupName);
+
+    settings.InitEditButtonsOnFooter(Model.Token, Html, clickFunct);
+
+}).GetHtml()

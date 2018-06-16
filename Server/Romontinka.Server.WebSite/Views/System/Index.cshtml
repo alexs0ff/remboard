@@ -1,0 +1,102 @@
+﻿@using Romontinka.Server.WebSite.Controllers
+@model Romontinka.Server.WebSite.Models.SystemForm.SystemModel
+
+@{
+    ViewBag.Title = "Системные настройки";
+    var editDialogId = "registrationInfoEditDialog";
+    var editFormId = "registrationInfoEditForm";
+}
+
+@section Scripts{
+    
+    <script type="text/javascript">
+        
+         function showEditDialog() {
+         jCrudEngine.showEditModelDialog("@Url.Action("GetItemForm", RegistrationInfoController.ControllerName)", { id: null }, "@editFormId", "@editDialogId",
+             function(fData) {
+
+             }
+            ); 
+
+}
+
+function startEditEntity(serializedData) {
+     jCrudEngine.saveDataEditModelDialog("@Url.Action("SaveEditItem", RegistrationInfoController.ControllerName)",serializedData,"@editFormId","@editDialogId",
+            function(fData){
+                $("#RegistrationInfoAddress").html(fData.Item.Address);
+                $("#RegistrationInfoTrademark").html(fData.Item.Trademark);
+                $("#RegistrationInfoLegalName").html(fData.Item.LegalName);
+                $("#RegistrationInfoEmail").html(fData.Item.Email);
+            }
+            );
+ }
+
+
+        $(function() {
+            $("#systemitems").tabs();
+        });
+
+        function startExport() {
+          if ($("#exportForm").valid()) {
+              var lfm = $("#exportForm").serialize();
+              var url = '@Url.Action("StartExport",ExportDataController.ControllerName)' + '?' + lfm;
+              $(location).attr('href', url);
+          }
+        }
+
+    </script>
+}
+<div id="systemitems">
+   <ul>
+    <li><a href="#registrationtab">Данные регистрации</a></li>
+    <li><a href="#exporttab">Экспорт</a></li>    
+  </ul>
+    <div id="registrationtab">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Параметр</th>
+                    <th>Значение</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Логин регистрации</td>
+                    <td>@Model.RegistrationInfoModel.Login</td>
+                </tr>
+                <tr>
+                    <td>Email регистрации</td>
+                    <td id="RegistrationInfoMail">@Model.RegistrationInfoModel.Email</td>
+                </tr>
+                <tr>
+                    <td>Юридическое наименование</td>
+                    <td id="RegistrationInfoLegalName">@Model.RegistrationInfoModel.LegalName</td>
+                </tr>
+                <tr>
+                    <td>Торговая марка</td>
+                    <td id="RegistrationInfoTrademark">@Model.RegistrationInfoModel.Trademark</td>
+                </tr>
+                <tr>
+                    <td>Адрес</td>
+                    <td id="RegistrationInfoAddress">@Model.RegistrationInfoModel.Address</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="#" onclick="showEditDialog();return false;" class="btn btn-medium" title="Редактирование данных">
+                Редактировать
+            </a>
+    </div>
+    <div id="exporttab">
+        <form id="exportForm">
+            @Html.EditorFor(m => m.ExportModel.BeginDate, null, "BeginDate")
+            @Html.EditorFor(m => m.ExportModel.EndDate, null, "EndDate")
+            @Html.EditorFor(m => m.ExportModel.Kind,null,"Kind")
+            
+            <a href="#" onclick="startExport();return false;" class="btn btn-medium" title="Получить файл">
+            Получить файл
+        </a>
+        </form>
+    </div>
+</div>
+@Html.EditModelDialog(editDialogId, "Редактирование", "Сохранить", "Отмена", editFormId, "startEditEntity", false, 400,500, false)
+

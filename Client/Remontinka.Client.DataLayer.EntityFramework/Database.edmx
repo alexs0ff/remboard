@@ -1,0 +1,1924 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SQLite" ProviderManifestToken="ISO8601" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DataModelStoreContainer">
+          <EntitySet Name="Branch" EntityType="DataModel.Store.Branch" store:Type="Tables" />
+          <EntitySet Name="CustomReport" EntityType="DataModel.Store.CustomReport" store:Type="Tables" />
+          <EntitySet Name="DeviceItem" EntityType="DataModel.Store.DeviceItem" store:Type="Tables" />
+          <EntitySet Name="DeviceItemServerHash" EntityType="DataModel.Store.DeviceItemServerHash" store:Type="Tables" />
+          <EntitySet Name="DimensionKind" EntityType="DataModel.Store.DimensionKind" store:Type="Tables" />
+          <EntitySet Name="DocumentKind" EntityType="DataModel.Store.DocumentKind" store:Type="Tables" />
+          <EntitySet Name="FinancialGroup" EntityType="DataModel.Store.FinancialGroup" store:Type="Tables" />
+          <EntitySet Name="FinancialGroupBranchMap" EntityType="DataModel.Store.FinancialGroupBranchMap" store:Type="Tables" />
+          <EntitySet Name="FinancialGroupWarehouseMap" EntityType="DataModel.Store.FinancialGroupWarehouseMap" store:Type="Tables" />
+          <EntitySet Name="GoodsItem" EntityType="DataModel.Store.GoodsItem" store:Type="Tables" />
+          <EntitySet Name="ItemCategory" EntityType="DataModel.Store.ItemCategory" store:Type="Tables" />
+          <EntitySet Name="OrderKind" EntityType="DataModel.Store.OrderKind" store:Type="Tables" />
+          <EntitySet Name="OrderStatus" EntityType="DataModel.Store.OrderStatus" store:Type="Tables" />
+          <EntitySet Name="OrderTimeline" EntityType="DataModel.Store.OrderTimeline" store:Type="Tables" />
+          <EntitySet Name="ProjectRole" EntityType="DataModel.Store.ProjectRole" store:Type="Tables" />
+          <EntitySet Name="RepairOrder" EntityType="DataModel.Store.RepairOrder" store:Type="Tables" />
+          <EntitySet Name="RepairOrderServerHash" EntityType="DataModel.Store.RepairOrderServerHash" store:Type="Tables" />
+          <EntitySet Name="StatusKind" EntityType="DataModel.Store.StatusKind" store:Type="Tables" />
+          <EntitySet Name="SyncOperation" EntityType="DataModel.Store.SyncOperation" store:Type="Tables" />
+          <EntitySet Name="TimelineKind" EntityType="DataModel.Store.TimelineKind" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="DataModel.Store.User" store:Type="Tables" />
+          <EntitySet Name="UserBranchMap" EntityType="DataModel.Store.UserBranchMap" store:Type="Tables" />
+          <EntitySet Name="UserKey" EntityType="DataModel.Store.UserKey" store:Type="Tables" />
+          <EntitySet Name="Warehouse" EntityType="DataModel.Store.Warehouse" store:Type="Tables" />
+          <EntitySet Name="WarehouseItem" EntityType="DataModel.Store.WarehouseItem" store:Type="Tables" />
+          <EntitySet Name="WorkItem" EntityType="DataModel.Store.WorkItem" store:Type="Tables" />
+          <EntitySet Name="WorkItemServerHash" EntityType="DataModel.Store.WorkItemServerHash" store:Type="Tables" />
+          <AssociationSet Name="FK_CustomReport_0_0" Association="DataModel.Store.FK_CustomReport_0_0">
+            <End Role="DocumentKind" EntitySet="DocumentKind" />
+            <End Role="CustomReport" EntitySet="CustomReport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceItem_0_0" Association="DataModel.Store.FK_DeviceItem_0_0">
+            <End Role="RepairOrder" EntitySet="RepairOrder" />
+            <End Role="DeviceItem" EntitySet="DeviceItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceItem_1_0" Association="DataModel.Store.FK_DeviceItem_1_0">
+            <End Role="User" EntitySet="User" />
+            <End Role="DeviceItem" EntitySet="DeviceItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceItemServerHash_0_0" Association="DataModel.Store.FK_DeviceItemServerHash_0_0">
+            <End Role="RepairOrderServerHash" EntitySet="RepairOrderServerHash" />
+            <End Role="DeviceItemServerHash" EntitySet="DeviceItemServerHash" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinancialGroupBranchMap_0_0" Association="DataModel.Store.FK_FinancialGroupBranchMap_0_0">
+            <End Role="FinancialGroup" EntitySet="FinancialGroup" />
+            <End Role="FinancialGroupBranchMap" EntitySet="FinancialGroupBranchMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinancialGroupBranchMap_1_0" Association="DataModel.Store.FK_FinancialGroupBranchMap_1_0">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="FinancialGroupBranchMap" EntitySet="FinancialGroupBranchMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinancialGroupWarehouseMap_0_0" Association="DataModel.Store.FK_FinancialGroupWarehouseMap_0_0">
+            <End Role="FinancialGroup" EntitySet="FinancialGroup" />
+            <End Role="FinancialGroupWarehouseMap" EntitySet="FinancialGroupWarehouseMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinancialGroupWarehouseMap_1_0" Association="DataModel.Store.FK_FinancialGroupWarehouseMap_1_0">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="FinancialGroupWarehouseMap" EntitySet="FinancialGroupWarehouseMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GoodsItem_0_0" Association="DataModel.Store.FK_GoodsItem_0_0">
+            <End Role="DimensionKind" EntitySet="DimensionKind" />
+            <End Role="GoodsItem" EntitySet="GoodsItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GoodsItem_1_0" Association="DataModel.Store.FK_GoodsItem_1_0">
+            <End Role="ItemCategory" EntitySet="ItemCategory" />
+            <End Role="GoodsItem" EntitySet="GoodsItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderStatus_0_0" Association="DataModel.Store.FK_OrderStatus_0_0">
+            <End Role="StatusKind" EntitySet="StatusKind" />
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderTimeline_0_0" Association="DataModel.Store.FK_OrderTimeline_0_0">
+            <End Role="RepairOrder" EntitySet="RepairOrder" />
+            <End Role="OrderTimeline" EntitySet="OrderTimeline" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderTimeline_1_0" Association="DataModel.Store.FK_OrderTimeline_1_0">
+            <End Role="TimelineKind" EntitySet="TimelineKind" />
+            <End Role="OrderTimeline" EntitySet="OrderTimeline" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepairOrder_0_0" Association="DataModel.Store.FK_RepairOrder_0_0">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="RepairOrder" EntitySet="RepairOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepairOrder_1_0" Association="DataModel.Store.FK_RepairOrder_1_0">
+            <End Role="OrderKind" EntitySet="OrderKind" />
+            <End Role="RepairOrder" EntitySet="RepairOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepairOrder_2_0" Association="DataModel.Store.FK_RepairOrder_2_0">
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
+            <End Role="RepairOrder" EntitySet="RepairOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SyncOperation_0_0" Association="DataModel.Store.FK_SyncOperation_0_0">
+            <End Role="User" EntitySet="User" />
+            <End Role="SyncOperation" EntitySet="SyncOperation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_0_0" Association="DataModel.Store.FK_User_0_0">
+            <End Role="ProjectRole" EntitySet="ProjectRole" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserBranchMap_0_0" Association="DataModel.Store.FK_UserBranchMap_0_0">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="UserBranchMap" EntitySet="UserBranchMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserBranchMap_1_0" Association="DataModel.Store.FK_UserBranchMap_1_0">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserBranchMap" EntitySet="UserBranchMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserKey_0_0" Association="DataModel.Store.FK_UserKey_0_0">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserKey" EntitySet="UserKey" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WarehouseItem_0_0" Association="DataModel.Store.FK_WarehouseItem_0_0">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="WarehouseItem" EntitySet="WarehouseItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WarehouseItem_1_0" Association="DataModel.Store.FK_WarehouseItem_1_0">
+            <End Role="GoodsItem" EntitySet="GoodsItem" />
+            <End Role="WarehouseItem" EntitySet="WarehouseItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkItem_0_0" Association="DataModel.Store.FK_WorkItem_0_0">
+            <End Role="RepairOrder" EntitySet="RepairOrder" />
+            <End Role="WorkItem" EntitySet="WorkItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkItem_1_0" Association="DataModel.Store.FK_WorkItem_1_0">
+            <End Role="User" EntitySet="User" />
+            <End Role="WorkItem" EntitySet="WorkItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkItemServerHash_0_0" Association="DataModel.Store.FK_WorkItemServerHash_0_0">
+            <End Role="RepairOrderServerHash" EntitySet="RepairOrderServerHash" />
+            <End Role="WorkItemServerHash" EntitySet="WorkItemServerHash" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchID" />
+          </Key>
+          <Property Name="BranchID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="LegalName" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CustomReport">
+          <Key>
+            <PropertyRef Name="CustomReportID" />
+          </Key>
+          <Property Name="CustomReportID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="HtmlContent" Type="nvarchar" Nullable="false" MaxLength="10000" />
+          <Property Name="DocumentKindID" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceItem">
+          <Key>
+            <PropertyRef Name="DeviceItemID" />
+          </Key>
+          <Property Name="DeviceItemID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Count" Type="float" Nullable="false" />
+          <Property Name="CostPrice" Type="float" />
+          <Property Name="EventDate" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="WarehouseItemID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RepairOrderID" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DeviceItemServerHash">
+          <Key>
+            <PropertyRef Name="DeviceItemServerHashID" />
+          </Key>
+          <Property Name="DeviceItemServerHashID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DataHash" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RepairOrderServerHashID" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DimensionKind">
+          <Key>
+            <PropertyRef Name="DimensionKindID" />
+          </Key>
+          <Property Name="DimensionKindID" Type="integer" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="ShortTitle" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DocumentKind">
+          <Key>
+            <PropertyRef Name="DocumentKindID" />
+          </Key>
+          <Property Name="DocumentKindID" Type="integer" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="FinancialGroup">
+          <Key>
+            <PropertyRef Name="FinancialGroupID" />
+          </Key>
+          <Property Name="FinancialGroupID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="LegalName" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Trademark" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="FinancialGroupBranchMap">
+          <Key>
+            <PropertyRef Name="FinancialGroupBranchMapID" />
+          </Key>
+          <Property Name="FinancialGroupBranchMapID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BranchID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FinancialGroupID" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FinancialGroupWarehouseMap">
+          <Key>
+            <PropertyRef Name="FinancialGroupWarehouseMapID" />
+          </Key>
+          <Property Name="FinancialGroupWarehouseMapID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="WarehouseID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FinancialGroupID" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GoodsItem">
+          <Key>
+            <PropertyRef Name="GoodsItemID" />
+          </Key>
+          <Property Name="GoodsItemID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="4000" />
+          <Property Name="UserCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="Particular" Type="nvarchar" MaxLength="255" />
+          <Property Name="BarCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="ItemCategoryID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DimensionKindID" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemCategory">
+          <Key>
+            <PropertyRef Name="ItemCategoryID" />
+          </Key>
+          <Property Name="ItemCategoryID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="OrderKind">
+          <Key>
+            <PropertyRef Name="OrderKindID" />
+          </Key>
+          <Property Name="OrderKindID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="OrderStatusID" />
+          </Key>
+          <Property Name="OrderStatusID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="StatusKindID" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderTimeline">
+          <Key>
+            <PropertyRef Name="OrderTimelineID" />
+          </Key>
+          <Property Name="OrderTimelineID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="EventDateTime" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="TimelineKindID" Type="integer" Nullable="false" />
+          <Property Name="RepairOrderID" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ProjectRole">
+          <Key>
+            <PropertyRef Name="ProjectRoleID" />
+          </Key>
+          <Property Name="ProjectRoleID" Type="integer" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="RepairOrder">
+          <Key>
+            <PropertyRef Name="RepairOrderID" />
+          </Key>
+          <Property Name="RepairOrderID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IssuerID" Type="nvarchar" MaxLength="50" />
+          <Property Name="EngineerID" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManagerID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="EventDate" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Number" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ClientFullName" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="ClientAddress" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="ClientPhone" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ClientEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeviceTitle" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="DeviceSN" Type="nvarchar" MaxLength="255" />
+          <Property Name="DeviceTrademark" Type="nvarchar" MaxLength="255" />
+          <Property Name="DeviceModel" Type="nvarchar" MaxLength="255" />
+          <Property Name="Defect" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="Options" Type="nvarchar" MaxLength="2000" />
+          <Property Name="DeviceAppearance" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="2000" />
+          <Property Name="CallEventDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateOfBeReady" Type="nvarchar" MaxLength="50" />
+          <Property Name="GuidePrice" Type="float" />
+          <Property Name="PrePayment" Type="float" />
+          <Property Name="IsUrgent" Type="integer" />
+          <Property Name="Recommendation" Type="nvarchar" MaxLength="2000" />
+          <Property Name="IssueDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="WarrantyTo" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderStatusID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="OrderKindID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BranchID" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RepairOrderServerHash">
+          <Key>
+            <PropertyRef Name="RepairOrderServerHashID" />
+          </Key>
+          <Property Name="RepairOrderServerHashID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DataHash" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="OrderTimelinesCount" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusKind">
+          <Key>
+            <PropertyRef Name="StatusKindID" />
+          </Key>
+          <Property Name="StatusKindID" Type="integer" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SyncOperation">
+          <Key>
+            <PropertyRef Name="SyncOperationID" />
+          </Key>
+          <Property Name="SyncOperationID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="OperationBeginTime" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="OperationEndTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsSuccess" Type="integer" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="2000" />
+          <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TimelineKind">
+          <Key>
+            <PropertyRef Name="TimelineKindID" />
+          </Key>
+          <Property Name="TimelineKindID" Type="integer" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LoginName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PasswordHash" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="DomainID" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectRoleID" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserBranchMap">
+          <Key>
+            <PropertyRef Name="UserBranchMapID" />
+          </Key>
+          <Property Name="UserBranchMapID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="EventDate" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BranchID" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserKey">
+          <Key>
+            <PropertyRef Name="UserKeyID" />
+          </Key>
+          <Property Name="UserKeyID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="EventDate" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PublicKeyData" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="PrivateKeyData" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActivated" Type="integer" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="WarehouseID" />
+          </Key>
+          <Property Name="WarehouseID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="WarehouseItem">
+          <Key>
+            <PropertyRef Name="WarehouseItemID" />
+          </Key>
+          <Property Name="WarehouseItemID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Total" Type="float" Nullable="false" />
+          <Property Name="StartPrice" Type="float" Nullable="false" />
+          <Property Name="RepairPrice" Type="float" />
+          <Property Name="SalePrice" Type="float" Nullable="false" />
+          <Property Name="GoodsItemID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="WarehouseID" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WorkItem">
+          <Key>
+            <PropertyRef Name="WorkItemID" />
+          </Key>
+          <Property Name="WorkItemID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="EventDate" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RepairOrderID" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WorkItemServerHash">
+          <Key>
+            <PropertyRef Name="WorkItemServerHashID" />
+          </Key>
+          <Property Name="WorkItemServerHashID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DataHash" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RepairOrderServerHashID" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_CustomReport_0_0">
+          <End Role="DocumentKind" Type="DataModel.Store.DocumentKind" Multiplicity="1" />
+          <End Role="CustomReport" Type="DataModel.Store.CustomReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentKind">
+              <PropertyRef Name="DocumentKindID" />
+            </Principal>
+            <Dependent Role="CustomReport">
+              <PropertyRef Name="DocumentKindID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceItem_0_0">
+          <End Role="RepairOrder" Type="DataModel.Store.RepairOrder" Multiplicity="1" />
+          <End Role="DeviceItem" Type="DataModel.Store.DeviceItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RepairOrder">
+              <PropertyRef Name="RepairOrderID" />
+            </Principal>
+            <Dependent Role="DeviceItem">
+              <PropertyRef Name="RepairOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceItem_1_0">
+          <End Role="User" Type="DataModel.Store.User" Multiplicity="1" />
+          <End Role="DeviceItem" Type="DataModel.Store.DeviceItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="DeviceItem">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceItemServerHash_0_0">
+          <End Role="RepairOrderServerHash" Type="DataModel.Store.RepairOrderServerHash" Multiplicity="1" />
+          <End Role="DeviceItemServerHash" Type="DataModel.Store.DeviceItemServerHash" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RepairOrderServerHash">
+              <PropertyRef Name="RepairOrderServerHashID" />
+            </Principal>
+            <Dependent Role="DeviceItemServerHash">
+              <PropertyRef Name="RepairOrderServerHashID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinancialGroupBranchMap_0_0">
+          <End Role="FinancialGroup" Type="DataModel.Store.FinancialGroup" Multiplicity="1" />
+          <End Role="FinancialGroupBranchMap" Type="DataModel.Store.FinancialGroupBranchMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FinancialGroup">
+              <PropertyRef Name="FinancialGroupID" />
+            </Principal>
+            <Dependent Role="FinancialGroupBranchMap">
+              <PropertyRef Name="FinancialGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinancialGroupBranchMap_1_0">
+          <End Role="Branch" Type="DataModel.Store.Branch" Multiplicity="1" />
+          <End Role="FinancialGroupBranchMap" Type="DataModel.Store.FinancialGroupBranchMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="FinancialGroupBranchMap">
+              <PropertyRef Name="BranchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinancialGroupWarehouseMap_0_0">
+          <End Role="FinancialGroup" Type="DataModel.Store.FinancialGroup" Multiplicity="1" />
+          <End Role="FinancialGroupWarehouseMap" Type="DataModel.Store.FinancialGroupWarehouseMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FinancialGroup">
+              <PropertyRef Name="FinancialGroupID" />
+            </Principal>
+            <Dependent Role="FinancialGroupWarehouseMap">
+              <PropertyRef Name="FinancialGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinancialGroupWarehouseMap_1_0">
+          <End Role="Warehouse" Type="DataModel.Store.Warehouse" Multiplicity="1" />
+          <End Role="FinancialGroupWarehouseMap" Type="DataModel.Store.FinancialGroupWarehouseMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseID" />
+            </Principal>
+            <Dependent Role="FinancialGroupWarehouseMap">
+              <PropertyRef Name="WarehouseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GoodsItem_0_0">
+          <End Role="DimensionKind" Type="DataModel.Store.DimensionKind" Multiplicity="1" />
+          <End Role="GoodsItem" Type="DataModel.Store.GoodsItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimensionKind">
+              <PropertyRef Name="DimensionKindID" />
+            </Principal>
+            <Dependent Role="GoodsItem">
+              <PropertyRef Name="DimensionKindID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GoodsItem_1_0">
+          <End Role="ItemCategory" Type="DataModel.Store.ItemCategory" Multiplicity="1" />
+          <End Role="GoodsItem" Type="DataModel.Store.GoodsItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemCategory">
+              <PropertyRef Name="ItemCategoryID" />
+            </Principal>
+            <Dependent Role="GoodsItem">
+              <PropertyRef Name="ItemCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderStatus_0_0">
+          <End Role="StatusKind" Type="DataModel.Store.StatusKind" Multiplicity="1" />
+          <End Role="OrderStatus" Type="DataModel.Store.OrderStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusKind">
+              <PropertyRef Name="StatusKindID" />
+            </Principal>
+            <Dependent Role="OrderStatus">
+              <PropertyRef Name="StatusKindID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderTimeline_0_0">
+          <End Role="RepairOrder" Type="DataModel.Store.RepairOrder" Multiplicity="1" />
+          <End Role="OrderTimeline" Type="DataModel.Store.OrderTimeline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RepairOrder">
+              <PropertyRef Name="RepairOrderID" />
+            </Principal>
+            <Dependent Role="OrderTimeline">
+              <PropertyRef Name="RepairOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderTimeline_1_0">
+          <End Role="TimelineKind" Type="DataModel.Store.TimelineKind" Multiplicity="1" />
+          <End Role="OrderTimeline" Type="DataModel.Store.OrderTimeline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimelineKind">
+              <PropertyRef Name="TimelineKindID" />
+            </Principal>
+            <Dependent Role="OrderTimeline">
+              <PropertyRef Name="TimelineKindID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepairOrder_0_0">
+          <End Role="Branch" Type="DataModel.Store.Branch" Multiplicity="1" />
+          <End Role="RepairOrder" Type="DataModel.Store.RepairOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="RepairOrder">
+              <PropertyRef Name="BranchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepairOrder_1_0">
+          <End Role="OrderKind" Type="DataModel.Store.OrderKind" Multiplicity="1" />
+          <End Role="RepairOrder" Type="DataModel.Store.RepairOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderKind">
+              <PropertyRef Name="OrderKindID" />
+            </Principal>
+            <Dependent Role="RepairOrder">
+              <PropertyRef Name="OrderKindID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepairOrder_2_0">
+          <End Role="OrderStatus" Type="DataModel.Store.OrderStatus" Multiplicity="1" />
+          <End Role="RepairOrder" Type="DataModel.Store.RepairOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="OrderStatusID" />
+            </Principal>
+            <Dependent Role="RepairOrder">
+              <PropertyRef Name="OrderStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SyncOperation_0_0">
+          <End Role="User" Type="DataModel.Store.User" Multiplicity="1" />
+          <End Role="SyncOperation" Type="DataModel.Store.SyncOperation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="SyncOperation">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_0_0">
+          <End Role="ProjectRole" Type="DataModel.Store.ProjectRole" Multiplicity="1" />
+          <End Role="User" Type="DataModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectRole">
+              <PropertyRef Name="ProjectRoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="ProjectRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserBranchMap_0_0">
+          <End Role="Branch" Type="DataModel.Store.Branch" Multiplicity="1" />
+          <End Role="UserBranchMap" Type="DataModel.Store.UserBranchMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="UserBranchMap">
+              <PropertyRef Name="BranchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserBranchMap_1_0">
+          <End Role="User" Type="DataModel.Store.User" Multiplicity="1" />
+          <End Role="UserBranchMap" Type="DataModel.Store.UserBranchMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserBranchMap">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserKey_0_0">
+          <End Role="User" Type="DataModel.Store.User" Multiplicity="1" />
+          <End Role="UserKey" Type="DataModel.Store.UserKey" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserKey">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WarehouseItem_0_0">
+          <End Role="Warehouse" Type="DataModel.Store.Warehouse" Multiplicity="1" />
+          <End Role="WarehouseItem" Type="DataModel.Store.WarehouseItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseID" />
+            </Principal>
+            <Dependent Role="WarehouseItem">
+              <PropertyRef Name="WarehouseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WarehouseItem_1_0">
+          <End Role="GoodsItem" Type="DataModel.Store.GoodsItem" Multiplicity="1" />
+          <End Role="WarehouseItem" Type="DataModel.Store.WarehouseItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsItem">
+              <PropertyRef Name="GoodsItemID" />
+            </Principal>
+            <Dependent Role="WarehouseItem">
+              <PropertyRef Name="GoodsItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkItem_0_0">
+          <End Role="RepairOrder" Type="DataModel.Store.RepairOrder" Multiplicity="1" />
+          <End Role="WorkItem" Type="DataModel.Store.WorkItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RepairOrder">
+              <PropertyRef Name="RepairOrderID" />
+            </Principal>
+            <Dependent Role="WorkItem">
+              <PropertyRef Name="RepairOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkItem_1_0">
+          <End Role="User" Type="DataModel.Store.User" Multiplicity="1" />
+          <End Role="WorkItem" Type="DataModel.Store.WorkItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="WorkItem">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkItemServerHash_0_0">
+          <End Role="RepairOrderServerHash" Type="DataModel.Store.RepairOrderServerHash" Multiplicity="1" />
+          <End Role="WorkItemServerHash" Type="DataModel.Store.WorkItemServerHash" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RepairOrderServerHash">
+              <PropertyRef Name="RepairOrderServerHashID" />
+            </Principal>
+            <Dependent Role="WorkItemServerHash">
+              <PropertyRef Name="RepairOrderServerHashID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="DataModel.User" />
+          <EntitySet Name="ProjectRoles" EntityType="DataModel.ProjectRole" />
+          <AssociationSet Name="FK_User_0_0" Association="DataModel.FK_User_0_0">
+            <End Role="ProjectRole" EntitySet="ProjectRoles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="UserKeys" EntityType="DataModel.UserKey" />
+          <AssociationSet Name="FK_UserKey_0_0" Association="DataModel.FK_UserKey_0_0">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserKey" EntitySet="UserKeys" />
+          </AssociationSet>
+          <EntitySet Name="SyncOperations" EntityType="DataModel.SyncOperation" />
+          <AssociationSet Name="FK_SyncOperation_0_0" Association="DataModel.FK_SyncOperation_0_0">
+            <End Role="User" EntitySet="Users" />
+            <End Role="SyncOperation" EntitySet="SyncOperations" />
+          </AssociationSet>
+          <EntitySet Name="UserBranchMapItems" EntityType="DataModel.UserBranchMapItem" />
+          <AssociationSet Name="FK_UserBranchMap_1_0" Association="DataModel.FK_UserBranchMap_1_0">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserBranchMap" EntitySet="UserBranchMapItems" />
+          </AssociationSet>
+          <EntitySet Name="Branches" EntityType="DataModel.Branch" />
+          <AssociationSet Name="FK_UserBranchMap_0_0" Association="DataModel.FK_UserBranchMap_0_0">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="UserBranchMapItem" EntitySet="UserBranchMapItems" />
+          </AssociationSet>
+          <EntitySet Name="FinancialGroupItems" EntityType="DataModel.FinancialGroupItem" />
+          <EntitySet Name="FinancialGroupBranchMapItems" EntityType="DataModel.FinancialGroupBranchMapItem" />
+          <AssociationSet Name="FK_FinancialGroupBranchMap_1_0" Association="DataModel.FK_FinancialGroupBranchMap_1_0">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="FinancialGroupBranchMap" EntitySet="FinancialGroupBranchMapItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinancialGroupBranchMap_0_0" Association="DataModel.FK_FinancialGroupBranchMap_0_0">
+            <End Role="FinancialGroup" EntitySet="FinancialGroupItems" />
+            <End Role="FinancialGroupBranchMap" EntitySet="FinancialGroupBranchMapItems" />
+          </AssociationSet>
+          <EntitySet Name="FinancialGroupWarehouseMapItems" EntityType="DataModel.FinancialGroupWarehouseMapItem" />
+          <EntitySet Name="Warehouses" EntityType="DataModel.Warehouse" />
+          <AssociationSet Name="FK_FinancialGroupWarehouseMap_0_0" Association="DataModel.FK_FinancialGroupWarehouseMap_0_0">
+            <End Role="FinancialGroupItem" EntitySet="FinancialGroupItems" />
+            <End Role="FinancialGroupWarehouseMap" EntitySet="FinancialGroupWarehouseMapItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinancialGroupWarehouseMap_1_0" Association="DataModel.FK_FinancialGroupWarehouseMap_1_0">
+            <End Role="Warehouse" EntitySet="Warehouses" />
+            <End Role="FinancialGroupWarehouseMap" EntitySet="FinancialGroupWarehouseMapItems" />
+          </AssociationSet>
+          <EntitySet Name="DimensionKinds" EntityType="DataModel.DimensionKind" />
+          <EntitySet Name="GoodsItems" EntityType="DataModel.GoodsItem" />
+          <EntitySet Name="ItemCategories" EntityType="DataModel.ItemCategory" />
+          <AssociationSet Name="FK_GoodsItem_0_0" Association="DataModel.FK_GoodsItem_0_0">
+            <End Role="DimensionKind" EntitySet="DimensionKinds" />
+            <End Role="GoodsItem" EntitySet="GoodsItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GoodsItem_1_0" Association="DataModel.FK_GoodsItem_1_0">
+            <End Role="ItemCategory" EntitySet="ItemCategories" />
+            <End Role="GoodsItem" EntitySet="GoodsItems" />
+          </AssociationSet>
+          <EntitySet Name="WarehouseItems" EntityType="DataModel.WarehouseItem" />
+          <AssociationSet Name="FK_WarehouseItem_1_0" Association="DataModel.FK_WarehouseItem_1_0">
+            <End Role="GoodsItem" EntitySet="GoodsItems" />
+            <End Role="WarehouseItem" EntitySet="WarehouseItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WarehouseItem_0_0" Association="DataModel.FK_WarehouseItem_0_0">
+            <End Role="Warehouse" EntitySet="Warehouses" />
+            <End Role="WarehouseItem" EntitySet="WarehouseItems" />
+          </AssociationSet>
+          <EntitySet Name="OrderKinds" EntityType="DataModel.OrderKind" />
+          <EntitySet Name="OrderStatus1" EntityType="DataModel.OrderStatus" />
+          <EntitySet Name="StatusKinds" EntityType="DataModel.StatusKind" />
+          <AssociationSet Name="FK_OrderStatus_0_0" Association="DataModel.FK_OrderStatus_0_0">
+            <End Role="StatusKind" EntitySet="StatusKinds" />
+            <End Role="OrderStatu" EntitySet="OrderStatus1" />
+          </AssociationSet>
+          <EntitySet Name="RepairOrders" EntityType="DataModel.RepairOrder" />
+          <AssociationSet Name="FK_RepairOrder_0_0" Association="DataModel.FK_RepairOrder_0_0">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="RepairOrder" EntitySet="RepairOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepairOrder_1_0" Association="DataModel.FK_RepairOrder_1_0">
+            <End Role="OrderKind" EntitySet="OrderKinds" />
+            <End Role="RepairOrder" EntitySet="RepairOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepairOrder_2_0" Association="DataModel.FK_RepairOrder_2_0">
+            <End Role="OrderStatus" EntitySet="OrderStatus1" />
+            <End Role="RepairOrder" EntitySet="RepairOrders" />
+          </AssociationSet>
+          <EntitySet Name="WorkItems" EntityType="DataModel.WorkItem" />
+          <AssociationSet Name="FK_WorkItem_0_0" Association="DataModel.FK_WorkItem_0_0">
+            <End Role="RepairOrder" EntitySet="RepairOrders" />
+            <End Role="WorkItem" EntitySet="WorkItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkItem_1_0" Association="DataModel.FK_WorkItem_1_0">
+            <End Role="User" EntitySet="Users" />
+            <End Role="WorkItem" EntitySet="WorkItems" />
+          </AssociationSet>
+          <EntitySet Name="OrderTimelines" EntityType="DataModel.OrderTimeline" />
+          <AssociationSet Name="FK_OrderTimeline_0_0" Association="DataModel.FK_OrderTimeline_0_0">
+            <End Role="RepairOrder" EntitySet="RepairOrders" />
+            <End Role="OrderTimeline" EntitySet="OrderTimelines" />
+          </AssociationSet>
+          <EntitySet Name="TimelineKinds" EntityType="DataModel.TimelineKind" />
+          <AssociationSet Name="FK_OrderTimeline_1_0" Association="DataModel.FK_OrderTimeline_1_0">
+            <End Role="TimelineKind" EntitySet="TimelineKinds" />
+            <End Role="OrderTimeline" EntitySet="OrderTimelines" />
+          </AssociationSet>
+          <EntitySet Name="DeviceItems" EntityType="DataModel.DeviceItem" />
+          <AssociationSet Name="FK_DeviceItem_0_0" Association="DataModel.FK_DeviceItem_0_0">
+            <End Role="RepairOrder" EntitySet="RepairOrders" />
+            <End Role="DeviceItem" EntitySet="DeviceItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceItem_1_0" Association="DataModel.FK_DeviceItem_1_0">
+            <End Role="User" EntitySet="Users" />
+            <End Role="DeviceItem" EntitySet="DeviceItems" />
+          </AssociationSet>
+          <EntitySet Name="RepairOrderServerHashItems" EntityType="DataModel.RepairOrderServerHashItem" />
+          <EntitySet Name="WorkItemServerHashItems" EntityType="DataModel.WorkItemServerHashItem" />
+          <AssociationSet Name="FK_WorkItemServerHash_0_0" Association="DataModel.FK_WorkItemServerHash_0_0">
+            <End Role="RepairOrderServerHashItem" EntitySet="RepairOrderServerHashItems" />
+            <End Role="WorkItemServerHash" EntitySet="WorkItemServerHashItems" />
+          </AssociationSet>
+          <EntitySet Name="DeviceItemServerHashItems" EntityType="DataModel.DeviceItemServerHashItem" />
+          <AssociationSet Name="FK_DeviceItemServerHash_0_0" Association="DataModel.FK_DeviceItemServerHash_0_0">
+            <End Role="RepairOrderServerHashItem" EntitySet="RepairOrderServerHashItems" />
+            <End Role="DeviceItemServerHash" EntitySet="DeviceItemServerHashItems" />
+          </AssociationSet>
+          <EntitySet Name="CustomReportItems" EntityType="DataModel.CustomReportItem" />
+          <EntitySet Name="DocumentKinds" EntityType="DataModel.DocumentKind" />
+          <AssociationSet Name="FK_CustomReport_0_0" Association="DataModel.FK_CustomReport_0_0">
+            <End Role="DocumentKind" EntitySet="DocumentKinds" />
+            <End Role="CustomReport" EntitySet="CustomReportItems" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LoginName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DomainID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectRoleID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjectRole">
+          <Key>
+            <PropertyRef Name="ProjectRoleID" />
+          </Key>
+          <Property Type="Int64" Name="ProjectRoleID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_User_0_0">
+          <End Type="DataModel.ProjectRole" Role="ProjectRole" Multiplicity="1" />
+          <End Type="DataModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectRole">
+              <PropertyRef Name="ProjectRoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="ProjectRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserKey">
+          <Key>
+            <PropertyRef Name="UserKeyID" />
+          </Key>
+          <Property Type="String" Name="UserKeyID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EventDate" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PublicKeyData" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PrivateKeyData" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Number" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="IsActivated" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_UserKey_0_0">
+          <End Type="DataModel.User" Role="User" Multiplicity="1" />
+          <End Type="DataModel.UserKey" Role="UserKey" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserKey">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SyncOperation">
+          <Key>
+            <PropertyRef Name="SyncOperationID" />
+          </Key>
+          <Property Type="String" Name="SyncOperationID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OperationBeginTime" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OperationEndTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="IsSuccess" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_SyncOperation_0_0">
+          <End Type="DataModel.User" Role="User" Multiplicity="1" />
+          <End Type="DataModel.SyncOperation" Role="SyncOperation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="SyncOperation">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserBranchMapItem">
+          <Key>
+            <PropertyRef Name="UserBranchMapID" />
+          </Key>
+          <Property Type="String" Name="UserBranchMapID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EventDate" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BranchID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_UserBranchMap_1_0">
+          <End Type="DataModel.User" Role="User" Multiplicity="1" />
+          <End Type="DataModel.UserBranchMapItem" Role="UserBranchMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserBranchMap">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchID" />
+          </Key>
+          <Property Type="String" Name="BranchID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LegalName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_UserBranchMap_0_0">
+          <End Type="DataModel.Branch" Role="Branch" Multiplicity="1" />
+          <End Type="DataModel.UserBranchMapItem" Role="UserBranchMapItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="UserBranchMapItem">
+              <PropertyRef Name="BranchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FinancialGroupItem">
+          <Key>
+            <PropertyRef Name="FinancialGroupID" />
+          </Key>
+          <Property Type="String" Name="FinancialGroupID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LegalName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Trademark" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FinancialGroupBranchMapItem">
+          <Key>
+            <PropertyRef Name="FinancialGroupBranchMapID" />
+          </Key>
+          <Property Type="String" Name="FinancialGroupBranchMapID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BranchID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FinancialGroupID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_FinancialGroupBranchMap_1_0">
+          <End Type="DataModel.Branch" Role="Branch" Multiplicity="1" />
+          <End Type="DataModel.FinancialGroupBranchMapItem" Role="FinancialGroupBranchMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="FinancialGroupBranchMap">
+              <PropertyRef Name="BranchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinancialGroupBranchMap_0_0">
+          <End Type="DataModel.FinancialGroupItem" Role="FinancialGroup" Multiplicity="1" />
+          <End Type="DataModel.FinancialGroupBranchMapItem" Role="FinancialGroupBranchMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FinancialGroup">
+              <PropertyRef Name="FinancialGroupID" />
+            </Principal>
+            <Dependent Role="FinancialGroupBranchMap">
+              <PropertyRef Name="FinancialGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FinancialGroupWarehouseMapItem">
+          <Key>
+            <PropertyRef Name="FinancialGroupWarehouseMapID" />
+          </Key>
+          <Property Type="String" Name="FinancialGroupWarehouseMapID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WarehouseID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FinancialGroupID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="WarehouseID" />
+          </Key>
+          <Property Type="String" Name="WarehouseID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_FinancialGroupWarehouseMap_0_0">
+          <End Type="DataModel.FinancialGroupItem" Role="FinancialGroupItem" Multiplicity="1" />
+          <End Type="DataModel.FinancialGroupWarehouseMapItem" Role="FinancialGroupWarehouseMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FinancialGroupItem">
+              <PropertyRef Name="FinancialGroupID" />
+            </Principal>
+            <Dependent Role="FinancialGroupWarehouseMap">
+              <PropertyRef Name="FinancialGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinancialGroupWarehouseMap_1_0">
+          <End Type="DataModel.Warehouse" Role="Warehouse" Multiplicity="1" />
+          <End Type="DataModel.FinancialGroupWarehouseMapItem" Role="FinancialGroupWarehouseMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseID" />
+            </Principal>
+            <Dependent Role="FinancialGroupWarehouseMap">
+              <PropertyRef Name="WarehouseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DimensionKind">
+          <Key>
+            <PropertyRef Name="DimensionKindID" />
+          </Key>
+          <Property Type="Int64" Name="DimensionKindID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShortTitle" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GoodsItem">
+          <Key>
+            <PropertyRef Name="GoodsItemID" />
+          </Key>
+          <Property Type="String" Name="GoodsItemID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserCode" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Particular" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BarCode" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ItemCategoryID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="DimensionKindID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemCategory">
+          <Key>
+            <PropertyRef Name="ItemCategoryID" />
+          </Key>
+          <Property Type="String" Name="ItemCategoryID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_GoodsItem_0_0">
+          <End Type="DataModel.DimensionKind" Role="DimensionKind" Multiplicity="1" />
+          <End Type="DataModel.GoodsItem" Role="GoodsItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimensionKind">
+              <PropertyRef Name="DimensionKindID" />
+            </Principal>
+            <Dependent Role="GoodsItem">
+              <PropertyRef Name="DimensionKindID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GoodsItem_1_0">
+          <End Type="DataModel.ItemCategory" Role="ItemCategory" Multiplicity="1" />
+          <End Type="DataModel.GoodsItem" Role="GoodsItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemCategory">
+              <PropertyRef Name="ItemCategoryID" />
+            </Principal>
+            <Dependent Role="GoodsItem">
+              <PropertyRef Name="ItemCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="WarehouseItem">
+          <Key>
+            <PropertyRef Name="WarehouseItemID" />
+          </Key>
+          <Property Type="String" Name="WarehouseItemID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="Double" Name="StartPrice" Nullable="false" />
+          <Property Type="Double" Name="RepairPrice" />
+          <Property Type="Double" Name="SalePrice" Nullable="false" />
+          <Property Type="String" Name="GoodsItemID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WarehouseID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_WarehouseItem_1_0">
+          <End Type="DataModel.GoodsItem" Role="GoodsItem" Multiplicity="1" />
+          <End Type="DataModel.WarehouseItem" Role="WarehouseItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsItem">
+              <PropertyRef Name="GoodsItemID" />
+            </Principal>
+            <Dependent Role="WarehouseItem">
+              <PropertyRef Name="GoodsItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WarehouseItem_0_0">
+          <End Type="DataModel.Warehouse" Role="Warehouse" Multiplicity="1" />
+          <End Type="DataModel.WarehouseItem" Role="WarehouseItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseID" />
+            </Principal>
+            <Dependent Role="WarehouseItem">
+              <PropertyRef Name="WarehouseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrderKind">
+          <Key>
+            <PropertyRef Name="OrderKindID" />
+          </Key>
+          <Property Type="String" Name="OrderKindID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="OrderStatusID" />
+          </Key>
+          <Property Type="String" Name="OrderStatusID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="StatusKindID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusKind">
+          <Key>
+            <PropertyRef Name="StatusKindID" />
+          </Key>
+          <Property Type="Int64" Name="StatusKindID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_OrderStatus_0_0">
+          <End Type="DataModel.StatusKind" Role="StatusKind" Multiplicity="1" />
+          <End Type="DataModel.OrderStatus" Role="OrderStatu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusKind">
+              <PropertyRef Name="StatusKindID" />
+            </Principal>
+            <Dependent Role="OrderStatu">
+              <PropertyRef Name="StatusKindID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RepairOrder">
+          <Key>
+            <PropertyRef Name="RepairOrderID" />
+          </Key>
+          <Property Type="String" Name="RepairOrderID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IssuerID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EngineerID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ManagerID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EventDate" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Number" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ClientFullName" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ClientAddress" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ClientPhone" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ClientEmail" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DeviceTitle" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DeviceSN" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DeviceTrademark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DeviceModel" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Defect" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Options" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DeviceAppearance" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Notes" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CallEventDate" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DateOfBeReady" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="GuidePrice" />
+          <Property Type="Double" Name="PrePayment" />
+          <Property Type="Int64" Name="IsUrgent" />
+          <Property Type="String" Name="Recommendation" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IssueDate" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WarrantyTo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OrderStatusID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OrderKindID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BranchID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_RepairOrder_0_0">
+          <End Type="DataModel.Branch" Role="Branch" Multiplicity="1" />
+          <End Type="DataModel.RepairOrder" Role="RepairOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="RepairOrder">
+              <PropertyRef Name="BranchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepairOrder_1_0">
+          <End Type="DataModel.OrderKind" Role="OrderKind" Multiplicity="1" />
+          <End Type="DataModel.RepairOrder" Role="RepairOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderKind">
+              <PropertyRef Name="OrderKindID" />
+            </Principal>
+            <Dependent Role="RepairOrder">
+              <PropertyRef Name="OrderKindID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepairOrder_2_0">
+          <End Type="DataModel.OrderStatus" Role="OrderStatus" Multiplicity="1" />
+          <End Type="DataModel.RepairOrder" Role="RepairOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="OrderStatusID" />
+            </Principal>
+            <Dependent Role="RepairOrder">
+              <PropertyRef Name="OrderStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="WorkItem">
+          <Key>
+            <PropertyRef Name="WorkItemID" />
+          </Key>
+          <Property Type="String" Name="WorkItemID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EventDate" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RepairOrderID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_WorkItem_0_0">
+          <End Type="DataModel.RepairOrder" Role="RepairOrder" Multiplicity="1" />
+          <End Type="DataModel.WorkItem" Role="WorkItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RepairOrder">
+              <PropertyRef Name="RepairOrderID" />
+            </Principal>
+            <Dependent Role="WorkItem">
+              <PropertyRef Name="RepairOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkItem_1_0">
+          <End Type="DataModel.User" Role="User" Multiplicity="1" />
+          <End Type="DataModel.WorkItem" Role="WorkItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="WorkItem">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrderTimeline">
+          <Key>
+            <PropertyRef Name="OrderTimelineID" />
+          </Key>
+          <Property Type="String" Name="OrderTimelineID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EventDateTime" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="TimelineKindID" Nullable="false" />
+          <Property Type="String" Name="RepairOrderID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_OrderTimeline_0_0">
+          <End Type="DataModel.RepairOrder" Role="RepairOrder" Multiplicity="1" />
+          <End Type="DataModel.OrderTimeline" Role="OrderTimeline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RepairOrder">
+              <PropertyRef Name="RepairOrderID" />
+            </Principal>
+            <Dependent Role="OrderTimeline">
+              <PropertyRef Name="RepairOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TimelineKind">
+          <Key>
+            <PropertyRef Name="TimelineKindID" />
+          </Key>
+          <Property Type="Int64" Name="TimelineKindID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_OrderTimeline_1_0">
+          <End Type="DataModel.TimelineKind" Role="TimelineKind" Multiplicity="1" />
+          <End Type="DataModel.OrderTimeline" Role="OrderTimeline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimelineKind">
+              <PropertyRef Name="TimelineKindID" />
+            </Principal>
+            <Dependent Role="OrderTimeline">
+              <PropertyRef Name="TimelineKindID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DeviceItem">
+          <Key>
+            <PropertyRef Name="DeviceItemID" />
+          </Key>
+          <Property Type="String" Name="DeviceItemID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Count" Nullable="false" />
+          <Property Type="Double" Name="CostPrice" />
+          <Property Type="String" Name="EventDate" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WarehouseItemID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RepairOrderID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DeviceItem_0_0">
+          <End Type="DataModel.RepairOrder" Role="RepairOrder" Multiplicity="1" />
+          <End Type="DataModel.DeviceItem" Role="DeviceItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RepairOrder">
+              <PropertyRef Name="RepairOrderID" />
+            </Principal>
+            <Dependent Role="DeviceItem">
+              <PropertyRef Name="RepairOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceItem_1_0">
+          <End Type="DataModel.User" Role="User" Multiplicity="1" />
+          <End Type="DataModel.DeviceItem" Role="DeviceItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="DeviceItem">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RepairOrderServerHashItem">
+          <Key>
+            <PropertyRef Name="RepairOrderServerHashID" />
+          </Key>
+          <Property Type="String" Name="RepairOrderServerHashID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DataHash" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="OrderTimelinesCount" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkItemServerHashItem">
+          <Key>
+            <PropertyRef Name="WorkItemServerHashID" />
+          </Key>
+          <Property Type="String" Name="WorkItemServerHashID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DataHash" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RepairOrderServerHashID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_WorkItemServerHash_0_0">
+          <End Type="DataModel.RepairOrderServerHashItem" Role="RepairOrderServerHashItem" Multiplicity="1" />
+          <End Type="DataModel.WorkItemServerHashItem" Role="WorkItemServerHash" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RepairOrderServerHashItem">
+              <PropertyRef Name="RepairOrderServerHashID" />
+            </Principal>
+            <Dependent Role="WorkItemServerHash">
+              <PropertyRef Name="RepairOrderServerHashID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DeviceItemServerHashItem">
+          <Key>
+            <PropertyRef Name="DeviceItemServerHashID" />
+          </Key>
+          <Property Type="String" Name="DeviceItemServerHashID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DataHash" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RepairOrderServerHashID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_DeviceItemServerHash_0_0">
+          <End Type="DataModel.RepairOrderServerHashItem" Role="RepairOrderServerHashItem" Multiplicity="1" />
+          <End Type="DataModel.DeviceItemServerHashItem" Role="DeviceItemServerHash" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RepairOrderServerHashItem">
+              <PropertyRef Name="RepairOrderServerHashID" />
+            </Principal>
+            <Dependent Role="DeviceItemServerHash">
+              <PropertyRef Name="RepairOrderServerHashID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CustomReportItem">
+          <Key>
+            <PropertyRef Name="CustomReportID" />
+          </Key>
+          <Property Type="String" Name="CustomReportID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HtmlContent" Nullable="false" MaxLength="10000" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="DocumentKindID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocumentKind">
+          <Key>
+            <PropertyRef Name="DocumentKindID" />
+          </Key>
+          <Property Type="Int64" Name="DocumentKindID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_CustomReport_0_0">
+          <End Type="DataModel.DocumentKind" Role="DocumentKind" Multiplicity="1" />
+          <End Type="DataModel.CustomReportItem" Role="CustomReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentKind">
+              <PropertyRef Name="DocumentKindID" />
+            </Principal>
+            <Dependent Role="CustomReport">
+              <PropertyRef Name="DocumentKindID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DataModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DomainID" ColumnName="DomainID" />
+                <ScalarProperty Name="ProjectRoleID" ColumnName="ProjectRoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectRoles">
+            <EntityTypeMapping TypeName="DataModel.ProjectRole">
+              <MappingFragment StoreEntitySet="ProjectRole">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ProjectRoleID" ColumnName="ProjectRoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserKeys">
+            <EntityTypeMapping TypeName="DataModel.UserKey">
+              <MappingFragment StoreEntitySet="UserKey">
+                <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="PrivateKeyData" ColumnName="PrivateKeyData" />
+                <ScalarProperty Name="PublicKeyData" ColumnName="PublicKeyData" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="UserKeyID" ColumnName="UserKeyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SyncOperations">
+            <EntityTypeMapping TypeName="DataModel.SyncOperation">
+              <MappingFragment StoreEntitySet="SyncOperation">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+                <ScalarProperty Name="OperationEndTime" ColumnName="OperationEndTime" />
+                <ScalarProperty Name="OperationBeginTime" ColumnName="OperationBeginTime" />
+                <ScalarProperty Name="SyncOperationID" ColumnName="SyncOperationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserBranchMapItems">
+            <EntityTypeMapping TypeName="DataModel.UserBranchMapItem">
+              <MappingFragment StoreEntitySet="UserBranchMap">
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="UserBranchMapID" ColumnName="UserBranchMapID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="DataModel.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="LegalName" ColumnName="LegalName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinancialGroupItems">
+            <EntityTypeMapping TypeName="DataModel.FinancialGroupItem">
+              <MappingFragment StoreEntitySet="FinancialGroup">
+                <ScalarProperty Name="Trademark" ColumnName="Trademark" />
+                <ScalarProperty Name="LegalName" ColumnName="LegalName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="FinancialGroupID" ColumnName="FinancialGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinancialGroupBranchMapItems">
+            <EntityTypeMapping TypeName="DataModel.FinancialGroupBranchMapItem">
+              <MappingFragment StoreEntitySet="FinancialGroupBranchMap">
+                <ScalarProperty Name="FinancialGroupID" ColumnName="FinancialGroupID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="FinancialGroupBranchMapID" ColumnName="FinancialGroupBranchMapID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinancialGroupWarehouseMapItems">
+            <EntityTypeMapping TypeName="DataModel.FinancialGroupWarehouseMapItem">
+              <MappingFragment StoreEntitySet="FinancialGroupWarehouseMap">
+                <ScalarProperty Name="FinancialGroupID" ColumnName="FinancialGroupID" />
+                <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+                <ScalarProperty Name="FinancialGroupWarehouseMapID" ColumnName="FinancialGroupWarehouseMapID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Warehouses">
+            <EntityTypeMapping TypeName="DataModel.Warehouse">
+              <MappingFragment StoreEntitySet="Warehouse">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DimensionKinds">
+            <EntityTypeMapping TypeName="DataModel.DimensionKind">
+              <MappingFragment StoreEntitySet="DimensionKind">
+                <ScalarProperty Name="ShortTitle" ColumnName="ShortTitle" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="DimensionKindID" ColumnName="DimensionKindID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoodsItems">
+            <EntityTypeMapping TypeName="DataModel.GoodsItem">
+              <MappingFragment StoreEntitySet="GoodsItem">
+                <ScalarProperty Name="DimensionKindID" ColumnName="DimensionKindID" />
+                <ScalarProperty Name="ItemCategoryID" ColumnName="ItemCategoryID" />
+                <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+                <ScalarProperty Name="Particular" ColumnName="Particular" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="GoodsItemID" ColumnName="GoodsItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemCategories">
+            <EntityTypeMapping TypeName="DataModel.ItemCategory">
+              <MappingFragment StoreEntitySet="ItemCategory">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ItemCategoryID" ColumnName="ItemCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WarehouseItems">
+            <EntityTypeMapping TypeName="DataModel.WarehouseItem">
+              <MappingFragment StoreEntitySet="WarehouseItem">
+                <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+                <ScalarProperty Name="GoodsItemID" ColumnName="GoodsItemID" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="RepairPrice" ColumnName="RepairPrice" />
+                <ScalarProperty Name="StartPrice" ColumnName="StartPrice" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="WarehouseItemID" ColumnName="WarehouseItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderKinds">
+            <EntityTypeMapping TypeName="DataModel.OrderKind">
+              <MappingFragment StoreEntitySet="OrderKind">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="OrderKindID" ColumnName="OrderKindID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderStatus1">
+            <EntityTypeMapping TypeName="DataModel.OrderStatus">
+              <MappingFragment StoreEntitySet="OrderStatus">
+                <ScalarProperty Name="StatusKindID" ColumnName="StatusKindID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusKinds">
+            <EntityTypeMapping TypeName="DataModel.StatusKind">
+              <MappingFragment StoreEntitySet="StatusKind">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="StatusKindID" ColumnName="StatusKindID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RepairOrders">
+            <EntityTypeMapping TypeName="DataModel.RepairOrder">
+              <MappingFragment StoreEntitySet="RepairOrder">
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="OrderKindID" ColumnName="OrderKindID" />
+                <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+                <ScalarProperty Name="WarrantyTo" ColumnName="WarrantyTo" />
+                <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+                <ScalarProperty Name="Recommendation" ColumnName="Recommendation" />
+                <ScalarProperty Name="IsUrgent" ColumnName="IsUrgent" />
+                <ScalarProperty Name="PrePayment" ColumnName="PrePayment" />
+                <ScalarProperty Name="GuidePrice" ColumnName="GuidePrice" />
+                <ScalarProperty Name="DateOfBeReady" ColumnName="DateOfBeReady" />
+                <ScalarProperty Name="CallEventDate" ColumnName="CallEventDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DeviceAppearance" ColumnName="DeviceAppearance" />
+                <ScalarProperty Name="Options" ColumnName="Options" />
+                <ScalarProperty Name="Defect" ColumnName="Defect" />
+                <ScalarProperty Name="DeviceModel" ColumnName="DeviceModel" />
+                <ScalarProperty Name="DeviceTrademark" ColumnName="DeviceTrademark" />
+                <ScalarProperty Name="DeviceSN" ColumnName="DeviceSN" />
+                <ScalarProperty Name="DeviceTitle" ColumnName="DeviceTitle" />
+                <ScalarProperty Name="ClientEmail" ColumnName="ClientEmail" />
+                <ScalarProperty Name="ClientPhone" ColumnName="ClientPhone" />
+                <ScalarProperty Name="ClientAddress" ColumnName="ClientAddress" />
+                <ScalarProperty Name="ClientFullName" ColumnName="ClientFullName" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="EngineerID" ColumnName="EngineerID" />
+                <ScalarProperty Name="IssuerID" ColumnName="IssuerID" />
+                <ScalarProperty Name="RepairOrderID" ColumnName="RepairOrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkItems">
+            <EntityTypeMapping TypeName="DataModel.WorkItem">
+              <MappingFragment StoreEntitySet="WorkItem">
+                <ScalarProperty Name="RepairOrderID" ColumnName="RepairOrderID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="WorkItemID" ColumnName="WorkItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderTimelines">
+            <EntityTypeMapping TypeName="DataModel.OrderTimeline">
+              <MappingFragment StoreEntitySet="OrderTimeline">
+                <ScalarProperty Name="RepairOrderID" ColumnName="RepairOrderID" />
+                <ScalarProperty Name="TimelineKindID" ColumnName="TimelineKindID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="EventDateTime" ColumnName="EventDateTime" />
+                <ScalarProperty Name="OrderTimelineID" ColumnName="OrderTimelineID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimelineKinds">
+            <EntityTypeMapping TypeName="DataModel.TimelineKind">
+              <MappingFragment StoreEntitySet="TimelineKind">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TimelineKindID" ColumnName="TimelineKindID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeviceItems">
+            <EntityTypeMapping TypeName="DataModel.DeviceItem">
+              <MappingFragment StoreEntitySet="DeviceItem">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="RepairOrderID" ColumnName="RepairOrderID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="WarehouseItemID" ColumnName="WarehouseItemID" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="DeviceItemID" ColumnName="DeviceItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RepairOrderServerHashItems">
+            <EntityTypeMapping TypeName="DataModel.RepairOrderServerHashItem">
+              <MappingFragment StoreEntitySet="RepairOrderServerHash">
+                <ScalarProperty Name="OrderTimelinesCount" ColumnName="OrderTimelinesCount" />
+                <ScalarProperty Name="DataHash" ColumnName="DataHash" />
+                <ScalarProperty Name="RepairOrderServerHashID" ColumnName="RepairOrderServerHashID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkItemServerHashItems">
+            <EntityTypeMapping TypeName="DataModel.WorkItemServerHashItem">
+              <MappingFragment StoreEntitySet="WorkItemServerHash">
+                <ScalarProperty Name="RepairOrderServerHashID" ColumnName="RepairOrderServerHashID" />
+                <ScalarProperty Name="DataHash" ColumnName="DataHash" />
+                <ScalarProperty Name="WorkItemServerHashID" ColumnName="WorkItemServerHashID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeviceItemServerHashItems">
+            <EntityTypeMapping TypeName="DataModel.DeviceItemServerHashItem">
+              <MappingFragment StoreEntitySet="DeviceItemServerHash">
+                <ScalarProperty Name="RepairOrderServerHashID" ColumnName="RepairOrderServerHashID" />
+                <ScalarProperty Name="DataHash" ColumnName="DataHash" />
+                <ScalarProperty Name="DeviceItemServerHashID" ColumnName="DeviceItemServerHashID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomReportItems">
+            <EntityTypeMapping TypeName="DataModel.CustomReportItem">
+              <MappingFragment StoreEntitySet="CustomReport">
+                <ScalarProperty Name="DocumentKindID" ColumnName="DocumentKindID" />
+                <ScalarProperty Name="HtmlContent" ColumnName="HtmlContent" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CustomReportID" ColumnName="CustomReportID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentKinds">
+            <EntityTypeMapping TypeName="DataModel.DocumentKind">
+              <MappingFragment StoreEntitySet="DocumentKind">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="DocumentKindID" ColumnName="DocumentKindID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Database">
+        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.ProjectRole" Width="1.5" PointX="0.75" PointY="5.5" Height="1.4033821614583326" />
+        <AssociationConnector Association="DataModel.FK_User_0_0" >
+          <ConnectorPoint PointX="1.5" PointY="5.5" />
+          <ConnectorPoint PointX="1.5" PointY="3.6917936197916665" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.UserKey" Width="1.5" PointX="4.125" PointY="1" Height="2.3648893229166665" />
+        <AssociationConnector Association="DataModel.FK_UserKey_0_0" >
+          <ConnectorPoint PointX="2.25" PointY="2.1824446614583337" />
+          <ConnectorPoint PointX="4.125" PointY="2.1824446614583337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.SyncOperation" Width="1.5" PointX="4.375" PointY="4" Height="2.1725878906249996" />
+        <AssociationConnector Association="DataModel.FK_SyncOperation_0_0" >
+          <ConnectorPoint PointX="2.25" PointY="3.5595914713541665" />
+          <ConnectorPoint PointX="5.78125" PointY="3.5595914713541665" />
+          <ConnectorPoint PointX="5.78125" PointY="4" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.UserBranchMapItem" Width="1.5" PointX="7.25" PointY="6.125" Height="1.7879850260416665" />
+        <AssociationConnector Association="DataModel.FK_UserBranchMap_1_0" >
+          <ConnectorPoint PointX="2.25" PointY="3.6569450455729164" />
+          <ConnectorPoint PointX="5.697916666666667" PointY="3.656945045572916" />
+          <ConnectorPoint PointX="5.864583333333333" PointY="3.6569450455729164" />
+          <ConnectorPoint PointX="8.25" PointY="3.6569450455729164" />
+          <ConnectorPoint PointX="8.25" PointY="6.125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.Branch" Width="1.5" PointX="4.75" PointY="6.875" Height="1.7879850260416657" />
+        <AssociationConnector Association="DataModel.FK_UserBranchMap_0_0" >
+          <ConnectorPoint PointX="6.25" PointY="7.3939925130208337" />
+          <ConnectorPoint PointX="7.25" PointY="7.3939925130208337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.FinancialGroupItem" Width="1.5" PointX="5.5" PointY="11.75" Height="1.7879850260416657" />
+        <EntityTypeShape EntityType="DataModel.FinancialGroupBranchMapItem" Width="3.125" PointX="2.125" PointY="10.25" Height="1.5956835937499996" />
+        <AssociationConnector Association="DataModel.FK_FinancialGroupBranchMap_1_0" >
+          <ConnectorPoint PointX="5" PointY="8.6629850260416656" />
+          <ConnectorPoint PointX="5" PointY="10.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="DataModel.FK_FinancialGroupBranchMap_0_0" >
+          <ConnectorPoint PointX="6.25" PointY="11.75" />
+          <ConnectorPoint PointX="6.25" PointY="10.999999500000001" />
+          <ConnectorPoint PointX="5.25" PointY="10.999999500000001" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.FinancialGroupWarehouseMapItem" Width="1.5" PointX="5.875" PointY="14.375" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="DataModel.Warehouse" Width="1.5" PointX="10.625" PointY="12.5" Height="1.4033821614583335" />
+        <AssociationConnector Association="DataModel.FK_FinancialGroupWarehouseMap_0_0" >
+          <ConnectorPoint PointX="6.4375" PointY="13.537985026041666" />
+          <ConnectorPoint PointX="6.4375" PointY="14.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="DataModel.FK_FinancialGroupWarehouseMap_1_0" >
+          <ConnectorPoint PointX="10.625" PointY="13.75193359375" />
+          <ConnectorPoint PointX="7.21875" PointY="13.75193359375" />
+          <ConnectorPoint PointX="7.21875" PointY="14.375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.DimensionKind" Width="1.5" PointX="9" PointY="16.875" Height="1.59568359375" />
+        <EntityTypeShape EntityType="DataModel.GoodsItem" Width="1.5" PointX="3.25" PointY="16.375" Height="2.5571907552083353" />
+        <EntityTypeShape EntityType="DataModel.ItemCategory" Width="1.5" PointX="6.625" PointY="19.5" Height="1.4033821614583353" />
+        <AssociationConnector Association="DataModel.FK_GoodsItem_0_0" >
+          <ConnectorPoint PointX="9" PointY="17.672841796875" />
+          <ConnectorPoint PointX="4.75" PointY="17.672841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="DataModel.FK_GoodsItem_1_0" >
+          <ConnectorPoint PointX="6.625" PointY="20.201691080729169" />
+          <ConnectorPoint PointX="4" PointY="20.201691080729169" />
+          <ConnectorPoint PointX="4" PointY="18.932190755208335" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.WarehouseItem" Width="1.5" PointX="12.75" PointY="14.25" Height="2.3648893229166674" />
+        <AssociationConnector Association="DataModel.FK_WarehouseItem_1_0" >
+          <ConnectorPoint PointX="4.75" PointY="18.732687174479171" />
+          <ConnectorPoint PointX="13.5" PointY="18.732687174479171" />
+          <ConnectorPoint PointX="13.5" PointY="16.614889322916667" />
+        </AssociationConnector>
+        <AssociationConnector Association="DataModel.FK_WarehouseItem_0_0" >
+          <ConnectorPoint PointX="12.125000000000004" PointY="13.903382161458334" />
+          <ConnectorPoint PointX="12.75" PointY="14.25" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.OrderKind" Width="1.5" PointX="10.875" PointY="2.75" Height="1.4033821614583326" />
+        <EntityTypeShape EntityType="DataModel.OrderStatus" Width="1.5" PointX="8.625" PointY="0.875" Height="1.59568359375" />
+        <EntityTypeShape EntityType="DataModel.StatusKind" Width="1.5" PointX="6.375" PointY="1" Height="1.4033821614583331" />
+        <AssociationConnector Association="DataModel.FK_OrderStatus_0_0" >
+          <ConnectorPoint PointX="7.875" PointY="1.7016910807291668" />
+          <ConnectorPoint PointX="8.625" PointY="1.7016910807291668" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.RepairOrder" Width="1.5" PointX="13.125" PointY="1.25" Height="6.5955208333333326" />
+        <AssociationConnector Association="DataModel.FK_RepairOrder_0_0" >
+          <ConnectorPoint PointX="6.25" PointY="8.3192350260416674" />
+          <ConnectorPoint PointX="13.875" PointY="8.3192350260416674" />
+          <ConnectorPoint PointX="13.875" PointY="7.8455208333333326" />
+        </AssociationConnector>
+        <AssociationConnector Association="DataModel.FK_RepairOrder_1_0" >
+          <ConnectorPoint PointX="12.375" PointY="3.4516910807291659" />
+          <ConnectorPoint PointX="13.125" PointY="3.4516910807291659" />
+        </AssociationConnector>
+        <AssociationConnector Association="DataModel.FK_RepairOrder_2_0" >
+          <ConnectorPoint PointX="10.125" PointY="1.8603417968749998" />
+          <ConnectorPoint PointX="13.125" PointY="1.8603417968749998" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.WorkItem" Width="1.5" PointX="16" PointY="2.875" Height="2.1725878906249996" />
+        <AssociationConnector Association="DataModel.FK_WorkItem_0_0" >
+          <ConnectorPoint PointX="14.625" PointY="3.9612939453125" />
+          <ConnectorPoint PointX="15.572916666666666" PointY="3.9612939453124993" />
+          <ConnectorPoint PointX="15.739583333333334" PointY="3.9612939453125" />
+          <ConnectorPoint PointX="16" PointY="3.9612939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DataModel.FK_WorkItem_1_0" >
+          <ConnectorPoint PointX="2.25" PointY="0.7734375" />
+          <ConnectorPoint PointX="16.75" PointY="0.7734375" />
+          <ConnectorPoint PointX="16.75" PointY="2.875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.OrderTimeline" Width="1.5" PointX="18.375" PointY="4.375" Height="1.9802864583333326" />
+        <AssociationConnector Association="DataModel.FK_OrderTimeline_0_0" >
+          <ConnectorPoint PointX="14.625" PointY="5.4612939453125" />
+          <ConnectorPoint PointX="15.572916666666666" PointY="5.4612939453124989" />
+          <ConnectorPoint PointX="15.739583333333334" PointY="5.4612939453125" />
+          <ConnectorPoint PointX="18.375" PointY="5.4612939453125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.TimelineKind" Width="1.5" PointX="19.5" PointY="7.75" Height="1.4033821614583335" />
+        <AssociationConnector Association="DataModel.FK_OrderTimeline_1_0" >
+          <ConnectorPoint PointX="19.6875" PointY="7.75" />
+          <ConnectorPoint PointX="19.6875" PointY="6.3552864583333326" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.DeviceItem" Width="1.5" PointX="15.375" PointY="5.875" Height="2.7494921874999996" />
+        <AssociationConnector Association="DataModel.FK_DeviceItem_0_0" >
+          <ConnectorPoint PointX="14.625" PointY="6.8602604166666659" />
+          <ConnectorPoint PointX="15.375" PointY="6.8602604166666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="DataModel.FK_DeviceItem_1_0" >
+          <ConnectorPoint PointX="2.25" PointY="0.79296875" />
+          <ConnectorPoint PointX="15.65625" PointY="0.79296875" />
+          <ConnectorPoint PointX="15.65625" PointY="5.875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.RepairOrderServerHashItem" Width="2.75" PointX="19" PointY="12.5" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="DataModel.WorkItemServerHashItem" Width="3.375" PointX="22.5" PointY="12.5" Height="1.5956835937499996" />
+        <AssociationConnector Association="DataModel.FK_WorkItemServerHash_0_0" >
+          <ConnectorPoint PointX="21.75" PointY="13.297841796875" />
+          <ConnectorPoint PointX="22.5" PointY="13.297841796875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.DeviceItemServerHashItem" Width="1.5" PointX="16.375" PointY="12.375" Height="1.5956835937500031" />
+        <AssociationConnector Association="DataModel.FK_DeviceItemServerHash_0_0" >
+          <ConnectorPoint PointX="19" PointY="13.235341796875002" />
+          <ConnectorPoint PointX="17.875" PointY="13.235341796875002" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.CustomReportItem" Width="2.125" PointX="10.625" PointY="8.875" Height="1.7879850260416657" />
+        <EntityTypeShape EntityType="DataModel.DocumentKind" Width="1.5" PointX="8.375" PointY="9.125" Height="1.4033821614583335" />
+        <AssociationConnector Association="DataModel.FK_CustomReport_0_0" >
+          <ConnectorPoint PointX="9.875" PointY="9.8266910807291659" />
+          <ConnectorPoint PointX="10.625" PointY="9.8266910807291659" />
+        </AssociationConnector>
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

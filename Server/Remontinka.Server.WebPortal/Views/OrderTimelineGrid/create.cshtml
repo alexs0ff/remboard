@@ -1,0 +1,42 @@
+﻿@using Remontinka.Server.WebPortal.Models.OrderTimelineGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, OrderTimelineGridModel, OrderTimelineCreateModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+   
+
+    Model.LayoutSettings.Items.Add(m => Model.Model.RepairOrderID, i =>
+    {
+        i.ConfigureItem(Model.Model, () => Model.Model.RepairOrderID);
+        i.ClientVisible = false;
+        i.SetNestedContent(() => Model.Html.ViewContext.Writer.Write(Model.Html.Hidden(i.Name, Model.Model.RepairOrderID).ToHtmlString()));
+    });
+
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddHistoryItemGroup";
+        g.ColCount = 1;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Width = Unit.Percentage(100);        
+
+        g.Items.Add(m => Model.Model.Title, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Title);
+            if (!Model.GridSettings.IsEditing.Value && Model.Html.ViewData.ModelState.IsValid)
+            {
+                i.FieldName = "Title";
+            }
+            i.NestedExtension().Memo(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+       
+
+    });
+
+}
+
+

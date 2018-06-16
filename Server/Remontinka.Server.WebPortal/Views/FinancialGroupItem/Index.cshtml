@@ -1,0 +1,11 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+
+@{
+    ViewBag.Title = "Управление финансовыми группами филиалов";
+}
+
+<p>
+    <h1>Финансовые группы филиалов</h1>
+    <em>Для начала работы с бухгалтерией необходимо определить как минимум одну финансовую группу и обозначить подчиненные филиалы</em>
+</p>
+@Html.DevexpressGrid(FinancialGroupItemGridController.ControllerName)

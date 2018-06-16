@@ -1,0 +1,8 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+
+@{
+    ViewBag.Title = "Управление документами перемещения";
+}
+
+<h1>Накладные перемещения</h1>
+@Html.DevexpressGrid(TransferDocGridController.ControllerName)

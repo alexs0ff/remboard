@@ -1,0 +1,8 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+
+@{
+    ViewBag.Title = "Управление документами списания";
+}
+
+<h1>Накладные списания</h1>
+@Html.DevexpressGrid(CancellationDocGridController.ControllerName)

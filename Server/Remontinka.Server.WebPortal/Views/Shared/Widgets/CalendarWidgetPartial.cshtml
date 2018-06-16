@@ -1,0 +1,18 @@
+﻿@Html.DevExpress().Calendar(
+    settings =>
+    {
+        settings.Name = "calendar";
+        settings.Properties.ShowClearButton = false;
+        settings.Properties.ShowHeader = false;
+        settings.Properties.ShowTodayButton = false;
+        settings.Properties.ShowWeekNumbers = false;
+        settings.Properties.HighlightToday = true;
+        settings.ControlStyle.Border.BorderStyle = BorderStyle.None;
+        settings.Width = Unit.Percentage(100); ;
+        settings.PreRender = (sender, e) =>
+        {
+            MVCxCalendar calendar = (MVCxCalendar)sender;
+            calendar.SelectedDate = DateTime.Today;
+        };
+    }
+).GetHtml()

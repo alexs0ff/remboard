@@ -1,0 +1,59 @@
+﻿@using Remontinka.Server.WebPortal.Models.CancellationDocItemGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, CancellationDocItemGridModel, CancellationDocItemCreateModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+
+    Model.LayoutSettings.Items.Add(m => Model.Model.CancellationDocID, i =>
+    {
+        i.ConfigureItem(Model.Model, () => Model.Model.CancellationDocID);
+        i.ClientVisible = false;
+        i.SetNestedContent(() => Model.Html.ViewContext.Writer.Write(Model.Html.Hidden(i.Name, Model.Model.CancellationDocID).ToHtmlString()));
+    });
+
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddCancellationDocItemGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Width = Unit.Percentage(100);
+        g.Items.Add(m => Model.Model.GoodsItemID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.GoodsItemID);
+
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "GoodsItemID";
+                s.Properties.ValueType = typeof(Guid?);
+                s.Properties.DataSource = Model.GridSettings.GoodsItems;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Total, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Total);
+
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+      
+        g.Items.Add(m => Model.Model.Description, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Description);
+
+            i.NestedExtension().Memo(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+    });
+
+}
+
+

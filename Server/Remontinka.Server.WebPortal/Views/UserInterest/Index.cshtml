@@ -1,0 +1,12 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+@model dynamic
+
+@{
+    ViewBag.Title = "Управление вознаграждениями";
+}
+
+<div class="caption-box">
+    <h1>Список вознаграждений</h1>
+    <em>Для формирования сумм вознаграждений необходимо перейти к @Html.ActionLink("отчету по вознаграждениям пользователей", "index", "UserInterestReport", null, new { title = "Перейти к отчету по вознаграждениям" })</em>
+</div>
+@Html.DevexpressGrid(UserInterestGridController.ControllerName)

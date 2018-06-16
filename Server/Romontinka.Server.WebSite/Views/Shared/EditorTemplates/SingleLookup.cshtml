@@ -1,0 +1,51 @@
+﻿@using System.Globalization
+@using Romontinka.Server.WebSite.Common
+@using Romontinka.Server.WebSite.Metadata
+@using Romontinka.Server.WebSite.Models.Controls
+@{
+    Layout = "Template.Master.cshtml";
+    
+    var classes = string.Empty;
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(EditorHtmlClassAttribute.ClassNamesKey))
+    {
+        classes = (string)ViewData.ModelMetadata.AdditionalValues[EditorHtmlClassAttribute.ClassNamesKey];
+    } //if
+    
+    SingleLookupModel model = null;
+
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(SingleLookupAttribute.SingleLookupKey))
+    {
+        model = (SingleLookupModel)ViewData.ModelMetadata.AdditionalValues[SingleLookupAttribute.SingleLookupKey];
+    } //if
+
+    if (model==null)
+    {
+        model = new SingleLookupModel {  };
+    } //if
+
+    if (model.SearchModel==null)
+    {
+        model.SearchModel = new JLookupSearchBaseModel();
+    } //if
+    
+    model.Property = ViewData.ModelMetadata.PropertyName;
+    model.PropertyValue = String.Format(CultureInfo.InvariantCulture, "{0}", ViewData.ModelMetadata.Model);
+    model.EditorClasses = classes;
+    model.PropertyName = ViewData.ModelMetadata.GetDisplayName();
+
+    var attrs = Html.GetUnobtrusiveValidationAttributes(ViewData.ModelMetadata.PropertyName, ViewData.ModelMetadata);
+    
+    if (model.HtmlAttributes==null)
+    {
+        model.HtmlAttributes = attrs;
+    } //if
+    else
+    {
+        foreach (var attr in attrs)
+        {
+            model.HtmlAttributes[attr.Key] = attr.Value;
+        } //foreach
+    } //else
+    
+}
+@Html.SingleLookup(model)

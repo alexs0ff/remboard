@@ -1,0 +1,45 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.GoodsItemGridForm.GoodsItemGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Title";
+            column.Caption = "Название";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ItemCategoryID";
+            column.Caption = "Категория";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.ItemCategories;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueType = typeof(Guid);
+            comboBoxProperties.ValueField = "ItemCategoryID";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Particular";
+            column.Caption = "Артикул";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "UserCode";
+            column.Caption = "Код";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Description";
+            column.Caption = "Описание";
+        });
+
+        settings.Apply(Model,Html);
+
+    }).BindToModel(Model,Html)

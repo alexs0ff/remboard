@@ -1,0 +1,20 @@
+﻿@model Remontinka.Server.WebPortal.Models.Common.FiltersComboBoxModel
+@{
+    var comboboxName = Model.GridName + "FilterComboBox";
+}
+@Html.DevExpress().ComboBox(settings =>
+{
+    settings.SetDefaultSettings(Model.Token);
+    settings.Width =Unit.Pixel(250);
+    settings.Name = comboboxName;
+    settings.Properties.ValueField = "UserGridFilterID";
+    settings.Properties.TextField = "Title";
+    settings.Properties.ValueType = typeof(Guid);
+    settings.CallbackRouteValues = new { Controller = Model.ControllerName, Action = "GetFilters" };
+    settings.Properties.CallbackPageSize = 15;
+    UrlHelper u = new UrlHelper(ViewContext.Controller.ControllerContext.RequestContext);
+    var url = u.Action("GetFilter", Model.ControllerName);
+    settings.Properties.ClientSideEvents.SelectedIndexChanged = string.Format("function(s, e) {{ jCrudEngine.applyGridFilter({0},{1},'{2}'); }}", Model.GridName,comboboxName, url);
+
+}).BindList(Model.UserGridFilters).GetHtml()
+

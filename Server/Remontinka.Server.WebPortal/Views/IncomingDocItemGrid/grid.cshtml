@@ -1,0 +1,72 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.IncomingDocItemGridForm.IncomingDocItemGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Settings.ShowFilterRow = true;
+        settings.Settings.ShowGroupPanel = false;
+        settings.SettingsSearchPanel.Visible = false;
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "GoodsItemID";
+            column.Caption = "Номенклатура";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.GoodsItems;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueField = "GoodsItemID";
+            comboBoxProperties.ValueType = typeof(Guid);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Total";
+            column.Caption = "Количество";
+            column.SetNumeric(Model.Token);
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "InitPrice";
+            column.Caption = "Цена закупки";
+            column.SetNumeric(Model.Token);
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "StartPrice";
+            column.Caption = "Нулевая цена";
+            column.SetNumeric(Model.Token);
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RepairPrice";
+            column.Caption = "Ремонтная цена";
+            column.SetNumeric(Model.Token);
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "SalePrice";
+            column.Caption = "Цена продажи";
+            column.SetNumeric(Model.Token);
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Description";
+            column.Caption = "Описание";
+            column.SetNumeric(Model.Token);
+        });
+
+        settings.Apply(Model, Html);
+
+        settings.SettingsPager.Position = PagerPosition.Bottom;
+        settings.SettingsDetail.MasterGridName = Remontinka.Server.WebPortal.Controllers.IncomingDocGridController.GridName;
+
+
+
+    }).BindToModel(Model, Html)

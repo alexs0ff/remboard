@@ -1,0 +1,18 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <p>
+        @Html.ActionLink(User.Identity.Name, "ChangePassword", "Account", routeValues: new { area = "" }, htmlAttributes: new { @class = "username", title = "Смена пароля" })
+        @Html.ActionLink("Выйти", "LogOff", "Account", routeValues: new { area = "" }, htmlAttributes: null)
+    </p>
+}
+else
+{
+    <ul>
+        <li>
+            @Html.ActionLink("Регистрация","Register", "Account")
+        </li>
+        <li>
+            @Html.ActionLink("Войти", "Login", "Account", routeValues: new {area = ""}, htmlAttributes: new {id = "loginLink", data_dialog_title = "Авторизация"})
+        </li>
+    </ul>
+}

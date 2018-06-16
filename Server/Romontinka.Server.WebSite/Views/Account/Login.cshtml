@@ -1,0 +1,35 @@
+﻿@using Romontinka.Server.WebSite.Models
+@using Romontinka.Server.WebSite.Models.Account
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "Авторизация";
+}
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true, "Вход не выполнен, повторите ввод имени пользователя и пароля")
+
+    <fieldset>
+        <legend><h1>Введите свой логин и пароль</h1></legend>
+        
+                <div class="loginRow">
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+                </div>
+                <div class="loginRow">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+                 </div>
+                <div class="loginRow">
+                @Html.LabelFor(m => m.RememberMe)
+                @Html.CheckBoxFor(m => m.RememberMe)                
+            </div>
+            <div class="loginRow">
+            <input type="submit" value="Войти" class="btn"/>
+        </div>
+    </fieldset>
+   
+}
+<p>Если еще Вас нет в системе, пройдите @Html.ActionLink("регистрацию", "Register")</p>
+<p>Если Вы забыли пароль, проведите его @Html.ActionLink("восстановление", "RecoveryLogin")</p>

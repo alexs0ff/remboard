@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{596992D9-59F1-47D2-8808-EBC2A6E87BB3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Remontinka.Client.Wpf</RootNamespace>
+    <AssemblyName>Remboard</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Build\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\External\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\External\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\External\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\External\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\Controls\CheckBoxController.cs" />
+    <Compile Include="Controllers\Controls\ComboBoxController.cs" />
+    <Compile Include="Controllers\Controls\DateBoxController.cs" />
+    <Compile Include="Controllers\Controls\IUserControlController.cs" />
+    <Compile Include="Controllers\Controls\MoneyBoxController.cs" />
+    <Compile Include="Controllers\Controls\PaginatorController.cs" />
+    <Compile Include="Controllers\Controls\TabControlManager.cs" />
+    <Compile Include="Controllers\CustomReportPreviewController.cs" />
+    <Compile Include="Controllers\Forms\FormController.cs" />
+    <Compile Include="Controllers\Forms\ModelEditControllerBase.cs" />
+    <Compile Include="Controllers\Items\BranchComboBoxController.cs" />
+    <Compile Include="Controllers\Items\ComboBoxItemControllerBase.cs" />
+    <Compile Include="Controllers\Items\CommentDataController.cs" />
+    <Compile Include="Controllers\Items\DeviceItemDataController.cs" />
+    <Compile Include="Controllers\Items\EngineerComboBoxController.cs" />
+    <Compile Include="Controllers\Items\IComboBoxItemController.cs" />
+    <Compile Include="Controllers\Items\ManagerComboBoxController.cs" />
+    <Compile Include="Controllers\Items\OrderKindController.cs" />
+    <Compile Include="Controllers\Items\OrderStatusController.cs" />
+    <Compile Include="Controllers\Items\RepairOrderDataController.cs" />
+    <Compile Include="Controllers\Items\RepairOrderFilterComboBoxController.cs" />
+    <Compile Include="Controllers\Items\SelectListItem.cs" />
+    <Compile Include="Controllers\Items\UserComboBoxController.cs" />
+    <Compile Include="Controllers\Items\WarehouseItemComboboxController.cs" />
+    <Compile Include="Controllers\Items\WorkItemDataController.cs" />
+    <Compile Include="Controls\CheckBoxControl.xaml.cs">
+      <DependentUpon>CheckBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ComboBoxControl.xaml.cs">
+      <DependentUpon>ComboBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MoneyBoxControl.xaml.cs">
+      <DependentUpon>MoneyBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Controls\CheckBoxControlModel.cs" />
+    <Compile Include="Model\Controls\ComboBoxControlAttribute.cs" />
+    <Compile Include="Model\Controls\ComboboxControlModel.cs" />
+    <Compile Include="Model\Controls\ComboboxItem.cs" />
+    <Compile Include="Model\Controls\ControlType.cs" />
+    <Compile Include="Model\Controls\DateControlModel.cs" />
+    <Compile Include="Controllers\Controls\MaskedTextBoxController.cs" />
+    <Compile Include="Controllers\Controls\TextBlockController.cs" />
+    <Compile Include="Controllers\Controls\TextBoxController.cs" />
+    <Compile Include="Controllers\Controls\UserControlControllerBase.cs" />
+    <Compile Include="Controllers\RepairOrderViewController.cs" />
+    <Compile Include="Controllers\SyncController.cs" />
+    <Compile Include="Controls\DateBoxControl.xaml.cs">
+      <DependentUpon>DateBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MaskedTextBoxControl.xaml.cs">
+      <DependentUpon>MaskedTextBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TextBlockControl.xaml.cs">
+      <DependentUpon>TextBlockControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TextBoxControl.xaml.cs">
+      <DependentUpon>TextBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\AcceptableColorConverter.cs" />
+    <Compile Include="Converters\BoolToRedColorTextConverter.cs" />
+    <Compile Include="Converters\InvertBooleanConverter.cs" />
+    <Compile Include="Converters\SyncItemStatusToImageConverter.cs" />
+    <Compile Include="Model\AuthControlModel.cs" />
+    <Compile Include="Model\ComboBoxItemModel.cs" />
+    <Compile Include="Model\Controls\ControlModelBase.cs" />
+    <Compile Include="Model\Controls\DisplayNameAttribute.cs" />
+    <Compile Include="Model\Controls\IControlDescriptor.cs" />
+    <Compile Include="Model\Controls\MaskedTextBoxControlModel.cs" />
+    <Compile Include="Model\Controls\ModelDataAttribute.cs" />
+    <Compile Include="Model\Controls\MoneyBoxControlModel.cs" />
+    <Compile Include="Model\Controls\PageChangedEventArgs.cs" />
+    <Compile Include="Model\Controls\PressKeyEventArgs.cs" />
+    <Compile Include="Model\Controls\RegexValueAttribute.cs" />
+    <Compile Include="Model\Controls\TabStepAttribute.cs" />
+    <Compile Include="Model\Controls\TextBlockControlModel.cs" />
+    <Compile Include="Model\Controls\TextBoxControlModel.cs" />
+    <Compile Include="Model\Controls\TextBoxMaskAttrubute.cs" />
+    <Compile Include="Model\DeviceItemModel.cs" />
+    <Compile Include="Model\EditModelMasterModel.cs" />
+    <Compile Include="Model\Forms\ModelIsValidStateChangedEventArgs.cs" />
+    <Compile Include="Model\Forms\ViewModelBase.cs" />
+    <Compile Include="Model\Items\CommentCreateModel.cs" />
+    <Compile Include="Model\Items\DeviceItemEditModel.cs" />
+    <Compile Include="Model\Items\OrderSearchItem.cs" />
+    <Compile Include="Model\Items\OrderSearchSet.cs" />
+    <Compile Include="Model\Items\RepairOrderCreateModel.cs" />
+    <Compile Include="Model\Items\RepairOrderEditModel.cs" />
+    <Compile Include="Model\Items\WorkItemEditModel.cs" />
+    <Compile Include="Model\ModelConstants.cs" />
+    <Compile Include="Model\ModelSavedEventArgs.cs" />
+    <Compile Include="Model\OrderTimelineModel.cs" />
+    <Compile Include="Model\PairItem.cs" />
+    <Compile Include="Model\RepairOrderItemModel.cs" />
+    <Compile Include="Model\RepairOrderViewModel.cs" />
+    <Compile Include="Model\SaveModelResult.cs" />
+    <Compile Include="Model\SyncItem.cs" />
+    <Compile Include="Model\SyncProcessModel.cs" />
+    <Compile Include="Model\UserHelper.cs" />
+    <Compile Include="Model\WorkItemModel.cs" />
+    <Compile Include="View\AuthView.xaml.cs">
+      <DependentUpon>AuthView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CommentCreateView.xaml.cs">
+      <DependentUpon>CommentCreateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomReportPreview.xaml.cs">
+      <DependentUpon>CustomReportPreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeviceItemEditView.xaml.cs">
+      <DependentUpon>DeviceItemEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditModelMasterWindow.xaml.cs">
+      <DependentUpon>EditModelMasterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RepairOrderCreateView.xaml.cs">
+      <DependentUpon>RepairOrderCreateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RepairOrderEditView.xaml.cs">
+      <DependentUpon>RepairOrderEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RepairOrderView.xaml.cs">
+      <DependentUpon>RepairOrderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SyncView.xaml.cs">
+      <DependentUpon>SyncView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkItemEditView.xaml.cs">
+      <DependentUpon>WorkItemEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfUtils.cs" />
+    <Page Include="Controls\CheckBoxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ComboBoxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DateBoxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MaskedTextBoxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MoneyBoxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TextBlockControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TextBoxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ArmController.cs" />
+    <Compile Include="ClientConfiguration.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\InvertBoolToVisibilityConverter.cs" />
+    <Compile Include="IFocusable.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AuthView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CommentCreateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CustomReportPreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeviceItemEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditModelMasterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RepairOrderCreateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RepairOrderEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RepairOrderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SyncView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WorkItemEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MessageBoxUserNotifier.cs" />
+    <Compile Include="Model\ArmAppModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Remontinka.Client.Core\Remontinka.Client.Core.csproj">
+      <Project>{4F2B4DD1-D288-47D6-92EA-87C849764042}</Project>
+      <Name>Remontinka.Client.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Remontinka.Client.DataLayer.Entities\Remontinka.Client.DataLayer.Entities.csproj">
+      <Project>{6E042EFF-1E2F-48C5-BD36-6F47CC086895}</Project>
+      <Name>Remontinka.Client.DataLayer.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Remontinka.Client.DataLayer.EntityFramework\Remontinka.Client.DataLayer.EntityFramework.csproj">
+      <Project>{095EA797-A6FC-48BC-9C80-A43B2E8CDBF4}</Project>
+      <Name>Remontinka.Client.DataLayer.EntityFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\checkmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\yellow_ball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Add16.png" />
+    <Resource Include="Images\Refresh16.png" />
+    <Resource Include="Images\Edit16.png" />
+    <Resource Include="Images\Close16.png" />
+    <Resource Include="Images\Options16.png" />
+    <Resource Include="Images\delete_12x12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PrintView16.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

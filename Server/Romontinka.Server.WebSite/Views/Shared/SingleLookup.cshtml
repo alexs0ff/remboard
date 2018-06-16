@@ -1,0 +1,79 @@
+﻿ @model Romontinka.Server.WebSite.Models.Controls.SingleLookupModel
+@{
+    var displayId = LookupHelpers.CreateLookupDisplayProperty(Model.Property);
+    
+    var dialogId = string.Format("dlg{0}", Model.Property);
+    var widgetId = string.Format("wgt{0}", Model.Property);
+    var dialogSearchId = string.Format("dlgSrc{0}", Model.Property);
+    var itemsId = string.Format("items{0}", Model.Property);
+    var paginatorId = string.Format("paginator{0}", Model.Property);
+    var itemsUrl = @Url.Action(Model.GetItemsAction, Model.Controller);
+    var itemUrl = @Url.Action(Model.GetItemAction, Model.Controller);
+
+    var paginatorReloadFunctionName = string.Format("{0}PaginatorReload", Model.Property);
+    
+
+    var isRequired = Model.HtmlAttributes!=null && Model.HtmlAttributes.ContainsKey("data-val-required");
+    var isAjax = Context.Request.IsAjaxRequest();
+    
+    var displayTagBuilder = new TagBuilder("input");
+    displayTagBuilder.AddCssClass(Model.EditorClasses);
+    displayTagBuilder.AddCssClass("lookup-input");
+    displayTagBuilder.Attributes["id"] = displayId;
+    displayTagBuilder.Attributes["type"] = "text";
+    displayTagBuilder.Attributes["name"] = displayId;
+
+    
+    displayTagBuilder.Attributes["data-val-lookup-required"] = isRequired? "true":"false";
+    displayTagBuilder.Attributes["data-val-lookup-property"] = Model.Property;
+    
+    
+    displayTagBuilder.MergeAttributes(Model.HtmlAttributes);
+    Html.ViewContext.ViewData.TemplateInfo.HtmlFieldPrefix = string.Empty;//Убираем префикс, иначе не работает Html.ValidationMessage для другого поля
+    
+}
+
+<script type="text/javascript">
+    $(function () {
+        jCrudEngine.createSingleLookup("@itemsUrl","@itemUrl","@Model.Property","@displayId","@Model.PropertyValue","@Model.ParentID",@isRequired.ToString().ToLower(),@isAjax.ToString().ToLower(),"@dialogId",@Model.FullScreen.ToString().ToLower(),"@dialogSearchId","@itemsId","@widgetId","@paginatorId","@paginatorReloadFunctionName", @Model.Width,@Model.Height);
+    });
+    
+    @{
+    @:function 
+    @paginatorReloadFunctionName<text>(page) {
+            $(".@paginatorId").val(page);
+            jCrudEngine.reloadSingleLookupItems("@itemsUrl","@itemUrl","@itemsId","@dialogId","@dialogSearchId","@Model.Property","@displayId","@Model.ParentID","@paginatorId","@paginatorReloadFunctionName");
+        }
+   </text>
+    }
+</script>
+
+
+<div id="@dialogId" title="@Model.PropertyName">
+    <form id="@dialogSearchId" action="">
+        @Html.Hidden("Page", "1", new { @class = paginatorId })
+        @if(!string.IsNullOrWhiteSpace(Model.ParentID))
+        {
+            @Html.Hidden("Parent")
+        }
+        <div class="lookup-filter-group">
+            @Html.Action("SearchForm", Model.Controller, Model.SearchModel)
+        </div>
+        <a class="btn btn-medium lookup-filter-btn">Поиск</a>
+    </form>
+    <div id="@itemsId" class="lookup-filter-items"></div>
+    <div class="paginator" id="@paginatorId"></div>
+</div>
+
+<div class="lookupWidget" id="@widgetId">
+   
+    <input id="@Model.Property" name="@Model.Property" value="@Model.PropertyValue" type="hidden" />   
+    
+    @Html.Raw(displayTagBuilder.ToString(TagRenderMode.Normal))
+    
+    <a href="#" class="btn btn-medium btn-lookup-open"><span class="ui-icon ui-icon-newwin"></span></a>
+     @if (Model.ClearButton)
+        {
+            <a class="btn btn-medium btn-lookup-clear"><span class="ui-icon ui-icon-gear"></span></a>
+        }
+</div>

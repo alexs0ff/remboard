@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "title";
+    Layout = null;
+}
+
+@using (Html.BeginForm("ReverseFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <input type="submit" value="OK" />
+}
+
+@Html.ActionLink("Файл", "GetRevervedFile", "Home")

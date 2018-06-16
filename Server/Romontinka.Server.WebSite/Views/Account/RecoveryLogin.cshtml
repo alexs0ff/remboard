@@ -1,0 +1,20 @@
+﻿@using Recaptcha.Web
+@using Recaptcha.Web.Mvc
+@model Romontinka.Server.WebSite.Models.Account.RecoveryLoginModel
+
+@{
+    ViewBag.Title = "Восстановление";
+}
+
+@Html.ValidationSummary(true)
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend class="register-user-title"><h1>Введите логин и текст с изображения</h1></legend>
+        @Html.EditorFor(m=>m.Login)
+        @Html.Recaptcha(theme:RecaptchaTheme.Clean)
+        <input type="submit" value="Восстановить" class="btn"/>
+    </fieldset>
+     
+}

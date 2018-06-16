@@ -1,0 +1,9 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+@model dynamic
+
+@{
+    ViewBag.Title = "Управление статусами";
+}
+
+<h1>Статусы</h1>
+@Html.DevexpressGrid(OrderStatusGridController.ControllerName)

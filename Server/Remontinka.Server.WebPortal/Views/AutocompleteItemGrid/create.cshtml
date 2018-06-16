@@ -1,0 +1,36 @@
+﻿@using Remontinka.Server.WebPortal.Models.AutocompleteItemGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, AutocompleteItemGridModel, AutocompleteItemCreateModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddAutocompleteItemGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Items.Add(m => Model.Model.Title, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Title);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.AutocompleteKindID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.AutocompleteKindID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "AutocompleteKindID";
+                s.Properties.ValueType = typeof(byte);
+                s.Properties.DataSource = Model.GridSettings.AutocompleteKinds;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+    });
+
+}

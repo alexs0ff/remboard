@@ -1,0 +1,12 @@
+﻿@using Romontinka.Server.WebSite.Models.User
+
+@model UserEditModel
+@Html.ValidationSummary(true)
+@Html.HiddenFor(m=>m.Id)
+@Html.EditorFor(m=>m.ProjectRoleID)
+@Html.EditorFor(m=>m.LastName)
+@Html.EditorFor(m=>m.FirstName)
+@Html.EditorFor(m=>m.MiddleName)
+@Html.EditorFor(m=>m.Phone)
+@Html.EditorFor(m=>m.Email)
+@Html.EditorFor(m=>m.BranchIds)

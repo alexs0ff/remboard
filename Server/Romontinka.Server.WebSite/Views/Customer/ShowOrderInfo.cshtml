@@ -1,0 +1,15 @@
+﻿@model Romontinka.Server.WebSite.Models.Customer.CustomerGetOrderResultModel
+
+@{
+    ViewBag.Title = "Результат поиска заказа";
+}
+
+<p>
+    <h1>@Model.Description</h1>
+</p>
+@if (!Model.IsSuccess)
+{
+    @Html.ActionLink("Повторить поиск","Index")    
+}
+
+

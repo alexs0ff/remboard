@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Remontinka.Client.Wpf.Controls.MoneyBoxControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Model="clr-namespace:Remontinka.Client.Wpf.Model.Controls"
+             xmlns:Converters="clr-namespace:Remontinka.Client.Wpf.Converters" mc:Ignorable="d" 
+              d:DesignHeight="32" d:DesignWidth="200"
+             d:DataContext="{d:DesignInstance Type=Model:MoneyBoxControlModel}"             
+             MinWidth="100"
+             Height="32"
+             >
+    <Grid
+        ToolTip="{Binding Description}"
+        >
+        <Grid.Resources>
+            <Converters:AcceptableColorConverter x:Key="AcceptableColorConverter"/>
+            <Converters:InvertBooleanConverter x:Key="InvertBooleanConverter"/>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="leftCell" Width="30*"/>
+            <ColumnDefinition Width="70*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="titleBox" Grid.Column="0" TextWrapping="Wrap" Text="{Binding Path=Title}" Foreground="{Binding Path=IsAcceptable,Converter={StaticResource ResourceKey=AcceptableColorConverter}}"/>
+        <TextBox x:Name="textBox" Grid.Column="1" TabIndex="{Binding Path=TabStep}" Text="{Binding Path=Value,Mode=TwoWay}" IsEnabled="{Binding Path=ReadOnly,Converter={StaticResource ResourceKey=InvertBooleanConverter}}" KeyUp="TextBoxKeyUp"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,8 @@
+﻿@using Romontinka.Server.WebSite.Models.UserPublicKeyRequestForm
+@model UserPublicKeyRequestCreateModel
+@Html.HiddenFor(m=>m.Id)
+@Html.EditorFor(m => m.UserLogin)
+@Html.EditorFor(m=>m.ClientIdentifier)
+@Html.EditorFor(m=>m.KeyNotes)
+@Html.EditorFor(m=>m.IsActivated)
+

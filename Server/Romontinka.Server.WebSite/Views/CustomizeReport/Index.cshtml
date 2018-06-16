@@ -1,0 +1,143 @@
+﻿@using Romontinka.Server.WebSite.Controllers
+@using Romontinka.Server.WebSite.Models.CustomReport
+@model CustomizeReportModel
+
+@{
+    ViewBag.Title = "Редактирование отчетов";
+    var createDialogId = "reportCreateDialog";
+    var createFormId = "reportCreateForm";
+
+    var editDialogId = "reportEditDialog";
+    var editFormId = "reportEditForm";
+    
+    var deleteDialogId = "reportDeleteDialog";
+    var deleteDialogDataId = "reportDeleteDialogData";
+}
+@section Scripts{
+
+<script src="~/Scripts/jHtmlArea-0.8.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/jHtmlArea.css" />
+
+<script type="text/javascript">
+$(function() {
+    $("#reportHtmlArea").htmlarea();
+    $("#CustomReportID").change(function() {
+        
+        var itemVal = $("#CustomReportID").val();
+        
+        $("#reportHtmlArea").htmlarea("html","");
+        
+        if (itemVal!==null && itemVal.trim()) {
+            jCrudEngine.sendToServerData("@Url.Action("GetReportContent", CustomizeReportController.ControllerName)", { reportID: itemVal },
+                function(fData) {
+                    $("#reportHtmlArea").htmlarea("html", fData.Item.HtmlContent);
+                }
+
+        );
+        }
+    });
+});
+ function showCreateDialog() {
+     jCrudEngine.showEditModelDialog("@Url.Action("GetNewItemForm", CustomizeReportController.ControllerName)", null, "@createFormId", "@createDialogId",
+            function (fData) {
+                
+            }
+            );
+     
+ }
+ 
+ function showEditDialog() {
+     var itemVal = $("#CustomReportID").val();
+     if (itemVal !== null && itemVal.trim()) {
+
+         jCrudEngine.showEditModelDialog("@Url.Action("GetItemForm", CustomizeReportController.ControllerName)", { id: itemVal }, "@editFormId", "@editDialogId",
+             function(fData) {
+
+             }
+            ); 
+     }
+
+ }
+ 
+
+ function startEditEntity(serializedData) {
+     jCrudEngine.saveDataEditModelDialog("@Url.Action("SaveCreatedItem", CustomizeReportController.ControllerName)",serializedData,"@editFormId","@editDialogId",
+            function(fData){
+                jCrudEngine.updateAjaxComboBox("CustomReportID", fData.Item.CustomReportID);
+            }
+            );
+ }
+
+ function startCreateEntity(serializedData) {
+     jCrudEngine.saveDataEditModelDialog("@Url.Action("SaveCreatedItem", CustomizeReportController.ControllerName)",serializedData,"@createFormId","@createDialogId",
+            function(fData){
+                jCrudEngine.updateAjaxComboBox("CustomReportID", fData.Item.CustomReportID);
+                $("#reportHtmlArea").htmlarea("html",fData.Item.HtmlContent);
+            }
+            );
+ }
+
+ function showDeleteDialog() {
+     var boxItem = $("#CustomReportID").val();
+     if (boxItem!=null && boxItem.trim()) {
+         var qText = 'Вы хотите удалить документ "' + $("#CustomReportID").find('option:selected').text() + '" ?';
+        $("#@deleteDialogDataId").html(qText);
+        $( "#@deleteDialogId" ).dialog( "open" );
+     }
+     
+ }
+
+ function startDeleteEntity() {
+     var id = $("#CustomReportID").val();
+    jCrudEngine.postDeleteItem("@Url.Action("DeleteItem", CustomizeReportController.ControllerName)",id, function() {
+        jCrudEngine.updateAjaxComboBox("CustomReportID", null);
+        $("#reportHtmlArea").htmlarea("html","");
+    });
+ }
+
+ function saveReportContent() {
+     var boxItem = $("#CustomReportID").val();
+     
+     var htmlContent = $("#reportHtmlArea").htmlarea("html");
+     
+     if (boxItem!=null && boxItem.trim()) {
+         jCrudEngine.sendToServerData("@Url.Action("SaveReportContent", CustomizeReportController.ControllerName)", {CustomReportID:boxItem,HtmlContent:htmlContent}, function() {
+             
+         });
+     }
+ }
+ 
+</script>
+}
+
+<div class="customizeReportPanel">
+<div class="customizeReportPanelItem">
+<a href="#" onclick="showCreateDialog();return false;" class="icon-container" title="Создание нового документа">
+ <span class="icon-text">Создать</span>
+               <span class="icon-box">
+ <span class="icon-create" ></span></span>
+    </a>
+</div>
+<div class="customizeReportPanelItem">
+@Html.EditorFor(m => m.CustomReportID)
+</div>
+<div class="customizeReportPanelItem">
+<a href="#" onclick="showEditDialog();return false;" class="icon-container" title="Редактирование документа">
+<span class="icon-edit" ></span>
+</a>
+</div>
+
+<div class="customizeReportPanelItem">
+<a href="#" onclick="showDeleteDialog();return false;" class="icon-container" title="Удаление документа">
+<span class="icon-delete" ></span>
+</a>
+</div>
+
+</div>
+<textarea id="reportHtmlArea" cols="18" rows="25">
+</textarea>
+<a href="#" class="btn customreport-save-btn" onclick="saveReportContent();return false;">Сохранить</a>
+
+@Html.EditModelDialog(createDialogId, "Создание", "Добавить", "Отмена", createFormId, "startCreateEntity", false, 250,300, false)
+@Html.EditModelDialog(editDialogId, "Редактирование", "Сохранить", "Отмена", editFormId, "startEditEntity", false, 250,300, false)
+@Html.ConfirmDialog(deleteDialogId, "Подтверждение", "Удалить", "Отмена", null, deleteDialogDataId, "startDeleteEntity")

@@ -1,0 +1,130 @@
+﻿@using System.Drawing
+@using System.Web.UI.WebControls
+@using Remontinka.Server.WebPortal.Services
+@using Romontinka.Server.Core
+@{
+    var theme = string.Empty;
+    if (HttpContext.Current.User != null && HttpContext.Current.User.Identity != null && HttpContext.Current.User.Identity.IsAuthenticated)
+    {
+        theme = RemontinkaServer.Instance.GetService<IWebSiteSettingsService>().GetDevexpressTheme(HttpContext.Current.User.Identity.Name);
+    }
+    if (string.IsNullOrWhiteSpace(theme))
+    {
+        theme = RemontinkaServer.Instance.GetService<IWebSiteSettingsService>().GetDevexpressThemeDefault();
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    @RenderSection("Styles", required: false)
+    
+    @Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout,Theme = theme},
+        new StyleSheet { ExtensionSuite = ExtensionSuite.HtmlEditor, Theme = theme },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.RichEdit, Theme = theme },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Editors, Theme = theme },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Report, Theme = theme },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.GridView, Theme = theme },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.TreeList, Theme = theme },
+        new StyleSheet { ExtensionType = ExtensionType.Menu, Theme = theme },
+        new StyleSheet { ExtensionType = ExtensionType.Panel, Theme = theme },
+        new StyleSheet { ExtensionType = ExtensionType.GridLookup, Theme = theme }
+)
+
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @Html.DevExpress().GetScripts(
+     new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+    new Script { ExtensionSuite = ExtensionSuite.HtmlEditor },
+    new Script { ExtensionSuite = ExtensionSuite.GridView },
+    new Script { ExtensionSuite = ExtensionSuite.Editors },
+    new Script { ExtensionSuite = ExtensionSuite.Report }
+    )
+    
+    @Scripts.Render("~/bundles/jCrud")
+    <script type="text/javascript">
+
+        function needAuthorize(authUrl) {
+            window.location = authUrl;
+        }
+
+        function onError(desc) {
+            if (jCrudEngine.hasValue(desc)) {
+                alert(desc);
+            }
+        }
+
+        jCrudEngine.registerCallbacks(needAuthorize, onError);
+        MVCxClientGlobalEvents.AddCallbackErrorHandler(function (s, e) {
+            jCrudEngine.processErrorResponse(e.message);
+            e.handled = true;
+        });
+    </script>
+
+@Html.DevExpress().Panel(settings =>
+{
+    settings.Name = "TopPanel";
+    settings.ControlStyle.CssClass = "topPanel";
+    settings.FixedPosition = PanelFixedPosition.WindowTop;
+    settings.SetContent(() =>
+    {
+        ViewContext.Writer.Write("<div class='titleContainer'>");
+        Html.RenderAction("MainMenu");
+        Html.RenderPartial("_LoginPartial");
+        ViewContext.Writer.Write("</div>");
+    });
+}).GetHtml()
+    @Html.DevExpress().Panel(settings =>
+{
+    settings.Name = "LeftPanel";
+    settings.FixedPosition = PanelFixedPosition.WindowLeft;
+    settings.Collapsible = true;
+    settings.SettingsAdaptivity.CollapseAtWindowInnerWidth = 1000;
+    settings.SettingsAdaptivity.HideAtWindowInnerWidth = 800;
+    settings.SetContent(() =>
+    {
+        Html.RenderAction("LeftPanel");
+    });
+    }).GetHtml()
+    
+    @Html.DevExpress().Panel(settings =>
+{
+    settings.Name = "BottomPanel";
+    settings.FixedPosition = PanelFixedPosition.WindowBottom;
+    settings.SettingsAdaptivity.HideAtWindowInnerHeight = 700;
+    settings.SetContent(() =>
+    {
+        ViewContext.Writer.Write(string.Format("<div class='footer-content'>{0} Ремборд. Используется free trial версия компонентов <a href ='https://www.devexpress.com'>devexpress<a/></div>", DateTime.Today.ToShortDateString()));
+    });
+}).GetHtml()
+@*<div class="container">
+        <div class="">
+            @Html.Action("MainMenu")
+           
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>*@
+<div class="body-content">
+    @RenderBody()
+    
+</div>
+
+
+
+
+
+
+@RenderSection("scripts", required: false)
+
+
+</body>
+</html>

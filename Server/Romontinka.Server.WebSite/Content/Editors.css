@@ -1,0 +1,258 @@
+﻿.editor-label {
+    width: 170px;
+}
+.editor-edit {
+    width: 250px !important;
+}
+
+.branches-label {
+    width: 120px;
+}
+.branches-edit {
+    width: 250px !important;
+}
+
+.orderstatus-label {
+    width: 120px;
+}
+.orderstatus-edit {
+    width: 250px !important;
+}
+
+.orderkind-label {
+    width: 120px;
+}
+.orderkind-edit {
+    width: 250px !important;
+}
+
+.user-label {
+    width: 170px;
+}
+.user-autopassword-label {
+    margin-bottom: 20px;
+    display: inline-block;
+}
+.user-edit {
+    width: 250px !important;
+}
+
+.order-label 
+{
+    width: 200px;    
+}
+.order-label-small
+{
+    width: 150px;    
+    margin-left: 10px;
+}
+
+.order-edit 
+{
+    width: 520px !important;    
+}
+
+.order-edit-small 
+{
+    width: 178px !important;    
+}
+
+.order-table-edit {
+    width: 730px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.order-table-edit tr {
+    height: 30px;
+}
+.order-details {
+    
+}
+.order-details-title {
+    padding: 10px 0 10px 0 
+}
+
+#detailsReportContainer {
+    display: inline-block;
+    height: 40px;
+}
+
+#details-menu-report     
+{       
+    margin: 0 0px 10px 0px
+}
+
+.reportDocumentLink {
+    
+}
+
+#ordertimeline li{
+    list-style: none;
+}
+
+#commentForm {
+    width: 650px;
+    margin-left: 1.4em;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+#commentForm label {    
+}
+
+#commentForm textarea
+{
+    margin-top: 10px;
+    width: 450px;
+    max-width: 650px;       
+}
+
+#commentForm a {
+    margin-top: 10px;
+}
+
+.workitem-label {
+    width: 170px;
+}
+.workitem-edit {
+    width: 250px !important;
+}
+
+.deviceitem-label {
+    width: 180px;
+}
+.deviceitem-edit {
+    width: 250px !important;
+}
+
+.customizeReportPanel {
+    max-height: 50px;
+    margin-bottom: 10px;
+}
+
+.customizeReportPanelItem {
+    display: block;
+    margin-right: 15px;    
+    float: left;
+}
+
+.customreport-label {
+    width: 120px;
+}
+.customreport-edit {
+    width: 250px !important;
+}
+
+.customreport-save-btn {
+    margin-top: 10px;
+}
+
+#reportHtmlArea {
+    width: 100%;
+}
+
+.register-user-label {
+    width: 190px;
+}
+
+.register-user-edit {
+    width: 250px !important;
+}
+
+.register-user-btn 
+{
+    margin-left: 255px;    
+}
+
+.register-user-title {
+    margin: 15px 10px 10px 150px;
+}
+
+.feedback-label {
+    width: 140px;    
+}
+
+.feedback-edit {
+    width: 350px !important;
+}
+
+.feedback-form .efield{
+    margin-left: 150px;
+}
+
+.feedback-form .btn {
+    margin-left: 510px;
+}
+
+h1.feedback{    
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.report-edit {
+    width: 250px !important;
+}
+
+.report-label {
+    width: 180px;
+}
+
+.financial-group-label {
+    width: 130px;
+}
+.financial-group-edit {
+    width: 250px !important;
+}
+
+.financial-item-label {
+    width: 120px;
+}
+.financial-item-edit {
+    width: 320px !important;
+}
+
+.financial-item-value-label {
+    width: 150px;
+}
+.financial-item-value-edit {
+    width: 250px !important;
+}
+
+.goodsitemlookuptitle {
+    width: 250px;
+}
+
+.goodsitemlookupcount {
+    width: 150px;
+}
+.goodsitemlookupprice {
+    width: 50px;
+}
+
+.goodsitemlookupcol {
+    display: inline-block;
+}
+
+.registration-info-label {
+    width: 210px;
+}
+
+.registration-info-edit {
+    width: 250px !important;
+}
+
+.customer-label {
+    width: 190px;
+}
+
+.customer-edit {
+    width: 250px !important;
+}
+
+.customer-btn 
+{
+    margin-left: 255px;    
+}

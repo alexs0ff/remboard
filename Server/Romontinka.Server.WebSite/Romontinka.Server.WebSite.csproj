@@ -1,0 +1,843 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9B6586D2-1A48-4115-9457-BE26830183D1}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Romontinka.Server.WebSite</RootNamespace>
+    <AssemblyName>Romontinka.Server.WebSite</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\External\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\External\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\Microsoft.ReportViewer.WebForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Recaptcha.Web">
+      <HintPath>..\External\Recaptcha.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\System.Web.Providers.Core.1.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Zen.Barcode.Core">
+      <HintPath>..\External\Zen.Barcode.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Zen.Barcode.Web, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b5ae55aa76d2d9de, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\Zen.Barcode.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Zen.Barcode.Web.Mvc">
+      <HintPath>..\External\Zen.Barcode.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\ProtocolRequestHandler.cs" />
+    <Compile Include="Api\ProtocolRequestOperation.cs" />
+    <Compile Include="Common\CrudResultKind.cs" />
+    <Compile Include="Common\JCrudAuthorizeResult.cs" />
+    <Compile Include="Common\JCrudBooleanDataResult.cs" />
+    <Compile Include="Common\JCrudErrorResult.cs" />
+    <Compile Include="Common\JCrudModelBase.cs" />
+    <Compile Include="Common\JGridDataAdapterBase.cs" />
+    <Compile Include="Common\JGridDataModelBase.cs" />
+    <Compile Include="Common\JGridDataResult.cs" />
+    <Compile Include="Common\JCrudDataResult.cs" />
+    <Compile Include="Common\JCrudItemResult.cs" />
+    <Compile Include="Common\JCrudItemsResult.cs" />
+    <Compile Include="Common\JCrudResult.cs" />
+    <Compile Include="Common\JGridItemModel.cs" />
+    <Compile Include="Common\JGridSaveModelResult.cs" />
+    <Compile Include="Common\JGridSearchBaseModel.cs" />
+    <Compile Include="Common\JLookupDataResult.cs" />
+    <Compile Include="Common\JLookupItemBaseModel.cs" />
+    <Compile Include="Common\JLookupItemResult.cs" />
+    <Compile Include="Common\JLookupSearchBaseModel.cs" />
+    <Compile Include="Common\JReportDataResult.cs" />
+    <Compile Include="Common\JReportParametersBaseModel.cs" />
+    <Compile Include="Common\JSelectListItem.cs" />
+    <Compile Include="Common\LookupItem.cs" />
+    <Compile Include="Common\PairItem.cs" />
+    <Compile Include="Common\RdlcReport\JReportResult.cs" />
+    <Compile Include="Common\RdlcReport\ReportType.cs" />
+    <Compile Include="Common\RdlcReport\ReportViewerHelper.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountingItemsController.cs" />
+    <Compile Include="Controllers\AjaxAutocompleteInterestKindController.cs" />
+    <Compile Include="Controllers\AjaxAutocompleteKindComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxBranchComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxComboBoxBaseController.cs" />
+    <Compile Include="Controllers\AjaxContractorComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxCustomReportComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxDimensionKindComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxDocumentKindComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxEngineerComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxExportKindComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxFinancialGroupComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxFinancialItemKindComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxItemCategoryComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxManagerComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxOrderKindController.cs" />
+    <Compile Include="Controllers\AjaxOrderStatusController.cs" />
+    <Compile Include="Controllers\AjaxProjectRoleController.cs" />
+    <Compile Include="Controllers\AjaxRepairOrderFilterComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxStatusKindController.cs" />
+    <Compile Include="Controllers\AjaxTransactionKindComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxUserComboBoxController.cs" />
+    <Compile Include="Controllers\AjaxWarehouseComboBoxController.cs" />
+    <Compile Include="Controllers\AutocompleteItemController.cs" />
+    <Compile Include="Controllers\BaseAsyncController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BranchController.cs" />
+    <Compile Include="Controllers\BranchesCheckBoxListController.cs" />
+    <Compile Include="Controllers\CancellationDocController.cs" />
+    <Compile Include="Controllers\CancellationDocItemController.cs" />
+    <Compile Include="Controllers\CheckBoxListBaseController.cs" />
+    <Compile Include="Controllers\ContractorController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomizeReportController.cs" />
+    <Compile Include="Controllers\DeviceItemController.cs" />
+    <Compile Include="Controllers\EngineerWorkReportController.cs" />
+    <Compile Include="Controllers\ExportDataController.cs" />
+    <Compile Include="Controllers\FinancialGroupController.cs" />
+    <Compile Include="Controllers\FinancialItemController.cs" />
+    <Compile Include="Controllers\FinancialItemSingleLookupController.cs" />
+    <Compile Include="Controllers\FinancialItemValueController.cs" />
+    <Compile Include="Controllers\GoodsItemController.cs" />
+    <Compile Include="Controllers\GoodsItemSingleLookupController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IncomingDocController.cs" />
+    <Compile Include="Controllers\IncomingDocItemController.cs" />
+    <Compile Include="Controllers\IncomingDocItemsReportController.cs" />
+    <Compile Include="Controllers\ItemCategoryController.cs" />
+    <Compile Include="Controllers\JCrudControllerBase.cs" />
+    <Compile Include="Controllers\JGridControllerBase.cs" />
+    <Compile Include="Controllers\JRdlcReportControllerBase.cs" />
+    <Compile Include="Controllers\JSingleLookupControllerBase.cs" />
+    <Compile Include="Controllers\RegistrationInfoController.cs" />
+    <Compile Include="Controllers\RevenueAndExpenditureReportController.cs" />
+    <Compile Include="Controllers\SystemController.cs" />
+    <Compile Include="Controllers\TransferDocController.cs" />
+    <Compile Include="Controllers\TransferDocItemController.cs" />
+    <Compile Include="Controllers\UsedDeviceItemsReportController.cs" />
+    <Compile Include="Controllers\UserInterestController.cs" />
+    <Compile Include="Controllers\UserInterestReportController.cs" />
+    <Compile Include="Controllers\UserPublicKeyController.cs" />
+    <Compile Include="Controllers\UserPublicKeyRequestController.cs" />
+    <Compile Include="Controllers\UserSingleLookupController.cs" />
+    <Compile Include="Controllers\MyTasksController.cs" />
+    <Compile Include="Controllers\OrderKindController.cs" />
+    <Compile Include="Controllers\OrderReportController.cs" />
+    <Compile Include="Controllers\OrderStatusController.cs" />
+    <Compile Include="Controllers\RepairOrderController.cs" />
+    <Compile Include="Controllers\SimpleLookupBaseController.cs" />
+    <Compile Include="Controllers\TestAjaxComboBoxController.cs" />
+    <Compile Include="Controllers\TestCheckBoxListController.cs" />
+    <Compile Include="Controllers\TestGridController.cs" />
+    <Compile Include="Controllers\TestLookupController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\WarehousesCheckBoxListController.cs" />
+    <Compile Include="Controllers\WarehouseController.cs" />
+    <Compile Include="Controllers\WarehouseDocsController.cs" />
+    <Compile Include="Controllers\WarehouseFlowReportController.cs" />
+    <Compile Include="Controllers\WarehouseItemController.cs" />
+    <Compile Include="Controllers\WarehouseItemSingleLookupController.cs" />
+    <Compile Include="Controllers\WorkItemController.cs" />
+    <Compile Include="Helpers\AjaxCheckBoxListHelpers.cs" />
+    <Compile Include="Helpers\AjaxComboBoxHelpers.cs" />
+    <Compile Include="Helpers\AutocompleteLocalSourceHelpers.cs" />
+    <Compile Include="Helpers\DialogHelpers.cs" />
+    <Compile Include="Helpers\GridHelpers.cs" />
+    <Compile Include="Helpers\LookupHelpers.cs" />
+    <Compile Include="Helpers\LookupModel.cs" />
+    <Compile Include="Helpers\MenuHelpers.cs" />
+    <Compile Include="Helpers\Utils.cs" />
+    <Compile Include="Helpers\ViewExtensions.cs" />
+    <Compile Include="Metadata\AjaxCheckBoxListAttribute.cs" />
+    <Compile Include="Metadata\AjaxComboBoxAttribute.cs" />
+    <Compile Include="Metadata\AutocompleteLocalSourceAttribute.cs" />
+    <Compile Include="Metadata\DateTimeModelBinder.cs" />
+    <Compile Include="Metadata\DecimalModelBinder.cs" />
+    <Compile Include="Metadata\EditorHtmlClassAttribute.cs" />
+    <Compile Include="Metadata\ExtendedAuthorizeAttribute.cs" />
+    <Compile Include="Metadata\LabelHtmlClassAttribute.cs" />
+    <Compile Include="Metadata\MetadataConstants.cs" />
+    <Compile Include="Metadata\MultilineStringAttribute.cs" />
+    <Compile Include="Metadata\SimpleLookupAttribute.cs" />
+    <Compile Include="Metadata\SingleLookupAttribute.cs" />
+    <Compile Include="Models\AccountingItemsModel\AccountingItemsViewModel.cs" />
+    <Compile Include="Models\Account\ActivateResultModel.cs" />
+    <Compile Include="Models\Account\ChangePasswordModel.cs" />
+    <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Account\RecoveryLoginModel.cs" />
+    <Compile Include="Models\Account\RecoveryPasswordModel.cs" />
+    <Compile Include="Models\Account\RegisterModel.cs" />
+    <Compile Include="Models\AutocompleteItemForm\AutocompleteItemCreateModel.cs" />
+    <Compile Include="Models\AutocompleteItemForm\AutocompleteItemDataAdapter.cs" />
+    <Compile Include="Models\AutocompleteItemForm\AutocompleteItemGridItemModel.cs" />
+    <Compile Include="Models\AutocompleteItemForm\AutocompleteItemSearchModel.cs" />
+    <Compile Include="Models\AutocompleteItemForm\AutocompleteItemViewModel.cs" />
+    <Compile Include="Models\Branch\BranchCreateModel.cs" />
+    <Compile Include="Models\Branch\BranchDataAdapter.cs" />
+    <Compile Include="Models\Branch\BranchGridItemModel.cs" />
+    <Compile Include="Models\Branch\BranchSearchModel.cs" />
+    <Compile Include="Models\Branch\BranchViewModel.cs" />
+    <Compile Include="Models\CancellationDocForm\CancellationDocCreateModel.cs" />
+    <Compile Include="Models\CancellationDocForm\CancellationDocDataAdapter.cs" />
+    <Compile Include="Models\CancellationDocForm\CancellationDocGridItemModel.cs" />
+    <Compile Include="Models\CancellationDocForm\CancellationDocSearchModel.cs" />
+    <Compile Include="Models\CancellationDocItemForm\CancellationDocItemCreateModel.cs" />
+    <Compile Include="Models\CancellationDocItemForm\CancellationDocItemDataAdapter.cs" />
+    <Compile Include="Models\CancellationDocItemForm\CancellationDocItemGridItemModel.cs" />
+    <Compile Include="Models\CancellationDocItemForm\CancellationDocItemSearchModel.cs" />
+    <Compile Include="Models\ContractorForm\ContractorCreateModel.cs" />
+    <Compile Include="Models\ContractorForm\ContractorDataAdapter.cs" />
+    <Compile Include="Models\ContractorForm\ContractorGridItemModel.cs" />
+    <Compile Include="Models\ContractorForm\ContractorSearchModel.cs" />
+    <Compile Include="Models\Controls\AjaxCheckBoxListModel.cs" />
+    <Compile Include="Models\Controls\AjaxComboBoxModel.cs" />
+    <Compile Include="Models\Controls\AutocompleteLocalSourceModel.cs" />
+    <Compile Include="Models\Controls\SingleLookupModel.cs" />
+    <Compile Include="Models\Customer\CustomerGetOrderModel.cs" />
+    <Compile Include="Models\Customer\CustomerGetOrderResultModel.cs" />
+    <Compile Include="Models\CustomReport\CustomReportItemModel.cs" />
+    <Compile Include="Models\CustomReport\CustomizeReportModel.cs" />
+    <Compile Include="Models\CustomReport\OrderReportModel.cs" />
+    <Compile Include="Models\CustomReport\ReportContentModel.cs" />
+    <Compile Include="Models\DataGrid\ComboBoxSearchInput.cs" />
+    <Compile Include="Models\DataGrid\CreateButtonGrid.cs" />
+    <Compile Include="Models\DataGrid\DataGridDescriptor.cs" />
+    <Compile Include="Models\DataGrid\DateTimeSearchInput.cs" />
+    <Compile Include="Models\DataGrid\DeleteButtonGridColumn.cs" />
+    <Compile Include="Models\DataGrid\EditButtonGridColumn.cs" />
+    <Compile Include="Models\DataGrid\GridColumnBase.cs" />
+    <Compile Include="Models\DataGrid\GridRowColors.cs" />
+    <Compile Include="Models\DataGrid\HiddenSearchInput.cs" />
+    <Compile Include="Models\DataGrid\KeyGridColumn.cs" />
+    <Compile Include="Models\DataGrid\LookupSearchInput.cs" />
+    <Compile Include="Models\DataGrid\NewLineSearchInput.cs" />
+    <Compile Include="Models\DataGrid\SearchInputBase.cs" />
+    <Compile Include="Models\DataGrid\ShowDetailsButtonColumn.cs" />
+    <Compile Include="Models\DataGrid\TextGridColumn.cs" />
+    <Compile Include="Models\DataGrid\TextSearchInput.cs" />
+    <Compile Include="Models\DeviceItemForm\DeviceItemCreateModel.cs" />
+    <Compile Include="Models\DeviceItemForm\DeviceItemDataAdapter.cs" />
+    <Compile Include="Models\DeviceItemForm\DeviceItemGridItemModel.cs" />
+    <Compile Include="Models\DeviceItemForm\DeviceItemSearchModel.cs" />
+    <Compile Include="Models\Dialog\ConfirmDialogModel.cs" />
+    <Compile Include="Models\Dialog\EditDialogModel.cs" />
+    <Compile Include="Models\FinancialGroupForm\FinancialGroupCreateModel.cs" />
+    <Compile Include="Models\FinancialGroupForm\FinancialGroupDataAdapter.cs" />
+    <Compile Include="Models\FinancialGroupForm\FinancialGroupGridItemModel.cs" />
+    <Compile Include="Models\FinancialGroupForm\FinancialGroupSearchModel.cs" />
+    <Compile Include="Models\FinancialItemForm\FinancialItemCreateModel.cs" />
+    <Compile Include="Models\FinancialItemForm\FinancialItemDataAdapter.cs" />
+    <Compile Include="Models\FinancialItemForm\FinancialItemGridItemModel.cs" />
+    <Compile Include="Models\FinancialItemForm\FinancialItemSearchModel.cs" />
+    <Compile Include="Models\FinancialItemSingleLookupForm\JLookupFinancialItemModel.cs" />
+    <Compile Include="Models\FinancialItemSingleLookupForm\JLookupFinancialItemSearchModel.cs" />
+    <Compile Include="Models\FinancialItemValueForm\FinancialItemValueDataAdapter.cs" />
+    <Compile Include="Models\FinancialItemValueForm\FinancialItemValueGridItemModel.cs" />
+    <Compile Include="Models\FinancialItemValueForm\FinancialItemValueCreateModel.cs" />
+    <Compile Include="Models\FinancialItemValueForm\FinancialItemValueSearchModel.cs" />
+    <Compile Include="Models\FinancialItemValueForm\FinancialItemValueViewModel.cs" />
+    <Compile Include="Models\GoodsItemForm\GoodsItemCreateModel.cs" />
+    <Compile Include="Models\GoodsItemForm\GoodsItemDataAdapter.cs" />
+    <Compile Include="Models\GoodsItemForm\GoodsItemGridItemModel.cs" />
+    <Compile Include="Models\GoodsItemForm\GoodsItemSearchModel.cs" />
+    <Compile Include="Models\GoodsItemSingleLookupForm\JLookupGoodsItemModel.cs" />
+    <Compile Include="Models\GoodsItemSingleLookupForm\JLookupGoodsItemSearchModel.cs" />
+    <Compile Include="Models\HomeForm\FeedbackModel.cs" />
+    <Compile Include="Models\IncomingDocForm\IncomingDocCreateModel.cs" />
+    <Compile Include="Models\IncomingDocForm\IncomingDocDataAdapter.cs" />
+    <Compile Include="Models\IncomingDocForm\IncomingDocGridItemModel.cs" />
+    <Compile Include="Models\IncomingDocForm\IncomingDocSearchModel.cs" />
+    <Compile Include="Models\IncomingDocItemForm\IncomingDocItemCreateModel.cs" />
+    <Compile Include="Models\IncomingDocItemForm\IncomingDocItemDataAdapter.cs" />
+    <Compile Include="Models\IncomingDocItemForm\IncomingDocItemGridItemModel.cs" />
+    <Compile Include="Models\IncomingDocItemForm\IncomingDocItemSearchModel.cs" />
+    <Compile Include="Models\ItemCategoryForm\ItemCategoryCreateModel.cs" />
+    <Compile Include="Models\ItemCategoryForm\ItemCategoryDataAdapter.cs" />
+    <Compile Include="Models\ItemCategoryForm\ItemCategoryGridItemModel.cs" />
+    <Compile Include="Models\ItemCategoryForm\ItemCategorySearchModel.cs" />
+    <Compile Include="Models\MyTasksForm\MyTasksDataAdapter.cs" />
+    <Compile Include="Models\MyTasksForm\MyTasksSearchModel.cs" />
+    <Compile Include="Models\OrderKind\OrderKindCreateModel.cs" />
+    <Compile Include="Models\OrderKind\OrderKindDataAdapter.cs" />
+    <Compile Include="Models\OrderKind\OrderKindGridItemModel.cs" />
+    <Compile Include="Models\OrderKind\OrderKindSearchModel.cs" />
+    <Compile Include="Models\OrderKind\OrderKindViewModel.cs" />
+    <Compile Include="Models\OrderStatus\OrderStatusCreateModel.cs" />
+    <Compile Include="Models\OrderStatus\OrderStatusDataAdapter.cs" />
+    <Compile Include="Models\OrderStatus\OrderStatusGridItemModel.cs" />
+    <Compile Include="Models\OrderStatus\OrderStatusSearchModel.cs" />
+    <Compile Include="Models\OrderStatus\OrderStatusViewModel.cs" />
+    <Compile Include="Models\RepairOrderForm\OrderSearchItem.cs" />
+    <Compile Include="Models\RepairOrderForm\OrderSearchSet.cs" />
+    <Compile Include="Models\RepairOrderForm\RepairOrderCommentModel.cs" />
+    <Compile Include="Models\RepairOrderForm\RepairOrderCreateModel.cs" />
+    <Compile Include="Models\RepairOrderForm\RepairOrderDataAdapter.cs" />
+    <Compile Include="Models\RepairOrderForm\RepairOrderDocumentModel.cs" />
+    <Compile Include="Models\RepairOrderForm\RepairOrderEditModel.cs" />
+    <Compile Include="Models\RepairOrderForm\RepairOrderGridItemModel.cs" />
+    <Compile Include="Models\RepairOrderForm\RepairOrderSearchModel.cs" />
+    <Compile Include="Models\RepairOrderForm\RepairOrderTimelineItemModel.cs" />
+    <Compile Include="Models\RepairOrderForm\RepairOrderViewModel.cs" />
+    <Compile Include="Models\ReportInputs\EngineerWorkReportInput.cs" />
+    <Compile Include="Models\ReportInputs\IncomingDocItemsReportInput.cs" />
+    <Compile Include="Models\ReportInputs\RevenueAndExpenditureReportInput.cs" />
+    <Compile Include="Models\ReportInputs\UsedDeviceItemsReportInput.cs" />
+    <Compile Include="Models\ReportInputs\UserInterestReportInput.cs" />
+    <Compile Include="Models\ReportInputs\WarehouseFlowReportInput.cs" />
+    <Compile Include="Models\SystemForm\ExportModel.cs" />
+    <Compile Include="Models\SystemForm\RegistrationInfoEditModel.cs" />
+    <Compile Include="Models\SystemForm\RegistrationInfoItem.cs" />
+    <Compile Include="Models\SystemForm\RegistrationInfoModel.cs" />
+    <Compile Include="Models\SystemForm\SystemModel.cs" />
+    <Compile Include="Models\TestModel.cs" />
+    <Compile Include="Models\TransferDocForm\TransferDocCreateModel.cs" />
+    <Compile Include="Models\TransferDocForm\TransferDocDataAdapter.cs" />
+    <Compile Include="Models\TransferDocForm\TransferDocGridItemModel.cs" />
+    <Compile Include="Models\TransferDocForm\TransferDocSearchModel.cs" />
+    <Compile Include="Models\TransferDocItemForm\TransferDocItemCreateModel.cs" />
+    <Compile Include="Models\TransferDocItemForm\TransferDocItemDataAdapter.cs" />
+    <Compile Include="Models\TransferDocItemForm\TransferDocItemGridItemModel.cs" />
+    <Compile Include="Models\TransferDocItemForm\TransferDocItemSearchModel.cs" />
+    <Compile Include="Models\UserForm\UserListItem.cs" />
+    <Compile Include="Models\UserInterestForm\UserInterestCreateModel.cs" />
+    <Compile Include="Models\UserInterestForm\UserInterestDataAdapter.cs" />
+    <Compile Include="Models\UserInterestForm\UserInterestGridItemModel.cs" />
+    <Compile Include="Models\UserInterestForm\UserInterestSearchModel.cs" />
+    <Compile Include="Models\UserInterestForm\UserInterestViewModel.cs" />
+    <Compile Include="Models\UserListModel.cs" />
+    <Compile Include="Models\UserPublicKeyForm\UserPublicKeyCreateModel.cs" />
+    <Compile Include="Models\UserPublicKeyForm\UserPublicKeyDataAdapter.cs" />
+    <Compile Include="Models\UserPublicKeyForm\UserPublicKeyGridItemModel.cs" />
+    <Compile Include="Models\UserPublicKeyForm\UserPublicKeySearchModel.cs" />
+    <Compile Include="Models\UserPublicKeyForm\UserPublicKeyViewModel.cs" />
+    <Compile Include="Models\UserPublicKeyRequestForm\UserPublicKeyRequestCreateModel.cs" />
+    <Compile Include="Models\UserPublicKeyRequestForm\UserPublicKeyRequestDataAdapter.cs" />
+    <Compile Include="Models\UserPublicKeyRequestForm\UserPublicKeyRequestGridItemModel.cs" />
+    <Compile Include="Models\UserPublicKeyRequestForm\UserPublicKeyRequestSearchModel.cs" />
+    <Compile Include="Models\UserPublicKeyRequestForm\UserPublicKeyRequestViewModel.cs" />
+    <Compile Include="Models\User\JLookupUserItemModel.cs" />
+    <Compile Include="Models\User\JLookupUserSearchModel.cs" />
+    <Compile Include="Models\User\UserCreateModel.cs" />
+    <Compile Include="Models\User\UserDataAdapter.cs" />
+    <Compile Include="Models\User\UserEditModel.cs" />
+    <Compile Include="Models\User\UserGridItemModel.cs" />
+    <Compile Include="Models\User\UserHelper.cs" />
+    <Compile Include="Models\User\UserSearchModel.cs" />
+    <Compile Include="Models\User\UserViewModel.cs" />
+    <Compile Include="Models\WarehouseDocsForm\WarehouseDocsViewModel.cs" />
+    <Compile Include="Models\WarehouseForm\WarehouseCreateModel.cs" />
+    <Compile Include="Models\WarehouseForm\WarehouseDataAdapter.cs" />
+    <Compile Include="Models\WarehouseForm\WarehouseGridItemModel.cs" />
+    <Compile Include="Models\WarehouseForm\WarehouseSearchModel.cs" />
+    <Compile Include="Models\WarehouseForm\WarehouseViewModel.cs" />
+    <Compile Include="Models\WarehouseItemForm\WarehouseItemCreateModel.cs" />
+    <Compile Include="Models\WarehouseItemForm\WarehouseItemDataAdapter.cs" />
+    <Compile Include="Models\WarehouseItemForm\WarehouseItemEditModel.cs" />
+    <Compile Include="Models\WarehouseItemForm\WarehouseItemGridItemModel.cs" />
+    <Compile Include="Models\WarehouseItemForm\WarehouseItemSearchModel.cs" />
+    <Compile Include="Models\WarehouseItemForm\WarehouseItemViewModel.cs" />
+    <Compile Include="Models\WarehouseItemSingleLookupForm\JLookupWarehouseItemModel.cs" />
+    <Compile Include="Models\WarehouseItemSingleLookupForm\JLookupWarehouseItemSearchModel.cs" />
+    <Compile Include="Models\WorkItemForm\WorkItemCreateModel.cs" />
+    <Compile Include="Models\WorkItemForm\WorkItemDataAdapter.cs" />
+    <Compile Include="Models\WorkItemForm\WorkItemGridItemModel.cs" />
+    <Compile Include="Models\WorkItemForm\WorkItemSearchModel.cs" />
+    <Compile Include="Services\AttachmentHelper.cs" />
+    <Compile Include="Services\BarcodeContextItem.cs" />
+    <Compile Include="Services\CryptoService.cs" />
+    <Compile Include="Services\CustomMembershipProvider.cs" />
+    <Compile Include="Services\CustomRoleProvider.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EntitiesFacade.cs" />
+    <Compile Include="Services\HTMLReportService.cs" />
+    <Compile Include="Services\MailingService.cs" />
+    <Compile Include="Services\MailingServiceConfiguration.cs" />
+    <Compile Include="Services\OrderTimelineManager.cs" />
+    <Compile Include="Services\SecurityService.cs" />
+    <Compile Include="Services\SystemService.cs" />
+    <Compile Include="SiteConfiguration.cs" />
+    <Compile Include="Services\TokenManager.cs" />
+    <Compile Include="UnityControllerFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\actions.png" />
+    <Content Include="Content\Editors.css" />
+    <Content Include="Content\fg.menu.css" />
+    <Content Include="Content\Head.jpg" />
+    <Content Include="Content\images\spinner_bar.gif" />
+    <Content Include="Content\img\autcompleteItems.png" />
+    <Content Include="Content\img\autocompleteAction.png" />
+    <Content Include="Content\img\cancelingDoc.png" />
+    <Content Include="Content\img\choiseSetupFolder.png" />
+    <Content Include="Content\img\client.png" />
+    <Content Include="Content\img\clientEdit.png" />
+    <Content Include="Content\img\clientOrderList.png" />
+    <Content Include="Content\img\clientPrintCustomReport.png" />
+    <Content Include="Content\img\clientPublicKeys.png" />
+    <Content Include="Content\img\clientPublicRequest.png" />
+    <Content Include="Content\img\clientSync.png" />
+    <Content Include="Content\img\clientUserRegistration.png" />
+    <Content Include="Content\img\closeTask.png" />
+    <Content Include="Content\img\createDeviceItem.png" />
+    <Content Include="Content\img\createDeviceItem2.png" />
+    <Content Include="Content\img\createDeviceItem3.png" />
+    <Content Include="Content\img\createFinGroup.png" />
+    <Content Include="Content\img\createFinItem.png" />
+    <Content Include="Content\img\createFinItemReport.png" />
+    <Content Include="Content\img\createFinItemValue.png" />
+    <Content Include="Content\img\createIncomingDoc.png" />
+    <Content Include="Content\img\createIncomingDocDetails.png" />
+    <Content Include="Content\img\createIncomingDocDetailsReport.png" />
+    <Content Include="Content\img\createTask.png" />
+    <Content Include="Content\img\createUser.png" />
+    <Content Include="Content\img\createWarehouse.png" />
+    <Content Include="Content\img\customerOrderInfo.png" />
+    <Content Include="Content\img\doc1.png" />
+    <Content Include="Content\img\doc2.png" />
+    <Content Include="Content\img\doc3.png" />
+    <Content Include="Content\img\docList.png" />
+    <Content Include="Content\img\file_doc.png" />
+    <Content Include="Content\img\file_pdf.png" />
+    <Content Include="Content\img\file_xls.png" />
+    <Content Include="Content\img\leftPanel.png" />
+    <Content Include="Content\img\loading.gif" />
+    <Content Include="Content\img\orderIssueDateField.png" />
+    <Content Include="Content\img\printer.png" />
+    <Content Include="Content\img\selectWarehouseItem.png" />
+    <Content Include="Content\img\showIncomingDocDetails.png" />
+    <Content Include="Content\img\taskChangeStatus.png" />
+    <Content Include="Content\img\taskComments.png" />
+    <Content Include="Content\img\taskDetails.png" />
+    <Content Include="Content\img\taskEmptyList.png" />
+    <Content Include="Content\img\taskItems.png" />
+    <Content Include="Content\img\taskList2.png" />
+    <Content Include="Content\img\taskWorks.png" />
+    <Content Include="Content\img\totalHistory.png" />
+    <Content Include="Content\img\transferDoc.png" />
+    <Content Include="Content\img\updaterWork.png" />
+    <Content Include="Content\img\userList.png" />
+    <Content Include="Content\img\WarehouseFlowReport.png" />
+    <Content Include="Content\img\warehouseItems1.png" />
+    <Content Include="Content\img\warehouseItems2.png" />
+    <Content Include="Content\img\warehouseItems3.png" />
+    <Content Include="Content\img\workAndItemsList.png" />
+    <Content Include="Content\jHtmlArea.ColorPickerMenu.css" />
+    <Content Include="Content\jHtmlArea.css" />
+    <Content Include="Content\jHtmlArea.Editor.css" />
+    <Content Include="Content\jHtmlArea.png" />
+    <Content Include="Content\jHtmlArea_Toolbar_Group_BG.png" />
+    <Content Include="Content\jHtmlArea_Toolbar_Group__Btn_Select_BG.png" />
+    <Content Include="Content\listsquare.png" />
+    <Content Include="Content\Print.css" />
+    <Content Include="Content\showLoading.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\verMenuImages.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\datepicker-ru.js" />
+    <Content Include="Scripts\fg.menu.js" />
+    <Content Include="Scripts\html5shiv.js" />
+    <Content Include="Scripts\jHtmlArea-0.8-vsdoc.js" />
+    <Content Include="Scripts\jHtmlArea-0.8.js" />
+    <Content Include="Scripts\jHtmlArea-0.8.min-vsdoc.js" />
+    <Content Include="Scripts\jHtmlArea-0.8.min.js" />
+    <Content Include="Scripts\jHtmlArea.ColorPickerMenu-0.8.js" />
+    <Content Include="Scripts\jHtmlArea.ColorPickerMenu-0.8.min.js" />
+    <Content Include="Scripts\jquery-2.1.3-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.1.3.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.printElement.js" />
+    <Content Include="Scripts\jquery.showLoading.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Script.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
+    <None Include="Scripts\jHtmlArea-0.8.min.js.map" />
+    <None Include="Scripts\jHtmlArea.ColorPickerMenu-0.8.min.js.map" />
+    <None Include="Scripts\jquery-2.1.3.min.map" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SimpleLookup.cshtml" />
+    <Content Include="Views\Shared\DataGrid.cshtml" />
+    <Content Include="Views\Shared\ConfirmDialog.cshtml" />
+    <Content Include="Views\Shared\EditModelDialog.cshtml" />
+    <Content Include="Views\Shared\AjaxComboBox.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AjaxComboBox.cshtml" />
+    <Content Include="Views\Shared\AjaxCheckBoxList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AjaxCheckBoxList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
+    <Content Include="Views\Branch\Index.cshtml" />
+    <Content Include="Views\Branch\create.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultilineString.cshtml" />
+    <Content Include="Views\OrderStatus\Index.cshtml" />
+    <Content Include="Views\OrderStatus\create.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Decimal.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\OrderKind\Index.cshtml" />
+    <Content Include="Views\OrderKind\create.cshtml" />
+    <Content Include="Views\RepairOrder\create.cshtml" />
+    <Content Include="Views\DeviceItem\create.cshtml" />
+    <Content Include="Views\RepairOrder\edit.cshtml" />
+    <Content Include="Views\CustomizeReport\Index.cshtml" />
+    <Content Include="Views\CustomizeReport\create.cshtml" />
+    <Content Include="Views\CustomizeReport\edit.cshtml" />
+    <Content Include="Views\OrderReport\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Template.Master.cshtml" />
+    <Content Include="Views\Shared\Lookup.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutTest.cshtml" />
+    <Content Include="Views\Shared\LeftMenu.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\TestGrid\GetItemForm.cshtml" />
+    <Content Include="Views\TestGrid\GetNewItemForm.cshtml" />
+    <Content Include="Views\User\create.cshtml" />
+    <Content Include="Views\User\edit.cshtml" />
+    <Content Include="Views\WorkItem\create.cshtml" />
+    <Content Include="Views\Shared\_PrintLayout.cshtml" />
+    <Content Include="Views\Shared\RepairOrderGrid.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\RegisterSuccess.cshtml" />
+    <Content Include="Views\Account\Activate.cshtml" />
+    <Content Include="Views\Home\Description.cshtml" />
+    <Content Include="Views\Home\Feedback.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SingleLookup.cshtml" />
+    <Content Include="Views\Shared\SingleLookup.cshtml" />
+    <Content Include="Views\Shared\SingleLookupList.cshtml" />
+    <Content Include="Views\UserSingleLookup\searchForm.cshtml" />
+    <Content Include="Views\UserSingleLookup\item.cshtml" />
+    <Content Include="Views\Shared\JReport.cshtml" />
+    <Content Include="Views\EngineerWorkReport\parameters.cshtml" />
+    <Content Include="Views\EngineerWorkReport\header.cshtml" />
+    <Content Include="Views\Home\ReportList.cshtml" />
+    <Content Include="Views\FinancialGroup\create.cshtml" />
+    <Content Include="Views\FinancialItem\create.cshtml" />
+    <Content Include="Views\FinancialItemValue\create.cshtml" />
+    <Content Include="Views\FinancialItemValue\Index.cshtml" />
+    <Content Include="Views\AccountingItems\Index.cshtml" />
+    <Content Include="Views\FinancialItemSingleLookup\item.cshtml" />
+    <Content Include="Views\FinancialItemSingleLookup\searchForm.cshtml" />
+    <Content Include="Views\RevenueAndExpenditureReport\header.cshtml" />
+    <Content Include="Views\RevenueAndExpenditureReport\parameters.cshtml" />
+    <Content Include="Views\Home\AccountingDescription.cshtml" />
+    <Content Include="Views\UsedDeviceItemsReport\header.cshtml" />
+    <Content Include="Views\UsedDeviceItemsReport\parameters.cshtml" />
+    <Content Include="Views\Contractor\create.cshtml" />
+    <Content Include="Views\ItemCategory\create.cshtml" />
+    <Content Include="Views\GoodsItem\create.cshtml" />
+    <Content Include="Views\GoodsItemSingleLookup\item.cshtml" />
+    <Content Include="Views\GoodsItemSingleLookup\searchForm.cshtml" />
+    <Content Include="Views\Warehouse\create.cshtml" />
+    <Content Include="Views\WarehouseItem\create.cshtml" />
+    <Content Include="Views\WarehouseItem\edit.cshtml" />
+    <Content Include="Views\Warehouse\Index.cshtml" />
+    <Content Include="Views\WarehouseItem\Index.cshtml" />
+    <Content Include="Views\WarehouseDocs\Index.cshtml" />
+    <Content Include="Views\IncomingDoc\create.cshtml" />
+    <Content Include="Views\IncomingDocItem\create.cshtml" />
+    <Content Include="Views\CancellationDoc\create.cshtml" />
+    <Content Include="Views\CancellationDocItem\create.cshtml" />
+    <Content Include="Views\TransferDoc\create.cshtml" />
+    <Content Include="Views\TransferDocItem\create.cshtml" />
+    <Content Include="Views\IncomingDocItemsReport\header.cshtml" />
+    <Content Include="Views\IncomingDocItemsReport\parameters.cshtml" />
+    <Content Include="Views\WarehouseFlowReport\header.cshtml" />
+    <Content Include="Views\WarehouseFlowReport\parameters.cshtml" />
+    <Content Include="Views\Home\WarehouseDescription.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\WarehouseItemSingleLookup\item.cshtml" />
+    <Content Include="Views\WarehouseItemSingleLookup\searchForm.cshtml" />
+    <Content Include="Views\System\Index.cshtml" />
+    <Content Include="Views\RegistrationInfo\edit.cshtml" />
+    <Content Include="Views\Account\RecoveryLogin.cshtml" />
+    <Content Include="Views\Account\RecoveryEmailSent.cshtml" />
+    <Content Include="Views\Account\RecoveryPassword.cshtml" />
+    <Content Include="Views\Account\RecoveryFail.cshtml" />
+    <Content Include="Views\UserPublicKeyRequest\create.cshtml" />
+    <Content Include="Views\UserPublicKeyRequest\Index.cshtml" />
+    <Content Include="Views\UserPublicKey\create.cshtml" />
+    <Content Include="Views\UserPublicKey\Index.cshtml" />
+    <Content Include="Views\Home\ClientDescription.cshtml" />
+    <Content Include="Views\AutocompleteItem\Index.cshtml" />
+    <Content Include="Views\AutocompleteItem\create.cshtml" />
+    <Content Include="Views\Shared\AutocompleteLocalSourceTextBox.cshtml" />
+    <Content Include="Views\UserInterest\create.cshtml" />
+    <Content Include="Views\UserInterest\Index.cshtml" />
+    <Content Include="Views\UserInterestReport\header.cshtml" />
+    <Content Include="Views\UserInterestReport\parameters.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\ShowOrderInfo.cshtml" />
+    <Content Include="Views\Home\ReverseFile.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Remontinka.Server.Crypto\Remontinka.Server.Crypto.csproj">
+      <Project>{D8444CA5-4581-4B87-83A2-7D30C59F1D5C}</Project>
+      <Name>Remontinka.Server.Crypto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Romontinka.Server.Core\Romontinka.Server.Core.csproj">
+      <Project>{4C98452F-8FA3-428E-BF37-3AA0A03C18E8}</Project>
+      <Name>Romontinka.Server.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Romontinka.Server.DataLayer.Entities\Romontinka.Server.DataLayer.Entities.csproj">
+      <Project>{C3F2E4A9-44A8-4FBB-BD17-F854BEEA973C}</Project>
+      <Name>Romontinka.Server.DataLayer.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Romontinka.Server.DataLayer.EntityFramework\Romontinka.Server.DataLayer.EntityFramework.csproj">
+      <Project>{3656B91A-D798-4F2B-91B9-82F1A6F8EE4B}</Project>
+      <Name>Romontinka.Server.DataLayer.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Romontinka.Server.ProtocolServices\Romontinka.Server.ProtocolServices.csproj">
+      <Project>{9FB40823-4DC4-484B-8643-FE54E5BE0DA2}</Project>
+      <Name>Romontinka.Server.ProtocolServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\EngineerWorkReport.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\RevenueAndExpenditureReport.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\UsedDeviceItemsReport.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\IncomingDocItemsReport.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\WarehouseFlowReport.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\UserInterestReport.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>36785</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

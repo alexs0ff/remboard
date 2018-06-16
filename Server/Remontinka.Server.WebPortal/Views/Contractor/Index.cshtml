@@ -1,0 +1,9 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+
+
+@{
+    ViewBag.Title = "Управление контрагентами";
+}
+
+<h1>Контрагенты</h1>
+@Html.DevexpressGrid(ContractorGridController.ControllerName)

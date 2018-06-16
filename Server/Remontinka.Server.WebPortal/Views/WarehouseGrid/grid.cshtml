@@ -1,0 +1,16 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.WarehouseGridForm.WarehouseGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Title";
+            column.Caption = "Название";
+        });
+
+        settings.Apply(Model,Html);
+
+    }).BindToModel(Model,Html)

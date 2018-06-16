@@ -1,0 +1,77 @@
+﻿@model Remontinka.Server.WebPortal.Models.RepairOrderGridForm.RepairOrderGridDetailModel
+@{
+    ViewBag.Title = "details";
+}
+
+@*@Html.DevExpress().FormLayout(settings =>
+{
+    settings.Name = "Layout details"+Model.RepairOrderId.EscapeForHtml();
+    settings.ColCount = 2;
+    settings.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+    settings.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 300;
+    settings.Width = Unit.Percentage(100);
+    settings.Items.Add(m => m.Number, s =>
+    {
+        s.Caption = "Номер заказа";
+        s.Name += Model.RepairOrderId.EscapeForHtml();
+        s.NestedExtension().Label(ls =>
+        {
+
+        });
+    });
+    settings.Items.Add(m => m.ClientFullName, s =>
+    {
+        s.Caption = "Клиент";
+        s.Name += Model.RepairOrderId.EscapeForHtml();
+        s.NestedExtension().Label(ls =>
+        {
+
+        });
+    });
+}).GetHtml()*@
+@Html.DevExpress().Menu(settings =>
+{
+    settings.Name = "repairOrderDocumentsMenu";
+    settings.Items.Add(item =>
+    {
+        item.Text = "Документы";
+        item.Image.IconID = IconID.NavigationDocumentmap16x16;
+
+        foreach (var document in Model.Documents)
+        {
+            item.Items.Add(i =>
+            {
+                i.Text = document.Title;
+                i.Target = "_blank";
+                i.NavigateUrl = Url.Action("Index", Remontinka.Server.WebPortal.Controllers.OrderReportController.ControllerName, new {report = document.CustomReportID, order = Model.RepairOrderId});
+            });
+        }
+
+    });
+}).GetHtml()
+@Html.DevExpress().PageControl(settings =>
+{
+    settings.Name = "details"+Model.RepairOrderId.EscapeForHtml();
+    settings.ActivateTabPageAction = ActivateTabPageAction.Click;
+    settings.EnableHotTrack = true;
+    settings.SaveStateToCookies = false;
+    settings.TabAlign = TabAlign.Left;
+    settings.TabPosition = TabPosition.Top;
+    settings.Width = Unit.Percentage(100);
+    settings.EnableTabScrolling = true;
+    settings.TabPages.Add("Выполненные работы").SetContent(() =>
+    {
+        ViewContext.Writer.Write(Html.DevexpressGrid(Remontinka.Server.WebPortal.Controllers.WorkItemGridController.ControllerName,Model.RepairOrderId.ToString()));
+    });
+    settings.TabPages.Add("Запчасти").SetContent(() =>
+    {
+        ViewContext.Writer.Write(Html.DevexpressGrid(Remontinka.Server.WebPortal.Controllers.DeviceItemGridController.ControllerName, Model.RepairOrderId.ToString()));
+    });
+
+    settings.TabPages.Add("История").SetContent(() =>
+    {
+        ViewContext.Writer.Write(Html.DevexpressGrid(Remontinka.Server.WebPortal.Controllers.OrderTimelineGridController.ControllerName, Model.RepairOrderId.ToString()));
+    });
+}).GetHtml()
+
+

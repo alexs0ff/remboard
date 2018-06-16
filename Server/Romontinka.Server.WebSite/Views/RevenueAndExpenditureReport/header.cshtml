@@ -1,0 +1,21 @@
+﻿@using Romontinka.Server.WebSite.Controllers
+<h1>Отчет по доходам и расходам</h1>
+<script type="text/javascript">
+    $(function () {
+        $("#issueDateText").tooltip({
+                items:"span",
+            content: function () {
+                return '<img src="/Content/img/orderIssueDateField.png"/>';
+            }
+        });
+    });
+</script>
+<p>
+    <em class="help-msg">В данный отчет попадают все @Html.ActionLink("внесенные значения", "index", FinancialItemValueController.ControllerName, null, new { Title = "Управление расходами и доходами" }) финансовых @Html.ActionLink("статей", "index", AccountingItemsController.ControllerName, null, new { Title = "Добавить новые статьи" }) за выбранный период,
+        имеющие "Пользовательский" тип статьи. Другие типы статей создаются автоматически с определенным названием. При возникновении необходимости изменения наименования статьи, пользователь может создать ее в @Html.ActionLink("в списке статей", "index", AccountingItemsController.ControllerName, null, new { Title = "Добавить новые статьи" }) с необходимым названием и типом.
+    </em>
+</p>
+<p>
+    <em class="error help-msg">На данный момент в автоматически подсчитываемую статью <strong>Доход от оплат за ремонтные работы</strong> в обозначенный период попадает информация только с выданных за этот период заказов. Т.е. поле <strong><span id="issueDateText">дата выдачи</span></strong>  считается как дата получения прибыли.</em>
+    
+</p>

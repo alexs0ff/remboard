@@ -1,0 +1,33 @@
+﻿@using System.Globalization
+@using Romontinka.Server.WebSite.Metadata
+@{
+    var classes = string.Empty;
+    Layout = "Template.Master.cshtml";
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(EditorHtmlClassAttribute.ClassNamesKey))
+    {
+        classes = (string)ViewData.ModelMetadata.AdditionalValues[EditorHtmlClassAttribute.ClassNamesKey];
+    } //if
+
+    var toValue = string.Empty;
+
+    if (ViewData.ModelMetadata.Model != null)
+    {
+        if (ViewData.ModelMetadata.Model is string)
+        {
+            toValue = (string)ViewData.ModelMetadata.Model;
+        }
+        else if (ViewData.ModelMetadata.Model is decimal)
+        {
+            toValue = Utils.DecimalToString(((decimal)ViewData.ModelMetadata.Model));
+        }
+        else if (ViewData.ModelMetadata.Model is int)
+             {
+                 toValue = Utils.IntToString(((int) ViewData.ModelMetadata.Model));
+             }
+
+
+
+    }
+    
+}
+@Html.TextBox(string.Empty, toValue, new { @class = classes })

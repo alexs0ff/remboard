@@ -1,0 +1,17 @@
+﻿@model Remontinka.Server.WebPortal.Models.SystemForm.LeftPanelLayoutModel
+
+<div class="widgetPanel">
+    @foreach (var widget in Model.Widgets)
+    {
+        @Html.DevExpress().Image(
+            settings =>
+            {
+                settings.Name = "widgetButton_" + widget.Id;
+                settings.ImageUrl = Url.Content(string.Format("~/Content/images/widgets/{0}", widget.ImageName));
+                settings.ControlStyle.Cursor = "pointer";
+                settings.ToolTip = "Показать " + widget.Title;
+                settings.Properties.ClientSideEvents.Click = string.Format("function(s, e) {{ ShowWidgetPanel('{0}') }}", widget.Id);
+            }
+            ).GetHtml()
+    }
+</div>

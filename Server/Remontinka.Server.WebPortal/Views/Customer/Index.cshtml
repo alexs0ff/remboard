@@ -1,0 +1,77 @@
+﻿@model Remontinka.Server.WebPortal.Models.Customer.CustomerGetOrderModel
+@{
+    Layout = "~/Views/Shared/_BusinessLayout.cshtml";
+    ViewBag.Title = "Проверка заказа";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/Content/Login.css" />
+}
+
+<div class="container">
+    <div class="container">
+        <div class="col-md-12 col-lg-offset-2">
+            <div class="login-signup">
+                <div class="row">
+                    <div class="col-md-8 nav-tab-holder">
+
+                    </div>
+                </div>
+
+
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <div class="login-container">
+                            <div class="col-md-8 mobile-pull">
+                                <article role="login">
+
+                                    @using (Html.BeginForm("Index", "Customer", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "", role = "form" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <fieldset>
+                                            <legend>Проверка заказа</legend>
+
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.GlobalRepairOrderNumber, new { @class = "" })
+
+                                                @Html.TextBoxFor(m => m.GlobalRepairOrderNumber, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.GlobalRepairOrderNumber, "", new { @class = "text-danger" })
+
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.GlobalRepairOrderAccessPassword, new { @class = "" })
+
+                                                @Html.TextBoxFor(m => m.GlobalRepairOrderAccessPassword, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.GlobalRepairOrderAccessPassword, "", new { @class = "text-danger" })
+
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" name="login" value="Проверить" class="btn btn-primary btn-mrgtp" />
+                                            </div>
+                                        </fieldset>
+                                    }
+                                    <footer role="signup" class="text-center">
+                                        <ul>
+                                            <li>
+                                                @Html.ActionLink("Главная страница", "Index", "Home", null, new { @class = "" })
+                                            </li>
+                                        </ul>
+                                    </footer>
+                                </article>
+                            </div>
+
+                        </div>
+                        <!-- end of row -->
+                    </div>
+                    <!-- end of home -->
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

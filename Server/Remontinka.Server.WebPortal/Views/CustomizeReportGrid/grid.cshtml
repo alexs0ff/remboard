@@ -1,0 +1,33 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.CustomizeReportGridForm.CustomizeReportGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Settings.ShowFilterRow = false;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterBar = GridViewStatusBarMode.Hidden;
+        settings.SettingsSearchPanel.Visible = false;
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Title";
+            column.Caption = "Название";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DocumentKindID";
+            column.Caption = "Тип документа";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.DocumentKinds;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueField = "DocumentKindID";
+            comboBoxProperties.ValueType = typeof(byte?);
+        });
+
+        settings.Apply(Model,Html);
+
+    }).BindToModel(Model,Html)

@@ -1,0 +1,13 @@
+﻿@using Romontinka.Server.WebSite.Controllers
+@using Romontinka.Server.WebSite.Models.WarehouseItemForm
+@model WarehouseItemViewModel
+
+@{
+    ViewBag.Title = "Складские остатки";
+}
+<div class="caption-box">
+    <h1>Остатки на складе</h1>
+    <em>Добавление или изменение остатков на складе осуществляется через систему накладных @Html.ActionLink("документов","index",WarehouseDocsController.ControllerName,null,new {title="Перейти к заполнению накладных"}) </em>
+    <em>Историю по доходам и расходам можно посмотреть в @Html.ActionLink("отчете", "index", WarehouseFlowReportController.ControllerName, null, new { title = "Перейти к отчету" })</em>
+</div>
+@Html.DataGrid(Model.WarehouseItemsGrid)

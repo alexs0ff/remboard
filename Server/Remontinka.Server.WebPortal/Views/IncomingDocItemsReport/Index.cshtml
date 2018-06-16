@@ -1,0 +1,7 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+@{
+    ViewBag.Title = "Приходная накладная";
+}
+
+<h1>Приходная накладная</h1>
+@Html.DevexpressReport(IncomingDocItemsReportViewerController.ControllerName)

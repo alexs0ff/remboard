@@ -1,0 +1,89 @@
+﻿@using Remontinka.Server.WebPortal.Models.UserInterestGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, UserInterestGridModel, UserInterestCreateModel>
+
+@{
+
+    Model.LayoutSettings.SetDefaultSettings(Model.GridSettings.Token);
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddUserInterestGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Items.Add(m => Model.Model.EventDate, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.EventDate);
+            i.NestedExtension().DateEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.UserID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.UserID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Text";
+                s.Properties.ValueField = "Value";
+                s.Properties.ValueType = typeof(Guid);
+                s.Properties.DataSource = Model.GridSettings.Users;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DeviceInterestKindID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DeviceInterestKindID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "InterestKindID";
+                s.Properties.ValueType = typeof(byte);
+                s.Properties.DataSource = Model.GridSettings.InterestKinds;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DeviceValue, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DeviceValue);
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token,true);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.WorkInterestKindID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.WorkInterestKindID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "InterestKindID";
+                s.Properties.ValueType = typeof(byte);
+                s.Properties.DataSource = Model.GridSettings.InterestKinds;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.WorkValue, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.WorkValue);
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token, true);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Description, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Description);
+            i.NestedExtension().Memo(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+    });
+
+}

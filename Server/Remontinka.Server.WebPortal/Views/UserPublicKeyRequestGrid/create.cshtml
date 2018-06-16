@@ -1,0 +1,50 @@
+﻿@using Remontinka.Server.WebPortal.Models.UserPublicKeyRequestGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, UserPublicKeyRequestGridModel, UserPublicKeyRequestEditModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "ActivateUserPublicKeyRequestGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Items.Add(m => Model.Model.UserLogin, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.UserLogin);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.ClientIdentifier, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.ClientIdentifier);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.KeyNotes, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.KeyNotes);
+            i.NestedExtension().Memo(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.IsActivated, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.IsActivated);
+            i.NestedExtension().CheckBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+    });
+
+}

@@ -1,0 +1,36 @@
+﻿<table style="width: 715px;" border="0">
+<tbody>
+<tr>
+<td style="width: 350px;">
+<p><strong>{BranchTitle}</strong></p>
+<p>{BranchAddress}</p>
+<p>тел.: 8 (xxx) xxx-xx-xx</p>
+<p>режим работы &nbsp;пн-пт с 9-18 часов &nbsp;сб-вс с 9-16 часов&nbsp;</p>
+</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p style="text-align: center;"><span style="text-decoration: underline;"><span style="text-align: center;">Гарантийный талон&nbsp;</span><strong style="text-align: center;">№ {Number}</strong><span style="text-align: center;">&nbsp;</span></span></p>
+<p style="text-align: center;"><em><span style="text-align: center;">от&nbsp;</span>{IssueDate:dd.MM.yyyy}</em></p>
+<p style="text-align: left;"><em>&nbsp;</em></p>
+<table style="width: 100%;" border="0">
+<tbody>
+<tr>
+<td>
+<p><strong>Клиент:</strong>&nbsp;{ClientFullName},&nbsp;{ClientPhone}</p>
+<p><strong>Устройство:</strong>&nbsp;{DeviceTitle}</p>
+<p><strong>Серийный номер:</strong>&nbsp;{DeviceSN}</p>
+<p>&nbsp;</p>
+<p><strong>Дефект:</strong>&nbsp;{Defect}</p>
+<p><strong>Заметки мастера:</strong>&nbsp;{Notes}</p>
+<p>&nbsp;</p>
+<p><strong>Гарантийный период:</strong>&nbsp;{WarrantyTo:dd.MM.yyyy}</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>{DeviceAndWorkItemsList}</p>
+<p>&nbsp;</p>

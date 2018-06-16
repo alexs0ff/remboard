@@ -1,0 +1,32 @@
+﻿@using Recaptcha.Web
+@using Recaptcha.Web.Mvc
+@model Remontinka.Server.WebPortal.Models.HomeForm.FeedbackModel
+
+
+@{
+    Layout = "~/Views/Shared/_BusinessLayout.cshtml";
+    ViewBag.Title = "Контакты";
+}
+
+
+@section Styles {
+    <link rel="stylesheet" href="~/Content/Login.css" />
+}
+
+<div class="container">
+    <hr class="prettyline">
+    <br>
+    <center>
+
+        <h3>
+            <b>Контакты</b>
+        </h3>
+        <h2>По всем вопросам пишите на почту info@@remboard.ru</h2>
+        <br>
+
+        <a class="button btn btn-primary btn-lg" href="@Url.Action("Index", "Home")">Перейти на главную</a>
+
+    </center>
+    <br>
+    <hr class="prettyline">
+</div>

@@ -1,0 +1,274 @@
+﻿@using Romontinka.Server.WebSite.Controllers
+@model Romontinka.Server.WebSite.Models.WarehouseDocsForm.WarehouseDocsViewModel
+
+@{
+    ViewBag.Title = "Складские документы";
+    var confirmProcessDialogId = "warehouseProcessDocConfirmDialog";
+    var confirmProcessDialogDataId = "warehouseProcessDocDataConfirmDialog";
+    var confirmUnProcessDialogId = "warehouseUnProcessDocConfirmDialog";
+    var confirmUnProcessDialogDataId = "warehouseUnProcessDocDataConfirmDialog";
+    
+}
+
+@section Scripts{
+    <link href="~/Content/showLoading.css" rel="stylesheet">    
+    <script src="~/Scripts/jquery.showLoading.js" type="text/javascript"></script>
+
+    <style>
+        .gridPanel label  {
+            width: 100px;
+        }
+        .gridPanel .grid-datetime-input {
+            width: 150px;
+            margin-left: 2px;
+        }        
+         
+        .gridPanel select {
+            width: 150px;             
+        }    
+            
+        .gridPanel input[type='text'] {
+            width: 150px;             
+        }    
+     
+     .warehouse-doc-details {
+         margin-top: 20px;
+         display: none;
+     }
+     .doc-details-title {
+         padding: 10px 0 10px 0;
+     }
+     
+     .doc-process-btn {
+         padding: 5px;
+         margin: 5px 0 20px 0;
+     }
+         
+    </style>
+    
+     <script type="text/javascript">
+         $(function () {
+             $("#warehousedocs").tabs();
+         });
+
+
+         function showIncomingDocItems(docId) {
+             var lastId = $("#incomingdoc").data("lastDocID");
+
+             if (docId == lastId) {
+                 $("#incomingdocitems").hide(500, "easeOutQuart");
+                 $("#incomingdoc").data("lastDocID", null);
+                 return;
+             }
+
+             $("#incomingdoctitle").text('Детализация накладной № ' + jCrudEngine.getDataGridRowValue("IncomingDoc", docId, "DocNumber") + ', поставщик: "' + jCrudEngine.getDataGridRowValue("IncomingDoc", docId, "ContractorLegalName") + '"');
+
+             $("#incomingdoc").data("lastDocID", docId);
+
+             $("#incomingdocitems").show(500, "easeOutQuart");
+             $("#IncomingDocItemDocID").val(docId);
+             IncomingDocItemUpdateData();
+             checkButtonsDocStatus(docId, "startProcessIncomingDocButton","startUnProcessIncomingDocButton");
+             
+             var url = "@Url.Action("Index", IncomingDocItemsReportController.ControllerName)";
+             $("#createIncomingDocButton").attr("href", url + "?IncomingDocID=" + docId);
+         }
+
+         function showCancellationDocItems(docId) {
+             var lastId = $("#cancellationdoc").data("lastDocID");
+
+             if (docId == lastId) {
+                 $("#cancellationdocitems").hide(500, "easeOutQuart");
+                 $("#cancellationdoc").data("lastDocID", null);
+                 return;
+             }
+
+             $("#cancellationdoctitle").text('Детализация документа № ' + jCrudEngine.getDataGridRowValue("CancellationDoc", docId, "DocNumber") + ', от: "' + jCrudEngine.getDataGridRowValue("CancellationDoc", docId, "DocDate") + '"');
+
+             $("#cancellationdoc").data("lastDocID", docId);
+
+             $("#cancellationdocitems").show(500, "easeOutQuart");
+             $("#CancellationDocItemDocID").val(docId);
+             CancellationDocItemUpdateData();
+             checkButtonsDocStatus(docId, "startProcessCancellationDocButton","startUnProcessCancellationDocButton");
+         }
+
+         function showTransferDocItems(docId) {
+             var lastId = $("#transferdoc").data("lastDocID");
+
+             if (docId == lastId) {
+                 $("#transferdocitems").hide(500, "easeOutQuart");
+                 $("#transferdoc").data("lastDocID", null);
+                 return;
+             }
+
+             $("#transferdoctitle").text('Детализация документа № ' + jCrudEngine.getDataGridRowValue("TransferDoc", docId, "DocNumber") + ', от: "' + jCrudEngine.getDataGridRowValue("TransferDoc", docId, "DocDate") + '"');
+
+             $("#transferdoc").data("lastDocID", docId);
+
+             $("#transferdocitems").show(500, "easeOutQuart");
+             $("#TransferDocItemDocID").val(docId);
+             TransferDocItemUpdateData();
+             checkButtonsDocStatus(docId, "startProcessTransferDocButton","startUnProcessTransferDocButton");
+         }
+
+         function checkButtonsDocStatus(docId, buttonProcessId,buttonUnProcessId) {
+             
+             $("#" + buttonProcessId).hide();
+             if (jCrudEngine.hasValue(buttonUnProcessId)) {
+                 $("#" + buttonUnProcessId).hide();
+             }
+             $("#" + buttonProcessId).hide();
+             jCrudEngine.sendToServerData('@Url.Action("CheckDocIsProcessed")', { docID: docId }, function (dt) {
+                 
+                 if (!dt.Data) {
+                     
+                     $("#" + buttonProcessId).show();
+                     
+                     if (jCrudEngine.hasValue(buttonUnProcessId)) {
+                            $("#" + buttonUnProcessId).hide();
+                     }  
+                 } else {
+                    if (jCrudEngine.hasValue(buttonUnProcessId)) {
+                            $("#" + buttonUnProcessId).show();
+                     }
+                 }
+                 
+             });
+         }
+
+         function confirmProcessDoc(docKind) {
+             $("#@confirmProcessDialogId").dialog("open");
+             $("#@confirmProcessDialogDataId").prop("docKind", docKind);
+         }
+
+         function startProcessDoc() {
+             var docKind = $("#@confirmProcessDialogDataId").prop("docKind");
+
+             if (docKind == 1) {//входящие накладные
+                 $("#incomingdoc").showLoading();
+                 (function (docId) {
+                     jCrudEngine.sendToServerData('@Url.Action("StartProcessIncomingDoc")', { incomingDocID: docId }, function () {
+                         $("#incomingdoc").hideLoading();
+                         checkButtonsDocStatus(docId, "startProcessIncomingDocButton","startUnProcessIncomingDocButton");
+                     });
+                 })($("#IncomingDocItemDocID").val());
+             }
+
+             if (docKind == 2) {//документы о списании
+                 $("#cancellationdoc").showLoading();
+                 (function (docId) {
+                     jCrudEngine.sendToServerData('@Url.Action("StartProcessCancellationDoc")', { cancellationDocID: docId }, function () {
+                         $("#cancellationdoc").hideLoading();
+                         checkButtonsDocStatus(docId, "startProcessCancellationDocButton","startUnProcessCancellationDocButton");
+                     });
+                 })($("#CancellationDocItemDocID").val());
+             }
+
+             if (docKind == 3) {//документы о перемещении
+                 $("#transferdoc").showLoading();
+                 (function (docId) {
+                     jCrudEngine.sendToServerData('@Url.Action("StartProcessTransferDoc")', { transferDocID: docId }, function () {
+                         $("#transferdoc").hideLoading();
+                         checkButtonsDocStatus(docId, "startProcessTransferDocButton","startUnProcessTransferDocButton");
+                     });
+                 })($("#TransferDocItemDocID").val());
+             }
+         }
+         
+         function confirmUnProcessDoc(docKind) {
+             $("#@confirmUnProcessDialogId").dialog("open");
+             $("#@confirmUnProcessDialogDataId").prop("docKind", docKind);
+         }
+         
+         function startUnProcessDoc() {
+             var docKind = $("#@confirmUnProcessDialogDataId").prop("docKind");
+
+             if (docKind == 1) { //входящие накладные
+                 $("#incomingdoc").showLoading();
+                 (function(docId) {
+                     jCrudEngine.sendToServerData('@Url.Action("StartUnProcessIncomingDoc")', { incomingDocID: docId }, function() {
+                         $("#incomingdoc").hideLoading();
+                         checkButtonsDocStatus(docId, "startProcessIncomingDocButton","startUnProcessIncomingDocButton");
+                     });
+                 })($("#IncomingDocItemDocID").val());
+             }
+             
+
+             if (docKind == 2) {//документы о списании
+                 $("#cancellationdoc").showLoading();
+                 (function (docId) {
+                     jCrudEngine.sendToServerData('@Url.Action("StartUnProcessCancellationDoc")', { cancellationDocID: docId }, function () {
+                         $("#cancellationdoc").hideLoading();
+                         checkButtonsDocStatus(docId, "startProcessCancellationDocButton","startUnProcessCancellationDocButton");
+                     });
+                 })($("#CancellationDocItemDocID").val());
+             }
+             
+              if (docKind == 3) {//документы о перемещении
+                 $("#transferdoc").showLoading();
+                 (function (docId) {
+                     jCrudEngine.sendToServerData('@Url.Action("StartUnProcessTransferDoc")', { transferDocID: docId }, function () {
+                         $("#transferdoc").hideLoading();
+                         checkButtonsDocStatus(docId, "startProcessTransferDocButton","startUnProcessTransferDocButton");
+                     });
+                 })($("#TransferDocItemDocID").val());
+             }
+         }
+         
+     </script>
+}
+
+
+
+<div class="caption-box">
+    <h1>Складские документы</h1>
+    <em>Для изменения наличия и количества @Html.ActionLink("номенклатуры", "index", WarehouseController.ControllerName, null, new { title = "Перейти к изменению номенклатуры" }) на @Html.ActionLink("складах", "index", WarehouseItemController.ControllerName, null, new {title="Перейти к остаткам на складе" })  необходимо использовать следующие документы</em>
+</div>
+<div id="warehousedocs">
+  <ul>
+    <li><a href="#incomingdoc">Приходные накладные</a></li>
+    <li><a href="#cancellationdoc">Списания</a></li>    
+    <li><a href="#transferdoc">Перемещения</a></li>    
+  </ul>
+  <div id="incomingdoc">
+      @Html.DataGrid(Model.IncomingDocGrid) 
+       
+      <div class="warehouse-doc-details" id="incomingdocitems">
+          <h4 id="incomingdoctitle" class="doc-details-title"></h4>
+
+          <a href="#" id="startProcessIncomingDocButton" onclick="confirmProcessDoc(1);return false;" class="btn doc-process-btn">Провести накладную</a>
+          <a href="#" id="startUnProcessIncomingDocButton" onclick="confirmUnProcessDoc(1);return false;" class="btn doc-process-btn">Отменить накладную</a>
+          <a href="#" target="_blank" id="createIncomingDocButton" class="btn doc-process-btn">Сформировать документ</a>
+
+          @Html.DataGrid(Model.IncomingDocItemsGrid)
+      </div>
+  </div>
+  <div id="cancellationdoc">
+    @Html.DataGrid(Model.CancellationDocGrid) 
+       
+      <div class="warehouse-doc-details" id="cancellationdocitems">
+          <h4 id="cancellationdoctitle" class="doc-details-title"></h4>
+
+          <a href="#" id="startProcessCancellationDocButton" onclick="confirmProcessDoc(2);return false;" class="btn doc-process-btn">Провести списание</a>
+          <a href="#" id="startUnProcessCancellationDocButton" onclick="confirmUnProcessDoc(2);return false;" class="btn doc-process-btn">Отменить списание</a>
+
+          @Html.DataGrid(Model.CancellationDocItemsGrid)
+      </div>
+  </div>  
+  <div id="transferdoc">
+   @Html.DataGrid(Model.TransferDocGrid) 
+       
+      <div class="warehouse-doc-details" id="transferdocitems">
+          <h4 id="transferdoctitle" class="doc-details-title"></h4>
+
+          <a href="#" id="startProcessTransferDocButton" onclick="confirmProcessDoc(3);return false;" class="btn doc-process-btn">Провести перемещение</a>
+          <a href="#" id="startUnProcessTransferDocButton" onclick="confirmUnProcessDoc(3);return false;" class="btn doc-process-btn">Отменить перемещение</a>
+          @Html.DataGrid(Model.TransferDocItemsGrid)
+      </div>
+  </div>  
+</div>        
+
+
+@Html.ConfirmDialog(confirmProcessDialogId, "Проведение документа", "Провести", "Отмена", "Вы точно желаете провести документ?", confirmProcessDialogDataId, "startProcessDoc")
+@Html.ConfirmDialog(confirmUnProcessDialogId, "Откатить данные", "Откатить", "Отмена", "Вы точно желаете откатить данные этого документа?", confirmUnProcessDialogDataId, "startUnProcessDoc")

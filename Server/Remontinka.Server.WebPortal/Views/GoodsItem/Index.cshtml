@@ -1,0 +1,8 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+
+@{
+    ViewBag.Title = "Управление номенклатурой";
+}
+
+<h1>Номенклатура</h1>
+@Html.DevexpressGrid(GoodsItemGridController.ControllerName)

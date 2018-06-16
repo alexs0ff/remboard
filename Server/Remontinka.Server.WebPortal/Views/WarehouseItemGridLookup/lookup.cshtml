@@ -1,0 +1,42 @@
+﻿@model Remontinka.Server.WebPortal.Models.WarehouseItemGridLookupForm.WarehouseItemGridLookupModel
+@Html.DevExpress().GridLookup(settings =>
+{
+    settings.SetUp(Model);
+    settings.GridViewProperties.Settings.ShowFilterRow = true;
+    settings.Properties.TextFormatString = "{1}";
+    settings.Properties.ClearButton.DisplayMode = ClearButtonDisplayMode.OnHover;
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "WarehouseID";
+        column.Caption = "Склад";
+        column.ColumnType = MVCxGridViewColumnType.ComboBox;
+        var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+        comboBoxProperties.DataSource = Model.Warehouses;
+        comboBoxProperties.TextField = "Title";
+        comboBoxProperties.ValueField = "WarehouseID";
+        comboBoxProperties.ValueType = typeof(Guid);
+        column.GroupIndex = 0;
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "GoodsItemTitle";
+        column.Caption = "Наименование";
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Total";
+        column.Caption = "Количество";
+        column.PropertiesEdit.DisplayFormatString = "#.00";
+        column.Settings.AllowAutoFilter = DefaultBoolean.False;
+    });
+    settings.PreRender = (s, e) =>
+    {
+        MVCxGridLookup grid = s as MVCxGridLookup;
+        if (grid != null)
+            grid.GridView.ExpandAll();
+    };
+
+}).BindToModel(Model)

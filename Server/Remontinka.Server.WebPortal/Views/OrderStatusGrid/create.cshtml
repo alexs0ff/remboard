@@ -1,0 +1,38 @@
+﻿@using Remontinka.Server.WebPortal.Models.OrderStatusGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, OrderStatusGridModel, OrderStatusCreateModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddOrderStatusGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Items.Add(m => Model.Model.Title, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Title);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.StatusKindID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.StatusKindID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "StatusKindID";
+                s.Properties.ValueType = typeof(byte);
+                s.Properties.DataSource = Model.GridSettings.StatusKinds;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+
+
+    });
+
+}

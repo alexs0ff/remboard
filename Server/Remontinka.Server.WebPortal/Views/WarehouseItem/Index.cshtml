@@ -1,0 +1,13 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+
+@{
+    ViewBag.Title = "Управление складскими остатками";
+}
+
+<div class="caption-box">
+    <h1>Остатки на складе</h1>
+    <em>Добавление или изменение остатков на складе осуществляется через систему накладных документов</em>
+    <em>Историю по доходам и расходам можно посмотреть в @Html.ActionLink("отчете", "index", "WarehouseFlowReport", null, new { title = "Перейти к отчету" })</em>
+</div>
+
+@Html.DevexpressGrid(WarehouseItemGridController.ControllerName)

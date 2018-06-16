@@ -1,0 +1,31 @@
+﻿@using Romontinka.Server.WebSite.Metadata
+@{
+    Layout = null;
+    var classes = string.Empty;
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(LabelHtmlClassAttribute.ClassNamesKey))
+    {
+        classes = (string)ViewData.ModelMetadata.AdditionalValues[LabelHtmlClassAttribute.ClassNamesKey];
+    } //if
+
+    var validationPropertyID = string.Empty;
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(MetadataConstants.ValidationMessagePropertyID))
+    {
+        validationPropertyID = (string) ViewData.ModelMetadata.AdditionalValues[MetadataConstants.ValidationMessagePropertyID];
+    } //if
+}
+<div class="efield">
+    @if (!string.IsNullOrWhiteSpace(ViewData.ModelMetadata.DisplayName)) { 
+        <div class="elabel @classes">
+            @Html.Label("",ViewData.ModelMetadata.GetDisplayName())
+            @if (ViewData.ModelMetadata.IsRequired)
+            {
+                <text>*</text>
+            }
+            :
+        </div>
+    }
+     <div class="einput">
+         @RenderBody()
+         @Html.ValidationMessage(validationPropertyID)
+    </div>
+</div>

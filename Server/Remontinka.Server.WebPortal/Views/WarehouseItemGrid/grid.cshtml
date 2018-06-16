@@ -1,0 +1,58 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.WarehouseItemGridForm.WarehouseItemGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "WarehouseID";
+            column.Caption = "Склад";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.Warehouses;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueType = typeof(Guid);
+            comboBoxProperties.ValueField = "WarehouseID";
+        });
+
+        settings.SetDefaultSettings(Model.Token);
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "GoodsItemTitle";
+            column.Caption = "Категория";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Total";
+            column.Caption = "Количество";
+            column.SetNumeric(Model.Token);
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "StartPrice";
+            column.Caption = "Нулевая цена";
+            column.SetNumeric(Model.Token);
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RepairPrice";
+            column.Caption = "Ремонтная цена";
+            column.SetNumeric(Model.Token);
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "SalePrice";
+            column.Caption = "Цена продажи";
+            column.SetNumeric(Model.Token);
+        });
+
+        settings.Apply(Model,Html);
+
+        settings.CommandColumn.ShowNewButtonInHeader = false;
+        settings.CommandColumn.ShowDeleteButton = false;
+
+    }).BindToModel(Model,Html)

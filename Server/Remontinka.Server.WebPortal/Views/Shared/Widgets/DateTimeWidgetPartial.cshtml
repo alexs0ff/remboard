@@ -1,0 +1,43 @@
+﻿<script type="text/javascript">
+    function PrepareTimeValue(value) {
+        if(value < 10)
+            value = "0" + value;
+        return value;
+    }
+    function UpdateTime() {
+        var dateTime = new Date();
+        var timeString = PrepareTimeValue(dateTime.getHours()) + ":" + PrepareTimeValue(dateTime.getMinutes()) + ":" + PrepareTimeValue(dateTime.getSeconds());
+        widgetTimeLabel.SetText(timeString);
+    }
+    function OnInit(s, e) {
+        window.setInterval(UpdateTime, 1000);
+        UpdateTime();
+    }
+</script>
+<div class="calendarWidget">
+    <div class="timeContainer">
+        @Html.DevExpress().Label(
+        settings =>
+        {
+            settings.Name = "widgetTimeLabel";
+            settings.ControlStyle.Font.Bold = true;
+            settings.ControlStyle.Font.Size = FontUnit.XLarge;
+            settings.Properties.ClientSideEvents.Init = "OnInit";
+        }
+    ).GetHtml()
+    </div>
+    <div class="dateContainer">
+        @Html.DevExpress().Label(
+        settings =>
+        {
+            settings.Name = "widgetDateLabel";
+            settings.ControlStyle.Font.Size = 14;
+            settings.PreRender = (sender, e) =>
+            {
+                MVCxLabel dateLabel = (MVCxLabel)sender;
+                dateLabel.Text = DateTime.Today.ToLongDateString();
+            };
+        }
+        ).GetHtml()
+    </div>
+</div>

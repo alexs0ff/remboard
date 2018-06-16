@@ -1,0 +1,30 @@
+﻿@model Romontinka.Server.WebSite.Models.Controls.AjaxCheckBoxListModel
+@{
+    var tagBuilder = new TagBuilder("input");
+    tagBuilder.Attributes["id"] = Model.Property;
+    tagBuilder.Attributes["name"] = Model.Property;
+    tagBuilder.Attributes["type"] = "hidden";
+    tagBuilder.Attributes["disabled"] = "disabled";
+    tagBuilder.Attributes["value"] = Utils.ArrayToJson(Model.Values);
+
+    var ulListId = string.Format("ul{0}",Model.Property);
+    
+}
+@if(Model.HtmlAttributes!=null)
+{
+    tagBuilder.MergeAttributes(Model.HtmlAttributes);
+}
+
+@if (Model.IsRequired)
+{
+    tagBuilder.AddCssClass("required");
+}
+
+@Html.Raw(tagBuilder.ToString(TagRenderMode.Normal))
+<ul id="@ulListId" class="ajaxListBoxUl"></ul>
+
+<script type="text/javascript">
+    $(function () {
+        jCrudEngine.createCheckBoxList("@Url.Action(Model.GetItemsAction,Model.Controller)", "@Model.Property", "@ulListId", "@Model.ParentId");
+    });
+</script>

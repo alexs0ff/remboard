@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="Remontinka.Client.Wpf.View.RepairOrderEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Controls="clr-namespace:Remontinka.Client.Wpf.Controls" mc:Ignorable="d"              
+             Height="500" Width="900">
+    <Grid Width="900">
+        <Grid.Resources>
+            <Style x:Key="RowStyle" TargetType="RowDefinition">
+                <Setter
+                    Property="MinHeight"
+                    Value="30"
+                    />
+            </Style>
+            <Style x:Key="OneRow" TargetType="UserControl">
+                <Setter
+                    Property="Width"
+                    Value="250"                    
+                    />
+
+                <Setter
+                    Property="Height"
+                    Value="25"
+                    />
+
+            </Style>
+            <Style x:Key="TwoRow" TargetType="UserControl">
+                <Setter
+                    Property="Width"
+                    Value="550"                    
+                    />
+                <Setter
+                    Property="Height"
+                    Value="25"
+                    />
+            </Style>
+
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Style="{StaticResource ResourceKey=RowStyle}"/>
+            <RowDefinition Style="{StaticResource ResourceKey=RowStyle}"/>
+            <RowDefinition Style="{StaticResource ResourceKey=RowStyle}"/>
+            <RowDefinition Style="{StaticResource ResourceKey=RowStyle}"/>
+            <RowDefinition Style="{StaticResource ResourceKey=RowStyle}"/>
+            
+            <RowDefinition Style="{StaticResource ResourceKey=RowStyle}"/>
+            <RowDefinition Style="{StaticResource ResourceKey=RowStyle}"/>
+            <RowDefinition Style="{StaticResource ResourceKey=RowStyle}"/>
+            <RowDefinition Style="{StaticResource ResourceKey=RowStyle}"/>
+            <RowDefinition Style="{StaticResource ResourceKey=RowStyle}"/>
+            <RowDefinition Style="{StaticResource ResourceKey=RowStyle}"/>
+            <RowDefinition Style="{StaticResource ResourceKey=RowStyle}"/>            
+            
+            
+            
+
+        </Grid.RowDefinitions>
+        <Controls:ComboBoxControl x:Name="RepairOrderStatusID" Title="Статус заказа" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="0" Grid.Row="0" />
+        <Controls:DateBoxControl x:Name="IssueDate" TitleWidth="100" Title="Дата выдачи" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="1" Grid.Row="0"/>
+        <Controls:DateBoxControl x:Name="WarrantyTo" TitleWidth="100" Title="Срок гарантии" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="2" Grid.Row="0"/>        
+        <Controls:TextBoxControl x:Name="Recommendation" IsMultiline="True" Title="Рекомендации клиенту" Height="40" Style="{StaticResource ResourceKey=TwoRow}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>        
+        <Controls:ComboBoxControl x:Name="OrderKindID" Title="Тип заказа" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="2" Grid.Row="1"/>        
+        <Controls:ComboBoxControl x:Name="BranchID" Title="Филиал" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="0" Grid.Row="2"/>
+        <Controls:TextBoxControl x:Name="ClientFullName" Title="ФИО клиента" Style="{StaticResource ResourceKey=TwoRow}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Controls:TextBoxControl x:Name="ClientPhone" TitleWidth="100" Title="Телефон клиента" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="0" Grid.Row="3"/>
+        <Controls:TextBoxControl x:Name="ClientAddress" IsMultiline="True" Title="Адрес клиента" Height="40" Style="{StaticResource ResourceKey=TwoRow}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"/>        
+        <Controls:TextBoxControl x:Name="ClientEmail" TitleWidth="100" Title="Email клиента" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="0" Grid.Row="4"/>
+        <Controls:TextBoxControl x:Name="DeviceTitle" Title="Устройство" Style="{StaticResource ResourceKey=TwoRow}" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <Controls:TextBoxControl x:Name="DeviceSN" TitleWidth="100" Title="Серийный номер" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="0" Grid.Row="5"/>
+        <Controls:TextBoxControl x:Name="DeviceTrademark" TitleWidth="100" Title="Бренд" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="1" Grid.Row="5"/>
+        <Controls:TextBoxControl x:Name="DeviceModel" Title="Модель" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2"/>
+        <Controls:TextBoxControl x:Name="Defect" IsMultiline="True" Title="Неисправности" Height="40" Style="{StaticResource ResourceKey=TwoRow}" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2"/>
+        <Controls:TextBoxControl x:Name="Options" Title="Комплектация" Style="{StaticResource ResourceKey=TwoRow}" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2"/>
+        <Controls:TextBoxControl x:Name="DeviceAppearance" Title="Внешний вид" Style="{StaticResource ResourceKey=TwoRow}" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2"/>
+        <Controls:TextBoxControl x:Name="Notes" IsMultiline="True" Title="Заметки" Height="40" Style="{StaticResource ResourceKey=TwoRow}" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2"/>
+        <Controls:DateBoxControl x:Name="CallEventDate" TitleWidth="100" Title="Дата составления" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="0" Grid.Row="10"/>
+        <Controls:DateBoxControl x:Name="DateOfBeReady" TitleWidth="100" Title="Дата готовности" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="1" Grid.Row="10"/>
+        <Controls:TextBoxControl x:Name="GuidePrice" Title="Цена" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="2" Grid.Row="8"/>
+        <Controls:TextBoxControl x:Name="PrePayment" Title="Аванс" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="2" Grid.Row="9"/>
+        <Controls:ComboBoxControl x:Name="ManagerID" Title="Менеджер" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="0" Grid.Row="11"/>
+        <Controls:ComboBoxControl x:Name="EngineerID" Title="Инженер" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="1" Grid.Row="11"/>
+        <Controls:CheckBoxControl x:Name="IsUrgent" Title="Срочный" Style="{StaticResource ResourceKey=OneRow}" Grid.Column="2" Grid.Row="11"/>
+
+    </Grid>
+</UserControl>

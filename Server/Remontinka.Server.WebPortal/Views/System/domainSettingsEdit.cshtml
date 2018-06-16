@@ -1,0 +1,46 @@
+﻿@model Remontinka.Server.WebPortal.Models.SystemForm.RegistrationInfoModel
+
+@using (Html.BeginForm("UpdateDomainSettings", "System", null, FormMethod.Post, new { @id = "updateDomainSettingsForm", @name = "updateDomainSettingsForm" }))
+{
+    @Html.DevExpress().FormLayout(settings =>
+    {
+        settings.Name = "DomainSettingsEditFormLayout";
+        settings.SetDefaultSettings(Model.Token);
+        settings.ColCount = 1;
+        settings.Width = Unit.Percentage(100);
+
+        settings.Items.Add(m => m.Email, i =>
+        {
+            i.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            i.NestedExtension().TextBox(bs =>
+            {
+                bs.SetDefaultSettings(Model.Token);
+            });
+        });
+
+        settings.Items.Add(m => m.LegalName, i =>
+        {
+            i.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            i.NestedExtension().TextBox(bs =>
+            {
+                bs.SetDefaultSettings(Model.Token);
+            });
+        });
+        settings.Items.Add(m => m.Trademark, i =>
+        {
+            i.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            i.NestedExtension().TextBox(bs =>
+            {
+                bs.SetDefaultSettings(Model.Token);
+            });
+        });
+        settings.Items.Add(m => m.Address, i =>
+        {
+            i.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            i.NestedExtension().Memo(bs =>
+            {
+                bs.SetDefaultSettings(Model.Token);
+            });
+        });
+    }).GetHtml()
+}

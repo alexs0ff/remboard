@@ -1,0 +1,77 @@
+﻿@using Remontinka.Server.WebPortal.Models.FinancialItemValueGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, FinancialItemValueGridModel, FinancialItemValueCreateModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddFinancialItemValueGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+
+        g.Items.Add(m => Model.Model.EventDate, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.EventDate);
+            i.NestedExtension().DateEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.FinancialGroupID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.FinancialGroupID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "FinancialGroupID";
+                s.Properties.ValueType = typeof(Guid);
+                s.Properties.DataSource = Model.GridSettings.FinancialGroups;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.FinancialItemID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.FinancialItemID);
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "FinancialItemID";
+                s.Properties.ValueType = typeof(Guid);
+                s.Properties.DataSource = Model.GridSettings.FinancialItems;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Amount, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Amount);
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token,true);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.CostAmount, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.CostAmount);
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token, true);
+            });
+        });       
+
+        g.Items.Add(m => Model.Model.Description, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Description);
+            i.NestedExtension().Memo(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+    });
+
+}

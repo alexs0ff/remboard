@@ -1,0 +1,5 @@
+﻿@model Remontinka.Server.WebPortal.Models.Common.ReportViewModel
+@Html.DevExpress().DocumentViewer(settings =>
+{
+    settings.SetModel(Model);
+}).GetHtml()

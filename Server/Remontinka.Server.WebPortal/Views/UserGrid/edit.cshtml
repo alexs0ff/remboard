@@ -1,0 +1,121 @@
+﻿@using Remontinka.Server.WebPortal.Models.UserGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, UserGridModel, UserEditModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+
+    Model.LayoutSettings.Items.Add(m => Model.Model.UserID, i =>
+    {
+        i.ConfigureItem(Model.Model, () => Model.Model.UserID);
+        i.ClientVisible = false;
+        i.SetNestedContent(() => Model.Html.ViewContext.Writer.Write(Model.Html.Hidden(i.Name, Model.Model.UserID).ToHtmlString()));
+    });
+
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "EditUserGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Width = Unit.Percentage(100);
+        g.Items.Add(m => Model.Model.ProjectRoleID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.ProjectRoleID);
+
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Title";
+                s.Properties.ValueField = "ProjectRoleID";
+                s.Properties.ValueType = typeof(byte);
+                s.Properties.DataSource = Model.GridSettings.ProjectRoles;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.LastName, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.LastName);
+
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.FirstName, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.FirstName);
+
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.MiddleName, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.MiddleName);
+
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Phone, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Phone);
+
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Email, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Email);
+
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.BranchIds,true);
+            i.Name = UserEditModel.BranchIdsCheckListPropertyName;
+            i.FieldName = null;
+            i.RequiredMarkDisplayMode= FieldRequiredMarkMode.Required;
+
+            i.NestedExtension().CheckBoxList(s =>
+            {
+                s.Name = UserEditModel.BranchIdsCheckListPropertyName;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.Properties.ValueField = "BranchID";
+                s.Properties.TextField = "Title";
+                s.Properties.ValueType = typeof(Guid);
+
+                s.Properties.RepeatColumns = 2;
+                s.Properties.DataSource = Model.GridSettings.Branches;
+                s.PreRender += (sender, args) =>
+                {
+                    if (Model.Model.BranchIds != null)
+                    {
+                        ASPxCheckBoxList cbl = (ASPxCheckBoxList) sender;
+                        foreach (ListEditItem item in cbl.Items)
+                        {
+                            item.Selected = Model.Model.BranchIds.Contains((Guid) item.Value);
+                        }
+                    }
+                };
+
+            });
+        });
+
+    });
+
+}
+
+

@@ -1,0 +1,104 @@
+﻿@using Remontinka.Server.WebPortal.Models.FinancialGroupItemGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, FinancialGroupItemGridModel, FinancialGroupItemCreateModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddFinancialGroupItemGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Items.Add(m => Model.Model.Title, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Title);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.LegalName, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.LegalName);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.Trademark, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.Trademark);
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.BranchIds, true);
+            i.Name = FinancialGroupItemCreateModel.BranchIdsCheckListPropertyName;
+            i.FieldName = null;
+            i.RequiredMarkDisplayMode = FieldRequiredMarkMode.Required;
+
+            i.NestedExtension().CheckBoxList(s =>
+            {
+                s.Name = FinancialGroupItemCreateModel.BranchIdsCheckListPropertyName;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.Properties.ValueField = "BranchID";
+                s.Properties.TextField = "Title";
+                s.Properties.ValueType = typeof(Guid);
+
+                s.Properties.RepeatColumns = 2;
+                s.Properties.DataSource = Model.GridSettings.Branches;
+                s.PreRender += (sender, args) =>
+                {
+                    if (Model.Model.BranchIds != null)
+                    {
+                        ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                        foreach (ListEditItem item in cbl.Items)
+                        {
+                            item.Selected = Model.Model.BranchIds.Contains((Guid)item.Value);
+                        }
+                    }
+                };
+
+            });
+        });
+
+        g.Items.Add(i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.WarehouseIds, true);
+            i.Name = FinancialGroupItemCreateModel.WarehouseIdsCheckListPropertyName;
+            i.FieldName = null;
+
+            i.NestedExtension().CheckBoxList(s =>
+            {
+                s.Name = FinancialGroupItemCreateModel.WarehouseIdsCheckListPropertyName;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+                s.Properties.ValueField = "WarehouseID";
+                s.Properties.TextField = "Title";
+                s.Properties.ValueType = typeof(Guid);
+
+                s.Properties.RepeatColumns = 2;
+                s.Properties.DataSource = Model.GridSettings.Warehouses;
+                s.PreRender += (sender, args) =>
+                {
+                    if (Model.Model.BranchIds != null)
+                    {
+                        ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                        foreach (ListEditItem item in cbl.Items)
+                        {
+                            item.Selected = Model.Model.WarehouseIds.Contains((Guid)item.Value);
+                        }
+                    }
+                };
+
+            });
+        });
+
+    });
+
+}

@@ -1,0 +1,29 @@
+﻿@using Romontinka.Server.WebSite.Metadata
+@using Romontinka.Server.WebSite.Models.Controls
+@{
+    var classes = string.Empty;
+    Layout = "Template.Master.cshtml";
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(EditorHtmlClassAttribute.ClassNamesKey))
+    {
+        classes = (string)ViewData.ModelMetadata.AdditionalValues[EditorHtmlClassAttribute.ClassNamesKey];
+    } //if
+
+    AutocompleteLocalSourceModel autocompleteLocalSourceModel = null;
+
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(AutocompleteLocalSourceAttribute.AutocompleteLocalSourceKey))
+    {
+        autocompleteLocalSourceModel = (AutocompleteLocalSourceModel)ViewData.ModelMetadata.AdditionalValues[AutocompleteLocalSourceAttribute.AutocompleteLocalSourceKey];
+        autocompleteLocalSourceModel.Value = (string)ViewData.ModelMetadata.Model;
+        autocompleteLocalSourceModel.EditorClasses = classes;
+        autocompleteLocalSourceModel.Property = ViewData.ModelMetadata.PropertyName;
+    } //if
+    
+}
+@if (autocompleteLocalSourceModel != null)
+{
+    @Html.AutocompleteLocalSourceTextBox(autocompleteLocalSourceModel)
+}
+else
+{
+    @Html.TextBox(string.Empty, ViewData.ModelMetadata.Model, new {@class = classes})
+}

@@ -1,0 +1,106 @@
+﻿@{
+    var autoLoad = (bool)ViewBag.AutoLoad;
+}
+
+@section Scripts{
+    <link href="~/Content/showLoading.css" rel="stylesheet">
+
+    <script src="~/Scripts/jquery.printElement.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.showLoading.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function submitUpdate() {
+            if ($("#pform").valid()) {
+                var params = $("#pform").serialize();
+                jCrudEngine.sendToServerData("@Url.Action("RenderReport")", params, function(fData) {
+                    $("#reportContent").empty();
+                    $.each(fData.ReportData, function( index, value ) {
+                        var img = $('<img alt="отчет"></img>');
+                        $("#reportContent").append(img);
+                        img.attr("src", "data:image/png;base64," + value);
+                    });
+                    
+                    $('#reportArea').fadeIn();
+                });
+            }
+        }
+        
+        
+     /*Прямая печать отчета*/
+
+    function printReport() {
+        $('#reportContent').printElement();
+    }
+    
+    /*Экспорт в различные форматы*/
+    function downloadWord() {
+        if ($("#pform").valid()) {
+            var lfm = $("#pform").serialize();
+            var url = '@Url.Action("RenderWord")' + '?' + lfm;
+            $(location).attr('href', url);
+        }
+    }
+    function downloadExcel() {
+         if ($("#pform").valid()) {
+             var lfm = $("#pform").serialize();
+             var url = '@Url.Action("RenderExcel")' + '?' + lfm;
+             $(location).attr('href', url);
+         }
+    }
+
+    function downloadPdf() {
+        if ($("#pform").valid()) {
+            
+            var lfm = $("#pform").serialize();
+            var url = '@Url.Action("RenderPdf")' + '?' + lfm;
+            $(location).attr('href', url);
+        }
+    }
+    
+    $(function () {
+        $('#reportArea').hide();
+        jCrudEngine.registerAjaxCallbacks(
+            function() {
+                $("#pform").showLoading();
+        }, function() {
+                $("#pform").hideLoading();
+        });
+       
+    /*анимация картинок*/
+        $('.export-img').mouseover(function() {
+            $(this).animate({ 'margin-top': "0px" }, 'fast');
+        });
+
+        $('.export-img').mouseout(function () {
+            $(this).animate({ 'margin-top': "10px" }, 'fast');
+        });
+        
+        @if (autoLoad) {
+        <text>
+        submitUpdate();
+        </text>
+    }
+    });
+    
+
+    </script>
+}
+<div class="report-header">
+    @Html.Partial("header")
+</div>
+<form id="pform" action="#" method="post">
+    @Html.Action("ParameterPanel", null, (object)ViewBag.Parameters)
+    <div >
+        <a id="updateBtn" class="btn btn-medium" onclick="submitUpdate();return false;">Обновить</a> 
+    </div> 
+</form>
+<div id="reportArea">
+     <div id="exportPanel" class="export-panel">
+        <img class="export-img print-img" src="/Content/img/printer.png" alt="doc" title="Распечатать отчет на принтере" onclick="printReport()"/>
+        <img class="export-img" src="/Content/img/file_doc.png" alt="doc" title="Экспорт в формат MS Word" onclick="downloadWord()"/>
+        <img class="export-img" src="/Content/img/file_xls.png" alt="excel" title="Экспорт в формат MS Excel" onclick="downloadExcel()"/>
+        <img class="export-img" src="/Content/img/file_pdf.png" alt="pdf" title="Экспорт в формат PDF" onclick="downloadPdf()"/>       
+    </div>
+<div class="reportBox">
+    <div id="reportContent"></div>    
+</div>
+</div>

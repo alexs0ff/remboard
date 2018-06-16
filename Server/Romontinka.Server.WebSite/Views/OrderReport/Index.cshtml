@@ -1,0 +1,14 @@
+﻿@model Romontinka.Server.WebSite.Models.CustomReport.OrderReportModel
+
+@{
+    Layout = "~/Views/Shared/_PrintLayout.cshtml";
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.Error))
+{
+    @Html.Label(string.Empty, Model.Error)
+}
+else
+{
+    @Html.Raw(Model.Report)
+}

@@ -1,0 +1,19 @@
+﻿@model Romontinka.Server.WebSite.Models.Account.ActivateResultModel
+
+@{
+    ViewBag.Title = "Активация";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <br/>
+    @if (Model.Success)
+    {
+        <span class="message-success">Пользователь @Model.LoginName успешно активирован, пройдите @Html.ActionLink("по ссылке", "Login") для ввода логина и пароля. </span>
+    }
+    else
+    {
+        <h2 class="message-error">@Model.ErrorDescription</h2>
+    }
+</hgroup>
+

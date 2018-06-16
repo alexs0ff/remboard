@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Автоматизация учета сервисного центра и ремонтной мастерской";
+    Layout = "~/Views/Shared/_BusinessLayout.cshtml";
+}
+
+@section Styles{
+    <style>
+        .old-site-button{
+            margin-top: 0.5em!important;
+    }
+
+    </style>
+    
+}
+<!-- Banner -->
+<div id="banner-wrapper">
+    <div id="banner" class="box container">
+        <div class="row">
+            <div class="7u 12u(medium)">
+                <h2>Автоматизация</h2>
+                <p>Сервисного центра и ремонтной мастерской</p>
+            </div>
+            <div class="5u 12u(medium)">
+                <ul>
+                    <li>
+                        @Html.ActionLink("Войти", "Login", "Account", null, new { @class = "button big icon fa-arrow-circle-right" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Регистрация", "Register", "Account", null, new { @class = "button alt big icon fa-pencil-square-o" })
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features -->
+<div id="features-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="4u 12u(medium)">
+
+                <!-- Box -->
+                <section class="box feature">
+                    <div class="inner">
+                        <header>
+                            <h2>Обновления</h2>
+                        </header>
+                        <ul class="default">
+                            <li>Полностью обновлен интерфейс.</li>
+                            <li>Добавлена возможность создания копии заказов.</li>
+                            <li>Добавлена возможность проверки заказа клиентами.</li>
+                            <li>Добавлена возможность добавления заметок к выполненным работам.</li>
+                            <li>Добавлен в документы штрихкод.</li>
+                            <li>Добавлена возможность учета вознаграждений.</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+            <div class="4u 12u(medium)">
+
+                <!-- Box -->
+                <section class="box feature">
+                    <div class="inner">
+                        <header>
+                            <h2>Наши преимущества</h2>
+                        </header>
+                        <ul class="default">
+                            <li>
+                                Период бесплатной регистрации - на данный момент оплата за пользование не взымается.
+                            </li>
+                            <li>
+                                Постоянное обновление программного комплекса, создающее все более комфортные условия для Вашей работы.
+                            </li>
+                            <li> Доступ 24/7 к функционалу управления Вашим бизнесом из любой точки планеты, где есть подключение к сети Интернет.</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+            <div class="4u 12u(medium)">
+
+                <!-- Box -->
+                <section class="box feature">
+                    <div class="inner">
+                        <header>
+                            <h2>Наши планы</h2>
+                        </header>
+                        <ul class="default">
+                            <li>
+                                Создание системы рассылки SMS сообщений.
+                            </li>
+                            <li>
+                                Настройка отображения колонок в таблице заказов.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main -->
+<div id="main-wrapper">
+    <div class="container">
+        <div class="row 200%">
+            <div class="0u 12u(medium) important(medium)">
+
+                <!-- Content -->
+                <div id="content">
+                    <section class="last">
+                        <h2>Основные возможности</h2>
+                        <ul class="default">
+                            <li>Распределение работы по трем основным ролям: администратор, менеджер и инженер.</li>
+                            <li>Заведение и настройка множества филиалов в компании.</li>
+                            <li>Привязка каждого пользователя к любому из имеющихся филиалов.</li>
+                            <li>Гибкая настройка статусов исполнения заявок, позволяющая отразить основные этапы прохождения их через рабочии процессы в Вашем предприятии.</li>
+                            <li>Личный кабинет для каждого пользователя, отображающий актуальные задачи для текущего специалиста.</li>
+                            <li>Множество фильтров в общем списке заявок.</li>
+                            <li>Три основных встроенных документа для печати клиентам: приемная, гарантийная и накладная.</li>
+                            <li>Возможность самостоятельно править существующие документы прямо в браузере, а также создавать новые.</li>
+                        </ul>
+                        <a href="@Url.Action("Description")" class="button icon fa-arrow-circle-right">Продолжить чтение</a>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

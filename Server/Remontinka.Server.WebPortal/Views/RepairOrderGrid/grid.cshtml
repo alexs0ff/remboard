@@ -1,0 +1,295 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.RepairOrderGridForm.RepairOrderGridModel
+@using System.Web.UI.WebControls
+@using DevExpress.Data
+@using Romontinka.Server.Core
+@using Romontinka.Server.DataLayer.Entities
+
+@{
+    var popupId = Model.GridName + "FilterNamePopup";
+    var saveFilterButtonId = Model.GridName + "ShowSaveCurrentFilter";
+    var customButtonJavaScript = string.Format(@"
+    function(s, e)
+    {{         
+        if(s.name == 'ShowRepairOrderCustomizationWindowID')
+        {{ 
+            
+            if ({0}.IsCustomizationWindowVisible())
+            {{
+                {0}.HideCustomizationWindow();
+            }}
+            else
+            {{
+                {0}.ShowCustomizationWindow();
+            }}
+        }}
+        else if(s.name == '{1}')
+        {{
+            
+            {2}.Show();
+        }}
+               
+    }}
+
+    ", Model.GridName, saveFilterButtonId, popupId);
+}
+
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Columns.Add(column =>
+        {
+            column.Settings.AllowDragDrop = DefaultBoolean.False;
+            column.Settings.AllowGroup = DefaultBoolean.False;
+            column.SetHeaderTemplateContent(c =>
+            {
+                if (ProjectRoleSet.UserHasRole(Model.Token.User.ProjectRoleID, ProjectRoleSet.Admin, ProjectRoleSet.Manager))
+                {
+                    settings.CommandColumn.ShowNewButtonInHeader = true;
+
+                    Html.DevExpress().Button(buttonSettings =>
+                    {
+                        buttonSettings.Text = "Создать";
+                        buttonSettings.Name = "CreateNewRepairOrder";
+                        buttonSettings.RenderMode = ButtonRenderMode.Link;
+                        buttonSettings.Images.Image.IconID = IconID.ActionsNew16x16;
+                        buttonSettings.ClientSideEvents.Click = string.Format("function (s, e) {{ {0}.AddNewRow() }}", Model.GridName);
+                    }).Render();
+
+                    Html.ViewContext.Writer.Write("<br/>");
+                }
+
+
+                Html.DevExpress().Button(buttonSettings =>
+                {
+                    buttonSettings.Text = "Колонки";
+                    buttonSettings.Name = "ShowRepairOrderCustomizationWindowID";
+                    buttonSettings.RenderMode = ButtonRenderMode.Link;
+                    buttonSettings.Images.Image.IconID = IconID.EditCustomization16x16;
+                    buttonSettings.ClientSideEvents.Click = customButtonJavaScript;
+                }).Render();
+
+                Html.ViewContext.Writer.Write("<br/>");
+
+                Html.DevExpress().Button(buttonSettings =>
+                {
+                    buttonSettings.Text = "Сохранить фильтр";
+                    buttonSettings.Name = saveFilterButtonId;
+                    buttonSettings.RenderMode = ButtonRenderMode.Link;
+                    buttonSettings.Images.Image.IconID = IconID.EditCustomization16x16;
+                    buttonSettings.ClientSideEvents.Click = customButtonJavaScript;
+                }).Render();
+            });
+            column.SetDataItemTemplateContent(c =>
+            {
+                var id = (Guid)DataBinder.Eval(c.DataItem, "RepairOrderID");
+                Html.DevExpress().Button(buttonSettings =>
+                {
+                    buttonSettings.Text = "Изменить";
+                    buttonSettings.Name = "EditRepairOrder" + id.EscapeForHtml(); ;
+                    buttonSettings.RenderMode = ButtonRenderMode.Link;
+                    buttonSettings.Images.Image.IconID = IconID.EditEdit16x16;
+                    buttonSettings.ClientSideEvents.Click = string.Format("function (s, e) {{ " +
+
+                                                                              "{0}.StartEditRowByKey ('{1}'); " +
+
+                                                                              "}}",
+                                                                              Model.GridName, id);
+                }).Render();
+
+                Html.ViewContext.Writer.Write("<br/>");
+
+                Html.DevExpress().Button(buttonSettings =>
+                {
+                    buttonSettings.Text = "Копировать";
+                    buttonSettings.Name = "CopyRepairOrder" + id.EscapeForHtml(); ;
+                    buttonSettings.RenderMode = ButtonRenderMode.Link;
+                    buttonSettings.Images.Image.IconID = IconID.EditCopy16x16;
+                    buttonSettings.ClientSideEvents.Click = string.Format("function (s, e) {{ " +
+
+                                                                              "rowKeyValueToCopy='{1}';" +
+                                                                              "{0}.AddNewRow(); " +
+                                                                              "}}",
+                                                                              Model.GridName, id);
+                }).Render();
+
+                if (Model.Token.User.ProjectRoleID == ProjectRoleSet.Admin.ProjectRoleID)
+                {
+                    Html.ViewContext.Writer.Write("<br/>");
+                    Html.DevExpress().Button(buttonSettings =>
+                    {
+                        buttonSettings.Text = "Удалить";
+                        buttonSettings.Name = "DeleteRepairOrder" + id.EscapeForHtml(); ;
+                        buttonSettings.RenderMode = ButtonRenderMode.Link;
+                        buttonSettings.Images.Image.IconID = IconID.EditDelete16x16;
+                        buttonSettings.ClientSideEvents.Click = string.Format("function (s, e) {{ " +
+                                                                                  "var isDelete = confirm('Вы подверждаете удаление?');" +
+                                                                                  "if(isDelete){{" +
+                                                                                  "{0}.DeleteRowByKey  ('{1}'); " +
+                                                                                  "}}" +
+                                                                                  "}}",
+                                                                                  Model.GridName, id);
+                    }).Render();
+                }
+
+            });
+        });
+
+        settings.ClientSideEvents.BeginCallback = "RepairOrderBeginCallback";
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "EventDate";
+            column.Caption = "Дата";
+            column.SetDatePeriod(Model.Token);
+
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Number";
+            column.Caption = "Номер заказа";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "BranchTitle";
+            column.Caption = "Филиал";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.Branches;
+            comboBoxProperties.TextField = "Title";
+            column.Visible = false;
+        });
+
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ClientFullName";
+            column.Caption = "Клиент";
+            column.Visible = false;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ClientAddress";
+            column.Caption = "Адрес";
+            column.Visible = false;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "EngineerFullName";
+            column.Caption = "Инженер";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.Engineers;
+            comboBoxProperties.TextField = "Text";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ManagerFullName";
+            column.Caption = "Менеджер";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.Managers;
+            comboBoxProperties.TextField = "Text";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "OrderKindID";
+            column.Caption = "Тип заказа";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.OrderKinds;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueType = typeof(Guid);
+            comboBoxProperties.ValueField = "OrderKindID";
+            column.Visible = false;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "OrderStatusID";
+            column.Caption = "Статус заказа";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.OrderStatuses;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueType = typeof(Guid);
+            comboBoxProperties.ValueField = "OrderStatusID";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "StatusKind";
+            column.Caption = "Тип статуса";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.StatusKinds;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueType = typeof(byte);
+            comboBoxProperties.ValueField = "StatusKindID";
+            column.Visible = false;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "IsUrgent";
+            column.Caption = "Срочность";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Sums";
+            column.Caption = "Суммы";
+            column.UnboundType = UnboundColumnType.String;
+            column.Settings.AllowAutoFilter = DefaultBoolean.False;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DeviceTitle";
+            column.Caption = "Устройство";
+            column.Visible = false;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Defect";
+            column.Caption = "Неисправность";
+            column.Visible = false;
+        });
+
+        settings.Apply(Model, Html);
+        settings.CommandColumn.Visible = false;
+
+
+        settings.CustomUnboundColumnData = (sender, args) =>
+        {
+            if (args.Column.FieldName == "Sums")
+            {
+                var id = args.GetListSourceFieldValue("RepairOrderID") as Guid? ?? Guid.Empty;
+                var deviceSum = RemontinkaServer.Instance.DataStore.GetDeviceItemsSum(id) ?? decimal.Zero;
+                var workSum = RemontinkaServer.Instance.DataStore.GetWorkItemsSum(id) ?? decimal.Zero;
+
+                args.Value = string.Format("Общая:{0:0.00}; запчасти: {1:0.00}; работа: {2:0.00}", deviceSum + workSum, deviceSum, workSum);
+
+            }
+        };
+
+        settings.SettingsBehavior.EnableCustomizationWindow = true;
+        settings.SettingsPopup.CustomizationWindow.VerticalAlign = PopupVerticalAlign.TopSides;
+
+        settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+
+        settings.SettingsDetail.ShowDetailRow = true;
+        settings.SetDetailRowTemplateContent(c =>
+        {
+            Html.RenderAction("MasterDetailDetailPartial", new { RepairOrderID = DataBinder.Eval(c.DataItem, "RepairOrderID") });
+        });
+
+    }).BindToModel(Model, Html)

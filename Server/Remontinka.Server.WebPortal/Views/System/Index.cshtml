@@ -1,0 +1,27 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+@model Remontinka.Server.WebPortal.Models.SystemForm.SystemModel
+
+@{
+    ViewBag.Title = "Системные настройки";    
+}
+
+@section Scripts{
+
+    <script type="text/javascript">
+
+    
+    </script>
+}
+
+@Html.DevExpress().PageControl(settings =>
+{
+    settings.Name = "SystemSettingsTabs";
+    settings.ActivateTabPageAction = ActivateTabPageAction.Click;
+    settings.EnableHotTrack = true;
+    settings.SaveStateToCookies = false;
+    settings.TabAlign = TabAlign.Left;
+    settings.TabPosition = TabPosition.Top;
+    settings.Width = Unit.Percentage(100);
+    settings.EnableTabScrolling = true;
+    settings.TabPages.Add("Настройки регистрации").SetContent(() => { Html.RenderPartial("domainSettingsView", Model.RegistrationInfoModel); });
+}).GetHtml()

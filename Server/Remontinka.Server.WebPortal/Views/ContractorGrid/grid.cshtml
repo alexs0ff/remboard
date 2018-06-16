@@ -1,0 +1,28 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.ContractorGridForm.ContractorGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "LegalName";
+            column.Caption = "Юр название";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Address";
+            column.Caption = "Адрес";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Phone";
+            column.Caption = "Телефон";
+        });
+
+        settings.Apply(Model,Html);
+
+    }).BindToModel(Model,Html)

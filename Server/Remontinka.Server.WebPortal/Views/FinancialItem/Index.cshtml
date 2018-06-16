@@ -1,0 +1,12 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+
+@{
+    ViewBag.Title = "Управление статьями бюджета";
+}
+
+<p>
+    <h1>Статьи бюджета</h1>
+    <em>Необходимы для заполнения финансовой информации о доходах и расходах.</em>
+    <em class="error">В отчет по @Html.ActionLink("доходам и расходам", "index", "RevenueAndExpenditureReport", null, new { Title = "Перейти в отчет" })  попадают только пользовательские типы статей, остальные вычисляются автоматически системой.</em>
+</p>
+@Html.DevexpressGrid(FinancialItemGridController.ControllerName)

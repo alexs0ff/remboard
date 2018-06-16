@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="Remontinka.Client.Wpf.View.AuthView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Model="clr-namespace:Remontinka.Client.Wpf.Model"
+             xmlns:Converters="clr-namespace:Remontinka.Client.Wpf.Converters" mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="500"
+             Height="320" Width="500"
+             d:DataContext="{d:DesignInstance Type=Model:AuthControlModel}"
+             >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="../Styles.xaml" />
+        </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+                <Setter Property="Width" Value="120" />
+                <Setter Property="Margin" Value="0,2,0,0" />
+            </Style>
+            <Converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        </ResourceDictionary>        
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Name="freeRow"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="380"/>            
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+            <TextBlock Text="Авторизация" FontWeight="Bold" Margin="0,5,0,0"></TextBlock>
+            <TextBlock Text="Выберите пользователя и введите пароль для запуска программы"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+
+            <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
+                    <TextBlock Style="{StaticResource ResourceKey=TextBlockStyle}"  Text="Пользователь"/>
+                <ComboBox  x:Name="loginsBox" ItemsSource="{Binding Path=Users}" DisplayMemberPath="Title" SelectedValuePath="Value" Width="250" IsEnabled="{Binding Path=IsEnabaled}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBlock Style="{StaticResource ResourceKey=TextBlockStyle}"  Text="Пароль"/>
+                <PasswordBox Name="passwordTextBox"  PasswordChar="*" Width="250" IsEnabled="{Binding Path=IsEnabaled}"/>
+            </StackPanel>
+        </StackPanel>
+        <TextBlock Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="Wrap" Foreground ="OrangeRed"  Text="{Binding Path=ErrorText}"  />
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right">
+            <Button x:Name="showRegisterButton" Style="{StaticResource ResourceKey=ButtonStyle}" Width="80" HorizontalAlignment="Center" Margin="0,5,10,5" Content="Регистрация" IsEnabled="{Binding Path=IsEnabaled}" />
+            <Button x:Name="authButton" Style="{StaticResource ResourceKey=ButtonStyle}" Width="80" HorizontalAlignment="Center" Margin="0,5,10,5" Content="Войти" IsEnabled="{Binding Path=IsEnabaled}" />
+            <Button x:Name="cancelButton" Style="{StaticResource ResourceKey=ButtonStyle}" Width="80" HorizontalAlignment="Center" Margin="0,5,10,5" Content="Отмена" IsEnabled="{Binding Path=IsEnabaled}"/>
+        </StackPanel>
+        
+        <StackPanel  Grid.Column="1" Grid.Row="4" Visibility="{Binding Path=RegisterAreaVisible,Converter={StaticResource ResourceKey=BoolToVisibilityConverter}}">
+            <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
+                <TextBlock Style="{StaticResource ResourceKey=TextBlockStyle}"  Text="Пользователь"/>
+                <TextBox x:Name="registerLoginName" Width="250" IsEnabled="{Binding Path=IsEnabaled}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBlock Style="{StaticResource ResourceKey=TextBlockStyle}"  Text="Пароль"/>
+                <PasswordBox Name="passwordRegisterTextBox"  PasswordChar="*" Width="250" IsEnabled="{Binding Path=IsEnabaled}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBlock Style="{StaticResource ResourceKey=TextBlockStyle}"  Text="Повторите пароль"/>
+                <PasswordBox Name="passwordRetryRegisterTextBox"  PasswordChar="*" Width="250" IsEnabled="{Binding Path=IsEnabaled}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
+                <TextBlock Style="{StaticResource ResourceKey=TextBlockStyle}"  Text="Комментарий"/>
+                <TextBox x:Name="commentBox" Width="250" IsEnabled="{Binding Path=IsEnabaled}"/>
+            </StackPanel>
+            <Button x:Name="registerButton" Style="{StaticResource ResourceKey=ButtonStyle}" Width="120" HorizontalAlignment="Right" Margin="0,5,10,5" Content="Отправить запрос" IsEnabled="{Binding Path=IsEnabaled}"/>
+        </StackPanel>
+        </Grid>
+</UserControl>

@@ -1,0 +1,15 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+@model dynamic
+
+@{
+    ViewBag.Title = "Управление складами";
+}
+
+
+<div class="caption-box">
+    <h1>Существующие склады</h1>
+
+    <em>Для активизации складского учета необходимо завести как минимум один склад</em>
+</div>
+
+@Html.DevexpressGrid(WarehouseGridController.ControllerName)

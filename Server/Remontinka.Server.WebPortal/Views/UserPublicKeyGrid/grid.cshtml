@@ -1,0 +1,36 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.UserPublicKeyGridForm.UserPublicKeyGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "LoginName";
+            column.Caption = "Логин";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ClientIdentifier";
+            column.Caption = "IP";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "EventDate";
+            column.Caption = "Дата";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "IsRevoked";
+            column.Caption = "Отозванный";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+        });
+
+        settings.Apply(Model,Html);
+        settings.CommandColumn.ShowNewButtonInHeader = false;
+
+    }).BindToModel(Model,Html)

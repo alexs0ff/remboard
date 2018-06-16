@@ -1,0 +1,21 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+@{
+    var layoutName = "~/Views/Shared/_Layout.cshtml";
+    if (Request.IsAjaxRequest())
+    {
+        Layout = null;
+    }
+    else
+    {
+        var controller = ViewContext.Controller as BaseController;
+        if (controller != null)
+        {
+            Layout = controller.UseDefaultLayout() ? layoutName : null;
+        }
+        else
+        {
+            Layout = layoutName;
+        }
+    }
+
+}

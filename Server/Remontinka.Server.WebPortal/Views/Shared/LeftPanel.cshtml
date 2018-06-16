@@ -1,0 +1,62 @@
+﻿@model Remontinka.Server.WebPortal.Models.LeftMenuModel
+<script type="text/javascript">
+    function ShowWidgetPanel(widgetPanelUID) {
+        var panel = leftPaneldockManager.GetPanelByUID(widgetPanelUID);
+        panel.Show();
+    }
+    function SetWidgetButtonVisible(widgetName, visible) {
+        var elements = $('#widgetButton_' + widgetName);
+        if (!elements.length) {
+            return;
+        }
+        if (!visible){
+            elements.addClass('disabled');
+            UpdateClientLayout(leftPaneldockManager, null);
+        }
+        else{
+            elements.removeClass();
+            
+        }
+    }
+
+    function UpdateClientLayout(s, e) {
+        s.PerformCallback();
+    }
+</script>
+
+    @foreach (var widget in Model.Widgets)
+    {
+        @Html.DevExpress().DockPanel(
+            settings =>
+            {
+                settings.Name = widget.Id;
+                settings.PanelUID = widget.Id;
+                settings.VisibleIndex = 0;
+                settings.HeaderText = widget.Title;
+                settings.AllowedDockState = AllowedDockState.DockedOnly;
+                settings.AllowResize = true;
+                settings.OwnerZoneUID = "leftZone";
+                settings.ShowOnPageLoad = widget.ShowOnLoad;
+                settings.SetContent(() =>
+                {
+                    Html.RenderPartial("Widgets/" + widget.PartialName);
+                });
+            }
+        ).GetHtml()
+    }
+
+    @Html.DevExpress().DockZone(
+            settings =>
+            {
+                settings.Name = "LeftZone";
+                settings.ZoneUID = "leftZone";
+                settings.ControlStyle.CssClass = "leftZone";
+                settings.Width = 335;
+                settings.AllowGrowing = true;
+                settings.PanelSpacing = 12;
+            }
+        ).GetHtml()
+
+    @Html.Partial("LeftPanelEditDockManagerPartial")
+
+

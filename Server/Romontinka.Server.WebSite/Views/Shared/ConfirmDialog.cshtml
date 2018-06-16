@@ -1,0 +1,38 @@
+﻿@using Romontinka.Server.WebSite.Models.Dialog
+@model ConfirmDialogModel
+@{
+    var successFunctionCall = string.Format("{0}()", Model.SuccessFunctionName);
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#@Model.DialogId").dialog({
+                autoOpen: false,
+                modal: true,
+                buttons: [
+                    {
+                        "class":"btn btn-medium",
+                        text: "@Model.OkButtonText",
+                        click: function() {
+                            $(this).attr('disabled','disabled');
+                            @successFunctionCall;
+                            $(this).dialog("close");
+                        }
+
+                    },
+                    {
+                        "class":"btn btn-medium",
+                        text: "@Model.CancelButtonText",
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+
+                    }
+                ]
+            });
+    });
+</script>
+
+<div id="@Model.DialogId" title="@Model.Title">
+<div id="@Model.DataElementId">@Html.Raw(Model.Data)</div>
+</div>

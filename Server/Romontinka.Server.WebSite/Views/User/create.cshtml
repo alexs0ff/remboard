@@ -1,0 +1,18 @@
+﻿@using Romontinka.Server.WebSite.Models.User
+@{
+    var autoPasswordText = string.Format("Автопароль: \"{0}\"", Model.Password);
+}
+@model UserCreateModel
+@Html.ValidationSummary(true)
+@Html.Label(string.Empty, autoPasswordText, new { @class = "user-autopassword-label" })
+@Html.HiddenFor(m=>m.Id)
+@Html.EditorFor(m=>m.Login)
+@Html.EditorFor(m=>m.ProjectRoleID)
+@Html.EditorFor(m=>m.Password)
+@Html.EditorFor(m=>m.PasswordCopy)
+@Html.EditorFor(m=>m.LastName)
+@Html.EditorFor(m=>m.FirstName)
+@Html.EditorFor(m=>m.MiddleName)
+@Html.EditorFor(m=>m.Phone)
+@Html.EditorFor(m=>m.Email)
+@Html.EditorFor(m=>m.BranchIds)

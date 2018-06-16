@@ -1,0 +1,17 @@
+﻿@model Romontinka.Server.WebSite.Models.AccountingItemsModel.AccountingItemsViewModel
+
+
+@{
+    ViewBag.Title = "Управление бухгалтерией";
+}
+<p>
+<h1>Финансовые группы филиалов</h1>
+<em>Для начала работы с бухгалтерией необходимо определить как минимум одну финансовую группу и обозначить подчиненные филиалы</em>
+</p>
+@Html.DataGrid(Model.FinancialGroupGrid)
+<p>
+<h1>Статьи бюджета</h1>
+<em>Необходимы для заполнения финансовой информации о доходах и расходах.</em>
+<em class="error">В отчет по @Html.ActionLink("доходам и расходам", "index", "RevenueAndExpenditureReport", null, new { Title = "Перейти в отчет" })  попадают только пользовательские типы статей, остальные вычисляются автоматически системой.</em>
+</p>
+@Html.DataGrid(Model.FinancialItemsGrid)

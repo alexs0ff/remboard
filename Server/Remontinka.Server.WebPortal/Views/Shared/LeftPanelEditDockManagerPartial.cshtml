@@ -1,0 +1,33 @@
+﻿@using Remontinka.Server.WebPortal.Services
+@using Romontinka.Server.Core
+@{
+    var userName = string.Empty;
+    if (ViewContext.HttpContext.User.Identity != null && ViewContext.HttpContext.User.Identity.IsAuthenticated)
+    {
+        userName = ViewContext.HttpContext.User.Identity.Name;
+    }
+}
+@Html.DevExpress().DockManager(
+    settings =>
+    {
+        settings.Name = "leftPaneldockManager";
+        settings.CallbackRouteValues = new { Controller = "System", Action = "LeftPanelEditDockManagerPartial" };
+        settings.FreezeLayout = false;
+        settings.ClientSideEvents.AfterDock = "UpdateClientLayout";
+        settings.ClientSideEvents.PanelClosing = "UpdateClientLayout";
+        settings.ClientSideEvents.PanelShown = "function(s, e) { SetWidgetButtonVisible(e.panel.panelUID, false); }";
+        settings.ClientSideEvents.PanelCloseUp = "function(s, e) { SetWidgetButtonVisible(e.panel.panelUID, true) }";
+        settings.ClientLayout = (sender, e) =>
+        {
+            if (e.LayoutMode == ClientLayoutMode.Saving)
+            {
+                RemontinkaServer.Instance.GetService<IWebSiteSettingsService>().SetLeftPanelWidgetsSettings(userName, e.LayoutData );
+            }
+            if (e.LayoutMode == ClientLayoutMode.Loading)
+            {
+
+                e.LayoutData =RemontinkaServer.Instance.GetService<IWebSiteSettingsService>().GetLeftPanelWidgetsSettings(userName);
+            }
+        };
+    }
+).GetHtml()

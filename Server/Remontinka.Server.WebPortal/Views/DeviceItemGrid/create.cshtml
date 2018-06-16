@@ -1,0 +1,110 @@
+﻿@using Remontinka.Server.WebPortal.Helpers
+@using Remontinka.Server.WebPortal.Models.DeviceItemGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, DeviceItemGridModel, DeviceItemCreateModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+
+    Model.LayoutSettings.Items.Add(m => Model.Model.DeviceItemID, i =>
+    {
+        i.ConfigureItem(Model.Model, () => Model.Model.DeviceItemID);
+        i.ClientVisible = false;
+        i.SetNestedContent(() => Model.Html.ViewContext.Writer.Write(Model.Html.Hidden(i.Name, Model.Model.DeviceItemID).ToHtmlString()));
+    });
+
+    Model.LayoutSettings.Items.Add(m => Model.Model.RepairOrderID, i =>
+    {
+        i.ConfigureItem(Model.Model, () => Model.Model.RepairOrderID);
+        i.ClientVisible = false;
+        i.SetNestedContent(() => Model.Html.ViewContext.Writer.Write(Model.Html.Hidden(i.Name, Model.Model.RepairOrderID).ToHtmlString()));
+    });
+
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddDeviceItemGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Width = Unit.Percentage(100);
+        g.Items.Add(m => Model.Model.DeviceItemUserID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DeviceItemUserID);
+
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.TextField = "Text";
+                s.Properties.ValueField = "Value";
+                s.Properties.ValueType = typeof(Guid?);
+                s.Properties.DataSource = Model.GridSettings.Engineers;
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DeviceItemTitle, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DeviceItemTitle);
+            
+            i.NestedExtension().TextBox(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DeviceItemCount, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DeviceItemCount);
+            
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token, true);
+
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DeviceItemCostPrice, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DeviceItemCostPrice);
+            
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token, true);
+
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DeviceItemPrice, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DeviceItemPrice);
+            
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token, true);
+
+            });
+        });
+
+        g.Items.Add(m => Model.Model.DeviceItemEventDate, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.DeviceItemEventDate);
+            
+            i.NestedExtension().DateEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.WarehouseItemID, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.WarehouseItemID);
+            i.SetNestedContent(() =>
+            {
+                Model.Html.RenderGridLookUp(Remontinka.Server.WebPortal.Controllers.WarehouseItemGridLookupController.ControllerName, "WarehouseItemID", Model.Model.WarehouseItemID);
+            });
+        });
+
+
+    });
+
+}
+
+

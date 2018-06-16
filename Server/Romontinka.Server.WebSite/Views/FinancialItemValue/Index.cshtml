@@ -1,0 +1,28 @@
+﻿@using Romontinka.Server.WebSite.Controllers
+@model Romontinka.Server.WebSite.Models.FinancialItemValueForm.FinancialItemValueViewModel
+
+@{
+    ViewBag.Title = "Статьи бюджета финансовых групп филиалов";
+}
+@section Scripts{
+     <style>
+        .gridPanel label  {
+            width: 100px;
+         }
+         .gridPanel .grid-datetime-input {
+             width: 150px;
+             margin-left: 2px;
+         }        
+         
+         .gridPanel select {
+             width: 150px;             
+         }        
+     
+         
+    </style>
+}
+<p>
+<h1>Текущие доходы и расходы</h1>
+<em>Прежде чем вносить сведения, необходимо создать финансовую группу для филиалов и внести бюджетные статьи @Html.ActionLink("здесь", "Index", AccountingItemsController.ControllerName)</em>
+</p>
+@Html.DataGrid(Model.FinancialItemValuesGrid)

@@ -1,0 +1,8 @@
+﻿@using Romontinka.Server.WebSite.Models.Branch
+@model BranchViewModel
+
+@{
+    ViewBag.Title = "Управление филиалом";
+}
+
+@Html.DataGrid(Model.BranchesGrid)

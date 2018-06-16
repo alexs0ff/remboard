@@ -1,0 +1,58 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@using Romontinka.Server.DataLayer.Entities
+@model Remontinka.Server.WebPortal.Models.UserInterestGridForm.UserInterestGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "EventDate";
+            column.Name = "Дата";
+            column.SetDatePeriod(Model.Token);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "UserID";
+            column.Caption = "Пользователь";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.Users;
+            comboBoxProperties.TextField = "Text";
+            comboBoxProperties.ValueType = typeof(Guid);
+            comboBoxProperties.ValueField = "Value";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Description";
+            column.Name = "Описание";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Values";
+            column.Caption = "Значения";
+            column.UnboundType = UnboundColumnType.String;
+            column.Settings.AllowAutoFilter = DefaultBoolean.False;
+        });
+
+        settings.Apply(Model,Html);
+
+        settings.CustomUnboundColumnData = (sender, args) =>
+        {
+            if (args.Column.FieldName == "Values")
+            {
+                var deviceInterestId = (byte)args.GetListSourceFieldValue("DeviceInterestKindID");
+                var workInterestId = (byte)args.GetListSourceFieldValue("WorkInterestKindID");
+                var deviceInterest = (args.GetListSourceFieldValue("DeviceValue") as decimal?)?? decimal.Zero;
+                var workInterest = (args.GetListSourceFieldValue("WorkValue") as decimal?)?? decimal.Zero;
+
+                args.Value =string.Format("Запчасти {0}:{1:0.00}; Работа {2}:{3:0.00}",
+                    InterestKindSet.GetKindByID(deviceInterestId).Title, deviceInterest,
+                    InterestKindSet.GetKindByID(workInterestId).Title, workInterest);
+            }
+        };
+
+    }).BindToModel(Model,Html)

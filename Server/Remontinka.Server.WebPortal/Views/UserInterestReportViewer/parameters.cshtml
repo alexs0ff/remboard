@@ -1,0 +1,23 @@
+﻿@model Remontinka.Server.WebPortal.Models.UserInterestReport.UserInterestReportParameters
+@Html.DevExpress().FormLayout(settings =>
+{
+    settings.SetDefaultSettings(Model.Token);
+    settings.Name = "UserInterestReportLayout";
+    settings.ColCount = 2;
+    settings.Items.Add(m => m.BeginDate, i =>
+    {
+        i.NestedExtension().DateEdit(e =>
+        {
+            e.SetDefaultSettings(Model.Token);
+        });
+    });
+
+    settings.Items.Add(m => m.EndDate, i =>
+    {
+        i.NestedExtension().DateEdit(e =>
+        {
+            e.SetDefaultSettings(Model.Token);
+        });
+    });
+   
+}).Bind(Model).GetHtml()

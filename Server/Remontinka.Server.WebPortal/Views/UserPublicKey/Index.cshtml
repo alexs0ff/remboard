@@ -1,0 +1,11 @@
+﻿@using Remontinka.Server.WebPortal.Controllers
+
+@{
+    ViewBag.Title = "Управление публичными ключами";
+}
+
+
+<h1>Список публичных ключей пользователей</h1>
+
+
+@Html.DevexpressGrid(UserPublicKeyGridController.ControllerName)

@@ -1,0 +1,96 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@using Remontinka.Server.WebPortal.Controllers
+@model Remontinka.Server.WebPortal.Models.IncomingDocGridForm.IncomingDocGridModel
+
+
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "Действия";
+            column.Settings.AllowDragDrop = DefaultBoolean.False;
+            column.Settings.AllowGroup = DefaultBoolean.False;
+            column.SetDataItemTemplateContent(c =>
+            {
+                Html.DevExpress().Button(buttonSettings =>
+                {
+                    Remontinka.Server.WebPortal.Controllers.WarehouseDocsController.SetUpUpdateDocStateButton(buttonSettings, "IncomingDoc", Model.GridName, c.DataItem, Url);
+                }).Render();
+                Html.DevExpress().Button(buttonSettings =>
+                {
+                    var id = (Guid)DataBinder.Eval(c.DataItem, "IncomingDocID");
+                    buttonSettings.Text = "Накладная";
+                    buttonSettings.Name = "PrintIncomingDocButton" + id.EscapeForHtml();
+                    buttonSettings.RenderMode = ButtonRenderMode.Link;
+                    buttonSettings.Images.Image.IconID = IconID.ReportsReport16x16;
+                    buttonSettings.ImagePosition = ImagePosition.Right;
+                    buttonSettings.ClientSideEvents.Click = string.Format("function(s,e){{ window.open('{0}','_blank');  }}",Url.Action("Index", IncomingDocItemsReportController.ControllerName,new { IncomingDocID=id }));
+                }).Render();
+            });
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "WarehouseID";
+            column.Caption = "Склад";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.Warehouses;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueType = typeof(Guid);
+            comboBoxProperties.ValueField = "WarehouseID";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ContractorID";
+            column.Caption = "Поставщик";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.Contractors;
+            comboBoxProperties.TextField = "LegalName";
+            comboBoxProperties.ValueType = typeof(Guid);
+            comboBoxProperties.ValueField = "ContractorID";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "CreatorFullName";
+            column.Caption = "Изменено";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DocNumber";
+            column.Caption = "Номер";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DocDate";
+            column.Caption = "Дата";
+            column.SetDatePeriod(Model.Token);
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "IsProcessed";
+            column.Caption = "Проведена";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+        });
+
+        settings.Apply(Model,Html);
+
+        settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+
+        settings.SettingsDetail.ShowDetailRow = true;
+        settings.SetDetailRowTemplateContent(c =>
+        {
+            Html.RenderAction("MasterDetailDetailPartial", new { incomingDocID = DataBinder.Eval(c.DataItem, "IncomingDocID") });
+        });
+
+    }).BindToModel(Model,Html)

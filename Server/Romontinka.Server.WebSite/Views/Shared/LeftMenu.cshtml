@@ -1,0 +1,35 @@
+﻿@using Romontinka.Server.DataLayer.Entities
+@using Romontinka.Server.WebSite.Controllers
+@model Romontinka.Server.DataLayer.Entities.ProjectRole
+@{
+    Layout = null;
+    //Взято от сюда:http://www.cssmenubuilder.com/build-vertical-menu-step-4
+}
+
+@if (Model!=null)//Пользователь авторизован
+{
+    <ul class="menu">        
+        <li><a href="@Url.Action("Index",MyTasksController.ControllerName)" class="@Html.GetCurrentClass(MyTasksController.ControllerName, "index", "active", string.Empty)"><span>Мои задачи</span></a></li>
+        <li><a href="@Url.Action("Index", RepairOrderController.ControllerName)" class="@Html.GetCurrentClass(RepairOrderController.ControllerName, "index", "active", string.Empty)"><span>Заказы</span></a></li>        
+        @if (ProjectRoleSet.UserHasRole(Model.ProjectRoleID, ProjectRoleSet.Admin))
+        {
+            <li><a href="@Url.Action("Index", UserController.ControllerName)" class="@Html.GetCurrentClass(UserController.ControllerName, "index", "active", string.Empty)"><span>Пользователи</span></a></li>
+            <li><a href="@Url.Action("Index", BranchController.ControllerName)" class="@Html.GetCurrentClass(BranchController.ControllerName, "index", "active", string.Empty)"><span>Филиалы</span></a></li>
+            <li><a href="@Url.Action("Index", OrderStatusController.ControllerName)" class="@Html.GetCurrentClass(OrderStatusController.ControllerName, "index", "active", string.Empty)"><span>Статусы</span></a></li>
+            <li><a href="@Url.Action("Index", OrderKindController.ControllerName)" class="@Html.GetCurrentClass(OrderKindController.ControllerName, "index", "active", string.Empty)"><span>Типы заказов</span></a></li>
+            <li><a href="@Url.Action("Index", CustomizeReportController.ControllerName)" class="@Html.GetCurrentClass(CustomizeReportController.ControllerName, "index", "active", string.Empty)"><span>Редактор отчетов</span></a></li>
+            <li><a href="@Url.Action("Index", AccountingItemsController.ControllerName)" class="@Html.GetCurrentClass(AccountingItemsController.ControllerName, "index", "active", string.Empty)"><span>Бухгалтерия</span></a></li>
+            <li><a href="@Url.Action("Index", FinancialItemValueController.ControllerName)" class="@Html.GetCurrentClass(FinancialItemValueController.ControllerName, "index", "active", string.Empty)"><span>Приход/расход</span></a></li>
+            <li><a href="@Url.Action("Index", WarehouseController.ControllerName)" class="@Html.GetCurrentClass(WarehouseController.ControllerName, "index", "active", string.Empty)"><span>Склады</span></a></li>
+            <li><a href="@Url.Action("Index", WarehouseItemController.ControllerName)" class="@Html.GetCurrentClass(WarehouseItemController.ControllerName, "index", "active", string.Empty)"><span>Складские остатки</span></a></li>
+            <li><a href="@Url.Action("Index", WarehouseDocsController.ControllerName)" class="@Html.GetCurrentClass(WarehouseDocsController.ControllerName, "index", "active", string.Empty)"><span>Складские документы</span></a></li>
+            <li><a href="@Url.Action("ReportList", "Home")" class="@Html.GetCurrentClass("Home", "ReportList", "active", string.Empty)"><span>Общие отчеты</span></a></li>
+            <li><a href="@Url.Action("Index", SystemController.ControllerName)" class="@Html.GetCurrentClass(SystemController.ControllerName, "index", "active", string.Empty)"><span>Система</span></a></li>
+            <li><a href="@Url.Action("Index", UserPublicKeyRequestController.ControllerName)" class="@Html.GetCurrentClass(UserPublicKeyRequestController.ControllerName, "index", "active", string.Empty)"><span>Запросы регистрации</span></a></li>
+            <li><a href="@Url.Action("Index", UserPublicKeyController.ControllerName)" class="@Html.GetCurrentClass(UserPublicKeyController.ControllerName, "index", "active", string.Empty)"><span>Ключи клиентов</span></a></li>
+            <li><a href="@Url.Action("Index", AutocompleteItemController.ControllerName)" class="@Html.GetCurrentClass(AutocompleteItemController.ControllerName, "index", "active", string.Empty)"><span>Автодополнение</span></a></li>
+            <li><a href="@Url.Action("Index", UserInterestController.ControllerName)" class="@Html.GetCurrentClass(UserInterestController.ControllerName, "index", "active", string.Empty)"><span>Вознаграждение</span></a></li>
+        }
+        
+    </ul>
+}

@@ -1,0 +1,136 @@
+﻿@model Remontinka.Server.WebPortal.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Регистрация";
+    Layout = "~/Views/Shared/_BusinessLayout.cshtml";
+}
+
+
+@section Styles {
+    <link rel="stylesheet" href="~/Content/Login.css" />
+}
+
+
+
+<div class="container">
+    <div class="container">
+        <div class="col-md-12 col-lg-offset-2">
+            <div class="login-signup">
+                <div class="row">
+                    <div class="col-md-8 nav-tab-holder">
+
+                    </div>
+                </div>
+
+
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <div class="login-container">
+                            <div class="col-md-8 mobile-pull">
+                                <article role="login">
+                                    <h3 class="text-center"><i class="fa fa-lock"></i>Регистрация фирмы</h3>
+
+                                    @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "", role = "form" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <fieldset>
+                                            <legend>Введите данные по своей фирме</legend>
+
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.LastName, new { @class = "" })
+
+                                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.FirstName, new { @class = "" })
+
+                                                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.LegalName, new { @class = "" })
+
+                                                @Html.TextBoxFor(m => m.LegalName, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.LegalName, "", new { @class = "text-danger" })
+
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.Trademark, new { @class = "" })
+
+                                                @Html.TextBoxFor(m => m.Trademark, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Trademark, "", new { @class = "text-danger" })
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.Address, new { @class = "" })
+
+                                                @Html.TextAreaFor(m => m.Address, new { @class = "form-control textAreaLockResize" })
+                                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.Email, new { @class = "" })
+
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.Login, new { @class = "" })
+
+                                                @Html.TextBoxFor(m => m.Login, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.Password, new { @class = "" })
+
+                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.PasswordCopy, new { @class = "" })
+
+                                                @Html.PasswordFor(m => m.PasswordCopy, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.PasswordCopy, "", new { @class = "text-danger" })
+
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <input type="submit" name="login" value="Зарегистрировать" class="btn btn-primary btn-mrgtp" />
+                                            </div>
+                                        </fieldset>
+                                    }
+                                    <footer role="signup" class="text-center">
+                                        <ul>
+                                            <li>
+                                                <a href="~/">Главная страница</a>
+                                            </li>
+                                        </ul>
+                                    </footer>
+                                </article>
+                            </div>
+
+                        </div>
+                        <!-- end of row -->
+                    </div>
+                    <!-- end of home -->
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

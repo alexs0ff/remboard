@@ -1,0 +1,60 @@
+﻿@using Remontinka.Server.WebPortal.Models.Common
+@model Remontinka.Server.WebPortal.Models.Common.ReportViewModel
+@{
+    var buttonClickFunctionName = Model.ControllerName+"ButtonClick";
+}
+<script type="text/javascript">
+
+    //$(function() {
+    //    alert($("img[alt$='Close']").length);
+    //    $("img[alt$='Close']").click();
+    //});
+
+    @{
+    @:function
+    @Model.UpdateParametersFunctionName<text>(s, e) {
+        @foreach (var param in Model.ReportParameters.GetParameters())
+        {
+            if (param.Kind == ReportParameterKind.DateTime)
+            {
+                <text>
+                    e.customArgs["@param.Name"] = @param.Name .GetValue().toUTCString();
+                </text>
+            }
+            else if(param.Kind == ReportParameterKind.Hidden)
+            {
+                <text>
+                    e.customArgs["@param.Name"] = $('#@param.Name').val();
+                </text>
+            }
+             else 
+            {
+                <text>
+                    e.customArgs["@param.Name"] = @param.Name .GetValue();
+                </text>
+            }
+
+        }
+
+    }
+                                       </text>
+    }
+
+    @{
+        @:function
+        @buttonClickFunctionName<text>(s, e) {
+        @Model.DocumentViewerName .Refresh();
+
+    }
+                                </text>
+     }
+</script>
+@Html.Partial("parameters",Model.ReportParameters)
+@Html.DevExpress().Button(settings =>
+{
+    settings.Name = Model.ControllerName+"Buton";
+    settings.ClientSideEvents.Click = buttonClickFunctionName;
+    settings.Width = 100;
+    settings.Text = "Обновить";
+}).GetHtml()
+@Html.Partial("report",Model)

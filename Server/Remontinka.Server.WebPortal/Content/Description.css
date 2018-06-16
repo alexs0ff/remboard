@@ -1,0 +1,27 @@
+﻿article {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+article figure {
+    display: block;
+    margin: auto auto 20px;
+    vertical-align: top;
+}
+article figure img {
+    background-color: #fff;
+    border: 1px solid #666;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    display: block;
+    margin: auto;
+    padding: 4px;
+    max-width: 100%;
+    min-width: 300px;
+    height: auto;
+}
+article figcaption {
+    font: italic 1.1em Arial,Helvetica,sans-serif;
+    margin: 10px 0 0;
+    text-align: center;
+}
+

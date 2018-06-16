@@ -1,0 +1,30 @@
+﻿@using System.Globalization
+@using Romontinka.Server.WebSite.Metadata
+@{
+    var classes = string.Empty;
+    Layout = "Template.Master.cshtml";
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(EditorHtmlClassAttribute.ClassNamesKey))
+    {
+        classes = (string)ViewData.ModelMetadata.AdditionalValues[EditorHtmlClassAttribute.ClassNamesKey];
+    } //if
+
+    
+    var strModel =string.Empty;
+    
+}
+@if (ViewData.ModelMetadata.Model!=null && ViewData.ModelMetadata.Model is DateTime)
+{
+    var model = (DateTime)ViewData.ModelMetadata.Model;
+
+
+    strModel = Utils.MvcControlDateToString(model);
+}
+
+@Html.TextBox("", strModel, new { @class = classes })
+<script type="text/javascript">
+    $(function () {
+        
+        $("#@ViewData.ModelMetadata.PropertyName").datepicker();
+        
+    });
+	</script>

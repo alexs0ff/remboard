@@ -1,0 +1,62 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@model Remontinka.Server.WebPortal.Models.UserGridForm.UserGridModel
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.SetDefaultSettings(Model.Token);
+        settings.Settings.ShowFilterRow = false;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterBar = GridViewStatusBarMode.Hidden;
+        settings.SettingsSearchPanel.Visible = false;
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "LoginName";
+            column.Caption = "Логин пользователя";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "FullName";
+            column.Caption = "ФИО";
+            column.UnboundType =UnboundColumnType.String;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Contacts";
+            column.Caption = "Контакты";
+            column.UnboundType = UnboundColumnType.String;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ProjectRoleID";
+            column.Caption = "Роль";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Model.ProjectRoles;
+            comboBoxProperties.TextField = "Title";
+            comboBoxProperties.ValueField = "ProjectRoleID";
+            comboBoxProperties.ValueType = typeof(byte);
+        });
+        settings.CustomUnboundColumnData = (sender, args) =>
+        {
+            if (args.Column.FieldName == "FullName")
+            {
+                string firstName  = args.GetListSourceFieldValue("FirstName") as string??string.Empty;
+                string lastName  = args.GetListSourceFieldValue("LastName") as string??string.Empty;
+                string middleName  = args.GetListSourceFieldValue("MiddleName") as string??string.Empty;
+
+                args.Value = string.Concat(firstName," ",lastName," ",middleName);
+            }
+            else if (args.Column.FieldName == "Contacts")
+            {
+                string email = args.GetListSourceFieldValue("Email") as string ?? string.Empty;
+                string phone = args.GetListSourceFieldValue("Phone") as string ?? string.Empty;
+
+                args.Value = string.Concat(email, " ", phone);
+            }
+        };
+        settings.Apply(Model, Html);
+
+    }).BindToModel(Model, Html)

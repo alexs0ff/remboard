@@ -1,0 +1,203 @@
+﻿@using Romontinka.Server.WebSite.Controllers
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+ <title>@ViewBag.Title</title>
+<link rel="stylesheet" href="~/Content/themes/base/all.css">
+<link rel="stylesheet" href="~/Content/fg.menu.css">
+<link href="~/Content/Site.css" rel="stylesheet">
+<link href="~/Content/Editors.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="~/Scripts/html5shiv.js"> </script>
+<![endif]-->
+</head>
+<script src="~/Scripts/jquery-2.1.3.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery-ui-1.11.4.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+<script src="~/Scripts/datepicker-ru.js" type="text/javascript"></script>
+<script src="~/Scripts/fg.menu.js" type="text/javascript"></script>
+<script src="~/Scripts/Script.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        
+        function needAuthorize(authUrl) {
+            window.location = authUrl;
+        }
+
+        function onError(desc) {
+            if (jCrudEngine.hasValue(desc)) {
+                alert(desc);
+            }
+        }
+
+        jCrudEngine.registerCallbacks(needAuthorize, onError);
+    </script>
+
+@RenderSection("Scripts", false)
+    <body>
+<div class="pageWrapper">
+<header style="padding-bottom: 0px">
+<nav class="clear">
+<ul>
+<li><a href="@Url.Action("Index","Home")">Домашняя</a></li>
+<li><a href="@Url.Action("Description", "Home")">Возможности</a></li>
+<li><a href="@Url.Action("AccountingDescription", "Home")">Финансовый учет</a></li>
+<li><a href="@Url.Action("WarehouseDescription", "Home")">Складской учет</a></li>
+<li><a href="@Url.Action("ClientDescription", "Home")">Offline клиент</a></li>
+<li><a href="@Url.Action("Feedback", "Home")">Контакты</a></li>
+<li><a href="@Url.Action("Index", "Customer")">Проверка заказа</a></li>
+</ul>
+ <section id="login">
+    @Html.Partial("_LoginPartial")
+ </section>
+</nav>
+    <h1 style="margin-top: 0px;padding-top: 0px; font-size: 2em; margin-left: 520px;margin-right: 380px;">Внимание! Принято решение о закрытии данной версии сайта, все данные а также работа с ними будут доступны на новой версии портала <a href="http://remboard.ru/" class="error" style="font-size: 1em;">http://remboard.ru/</a>, решение вступит в силу через несколько дней.</h1>
+</header>
+<div class="contentWrapper">
+
+<aside class="sidebar1">
+@Html.Action("LeftMenu")  
+<div class="leftBlock">
+    <h1>Обновления</h1>
+    <div class="news-item">
+        <strong>02.10.2016</strong>
+        <span class="new-info">Добавлена возможность указания заметок к выполненным работам.</span>
+    </div>
+    <div class="news-item">
+        <strong>31.10.2016</strong>
+        <span class="new-info">Добавлена возможность @Html.ActionLink("проверки заказа клиентами", "Description", "Home", null, null, "customerAccessDescription", null, null).</span>
+    </div>
+    <div class="news-item">
+        <strong>26.05.2016</strong>
+        <span class="new-info">Добавлена возможность учета @Html.ActionLink("вознаграждений", "Index",UserInterestController.ControllerName ).</span>
+    </div>
+    <div class="news-item">
+        <strong>28.03.2016</strong>
+        <span class="new-info">Добавлен в документы @Html.ActionLink("штрихкод", "Description", "Home", null, null, "barcodeDescription", null, null).</span>
+    </div>
+    <div class="news-item">
+        <strong>25.03.2016</strong>
+        <span class="new-info">Добавлена возможность использования @Html.ActionLink("автодополнения", "Description", "Home", null, null, "autocompleteDescription", null, null).</span>
+    </div>
+    <div class="news-item">
+        <strong>23.03.2016</strong>
+        <span class="new-info">Добавлена возможность создания копии заказов.</span>
+    </div>
+    <div class="news-item">
+        <strong>23.03.2016</strong>
+        <span class="new-info">Добавлена возможность инженеру устанавливать статус заказа.</span>
+    </div>
+    <div class="news-item">
+        <strong>22.03.2016</strong>
+        <span class="error">Исправлен баг в клиенте и на сайте для учеток инженеров.</span>
+    </div>
+    <div class="news-item">
+        <strong>02.02.2016</strong>
+        <span class="new-info">Создание @Html.ActionLink("Offline клиента", "ClientDescription", "Home")</span>
+    </div>
+    <div class="news-item">
+        <strong>13.08.2015</strong>
+        <span class="new-info">Добавлена возможность восстановления  @Html.ActionLink("пароля", "RecoveryLogin", "Account")</span>
+    </div>
+    <div class="news-item">
+        <strong>05.08.2015</strong>
+        <span class="new-info">Добавлена возможность экспорта  @Html.ActionLink("данных", "Index", "System")</span>
+    </div>
+    <div class="news-item">
+        <strong>05.08.2015</strong>
+        <span class="new-info">Добавлена возможность управления регистрационной  @Html.ActionLink("информацией", "Index", "System")</span>
+    </div>
+    <div class="news-item">
+        <strong>08.07.2015</strong>
+        <span class="new-info">Изменен интерфейс детализации в задачах.</span>
+    </div>
+    <div class="news-item">
+        <strong>07.07.2015</strong>
+        <span class="new-info">В систему учета доходов и расходов добавлена поддержка @Html.ActionLink("складов", "AccountingDescription", "Home")</span>
+    </div>
+    <div class="news-item">
+        <strong>02.07.2015</strong>
+        <span class="new-info">Добавлена возможность выбора детали из склада @Html.ActionLink("в задачах", "WarehouseDescription", "Home", null, null, "useWarehouseItem", null, null).</span>
+    </div>
+    <div class="news-item">
+        <strong>27.06.2015</strong>
+        <span class="error">Исправлен баг показа только одной страницы в отчетах.</span>
+    </div>
+    <div class="news-item">
+        <strong>26.06.2015</strong>
+        <span class="new-info">Добавлена возможность отмены проведенных документов списания и перемещения.</span>
+    </div>
+     <div class="news-item">
+        <strong>25.06.2015</strong>
+        <span class="new-info">Добавлена возможность отмены проведенных приходных накладных на складе.</span>
+    </div>
+    <div class="news-item">
+        <strong>24.06.2015</strong>
+        <span class="error">Исправлены баги в авторизационных действиях инженеров.</span>
+    </div>
+    <div class="news-item">
+        <strong>23.06.2015</strong>
+        <span class="new-info">В систему добавлена поддержка @Html.ActionLink("складского учета", "WarehouseDescription", "Home").</span>
+    </div>
+    <div class="news-item">
+        <strong>09.06.2015</strong>
+        <span class="new-info">Теперь в запчастях заказа нужно указывать дату установки и пользователя, производившего установку.</span>
+    </div>
+    <div class="news-item">
+        <strong>09.06.2015</strong>
+        <span class="new-info">В систему добавлен отчет по @Html.ActionLink("использованным запчастям", "index", "UsedDeviceItemsReport")</span>
+    </div>
+    <div class="news-item">
+        <strong>07.06.2015</strong>
+        <span class="new-info">В систему добавлена поддержка учета @Html.ActionLink("доходов и расходов", "AccountingDescription", "Home")</span>
+    </div>
+    <div class="news-item">
+        <strong>04.06.2015</strong>
+        <span class="new-info">Исправлен баг подсчета суммы в настраиваемом отчете "Товарный чек"</span>
+    </div>
+    <div class="news-item">
+        <strong>03.06.2015</strong>
+        <span class="new-info">В систему добавлены общие @Html.ActionLink("отчеты","ReportList","Home")</span>
+    </div>
+    <div class="news-item">
+        <strong>02.06.2015</strong>
+        <span class="new-info">В список заказов добавлена колонка с суммами.</span>
+    </div>
+    <div class="news-item">
+        <strong>01.06.2015</strong>
+        <span class="error">Исправлен баг удаления администратором заказов.</span>
+    </div>
+<div class="news-item">
+    <strong>01.06.2015</strong>
+    <span class="error">Исправлен баг изменений сроков гарантии.</span>
+</div>
+<div class="news-item">
+    <strong>30.05.2015</strong>
+    <span class="error">Исправлен баг назначения инженера на задачу. </span>
+</div>
+<div class="news-item">
+    <strong>16.04.2015</strong>
+    <span>Добавлена возможность редактирования документов</span>
+</div>
+ <div class="news-item">
+    <strong>17.04.2015</strong>
+     <span>В гриде исправлен баг выпадающего списка</span>
+      </div>
+</div>
+</aside>
+
+<article class="main">
+    @RenderBody()
+</article>
+
+</div>
+<footer>
+<p>Copyright @DateTime.Today.Year, Alexander Kulik.
+</p>
+<p>Контакт: <a href="mailto:info@remboard.ru">info@remboard.ru</a></p>
+</footer>
+</div>
+</body>
+</html>

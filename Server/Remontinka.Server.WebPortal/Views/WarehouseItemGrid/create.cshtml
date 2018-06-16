@@ -1,0 +1,40 @@
+﻿@using Remontinka.Server.WebPortal.Models.WarehouseItemGridForm
+@model Remontinka.Server.WebPortal.Models.Common.GridEditSettingModel<Guid, WarehouseItemGridModel, WarehouseItemEditModel>
+
+@{
+
+    Model.LayoutSettings.Width = Unit.Percentage(100);
+    Model.LayoutSettings.Items.AddGroupItem(g =>
+    {
+        g.Name = "AddWarehouseItemGroup";
+        g.ColCount = 2;
+        g.GroupBoxDecoration = GroupBoxDecoration.None;
+        g.Items.Add(m => Model.Model.StartPrice, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.StartPrice);
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+        g.Items.Add(m => Model.Model.RepairPrice, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.RepairPrice);
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+        g.Items.Add(m => Model.Model.SalePrice, i =>
+        {
+            i.ConfigureItem(Model.Model, () => Model.Model.SalePrice);
+            i.NestedExtension().SpinEdit(s =>
+            {
+                s.SetDefaultSettings(Model.GridSettings.Token);
+            });
+        });
+
+    });
+
+}

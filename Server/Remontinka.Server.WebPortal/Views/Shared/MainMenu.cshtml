@@ -1,0 +1,54 @@
+﻿@using System.Web.UI.WebControls
+@model List<Remontinka.Server.WebPortal.Models.Menu.MainMenuItem>
+@{
+   
+}
+<div class="top-menu">
+    @Html.DevExpress().Menu(settings =>
+{
+    settings.EnableAdaptivity = true;
+    settings.Name = "mMainMenu";
+    settings.Width = Unit.Percentage(100);
+    settings.ControlStyle.HorizontalAlign = HorizontalAlign.Right;
+    foreach (var mainMenuItem in Model)
+    {
+        var item = new MVCxMenuItem();
+        item.Text = mainMenuItem.Title;
+        item.NavigateUrl = mainMenuItem.CreateUrl(ViewContext.Controller.ControllerContext.RequestContext);
+        settings.Items.Add(item);
+
+        if (mainMenuItem.SubItems != null)
+        {
+            foreach (var subItem in mainMenuItem.SubItems)
+            {
+                var menuSubItem = new MVCxMenuItem();
+                menuSubItem.Text = subItem.Title;
+                menuSubItem.NavigateUrl = subItem.CreateUrl(ViewContext.Controller.ControllerContext.RequestContext);
+                menuSubItem.BeginGroup = subItem.BeginGroup;
+                item.Items.Add(menuSubItem);
+            }
+        }
+    }
+    if (Model.Count > 0)
+    {
+        //Переносим кнопку выхода сюда.
+        settings.Items.Add(item =>
+        {
+            item.Text = "Выход";
+            item.NavigateUrl = "javascript:document.getElementById('logoutForm').submit()";
+            item.AdaptivePriority = 0;
+        });
+    }
+    else
+    {
+        //Добавляем кнопку входа
+        settings.Items.Add(item =>
+        {
+            item.Text = "Вход";
+            item.NavigateUrl = Url.Action("Login", "Account", routeValues: null);
+            item.AdaptivePriority = 0;
+        });
+    }
+    // And other items
+}).GetHtml()
+</div>

@@ -1,0 +1,12 @@
+﻿@using Romontinka.Server.WebSite.Controllers
+@using Romontinka.Server.WebSite.Models.UserInterestForm
+@model UserInterestViewModel
+
+@{
+    ViewBag.Title = "Управление вознаграждениями";
+}
+<div class="caption-box">
+    <h1>Список вознаграждений</h1>
+    <em>Для формирования сумм вознаграждений необходимо перейти к @Html.ActionLink("отчету по вознаграждениям пользователей", "index", UserInterestReportController.ControllerName, null, new { title = "Перейти к отчету по вознаграждениям" })</em>
+</div>
+@Html.DataGrid(Model.UserInterestsGrid)

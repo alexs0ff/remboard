@@ -1,0 +1,8 @@
+﻿@using Romontinka.Server.WebSite.Models.User
+@model UserViewModel
+
+@{
+    ViewBag.Title = "Пользователи";
+}
+
+@Html.DataGrid(Model.UsersGrid)

@@ -1,0 +1,334 @@
+﻿@using Romontinka.Server.WebSite.Models.DataGrid
+@model DataGridDescriptor
+@{
+    var tableCss = string.Format("table {0} {1}", Model.HasTableStripedClass ? DataGridDescriptor.TableStripedClass : string.Empty, Model.HasTableBorderedClass ? DataGridDescriptor.TableBorderedClass : string.Empty);
+
+    var searchFormId = Model.CreateId("Form");
+    var tableBodyId = Model.CreateId("TableBody");
+    var updateDataFunction = Model.CreateId("UpdateData");
+    var updateDataFunctionCall = string.Format("{0}()", updateDataFunction);
+    var createTdItemFunction = Model.CreateId("CreateTdItem");
+
+    //пагинатор
+    var paginatorReloadFunctionName = string.Format("{0}PaginatorReload", Model.Name);
+    var paginatorId = Model.CreateId("paginator");
+
+    //диалог удаления
+    var deleteDialogId = Model.CreateId("DeleteDialog");
+    var deleteDialogDataId = Model.CreateId("DeleteDialogData");
+    var deleteDialogShowFunction = Model.CreateId("DeleteDialogShow");
+    var deleteDialogSuccessFunction = Model.CreateId("DeleteDialogSuccess");
+
+    //Форма редактирования элементов
+    var editDialogId = Model.CreateId("EditDialog");
+    var editFormId = Model.CreateId("EditForm");
+    var editDialogShowFunction = Model.CreateId("EditDialogShow");
+    var editDialogSuccessFunction = Model.CreateId("EditDialogSuccess");
+
+    //Форма создания элементов
+    var createDialogId = Model.CreateId("CreateDialog");
+    var createFormId = Model.CreateId("CreateForm");
+    var createDialogShowFunction = Model.CreateId("CreateDialogShow");
+    var createDialogShowFunctionCall = Model.CreateId("CreateDialogShow();return false;");
+    var createDialogSuccessFunction = Model.CreateId("CreateDialogSuccess");
+    var toolTip = string.Empty;
+    
+    
+    //вызов внешних JS функций
+
+    var beforeUpdateGridFunctionCall = string.IsNullOrWhiteSpace(Model.BeforeGridUpdateJsFunctionName) ? string.Empty : string.Format("{0}();", Model.BeforeGridUpdateJsFunctionName);
+    
+}
+<script type="text/javascript">
+
+    @if (Model.AutoLoad)
+    {
+        <text>
+        $(function(){
+            @updateDataFunctionCall;
+        });
+        
+        </text>
+    }
+    
+    @{
+        @:function 
+        @createTdItemFunction<text>(item) {
+            var idKey = jCrudEngine.escapeHtml(item["@Model.KeyGridColumn.Id"]);
+            var quotedIdKey = '"' +idKey+'"';
+            var trClass = "" ;
+
+            @if (!string.IsNullOrWhiteSpace(Model.RowClassId))
+            {
+                <text>
+                trClass = item["@Model.RowClassId"];
+                </text>
+            }
+
+            var text = "<tr data-val-item-id='" +idKey  +"' class='"+trClass+"'>";
+
+            @foreach (var row in Model.Columns.Where(c => c is TextGridColumn).Cast<TextGridColumn>())
+            {
+                <text>text+="<td data-val-key='"+"@row.Id"+ "'>"+jCrudEngine.escapeHtml(item['@row.Id']) + "</td>";</text>
+            }
+             @if (Model.ShowDetailsButtonColumn != null)
+             {
+                 toolTip = Model.ShowDetailsButtonColumn.ToolTip ?? string.Empty;
+                 <text>
+                     var detailsToolTip = "@toolTip";
+                    text+="<td class='icon-container-width'><a title='"+detailsToolTip+"' href='' class='icon-container' onclick='@Model.ShowDetailsButtonColumn.CallFunctionName"+"("+quotedIdKey +");return false;'><span class='icon-details'></span></a></td>";
+                 </text>
+             }
+
+            @if (Model.EditButtonGridColumn != null)
+            {
+                toolTip = Model.EditButtonGridColumn.ToolTip ?? string.Empty;
+                <text>
+                    var editToolTip = "@toolTip";
+                    text+="<td class='icon-container-width'><a title='"+editToolTip+"' href='' class='icon-container' onclick='@editDialogShowFunction"+"("+quotedIdKey +");return false;'><span class='icon-edit'></span></a></td>";
+                </text>
+            }
+            @if (Model.DeleteButtonGridColumn != null)
+            {
+                toolTip = Model.DeleteButtonGridColumn.ToolTip ?? string.Empty;
+                <text>
+                    var deleteToolTip = "@toolTip";
+                    text+="<td class='icon-container-width'><a href='' class='icon-container' title='"+deleteToolTip+"' onclick='@deleteDialogShowFunction"+"("+quotedIdKey +");return false;'><span class='icon-delete'></span></a></td>";
+                </text>
+            }
+            return text +"</tr>";
+        }
+   </text>
+    }
+    @{
+    @:function 
+    @updateDataFunction<text>() {
+            var url = "@Url.Action(Model.GetItemsAction, Model.Controller)";
+            var searchFormId = "@searchFormId";
+            var tableBodyId = "@tableBodyId";
+            var createTdFunct = @createTdItemFunction;
+            var paginatorId = "@paginatorId";
+            var paginatorReloadFunctionName = "@paginatorReloadFunctionName";
+            @beforeUpdateGridFunctionCall
+            jCrudEngine.loadDataGrid(url,searchFormId,tableBodyId,createTdFunct,paginatorId,paginatorReloadFunctionName);
+        }
+   </text>
+    }
+    
+    @{
+    @:function 
+    @Model.Name<text>PaginatorReload(page) {
+            $('.@paginatorId').val(page);
+            @updateDataFunctionCall
+        }
+   </text>
+    }
+    
+    
+    @if (Model.DeleteButtonGridColumn != null)
+    {
+        @:function 
+        @deleteDialogShowFunction<text>(id) {
+            var qText = "@Model.DeleteButtonGridColumn.QuestionText";
+            var tdSelector = $("#@tableBodyId tr[data-val-item-id='"+id+"'] td[data-val-key='@Model.DeleteButtonGridColumn.DataId']");
+            if(tdSelector!=null){
+                qText += '"' + tdSelector.html()+'"';
+            }
+
+            $("#@deleteDialogDataId").html(qText);
+            $("#@deleteDialogDataId").data("data-val-item-id",id);
+            
+            
+            $( "#@deleteDialogId" ).dialog( "open" );
+        }
+        </text>
+
+         
+        @:function 
+        @deleteDialogSuccessFunction<text>(page) {
+                var id = $("#@deleteDialogDataId").data("data-val-item-id");
+                jCrudEngine.postDeleteItem("@Url.Action(Model.DeleteItemAction, Model.Controller)",id,@updateDataFunction);
+            }
+       </text>
+    }
+    
+    @if (Model.EditButtonGridColumn != null)
+    {
+        @:function 
+        @editDialogShowFunction<text>(id) {
+            jCrudEngine.showEditModelDialog("@Url.Action(Model.EditItemAction, Model.Controller)",{id:id},"@editFormId","@editDialogId",
+            function(fData){
+                      $("#@editDialogId").data("data-val-item-id",id);
+            }
+            );
+        }
+        </text>
+
+        @:function 
+        @editDialogSuccessFunction<text>(serializedData) {
+            var rowID = $("#@editDialogId").data("data-val-item-id");
+            
+            jCrudEngine.saveDataEditModelDialog("@Url.Action(Model.SaveEditedItemAction, Model.Controller)",serializedData,"@editFormId","@editDialogId",
+            function(fData){
+                     var trSelector = $("#@tableBodyId tr[data-val-item-id='"+rowID+"']");
+                        var newTr = @string.Format("{0}(fData.Item)", createTdItemFunction);
+                        trSelector.before(newTr).remove();
+                    
+                        trSelector = $("#@tableBodyId tr[data-val-item-id='"+fData.Item["@Model.KeyGridColumn.Id"]+"']");
+                        trSelector.hide().fadeIn('slow')
+            }
+            );
+        }
+        </text>
+    }
+    
+    @if (Model.CreateButtonGrid != null)
+    {
+         @:function 
+        @createDialogShowFunction<text>(id) {
+            var serializedData = $('#@searchFormId').serialize();
+            jCrudEngine.showEditModelDialog("@Url.Action(Model.CreateItemAction, Model.Controller)",serializedData,"@createFormId","@createDialogId",
+            function(fData){
+            }
+            );
+        }
+        </text>
+
+        @:function 
+        @createDialogSuccessFunction<text>(serializedData) {
+            jCrudEngine.saveDataEditModelDialog("@Url.Action(Model.SaveCreatedItemAction, Model.Controller)",serializedData,"@createFormId","@createDialogId",
+            function(fData){
+                var newTr = @string.Format("{0}(fData.Item)", createTdItemFunction);
+                $(newTr).css('opacity', 0).prependTo("#@tableBodyId").animate({ opacity: 1 }, 600, 'easeInCubic');
+            }
+            );
+        }
+        </text>
+    }
+   
+</script>
+<div class="dataGrid" id="@Model.Name">
+    <div class="gridPanel">
+       
+       <form id="@searchFormId" action="#">
+           @Html.Hidden("page", 1, new { @class = paginatorId })
+           @foreach (var searchInput in Model.SearchInputs)
+           {
+               if (searchInput is NewLineSearchInput)
+               {
+                   <div class="grid-search-break"></div>
+               } //if
+               else if (searchInput is HiddenSearchInput)
+               {
+                   @Html.Hidden(searchInput.Id, searchInput.Value)
+               } //if
+               else if (searchInput is LookupSearchInput)
+               {
+                   @Html.Label(searchInput.Name + ":")
+                   @Html.Lookup(((LookupSearchInput)searchInput).LookupModel)
+               } //else
+               else if (searchInput is TextSearchInput)
+               {
+                   @Html.Label(searchInput.Name + ":")
+                   @Html.TextBox(searchInput.Id, searchInput.Value)
+               } //else
+               else if (searchInput is DateTimeSearchInput)
+               {
+                    @Html.Label(searchInput.Name + ":")
+                   @Html.TextBox(searchInput.Id, Utils.MvcControlDateToString(((DateTimeSearchInput)searchInput).DateTimeValue), new {@class="grid-datetime-input" })
+
+                   <script type="text/javascript">
+                       $(function () {
+                           $("#@searchInput.Id").datepicker();
+                       });
+	                </script>
+               } //else
+               else if (searchInput is ComboBoxSearchInput)
+               {
+                   @Html.Label(searchInput.Name + ":")
+                   @Html.AjaxComboBox(((ComboBoxSearchInput)searchInput).ComboBoxModel)
+               } //else
+           }
+           <a href='#' class='btn btn-medium' onclick='@string.Format("{0};return false;", updateDataFunctionCall)'>Поиск</a>           
+       </form>       
+    </div>
+    @if (Model.CreateButtonGrid != null)
+    {
+        <div class="gridServiceButtonsPanel">
+            @{
+        toolTip = Model.CreateButtonGrid.ToolTip ?? string.Empty;
+            }       
+            <a href='' class='icon-container' onclick="@createDialogShowFunctionCall" title="@toolTip">                 
+                @if (string.IsNullOrWhiteSpace(Model.CreateButtonGrid.Name))
+                {
+                    <span class="icon-create" ></span>
+                }
+                else
+                {
+                    <span class="icon-text">Создать</span>
+                    <span class="icon-box">
+                        <span class="icon-create" ></span></span>
+                }
+            </a>
+        </div>
+    }
+    <table class="@tableCss">     
+        <thead>
+            <tr>
+                @foreach (var column in Model.Columns)
+                {
+                    if (column is TextGridColumn)
+                    {
+                        var textColumn = (TextGridColumn)column;
+                        <text>
+                            <th>@textColumn.Name</th>
+                        </text>
+                        
+                    } //if
+                }
+                @if (Model.ShowDetailsButtonColumn != null)
+                {
+                        <text>
+                            <th></th>
+                        </text>
+                        
+                } 
+                @if (Model.EditButtonGridColumn != null)
+                {
+                        <text>
+                            <th></th>
+                        </text>
+                        
+                } 
+                @if (Model.DeleteButtonGridColumn != null)
+                {
+                        <text>
+                            <th></th>
+                        </text>
+                        
+                } 
+
+
+            </tr>
+        </thead>
+        <tbody id="@tableBodyId">
+            
+        </tbody>
+    </table>
+    <div class="paginator" id="@paginatorId"></div>
+</div>
+
+@if (Model.DeleteButtonGridColumn != null)
+{
+    @Html.ConfirmDialog(deleteDialogId, "Подтверждение", "Удалить", "Отмена", null, deleteDialogDataId, deleteDialogSuccessFunction)
+}
+
+@if (Model.EditButtonGridColumn != null)
+{
+    @Html.EditModelDialog(editDialogId, "Редактирование", "Изменить", "Отмена", editFormId, editDialogSuccessFunction, Model.EditButtonGridColumn.FullScreen, Model.EditButtonGridColumn.Height, Model.EditButtonGridColumn.Width, Model.EditButtonGridColumn.NoDialogTitle)
+}
+
+@if (Model.CreateButtonGrid != null)
+{
+    @Html.EditModelDialog(createDialogId, "Создание", "Добавить", "Отмена", createFormId, createDialogSuccessFunction, Model.CreateButtonGrid.FullScreen, Model.CreateButtonGrid.Height, Model.CreateButtonGrid.Width, Model.CreateButtonGrid.NoDialogTitle)
+}
